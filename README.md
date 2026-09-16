@@ -2,75 +2,109 @@
 
 ## AI Entry Point
 
-> 任何 AI 進入這個 repository，請依序讀取：
-> 1. 本文件（README.md）
-> 2. [RULES.md](./RULES.md)
-> 3. [HANDOFF.md](./HANDOFF.md)
-> 4. [0-knowledge/INDEX.md](./0-knowledge/INDEX.md)
-> 5. [1-systems/INDEX.md](./1-systems/INDEX.md)
-> 6. [2-applications/INDEX.md](./2-applications/INDEX.md)
->
-> `HANDOFF.md` 負責目前狀態、歷史決策與架構重新啟動條件；`RULES.md` 是正式操作規則。
->
-> 讀完後，若使用者沒有指定任務，先依 HANDOFF.md 判斷目前階段：目前正式 Knowledge / System / Application 都是 0，優先協助從真實過去工作中找出第一批可重用 Knowledge，而不是重新設計架構。
->
-> 也可以直接從使用者的自然語言描述判斷意圖，不需要等待選項輸入。
-> 不要一次讀取所有 Knowledge／System 內容——先看 INDEX，判斷相關，再深讀相關的檔案。
->
-> **AI 可讀性提醒**：若你是透過網頁抓取（而非本地檔案系統）讀取這個 repository，通常無法瀏覽資料夾樹狀頁面，只能跟隨頁面裡已經存在的明確連結。上面第 2-6 項已經是可跟隨的連結；要深入某份 Knowledge／System／Application，一律從對應 INDEX.md 裡的連結點進去，不要自行組合網址。
+這個 repository 是一套給單人工作室使用的 **Personal AI Engineering Knowledge System**。
+
+任何 AI 接手時，建議依下列順序建立理解：
+
+1. `README.md`：知道這個 repository 是什麼，以及目前入口規則。
+2. `RULES.md`：正式操作規則。
+3. `HANDOFF.md`：目前狀態、歷史決策、已知設計轉折與接手注意事項。
+4. 依實際任務讀取 repository 內相關資料夾與文件。
+5. 必要時再讀取其他歷史文件。
+
+**重要：不要把 INDEX 當成 repository 的唯一目錄。AI 可以直接讀取資料夾內的文件；repository 的實際檔案樹才是內容的 Source of Truth。**
 
 ## 這是什麼
 
-一套個人工程知識系統：把已經研究、驗證過的問題整理成可重複使用的知識，下一次遇到類似問題時，先找既有知識，必要時查最新資料，避免重新研究。
+第一次遇到問題時研究、驗證並保存可跨場景重用的 Knowledge；下一次遇到類似問題時優先重用既有 Knowledge，降低重新研究成本。
 
-使用者是一人工作室，不是企業或團隊。所有設計以「低維護成本」為最高原則：夠用優先於齊全，能不建立的機制就不建立。
+使用者是一人工作室，因此最高原則是：
+
+> **低維護成本優先於完整性。**
+
+不要為了讓系統看起來完整，而預先建立資料庫、圖譜、索引治理、狀態機或自動化流程。
 
 ## 核心架構
 
-```
-L0  Rules         定義系統怎麼運作（見 RULES.md）
-    ↓
-L1  Knowledge     基本定律／原理，獨立、可重用（0-knowledge/）
-    ↓
-L2  System        由多份 Knowledge 組成的模型／方法（1-systems/）
-    ↓
-L3  Application   組裝 System／Knowledge 解決具體需求（2-applications/）
+```text
+Rules
+  ↓
+Knowledge
+  ↓
+System
+  ↓
+Application
 ```
 
-Knowledge 不預先建立彼此的關係；關係只在 System 組合時才產生。每一層的更新互不強制連動，細節見 RULES.md 第 7 節。
+Repository 對應：
 
-## 資料夾結構
-
+```text
+RULES.md
+    ↓
+0-knowledge/
+    ↓
+1-systems/
+    ↓
+2-applications/
 ```
+
+- **Rules**：定義整套系統怎麼運作。
+- **Knowledge**：可獨立理解、可跨場景重用的知識、原理、判斷或方法。
+- **System**：在實際使用中反覆證明有價值後，由多份 Knowledge 組合而成的方法／模型。
+- **Application**：針對具體需求，組裝 Knowledge / System 的實際應用。
+
+## Repository 結構
+
+```text
 README.md
 RULES.md
 HANDOFF.md
 REJECTED-PATHS.md
+
 0-knowledge/
-    INDEX.md
-    （各份 Knowledge .md 檔）
+    （正式 Knowledge）
+
 1-systems/
-    INDEX.md
-    （各份 System .md 檔）
+    （正式 System）
+
 2-applications/
-    INDEX.md
-    （各份 Application .md 檔或資料夾）
+    （正式 Application）
 ```
 
-## 快速開始
+目前三個內容層都仍為空。
 
-**新增 Knowledge**
-研究 → 驗證 → 判斷是否跨場景可重用 → 依 RULES.md 第 4 節格式寫成 `0-knowledge/xxx.md` → 更新 `0-knowledge/INDEX.md`（檔名欄位記得用連結格式，見 RULES.md 第 3 節）
+## AI 如何探索 repository
 
-**建立 System**
-確認至少兩份 Knowledge 已經被同一類問題實際重複組合使用過一次以上 → 依 RULES.md 第 5 節格式寫成 `1-systems/xxx.md` → 更新 `1-systems/INDEX.md`
+不要依賴預先維護的 INDEX 才能找到文件。
 
-**建立 Application**
-出現具體需求 → 優先掃描 `1-systems/INDEX.md`，涵蓋不到才往下查 `0-knowledge/INDEX.md` → 組裝 → 依 RULES.md 第 6 節格式寫成 `2-applications/xxx.md` → 更新 `2-applications/INDEX.md`
+正確原則是：
 
-**更新既有內容**
-見 RULES.md 第 7 節的更新規則，三層各自獨立判斷。
+```text
+Repository 實際檔案樹
+        ↓
+判斷任務需要哪些資料夾／文件
+        ↓
+直接讀取相關文件
+        ↓
+必要時擴大閱讀範圍
+```
 
-## 完整規則
+如果需要完整稽核，可以直接遞迴讀取整個 repository 的文字文件；如果只是處理單一問題，則只讀取與問題相關的內容。
 
-見 [RULES.md](./RULES.md)——所有 AI 操作規則都在那裡；設計背景與目前狀態見 [HANDOFF.md](./HANDOFF.md)。
+「全部讀取」與「每次都全部讀取」是兩件不同的事：前者是能力，後者不是規則。
+
+## 開始建立內容
+
+第一批 Knowledge 不從過去的 K01–K61 清單直接搬運。
+
+應該從使用者過去真正反覆遇到、研究過、驗證過，而且未來可能再次遇到的問題中提取。
+
+System 也不預先建立。只有當多份 Knowledge 在同一類問題中實際反覆組合，才有理由建立 System。
+
+Application 則在出現具體需求時建立。
+
+## 正式規則
+
+所有操作規則以 `RULES.md` 為準。
+
+目前狀態、歷史決策與本次架構重新整理的原因見 `HANDOFF.md`。
