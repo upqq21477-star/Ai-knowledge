@@ -1,6 +1,6 @@
 # RULES
 
-> 本文件只規定「怎麼做」，不含設計理由。設計歷程與理由見交接文件 HANDOFF.md（目前暫置於 repository 根目錄，供開發階段參考；非正式操作規則，不在本文件重複其內容）。
+> 本文件只規定「怎麼做」，不含完整設計歷程與理由。設計歷程、目前狀態與架構 Gate 見 [HANDOFF.md](./HANDOFF.md)。**本文件是正式操作規則的最高權威。**
 
 ## 1. 層級定義
 
@@ -21,11 +21,11 @@
 
 ## 3. AI 可讀性格式規則
 
-> 背景：部分 AI（尤其是純網頁抓取工具）無法瀏覽 GitHub 的資料夾樹狀頁面（`/tree/xxx`），只能跟隨頁面中已經存在的明確連結。為了讓這類 AI 也能從 README.md 一路點進任何一份 Knowledge／System／Application，不需要使用者一個個貼網址，全系統的跨檔案／跨層引用一律使用 Markdown 相對路徑連結格式，不可只寫純文字檔名或路徑。
+> 背景：部分 AI（尤其是純網頁抓取工具）無法瀏覽 GitHub 的資料夾樹狀頁面（`/tree/xxx`），只能跟隨頁面中已經存在的明確連結。為了讓這類 AI 也能從 README.md 一路點進任何一份 Knowledge／System／Application，全系統的跨檔案／跨層引用一律使用 Markdown 相對路徑連結格式，不可只寫純文字檔名或路徑。
 
-- **README.md 的 AI Entry Point**：對 RULES.md 與三份 INDEX.md 的引用，一律用連結，例如 `[0-knowledge/INDEX.md](./0-knowledge/INDEX.md)`
+- **README.md 的 AI Entry Point**：對 RULES.md、HANDOFF.md 與三份 INDEX.md 的引用，一律用連結，例如 `[0-knowledge/INDEX.md](./0-knowledge/INDEX.md)`
 - **各層 INDEX.md 的「檔名」欄位**：一律用連結包住檔名，例如 `| [xxx.md](xxx.md) | 一句話用途 |`，不可只寫 `xxx.md` 純文字
-- **System 的「組成的 Knowledge」欄位**：一律用連結，例如 `- [xxx.md](../0-knowledge/xxx.md)`
+- **System 的「組成的 Knowledge」欄位**：一律用連結，例如 `- [xxx.md](../0-knowledge/knowledge-a.md)`
 - **資料夾型 Application 的入口檔案連結**：沿用第 6 節既有規則——一律連結入口檔案，不可連結資料夾路徑本身
 
 這條規則不需要額外工具或驗證機制，寫的時候養成習慣即可：GitHub 會在渲染頁面時，把相對路徑連結自動解析成完整網址，讓網頁抓取工具能直接跟隨，不需要瀏覽資料夾。
@@ -156,27 +156,41 @@
 - 淘汰一份 Knowledge／System：若不需要保留設計脈絡，直接刪除即可；若脈絡有參考價值，在淘汰的當下才建立 `_archive/` 資料夾並移入，不預先建立空的 archive 結構
 - 如果 `_archive/` 存在，其內容一律不得被視為目前有效資料
 
-## 11. 明確排除的機制
+## 11. 目前不採用的機制
 
-以下都不是核心機制，只是「未來如果真的痛了才考慮」的工具：
+以下機制目前都不加入核心系統。**其中部分是已否決，部分是暫緩；兩者不可混為一談。**具體歷史狀態見 `REJECTED-PATHS.md` 與 `HANDOFF.md`。
+
+目前明確不採用／已否決：
 
 - Knowledge ID 編號系統
 - 正式 Evidence Source 分級（A/B/C/D）
 - Version History 表格、Update Trigger checklist
 - Specification 版本化與 Migration 流程
 - Capability 分類系統／正式需求解析層
-- 五階段以上的 System 狀態機
 - 正式衝突處理流程（Conflict → Identify → Resolve 這種獨立 pipeline）
-- 多層 Context Loading／獨立索引系統（INDEX.md 已足夠）
-- 自動化知識更新系統
-- 中央 Knowledge Usage Table／Dependency Registry
+- Knowledge Graph / 中央 Dependency Database / Registry
+- 自動化知識更新系統 / 自動 Cascade Update
+- 4 級相關性分類（Required / Relevant / Potentially Relevant / Irrelevant）
+- 多層 Context Loading／獨立索引系統
 - 預先建立的 `_archive/` 資料夾結構
-- 檔名內嵌類別碼／版本碼（例如 `0-1-2.3-xxx.md`）——類別靠 INDEX.md 一句話用途即可判斷，版本交給 Git，草稿／已驗證狀態靠 System／Application 既有欄位
+- 預先建立的獨立 Runtime 程式模組
+- 檔名內嵌類別碼／版本碼
+
+目前暫緩、證據不足：
+
+- Atomic Knowledge
+- Knowledge Aggregation
+- PINNED / ACTIVE / DORMANT / RETIRED 等複雜內容狀態機
+- 大型自動化 Knowledge Pipeline
+- Capability Lifecycle / Capability-Driven Pruning
+- 其他只有在實際痛點出現後才值得重新評估的架構機制
+
+**暫緩不代表永久否決，也不代表下一階段待辦。**只有實際問題觸發 HANDOFF.md 定義的 Gate，才重新評估。
 
 ## 12. 新機制加入前的判斷
 
 任何要加入這套系統的新功能，先問一句：
 
-> 它是否直接降低下一次重新研究問題的成本？
+> **它是否直接降低下一次重新研究問題的成本？**
 
 沒有 → 不加。有 → 先評估能不能用更簡單的方式做到，優先用 Markdown + Git + INDEX，而不是資料庫、圖譜、儀表板或治理流程。
