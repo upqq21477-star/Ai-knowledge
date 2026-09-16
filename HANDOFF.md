@@ -1,90 +1,369 @@
-# AI 個人工程知識系統 — 交接文件
+# AI 知識系統 — AI 交接文件
 
-> 本文件用途：讓接手的 AI 在不重新詢問、不重新推導的情況下，理解這套系統的定位、架構、已確立決策與被否決的方向，直接接續使用或擴充。目前暫置於 repository 根目錄，供開發階段快速接手使用；是否於系統穩定後移出，屆時再決定。GitHub repository 的實際操作規則見 `AI-Knowledge-System/RULES.md`。
+> 文件性質：**AI 接手控制文件（AI Handoff Control Document）**
+>
+> 本文件不是 `README.md` 或 `RULES.md` 的替代品，而是提供新 AI 所需的目前狀態、決策背景、歷史方案、暫緩條件、架構 Gate 與接手行為。
+>
+> **實際操作規則以 `RULES.md` 為準。**
 
----
+## 1. 接手入口
 
-## 一、專案定位
+Repository：`https://github.com/upqq21477-star/Ai-knowledge`
 
-使用者是**一人工作室**，不是企業或團隊。最初需求：第一次遇到問題時研究、驗證、保存；下一次遇到類似問題時直接找到並重用，不重新研究。
+AI 接手後依序讀取：
 
-核心設計哲學貫穿所有決策：
-- 低維護成本優先於完整性
-- 夠用優先於齊全
-- 機制要「痛出來」才建，不要預先設計等案例出現
-- 任何新機制加入前先問：「它是否直接降低下一次重新研究問題的成本？」沒有就不加
+1. `README.md`
+2. `RULES.md`
+3. `HANDOFF.md`
+4. `0-knowledge/INDEX.md`
+5. `1-systems/INDEX.md`
+6. `2-applications/INDEX.md`
+7. 只有在需要時，再讀取具體 Knowledge / System / Application。
 
-## 二、架構演進
+不要一次讀取整個 Repository。
 
-最初只是單純的「個人知識庫」（Knowledge only）。過程中發現：知識如果不分層，AI 不知道哪些該一起用、怎麼組合。於是加入 System 層，把「多份 Knowledge 的組合方式」跟「單一知識本身」分開存放——這是整套設計裡最重要的一個判斷：
+## 2. 一句話理解本專案
 
-> 關係不是知識的固有屬性，而是「某個問題下的組合結果」。同一份 Knowledge 在不同 System 裡可以產生不同關係。
+這是一個**個人 AI 工程知識系統（Personal AI Engineering Knowledge System）**。
 
-後來又確立第四層 Application（實際使用），並確立這套系統本身也是一個會使用自己 System 的工具（例如搜尋、比對），但這件事**有明確的建立門檻**，不是預先建置。
+目的：第一次遇到問題時研究、驗證並保存可重複使用的 Knowledge；下一次遇到類似問題時優先重用既有 Knowledge，降低重新研究成本。
 
-最終架構：
+使用者是一人工作室，因此最高設計原則是：
 
+> **低維護成本優先於完整性。**
+
+不是企業級知識管理平台，也不是為展示完整架構而建立的研究專案。
+
+## 3. 正式架構
+
+```text
+Rules
+  ↓
+Knowledge
+  ↓
+System
+  ↓
+Application
 ```
-L0 Rules         定義系統怎麼運作
+
+Repository 對應：
+
+```text
+RULES.md
     ↓
-L1 Knowledge     基本原理，獨立、可重用
+0-knowledge/
     ↓
-L2 System        多份 Knowledge 組合成的可重用能力
+1-systems/
     ↓
-L3 Application   組裝 System 解決具體需求
+2-applications/
 ```
 
-## 三、各層定義（完整格式見 RULES.md，此處只列判斷標準）
+- **Rules**：定義整套系統如何運作。正式操作規則以 `RULES.md` 為準。
+- **Knowledge**：可獨立理解、跨場景重複使用的知識、原理、判斷或方法。位置：`0-knowledge/`。
+- **System**：將多份 Knowledge 組合成可重複使用的方法、模型或能力。位置：`1-systems/`。
+- **Application**：針對具體需求，組裝既有 Knowledge / System 所形成的實際應用。位置：`2-applications/`。
 
-- **Knowledge**：如果下一個不同場景也可能需要它，才有資格進 Knowledge。類比物理定律——不因為模型／工具換了就失效，除非它本身是「補償模型限制」的類型（見下）。
-- **System**：兩份以上 Knowledge 已經被同一類問題**實際重複組合使用過**，才值得寫成 System。理論上「未來可能用到」不算數，這是本系統最容易被打破、也最需要守住的門檻。
-- **Application**：出現具體需求，且需要組合兩個以上既有 System／Knowledge 才成立。內部子機制（搜尋、管理、分層）預設留在 Application 自己實作，只有被另一個不相關用途重複需要時才抽成 System。
+## 4. 目前真實狀態
 
-## 四、一個容易被忽略但很重要的補充機制
-
-**Knowledge 類型標註（模型能力補償）**：多數 Knowledge 是「通用原理型」，不因模型更新而過時。但有一類 Knowledge 本質是「為了彌補當時模型的限制」而寫的（例如：防止幻覺的強制規則、限制回答範圍的規則）。這類知識不是被新證據推翻，而是**它要解決的問題可能隨模型進步而消失**，繼續使用只剩 token 成本、沒有效益。這類知識需要標註類型，並在下次使用時判斷「現在的模型還會不會出現當初要防的問題」，會就繼續用，不會就淘汰——判斷時機是使用時，不是排程稽核。
-
-## 五、明確否決的方向（附否決理由，避免重新提案）
-
-以下都曾經被認真考慮過，全部否決，原因是「解決的是多人團隊／規模化的問題，一人工作室不需要」：
-
-| 曾考慮的機制 | 否決理由 |
+| 項目 | 狀態 |
 |---|---|
-| Knowledge ID 編號系統（K-CTX-001） | 檔名本身就是 ID，多一層編號是重複勞動 |
-| Evidence Source 分級（A/B/C/D） | 一人不需要向他人證明可信度，心裡知道「自己測過」vs「讀到的」就夠 |
-| 正式 Version History 表格、Update Trigger checklist | Git 已經免費做這件事 |
-| Specification 版本化與 Migration 流程 | 規範是用來約束「別人」的，一人不需要 |
-| Capability 分類系統／正式需求解析層 | System 的一句話用途已經在回答「提供什麼能力」，另建分類是重複勞動 |
-| System 五階段狀態機（Draft/Prototype/Validated/Production/Deprecated） | 只需要「草稿／已驗證」兩態就夠判斷可靠度 |
-| 正式衝突處理流程（Conflict→Identify→Resolve pipeline） | Knowledge 間的衝突或但書，直接寫進組合它們的 System 的「不適用情境」即可 |
-| Knowledge Graph／中央 Dependency Database | System 本身列出「組成的 Knowledge」，用檔名文字搜尋就能反查，不需要額外資料庫 |
-| 自動化知識更新系統／自動 Cascade Update | 更新永遠是「向上標記需要重新檢查」，不自動連鎖修改上層 |
-| 4 級相關性分類（Required/Relevant/Potential/Irrelevant） | 一人工作室判斷「相關／不相關」二選一即可，不需要分級 |
-| 多層 Context Loading／獨立 Index 系統 | 一份 INDEX.md（檔名＋一句話）已足夠 |
-| 預先建立的 `_archive/` 資料夾結構 | 這個風險（新舊版本搞混）在檔案很少時是零，等真的發生再建 |
-| 獨立 `runtime/` 程式模組（discovery/selection/loading/composition/validation） | 現在一份 Knowledge 都還沒有，優先讓 AI 手動照 RULES.md 執行；只有某個 System 被驗證有效、手動執行成本已高於寫程式成本時，才動手實作 |
-| 檔名內嵌分層＋類別碼＋版本碼（例如 `0-1-2.3-xxx.md`，0=分層、1=知識類別如管理／記憶／搜尋、2=穩定版號、3=測試版號） | 版本碼（2.3）直接違反第 10 節「檔名一律穩定，不加版本後綴」，且會讓 System 的「組成的 Knowledge」反查機制失效（檔名一變，所有引用它的 System 就對不上）；類別碼（1）是本表已否決的「Capability 分類系統」的重複建構，INDEX.md 的一句話用途已經在做同一件事；提案當下三份 INDEX 都還是空的，屬於「以後可能用得到」的預先設計，違反第一節的判斷標準 |
+| Rules | 已建立 |
+| Knowledge | 0 |
+| System | 0 |
+| Application | 0 |
+| Knowledge INDEX | 已建立，目前無正式 Knowledge |
+| System INDEX | 已建立，目前無正式 System |
+| Application INDEX | 已建立，目前無正式 Application |
+| Repository 架構 | 已建立 |
+| 實際知識庫內容 | 尚未開始累積 |
 
-如果需要看到這些方向當初完整的討論內容，見隨附的 `rejected-paths-archive.zip`（僅供參考，不建議依此重新設計，其中內容已被上述理由否決）。
+因此：
 
-## 六、目前狀態
+> **這是一個「架構已建立、實際 Knowledge 尚未累積」的早期系統。**
 
-- 架構已定案：四層模型、格式模板、更新規則、Discovery 順序、GitHub 資料夾結構
-- RULES.md 新增第 3 節「AI 可讀性格式規則」，詳見下方第七節
-- 尚無任何實際 Knowledge／System／Application 檔案——三份 INDEX.md 目前都是空的
-- 下一步不是繼續擴充理論，而是：實際使用中累積第一批 Knowledge，等它們被重複組合使用時才長出第一個 System
+過去的 K01–K61、S01–S37 等設計清單不是現有 Knowledge / System。
 
-## 七、AI 可讀性限制與因應
+## 5. 核心設計思想
 
-實際測試發現：透過網頁抓取工具讀取這個 repository 時，GitHub 的資料夾樹狀頁面（`/tree/xxx`）會被 robots.txt 擋掉，無法瀏覽；只有頁面中已經存在的明確 Markdown 連結才能被跟隨讀取，單一檔案的內容頁面（`/blob/xxx`）本身可以正常讀取。
+> **不要為尚未發生的問題建立機制。**
 
-因應方式（已寫入 RULES.md 第 3 節）：README.md 的 AI Entry Point、各層 INDEX.md 的檔名欄位、System 的「組成的 Knowledge」欄位，全部改用 Markdown 相對路徑連結，不寫純文字檔名——GitHub 渲染時會把相對連結解析成完整網址，讓網頁抓取工具可以從 README 一路點進任何一份檔案，不需要使用者手動貼網址，也不需要改動既有的資料夾結構。
+正確流程：
 
-**曾考慮但否決的替代方案**：把檔案攤平到 repository 根目錄、用數字前綴（`0-`／`1-`／`2-`）取代資料夾。否決理由：連結格式修正已經能解決同樣的可讀性問題，且成本更低（只是寫檔案時的格式習慣，不需要搬動任何既有檔案或改變資料夾語意）；攤平前綴若再疊加類別碼／版本碼，會牴觸第 10 節穩定檔名規則，詳見第五節否決清單最後一項。
+```text
+先實際使用
+    ↓
+發現持續存在的問題
+    ↓
+確認問題造成成本
+    ↓
+建立最小解法
+    ↓
+驗證
+    ↓
+必要時才升級架構
+```
 
-## 八、給接手 AI 的具體指示
+不是預測所有未來問題後先建立完整架構。
 
-1. 不要重新質疑四層模型或第五節列出的否決清單，除非使用者提出新的、具體的、非理論性的理由
-2. 任何新提議先套第一節的判斷標準：「是否直接降低下一次重新研究問題的成本？」
-3. 建立 System 前，務必先確認「已經實際重複使用過」這個門檻是否真的成立，不要因為使用者說「以後可能用得到」就先建
-4. 操作細節（格式、Discovery 順序、更新條件、AI 可讀性連結格式）一律以 `AI-Knowledge-System/RULES.md` 為準；本文件只提供背景與否決理由，兩者若有出入以 RULES.md 為準（RULES.md 版本較新）
+## 6. 為什麼有 System 層
+
+Knowledge 不預先建立固定關係，因為關係通常取決於當時要解決的問題。
+
+```text
+Knowledge
+= 可重用的獨立內容
+
+System
+= 在特定問題脈絡下，將多份 Knowledge 組合成可重用方法
+```
+
+因此目前不建立中央 Knowledge Graph 或 Dependency Database。
+
+## 7. System 建立門檻
+
+不因為「未來可能會一起使用」而建立 System。
+
+目前正式門檻：
+
+> **至少兩份 Knowledge 已經在同一類問題中實際重複組合使用過一次以上。**
+
+只有理論上的關聯不足以建立 System。具體操作細節以 `RULES.md` 為準。
+
+## 8. 模型能力補償
+
+部分 Knowledge 可能只是為補償當時模型限制，例如防止特定幻覺、限制回答範圍或彌補推理缺陷。
+
+模型能力進步後，原本的補償可能失去價值。現在只在實際使用時判斷是否仍需要，不建立 Capability Registry、Pipeline、自動稽核或自動淘汰系統，除非未來真的出現維護成本。
+
+## 9. 目前正式有效的設計決策
+
+以下是接手 AI 必須知道的正式決策摘要；完整操作細節仍以 `RULES.md` 為準。
+
+1. 四層架構：`Rules → Knowledge → System → Application`。
+2. Knowledge 先於 System。
+3. System 必須有實際重複使用證據。
+4. Knowledge、System、Application 各自獨立更新，不強制連動。
+5. 如果兩種方案都能解決問題，優先選擇維護成本較低的方案。
+6. 模型能力補償保持簡單，目前只標註，不建立完整生命週期系統。
+
+## 10. 暫緩中的架構，不是正式規則
+
+以下內容曾經被提出，但目前：**不實作、不正式化、不當成待辦事項。**
+
+- Atomic Knowledge
+- Knowledge Aggregation
+- PINNED / ACTIVE / DORMANT / RETIRED
+- 第二個 Knowledge Repository
+- K01–K61
+- S01–S37
+- Knowledge Graph
+- Dependency Graph / Database
+- 複雜 Retrieval Engine
+- Capability Lifecycle
+- Capability-Driven Pruning
+- 大型自動化 Knowledge Pipeline
+
+目前正確狀態：
+
+> **候選設計／歷史方案，證據不足，暫時擱置。**
+
+不能理解成「永遠錯」，也不能理解成「下一階段待辦」。
+
+## 11. 「否決」與「暫緩」必須區分
+
+**已否決**：目前已有充分理由認定不值得加入現行系統；除非出現新的具體反證，否則不要重新提出。
+
+**暫緩**：目前沒有足夠實際證據證明需要，但未來可能因規模或實際痛點重新評估。
+
+Atomic Knowledge 等目前屬於：
+
+> **暫緩，不是永久否決。**
+
+`REJECTED-PATHS.md` 是歷史參考文件；其中標示「暫緩」的項目不得被誤讀成永久否決。
+
+## 12. 架構重新啟動 Gate
+
+### Gate 1：Knowledge Retrieval Problem
+
+只有當 INDEX、檔案定位或 AI 選擇相關 Knowledge 的成本已經明顯影響工作效率，才重新評估 Retrieval / Index / Classification。
+
+不設定死的檔案數門檻。
+
+### Gate 2：Knowledge Overlap Problem
+
+只有當高度重疊 Knowledge 已造成實際維護成本、邊界難以維持或內容持續分散，才重新評估 Atomic Knowledge、Aggregation、Deduplication 等方案。
+
+單純發現兩筆內容相似，不足以啟動此 Gate。
+
+### Gate 3：Capability Maintenance Problem
+
+只有當人工逐一確認模型能力補償是否仍有效已成為明顯維護負擔，才重新評估 Capability Registry、Audit、自動檢查或淘汰機制。
+
+## 13. Gate 的最重要原則
+
+哪個問題先發生，就只處理哪個問題。
+
+```text
+問題
+↓
+確認問題真的存在
+↓
+找最小解法
+↓
+驗證
+↓
+仍不足才增加機制
+```
+
+不能因為一個 Gate 被觸發，就一次導入 Atomic、Aggregation、Status、Graph、Pipeline 等全部機制。
+
+## 14. K01–K61 / S01–S37 的正確定位
+
+K01–K61 與 S01–S37 是過去架構設計階段的概念清單。
+
+它們：
+
+- 不是目前 Knowledge
+- 不是目前 System
+- 不是下一階段待辦
+- 不需要逐項實作
+- 不需要現在重新檢查
+
+保留它們只為未來真的出現問題時，可回看過去曾考慮過哪些方案。
+
+## 15. 第一階段真正要做的事情
+
+現在不要繼續設計 Knowledge Architecture。
+
+目前唯一優先任務：
+
+> **建立第一批 5～10 筆真正可重用的 Knowledge。**
+
+來源不是 K01–K61，而是使用者過去真正遇到、研究過、驗證過、未來可能再次遇到且可跨場景重用的問題。
+
+## 16. 第一批 Knowledge 的目的
+
+這 5～10 筆不是單純填資料，而是第一輪架構實驗。
+
+觀察：
+
+- Knowledge 合理大小
+- `RULES.md` 格式是否好用
+- Knowledge 邊界與重複情況
+- INDEX 是否容易找
+- AI 能否快速定位
+- 何時自然出現 System
+- System 建立門檻是否合理
+- 更新 Knowledge 是否容易
+- 是否真的需要額外 metadata
+- 模型能力補償標註是否產生維護成本
+
+## 17. 第一批 Knowledge 的選擇原則
+
+不要問：
+
+> 「K01–K61 哪五個應該先做？」
+
+應該問：
+
+> **「過去哪些問題，我已經反覆解決過，而且下一次很可能還會遇到？」**
+
+可考慮的方向包括 AI 輸出與 Knowledge Truth 的區分、Source 與 Knowledge 的區分、搜尋前的問題分解、Context Economy、相似內容是否真的相同、新資料是否推翻舊結論、模型能力補償、過度工程化判斷、架構何時值得建立，以及如何判斷研究結果是否值得保存。
+
+這些只是候選方向，不是預先指定的 Knowledge。
+
+## 18. Handoff 不應取代 Repository
+
+| 文件 | 回答的問題 |
+|---|---|
+| README | Repository 怎麼進入？ |
+| RULES | 實際操作規則是什麼？ |
+| HANDOFF | 我們為什麼現在這樣做？目前是什麼狀態？ |
+| INDEX | 目前有哪些正式內容？ |
+| Knowledge / System / Application | 真正保存了什麼？ |
+
+Handoff 的功能是讓新 AI 不會因為缺乏前情而重新走一遍錯誤的設計路線。
+
+## 19. 接手後的實際行為
+
+讀完 Repository 後，新 AI 應得到以下結論：
+
+> **這個系統已經有基本架構，但內容庫還是空的。**
+
+因此不要：
+
+- 重新設計架構
+- 重新提出 Atomic Knowledge
+- 重新建立 K01–K61
+- 建立大量 System
+- 建立 Graph
+- 建立 Retrieval Engine
+- 建立 Capability Pipeline
+
+應該協助使用者從真實過去工作中找出第一批可重用 Knowledge。
+
+## 20. 接手後第一個問題
+
+如果使用者沒有直接指定任務，可以詢問：
+
+> **「目前 Repository 的正式 Knowledge / System / Application 都還是 0。下一步應該先從你過去實際反覆遇到的問題中挑選第一批 Knowledge，而不是繼續設計架構。要我先協助整理候選問題嗎？」**
+
+如果使用者已經提供具體問題，則直接依 `RULES.md` 判斷，不必重複詢問。
+
+## 21. 最重要的防誤判
+
+- 不要把「設計過」當成「已實作」。
+- 不要把「暫緩」當成「否決」。
+- 不要把「候選方案」當成「待辦事項」。
+- 不要因為 Repository 還很空，就認為需要增加更多架構。
+- 不要在沒有實際痛點之前建立複雜機制。
+
+## 22. 當前狀態總結
+
+```text
+                    ┌─────────────┐
+                    │   RULES     │
+                    │   已建立     │
+                    └──────┬──────┘
+                           ↓
+                    ┌─────────────┐
+                    │  KNOWLEDGE  │
+                    │     0       │
+                    └──────┬──────┘
+                           ↓
+                    ┌─────────────┐
+                    │   SYSTEM    │
+                    │     0       │
+                    └──────┬──────┘
+                           ↓
+                    ┌─────────────┐
+                    │ APPLICATION │
+                    │     0       │
+                    └─────────────┘
+```
+
+架構：已建立。
+
+內容：尚未開始累積。
+
+複雜架構：暫不建立。
+
+下一步：建立第一批 5～10 個真實 Knowledge。
+
+重新設計的條件：等待實際 Gate。
+
+## 23. 最終接手指令
+
+1. 以 `RULES.md` 作為正式操作規則。
+2. 以本文件作為目前狀態與歷史決策背景。
+3. 以 `README.md` 作為 Repository 入口說明。
+4. 以三份 `INDEX.md` 判斷目前正式內容。
+5. 不把 K01–K61 / S01–S37 當成待辦事項。
+6. 不主動啟用 Atomic Knowledge 或其他暫緩架構。
+7. 不在沒有實際痛點時擴張系統。
+8. 優先建立第一批真實 Knowledge。
+9. 實際使用後才根據 Gate 判斷是否需要架構演化。
+10. 如果本文件與 `RULES.md` 對實際操作方式有衝突，以 `RULES.md` 為準。
+11. 如果舊歷史與本文件的目前狀態有衝突，以本文件的最新狀態為準。
+
+> **不要再設計一個尚不存在的問題；先讓第一批真正有用的 Knowledge 進入系統。**
