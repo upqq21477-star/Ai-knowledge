@@ -6,13 +6,13 @@
 
 任何 AI 接手時，建議依下列順序建立理解：
 
-1. `README.md`：知道這個 repository 是什麼，以及目前入口規則。
+1. `README.md`：知道這個 repository 是什麼。
 2. `RULES.md`：正式操作規則。
-3. `HANDOFF.md`：目前狀態、歷史決策、已知設計轉折與接手注意事項。
-4. 依實際任務讀取 repository 內相關資料夾與文件。
-5. 必要時再讀取其他歷史文件。
+3. `HANDOFF.md`：目前狀態、歷史決策、架構轉折與接手注意事項。
+4. 依實際任務直接讀取 repository 內相關資料夾與文件。
+5. 完整稽核時，可以遞迴讀取整個 repository。
 
-**重要：不要把 INDEX 當成 repository 的唯一目錄。AI 可以直接讀取資料夾內的文件；repository 的實際檔案樹才是內容的 Source of Truth。**
+**重要：Repository 實際檔案樹是內容的 Source of Truth。AI 可以直接讀取資料夾內文件，不需要依賴 INDEX 才能找到內容。**
 
 ## 這是什麼
 
@@ -62,16 +62,16 @@ HANDOFF.md
 REJECTED-PATHS.md
 
 0-knowledge/
-    （正式 Knowledge）
+    （目前 7 筆正式 Knowledge）
 
 1-systems/
-    （正式 System）
+    （目前 0 筆）
 
 2-applications/
-    （正式 Application）
+    （目前 0 筆）
 ```
 
-目前三個內容層都仍為空。
+目前第一批 7 筆 Knowledge 已建立；System 與 Application 尚未建立。
 
 ## AI 如何探索 repository
 
@@ -93,18 +93,29 @@ Repository 實際檔案樹
 
 「全部讀取」與「每次都全部讀取」是兩件不同的事：前者是能力，後者不是規則。
 
-## 開始建立內容
+## 第一批 Knowledge
 
-第一批 Knowledge 不從過去的 K01–K61 清單直接搬運。
+目前第一批 Knowledge 來自使用者過去實際反覆遇到的問題，而不是直接搬運 K01–K61。
 
-應該從使用者過去真正反覆遇到、研究過、驗證過，而且未來可能再次遇到的問題中提取。
+它們目前用於驗證：
 
-System 也不預先建立。只有當多份 Knowledge 在同一類問題中實際反覆組合，才有理由建立 System。
+- Knowledge 的自然大小與邊界。
+- 不同 Knowledge 是否產生實際重疊。
+- AI 是否能直接找到需要的文件。
+- 是否真的需要 INDEX。
+- 何時自然形成 System。
+- 更新與維護成本是否開始增加。
 
-Application 則在出現具體需求時建立。
+## System 與 Application
+
+System 不預先建立。只有當多份 Knowledge 在同一類問題中實際反覆組合，並證明組合值得保存，才建立 System。
+
+Application 在出現具體需求時建立，可以包含專案特有決策。
 
 ## 正式規則
 
 所有操作規則以 `RULES.md` 為準。
 
-目前狀態、歷史決策與本次架構重新整理的原因見 `HANDOFF.md`。
+目前狀態、歷史決策與架構重新整理原因見 `HANDOFF.md`。
+
+歷史方案與目前不採用方向見 `REJECTED-PATHS.md`。
