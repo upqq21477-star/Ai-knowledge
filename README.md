@@ -5,15 +5,19 @@
 > 任何 AI 進入這個 repository，請依序讀取：
 > 1. 本文件（README.md）
 > 2. [RULES.md](./RULES.md)
-> 3. [0-knowledge/INDEX.md](./0-knowledge/INDEX.md)
-> 4. [1-systems/INDEX.md](./1-systems/INDEX.md)
-> 5. [2-applications/INDEX.md](./2-applications/INDEX.md)
+> 3. [HANDOFF.md](./HANDOFF.md)
+> 4. [0-knowledge/INDEX.md](./0-knowledge/INDEX.md)
+> 5. [1-systems/INDEX.md](./1-systems/INDEX.md)
+> 6. [2-applications/INDEX.md](./2-applications/INDEX.md)
 >
-> 讀完後，主動詢問使用者：「你現在要創建知識、建立系統，還是創建應用？」
+> `HANDOFF.md` 負責目前狀態、歷史決策與架構重新啟動條件；`RULES.md` 是正式操作規則。
+>
+> 讀完後，若使用者沒有指定任務，先依 HANDOFF.md 判斷目前階段：目前正式 Knowledge / System / Application 都是 0，優先協助從真實過去工作中找出第一批可重用 Knowledge，而不是重新設計架構。
+>
 > 也可以直接從使用者的自然語言描述判斷意圖，不需要等待選項輸入。
 > 不要一次讀取所有 Knowledge／System 內容——先看 INDEX，判斷相關，再深讀相關的檔案。
 >
-> **AI 可讀性提醒**：若你是透過網頁抓取（而非本地檔案系統）讀取這個 repository，通常無法瀏覽資料夾樹狀頁面，只能跟隨頁面裡已經存在的明確連結。上面第 3-5 項已經是可跟隨的連結；要深入某份 Knowledge／System／Application，一律從對應 INDEX.md 裡的連結點進去，不要自行組合網址。
+> **AI 可讀性提醒**：若你是透過網頁抓取（而非本地檔案系統）讀取這個 repository，通常無法瀏覽資料夾樹狀頁面，只能跟隨頁面裡已經存在的明確連結。上面第 2-6 項已經是可跟隨的連結；要深入某份 Knowledge／System／Application，一律從對應 INDEX.md 裡的連結點進去，不要自行組合網址。
 
 ## 這是什麼
 
@@ -40,6 +44,8 @@ Knowledge 不預先建立彼此的關係；關係只在 System 組合時才產�
 ```
 README.md
 RULES.md
+HANDOFF.md
+REJECTED-PATHS.md
 0-knowledge/
     INDEX.md
     （各份 Knowledge .md 檔）
@@ -67,4 +73,4 @@ RULES.md
 
 ## 完整規則
 
-見 [RULES.md](./RULES.md)——所有 AI 操作規則都在那裡，不在本文件重複。
+見 [RULES.md](./RULES.md)——所有 AI 操作規則都在那裡；設計背景與目前狀態見 [HANDOFF.md](./HANDOFF.md)。
