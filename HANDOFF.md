@@ -2,32 +2,25 @@
 
 > 文件性質：**AI 接手控制文件（AI Handoff Control Document）**
 >
-> 本文件負責告訴新 AI：這個 repository 是什麼、目前真實狀態、哪些設計曾經被討論、哪些決策已經確立，以及本次為什麼重新整理架構。
+> 本文件負責告訴新 AI：這個 repository 是什麼、目前真實狀態、重要歷史決策、架構轉折，以及接手後應如何判斷下一步。
 >
-> **實際操作規則以 `RULES.md` 為準。Repository 實際檔案樹是內容的 Source of Truth。**
+> **正式操作規則以 `RULES.md` 為準。Repository 實際檔案樹是內容的 Source of Truth。**
 
-## 1. 本次交接最重要的變更
+## 1. 本次架構重整的核心原因
 
-先前的設計曾經把一個「部分 AI 無法直接瀏覽 GitHub 資料夾樹」的工具限制，當成整套知識系統的架構約束。
+過去曾因部分 AI 工具無法直接瀏覽 GitHub 資料夾，而把這項工具限制當成知識庫架構約束，因此建立 INDEX 與其他 Discovery workaround。
 
-因此產生了：
-
-- INDEX 作為主要 Discovery 入口
-- 依賴明確 Markdown 連結來讓 AI 逐層進入文件
-- 「不要自行進入資料夾」等限制
-- 部分原本不必要的 Discovery 設計
-
-現在已確認：本系統所使用的 GitHub 讀取能力可以直接取得 repository 的目錄內容，也可以直接讀取子資料夾中的文件。因此：
+現在已確認：本系統所使用的 GitHub 讀取能力可以直接取得 repository 目錄，也可以直接讀取子資料夾中的文件。因此：
 
 > **AI 能否讀取資料夾，不再是本系統的架構約束。**
 
-這是本次重新整理的核心原因。
+這代表原本為了補償「資料夾不可讀」而建立的 Discovery 層應取消；但 `Rules → Knowledge → System → Application` 本身仍然成立。
 
-之前的架構不是因為 Knowledge／System 理念錯誤而需要全部推翻；真正需要修正的是「為了補償資料夾不可讀」而建立的 Discovery 層。
+不要把這次重構理解成整套 Knowledge Architecture 被推翻。真正被推翻的是一個已經不存在的工具限制。
 
-## 2. 目前 repository 的真實內容
+## 2. Repository 現在的真實狀態
 
-截至本次重新整理，repository 實際檔案樹只有：
+目前實際檔案樹：
 
 ```text
 README.md
@@ -36,43 +29,27 @@ HANDOFF.md
 REJECTED-PATHS.md
 
 0-knowledge/
-    INDEX.md
+    7 筆正式 Knowledge
 
 1-systems/
-    INDEX.md
+    空
 
 2-applications/
-    INDEX.md
+    空
 ```
 
-三個 INDEX 目前沒有正式內容，三個正式內容層也沒有 Knowledge、System、Application。
+正式內容數量：
 
-因此目前仍然是：
-
-| 層級 | 正式內容數量 |
+| 層級 | 數量 |
 |---|---:|
-| Rules | 1 套規則 |
-| Knowledge | 0 |
+| Rules | 1 |
+| Knowledge | 7 |
 | System | 0 |
 | Application | 0 |
 
-GitHub 的 recursive tree 已確認目前沒有其他隱藏在子資料夾中的正式內容；目前整個 repository 的檔案樹只有上述文件。這次重新整理不是因為漏讀了某個子資料夾，而是因為確認了實際讀取能力後，原本的 Discovery 假設需要修正。
+第一批 Knowledge 已建立，目的是開始用真實內容驗證架構，而不是繼續設計架構。
 
-## 3. 一句話理解本專案
-
-這是一個 **Personal AI Engineering Knowledge System**：
-
-> 第一次遇到問題時研究、驗證並保存真正可重複使用的 Knowledge；下一次遇到類似問題時優先重用，降低重新研究成本。
-
-使用者是一人工作室，所以最高原則是：
-
-> **低維護成本優先於完整性。**
-
-它不是企業知識管理平台，也不是展示完整架構的研究專案。
-
-## 4. 正式架構沒有被推翻
-
-目前仍保留：
+## 3. 正式架構
 
 ```text
 Rules
@@ -84,7 +61,7 @@ System
 Application
 ```
 
-對應 repository：
+對應：
 
 ```text
 RULES.md
@@ -96,147 +73,125 @@ RULES.md
 2-applications/
 ```
 
-這四層的理由仍然成立：
+四層定義：
 
 - **Rules**：定義系統怎麼運作。
-- **Knowledge**：保存可獨立理解、可跨場景重用的基本知識、原理、判斷或方法。
-- **System**：將實際使用中反覆證明有價值的多份 Knowledge 組合成可重用方法／模型。
-- **Application**：針對具體需求使用 Knowledge／System。
+- **Knowledge**：可獨立理解、可跨場景重用的基本原理、知識、判斷或方法。
+- **System**：多份 Knowledge 在實際工作中反覆組合並證明有價值後形成的方法／模型。
+- **Application**：針對具體需求使用 Knowledge／System 的實際應用。
 
-本次變更不是取消四層，而是取消不必要的「AI 導航基礎設施」。
-
-## 5. 新的 Discovery 原則
+## 4. Discovery 新規則
 
 **Repository 實際檔案樹就是內容的 Source of Truth。**
 
-AI 可以直接讀取：
+AI 可以直接讀取 `0-knowledge/`、`1-systems/`、`2-applications/` 以及其中任意文件。
+
+兩種閱讀模式要區分：
 
 ```text
-0-knowledge/ 裡面的文件
-1-systems/ 裡面的文件
-2-applications/ 裡面的文件
+任務導向閱讀
+→ 讀相關文件
+→ 不必要時不載入全部內容
+
+完整稽核／交接
+→ 遞迴檢查 repository
+→ 不能因文件位於子資料夾而假設不存在
 ```
 
-甚至可以在需要時遞迴閱讀整個 repository。
+**可以全部讀，不代表每次都應該全部讀。**
 
-因此不再把 INDEX 視為必要 Discovery 層。
+INDEX 不再是必要 Discovery 層，也不再維護空的 INDEX 佔位文件。
 
-正確模型：
+未來若內容增加後真的出現 Retrieval Problem，再依實際成本決定是否需要 INDEX、搜尋或分類。
 
-```text
-                GitHub Repository
-                       │
-              實際檔案／資料夾
-                       │
-              ┌────────┴────────┐
-              ↓                 ↓
-        任務導向閱讀        完整稽核／交接
-              ↓                 ↓
-        讀相關文件          讀全部相關文件
-```
+## 5. 第一批 Knowledge
 
-這裡有一個重要區別：
+目前已建立：
 
-> **可以全部讀，不代表每次都應該全部讀。**
+1. `separate-source-and-knowledge.md` — 區分 Source 與 Knowledge
+2. `separate-ai-output-and-truth.md` — 區分 AI Output 與 Knowledge Truth
+3. `context-economy.md` — Context Economy
+4. `separate-current-state-and-design-history.md` — 區分 Current State 與 Design History
+5. `evidence-gated-architecture.md` — Evidence-Gated Architecture
+6. `model-capability-compensation.md` — 模型能力補償
+7. `ai-handoff-document-separation.md` — AI 交接文件分工
 
-任務導向時控制 Context 成本；完整稽核或交接時，可以直接檢查整個 repository。
+這 7 筆不是從舊 K01–K61 清單直接搬運，而是從使用者過去實際反覆處理的 AI 研究、交接、Context、架構與模型能力問題重新提取。
 
-## 6. INDEX 的重新定位
+它們現在同時是第一輪架構實驗。
 
-現有三份 `INDEX.md` 是歷史上為了補償 AI 導航限制而建立的。
+## 6. 第一批 Knowledge 要觀察什麼
 
-它們不再是：
+不要急著建立更多治理機制。
 
-- AI 唯一入口
-- Discovery 必經路徑
-- 判斷「repository 有哪些文件」的唯一依據
+實際使用這 7 筆後觀察：
 
-未來如果實際內容量很小，INDEX 可以完全不需要。
+- Knowledge 自然大小是否合理。
+- Knowledge 邊界是否清楚。
+- 不同 Knowledge 是否開始產生實際重疊。
+- AI 是否能直接找到需要的文件。
+- 是否真的需要 INDEX。
+- 是否有兩份以上 Knowledge 在同一類問題中反覆組合。
+- 更新成本是否開始增加。
+- 模型能力補償標註是否產生維護成本。
 
-如果未來內容量變大，INDEX 是否有價值，應由實際 Retrieval 成本決定，而不是現在預先假設需要。
+只有實際使用結果才能決定下一版架構。
 
-因此目前不要為了保留 INDEX 而硬塞內容，也不要建立新的索引系統。
+## 7. System 建立門檻
 
-## 7. 文件之間的新分工
+目前 System = 0，這是正確狀態。
 
-| 文件 | 主要回答 |
-|---|---|
-| `README.md` | 這個 repository 是什麼？怎麼開始理解？ |
-| `RULES.md` | 正式操作規則是什麼？ |
-| `HANDOFF.md` | 為什麼現在這樣設計？目前狀態是什麼？ |
-| `REJECTED-PATHS.md` | 過去哪些方案被否決或暫緩？ |
-| `0-knowledge/` | 真正保存的 Knowledge |
-| `1-systems/` | 真正保存的 System |
-| `2-applications/` | 真正保存的 Application |
+不要因為 Knowledge 彼此「看起來有關」就建立 System。
 
-Handoff 不再承擔「教 AI 怎麼繞過資料夾」的任務。
-
-## 8. System 建立門檻
-
-這部分沒有因本次重構改變。
-
-不要因為兩份 Knowledge 理論上有關聯就建立 System。
-
-只有在：
+只有：
 
 > **至少兩份 Knowledge 已經在同一類問題中實際重複組合使用，並證明這個組合值得保存。**
 
 才建立 System。
 
-目的是防止「先設計完整 System，再尋找使用場景」的過度工程化。
+## 8. Application 建立原則
 
-## 9. 模型能力補償
+Application 只在出現具體需求時建立。
 
-仍然採用最小設計。
+Application 可以包含專案特有決策；這些決策不應因為只服務單一專案，就被硬抽成 Knowledge。
 
-如果某份 Knowledge 只是補償當時模型的能力限制，可以簡單標註。模型能力改善後，在真正使用到該 Knowledge 時再判斷是否仍有價值。
+只有某個 Application 子機制在不同 Application 中反覆出現，才重新評估是否值得抽成 System。
 
-目前不建立：
+## 9. 已否決與暫緩
 
-- Capability Registry
-- Capability Lifecycle
-- Capability Audit
-- 自動淘汰
-- 自動 Pipeline
+兩者必須區分：
 
-除非未來真的出現維護成本。
-
-## 10. 過去 K01–K61 / S01–S37 的定位
-
-K01–K61 與 S01–S37 是過去架構設計階段的概念清單。
-
-它們：
-
-- 不是目前正式 Knowledge
-- 不是目前正式 System
-- 不是下一階段待辦
-- 不需要逐項搬進 repository
-- 不需要因本次重構重新審查
-
-它們保留的唯一價值，是未來真的遇到相同問題時，可以知道過去曾經考慮過哪些方向。
-
-## 11. 已否決與暫緩
-
-兩者必須分開：
-
-**已否決**：目前有充分理由認定不值得加入。除非出現新的具體反證，不要重新提出。
+**已否決**：目前已有充分理由不加入；除非出現新的具體反證，否則不要重新提出。
 
 **暫緩**：目前證據不足，不實作、不正式化、不列為待辦；未來若實際痛點出現，可以重新評估。
 
-具體歷史內容保留在 `REJECTED-PATHS.md`。
+完整歷史方向保留在 `REJECTED-PATHS.md`。
 
-## 12. 目前不預先建立的架構
+## 10. 舊 K01–K61 / S01–S37
 
-包括但不限於：
+它們是過去架構設計階段的概念清單。
+
+目前：
+
+- 不是正式 Knowledge。
+- 不是正式 System。
+- 不是待辦事項。
+- 不需要逐項搬運。
+- 不需要因本次重構重新審查。
+
+未來只有遇到實際問題時，才可以把歷史方案當作背景參考。
+
+## 11. 目前不預先建立的機制
+
+包括：
 
 - Knowledge ID
-- Evidence Source 分級
+- Evidence Source 正式分級
 - 文件 Version History 表格
 - Specification Migration
-- Capability 分類系統
-- Conflict Resolution Pipeline
-- Knowledge Graph
-- Dependency Database / Registry
+- Capability 分類／Registry
+- 正式 Conflict Resolution Pipeline
+- Knowledge Graph / Dependency Database
 - 自動 Cascade Update
 - 複雜 Retrieval Engine
 - 多層 Context Loading
@@ -250,19 +205,15 @@ K01–K61 與 S01–S37 是過去架構設計階段的概念清單。
 
 這些不是待辦事項。
 
-## 13. 重新啟動條件
-
-未來只有實際問題出現，才擴張架構。
+## 12. 架構 Gate
 
 ### Gate 1：Retrieval Problem
 
-如果正式內容增加後，AI 或使用者實際找不到需要的文件，且這個成本已經影響工作效率，才重新評估 INDEX、搜尋、分類或其他 Retrieval 機制。
-
-不設定固定檔案數門檻。
+正式內容增加後，如果 AI 或使用者真的找不到需要的文件，而且已經影響工作效率，才重新評估搜尋、INDEX、分類或其他 Retrieval 機制。不設定固定檔案數門檻。
 
 ### Gate 2：Knowledge Overlap Problem
 
-如果 Knowledge 開始大量重疊，造成實際維護成本、邊界不清或內容分散，才重新評估 Atomic、Aggregation、Deduplication 等機制。
+如果 Knowledge 實際開始大量重疊，造成維護成本或邊界問題，才重新評估 Atomic、Aggregation、Deduplication 等方案。
 
 ### Gate 3：Capability Maintenance Problem
 
@@ -270,102 +221,44 @@ K01–K61 與 S01–S37 是過去架構設計階段的概念清單。
 
 ### Gate 4：Application／System 重複成本
 
-如果相同的 Application 子機制在不同專案中反覆出現，且手動重建成本已經明顯，才評估抽成 System 或工具化。
+如果相同子機制在不同 Application 中反覆出現，而且手動重建成本明顯，才評估抽成 System 或工具化。
 
 核心原則：
 
 > **哪個問題先發生，就只解決哪個問題。**
 
-## 14. 下一階段
+## 13. Claude 的角色
 
-現在不應繼續設計架構。
+Claude 可以作為第二審核者（Second Reviewer），檢查：
 
-真正的下一步是：
+- Knowledge 是否真的可跨場景重用。
+- 是否把 Application 特有內容誤升格為 Knowledge。
+- 是否把歷史方案誤當成現行規則。
+- 是否出現過度工程化。
+- 新增的 System 是否真的達到建立門檻。
 
-> **從使用者過去實際工作中，建立第一批真正有用的 Knowledge。**
+但 Claude 的工具限制不應再成為 repository 架構的前提。
 
-建議第一輪約 5～10 筆，但這只是實驗範圍，不是硬性數量規則。
+Repository 的主要 Source of Truth 永遠是實際 GitHub 文件。
 
-選擇標準：
+## 14. 新 AI 接手後的行為
 
-- 已經實際研究／驗證過
-- 未來可能再次遇到
-- 不只服務單一專案
-- 能降低下一次重新研究成本
+如果使用者沒有指定具體任務：
 
-不要從 K01–K61 挑「最漂亮」的概念來填資料庫。
+1. 讀取 `README.md`。
+2. 讀取 `RULES.md`。
+3. 讀取 `HANDOFF.md`。
+4. 依任務需要直接讀取 repository 中的相關文件。
+5. 如果是完整稽核，直接遞迴檢查 repository。
+6. 不要重新設計已經存在且沒有痛點的架構。
+7. 不要把歷史 K01–K61 / S01–S37 當成待辦。
+8. 優先使用現有 Knowledge。
+9. 只有實際問題觸發 Gate，才考慮擴張架構。
 
-## 15. 第一批 Knowledge 的真正用途
+## 15. 當前最重要的原則
 
-第一批 Knowledge 同時是架構實驗。
+> **不要再設計一個尚不存在的問題；先讓真正有用的 Knowledge 進入實際工作。**
 
-要觀察：
+現在已經完成第一批 Knowledge。
 
-- 一份 Knowledge 自然會有多大
-- 邊界是否清楚
-- 是否自然產生重疊
-- AI 是否容易直接找到它
-- INDEX 是否真的有必要
-- 何時自然形成 System
-- System 建立門檻是否合理
-- 更新成本是否低
-- 模型能力補償是否值得保留
-
-只有實際使用結果，才能決定下一版架構。
-
-## 16. 新 AI 接手後的正確行為
-
-讀取 repository 後，不要先假設需要新的架構。
-
-先確認：
-
-1. repository 實際有哪些文件。
-2. 使用者現在要解決什麼問題。
-3. 哪些現有 Knowledge／System／Application 真的相關。
-4. 是否已經有實際痛點觸發某個 Gate。
-
-如果沒有：
-
-> **直接做工作，不要重新設計知識系統。**
-
-如果需要建立 Knowledge：依 `RULES.md` 建立。
-
-如果需要建立 System：先確認有實際重複使用證據。
-
-如果發現架構問題：先確認問題真的存在，再提出最小修改。
-
-## 17. 對未來 Claude 的定位
-
-Claude 可以作為本系統的**第二審核者（Second Reviewer）**：
-
-- 審核架構是否合理
-- 審核新 Knowledge 是否真的屬於 Knowledge
-- 審核 System 建立是否有足夠實際證據
-- 審核是否出現過度工程化
-- 審核新機制是否真的由痛點觸發
-
-但 Claude 的審核不應反過來成為新的架構約束。
-
-尤其不能再因為某個 AI 的工具限制，而設計一套永久存在的 workaround。
-
-## 18. 最終接手原則
-
-```text
-Repository 實際內容
-        ↓
-理解目前任務
-        ↓
-重用已有 Knowledge / System
-        ↓
-沒有就研究
-        ↓
-研究結果有跨場景重用價值才保存
-        ↓
-重複使用後才抽象成 System
-        ↓
-實際痛點出現後才演化架構
-```
-
-最重要的一句話：
-
-> **不要再為 AI 尚未遇到的問題建立架構；先讓 repository 真正產生有價值的 Knowledge。**
+下一階段不是再設計 Knowledge Architecture，而是**實際使用這 7 筆 Knowledge，觀察它們是否真的降低下一次重新研究問題的成本。**
