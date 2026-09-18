@@ -1168,16 +1168,16 @@ FIELD 應由自然工作產生。
 
 ## Phase 2.5：命名治理與 Rename Migration
 
-- [x] 建立《AI單人工作室命名治理規範-v1.0》
-- [ ] 凍結新文件命名規則
-- [ ] 盤點主要資產的實際文件類型與主要責任
-- [ ] 建立 Old Path → New Path Rename Mapping
-- [ ] 優先處理 System／Process／Capability 混用與高歧義名稱
-- [ ] 檢查 Repository 內引用與交叉連結
-- [ ] 執行必要 Rename
-- [ ] 驗證 Git 歷史、來源追溯與引用完整性
-- [ ] 更新 Blueprint Mapping
-- [ ] 建立命名治理完成／未完成紀錄
+- [BUILT] 建立《AI單人工作室命名治理規範-v1.0》
+- [DESIGNED] 凍結新文件命名規則
+- [DESIGNED] 盤點主要資產的實際文件類型與主要責任
+- [DESIGNED] 建立 Old Path → New Path Rename Mapping
+- [DESIGNED] 優先處理 System／Process／Capability 混用與高歧義名稱
+- [DESIGNED] 檢查 Repository 內引用與交叉連結
+- [DESIGNED] 執行必要 Rename
+- [DESIGNED] 驗證 Git 歷史、來源追溯與引用完整性
+- [DESIGNED] 更新 Blueprint Mapping
+- [DESIGNED] 建立命名治理完成／未完成紀錄
 
 ### 執行前置條件
 
@@ -1257,15 +1257,15 @@ FIELD 應由自然工作產生。
 
 ## Phase 6：Capability Evolution
 
-- [ ] Capability Delta
-- [ ] Overlap Analysis
-- [ ] Provider Comparison
-- [ ] Partial Replacement
-- [ ] Full Replacement
-- [ ] Extension
-- [ ] Refactor
-- [ ] Merge / Split
-- [ ] Migration
+- [DESIGNED] Capability Delta
+- [DESIGNED] Overlap Analysis
+- [DESIGNED] Provider Comparison
+- [DESIGNED] Partial Replacement
+- [DESIGNED] Full Replacement
+- [DESIGNED] Extension
+- [DESIGNED] Refactor
+- [DESIGNED] Merge / Split
+- [DESIGNED] Migration
 
 ---
 
@@ -1273,12 +1273,12 @@ FIELD 應由自然工作產生。
 
 只有實際工作證明需要，才依序考慮：
 
-- [ ] Capability Registry
-- [ ] Trigger Registry
-- [ ] Capability Graph
-- [ ] Evaluation Engine
-- [ ] Automation
-- [ ] Orchestration
+- [DESIGNED] Capability Registry
+- [DESIGNED] Trigger Registry
+- [DESIGNED] Capability Graph
+- [DESIGNED] Evaluation Engine
+- [DESIGNED] Automation
+- [DESIGNED] Orchestration
 
 不要求全部建立。
 
