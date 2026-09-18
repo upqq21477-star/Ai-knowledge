@@ -2,7 +2,7 @@
 
 日期：2026-09-18
 文件狀態：【CURRENT｜交接文件】
-工程階段：G1 全庫資產第一輪盤點完成；G2-01、G2-02、G2-03、G2-04、G2-05、G2-06 已完成；G2-07 待開始
+工程階段：G1 全庫資產第一輪盤點完成；G2-01～G2-08 已完成；目前進入 G2-09
 用途：供下一個無歷史記憶的 AI 直接接手目前工作，不需要依賴本次對話記憶。
 
 ---
@@ -49,11 +49,11 @@ FIELD：**待自然觸發**
 
 權威來源：**本交接文件**
 
-目前：**G2-06 完成**
+目前：**G2-08 完成**
 
-目前游標：**G2-07**
+目前游標：**G2-09**
 
-下一步：**G2-07：Research / Evidence → Candidate → Decision → Canonical Source → Implementation → Verification 追蹤**
+下一步：先依本文件實際定義確認 G2-09；不得自行發明下一階段。
 
 這只描述本次基線重建子工程。
 
@@ -420,7 +420,7 @@ G2-01 已完成逐項比對，並已建立報告：
 
 目前工作 Cursor：
 
-**G2-06 完成 → G2-07 待開始**
+**G2-08 完成 → G2-09**
 
 ---
 
@@ -531,29 +531,18 @@ v2.0～v2.8
 
 已建立：`交接資料/G2-06-State-Evolution-Matrix-v1.0.md`。
 
-### G2-07
-追蹤：
+### G2-07【已完成】
+已建立：交接資料/G2-07-Research-to-Verification-Traceability-Matrix-v1.0.md。
 
-Research / Evidence
-→ Candidate
-→ Decision
-→ Canonical Source
-→ Implementation
-→ Verification
+核心判定：研究結果並非全部正式採用；部分已形成 Decision → Canonical Source → Implementation → Simulation / Regression Verification，部分仍為 Candidate / Partial Implementation / FIELD-PENDING。
 
-確認研究結果是否真正進入正式架構。
+### G2-08【已完成】
+已建立：交接資料/G2-08-Recall-Boundary-Matrix-v1.0.md。
 
-### G2-08
-建立 Recall Boundary：
+核心判定：已建立 CURRENT、Relevant Evidence、History、Research、Deprecated / Retired、Unknown / Review 六級 Recall Boundary；一般 Recall 不應平鋪全庫，歷史與研究按需載入，Unknown / Review 不得當 CURRENT 使用。規則／文件結構級 PASS，但自然工作 Recall Safety 仍 FIELD-PENDING。
 
-CURRENT
-→ Relevant Evidence
-→ History
-→ Research
-→ Deprecated / Retired
-→ Unknown / Review
-
-最後才能進 Migration。
+### G2-09
+必須先讀取本文件與基線規範，確認 G2-09 是否已有正式定義。若未定義，停止並修正工程順序，不自行創造新 G2 任務。
 
 ---
 
@@ -640,7 +629,7 @@ G2 不是「文件整理完」就算完成。
 
 正確描述是：
 
-> **G1 已完成全庫第一輪資產盤點；G2-01～G2-06 已完成；目前進入 G2-07。**
+> **G1 已完成全庫第一輪資產盤點；G2-01～G2-08 已完成；目前進入 G2-09。**
 
 G2-01 已確認：
 
