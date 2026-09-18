@@ -72,24 +72,25 @@
 
 # 三、核心模型
 
-未來架構採以下關係：
+未來架構不採用「Knowledge → Capability → System → Plan → Task」的強制線性 Pipeline。
+
+這些是不同的資料／責任實體，彼此可以存在多種關係：
 
 ```
-Knowledge
-知道什麼
-    ↓
-Capability
-能做什麼
-    ↓
-System
-如何把能力實體化、組合與運作
-    ↓
-Plan
-面對特定問題如何解決
-    ↓
-Task
-目前要完成什麼
+Knowledge / 知識
+   │ 定義、證據、支撐
+   ↓
+Capability / 能力 ←── Provider（GPT／System／Tool／Human）
+   │
+   ├── 被 System 組合與實體化
+   ├── 被 Plan 使用／調度
+   └── 可直接支援 Task
+
+Plan / 方案 ──調度／組合──→ Capability / System
+Task / 任務 ──執行需求──→ Plan / Capability / System
 ```
+
+箭頭表示可能的「定義／支撐／使用／提供／調度」關係，不表示每個任務都必須依序經過所有節點。
 
 四者不可互相取代。
 
@@ -3989,3 +3990,20 @@ Revalidation
 這仍然是未來藍圖，不代表上述全部機制現在已經實體化。
 
 目前工程仍以既有四方案 CURRENT、既有交接資料與正式驗收結果為準。
+
+
+---
+
+# 一一○、Memoryless Handoff 修復後語義鎖定
+
+本次修復後，任何從本文件恢復上下文的 AI 都必須先遵守：
+
+1. 本文件是【未來藍圖】，不是目前已全部實體化的工程系統。
+2. 四方案 A/B/C/D 仍是現行正式工程架構，本藍圖不是第五方案。
+3. Knowledge、Capability、System、Plan、Task 是不同實體／責任，不是強制 Pipeline。
+4. Capability 是比較、測試與演化的功能單位；Provider 是提供方式。
+5. Mapping、Capability Matrix 等視圖不自動成為 Canonical Source。
+6. 任何 Capability 是否值得實體化，都必須經過「實際使用 → Observation → 重複瓶頸 → 驗證 → 確認」。
+7. K07–K61、S11–S37 若沒有現行權威來源，不得猜測補齊。
+8. S01–S10 在 Mapping 中已確認為 Scenario；正式藍圖 Namespace 使用 SCN-01～SCN-10。
+9. CAP-60 與 CAP-61 是本次修復新增的語義區分，不得重新合併為同一 Capability。
