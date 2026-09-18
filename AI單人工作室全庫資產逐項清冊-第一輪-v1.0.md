@@ -2,7 +2,7 @@
 
 版本：v1.1
 日期：2026-09-18
-狀態：【G1 第二批完成；0-知識／1-系統已取得 Repository recursive tree；逐文件盤點仍進行中】
+狀態：【G1 第三批完成；0-知識／1-系統／2-方案根目錄已取得 Repository recursive tree；逐文件狀態判定仍進行中】
 上位文件：AI單人工作室全庫資產盤點-第一輪-v1.0.md
 
 ## 一、用途
@@ -387,3 +387,72 @@
 - 不把歷史研究直接混入一般 Recall。
 - 不在本批創建新的 A/B/C/D 功能。
 - 不因資產數量增加而創建新的總方案。
+
+
+## 十五、G1 第三批：2-方案 根目錄
+
+本批取得 `2-方案/` 根目錄的實際 Markdown 資產，共 43 個。子目錄（例如 `2-方案/完善/`、`2-方案/統御/`）不包含在本批，避免與下一批責任分類混在一起。
+
+其中已於前批登錄的文件不重複列為新資產；以下列出本批新增或需要重新確認的項目。
+
+| Asset ID | 路徑 | 類型 | 初步 State | Disposition |
+|---|---|---|---|---|
+| G1-300 | 2-方案/AI知識管理方案-v2.0完整規劃.md | Solution / Planning | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-301 | 2-方案/AI知識管理方案-v2.0草案.md | Solution / Draft | REVIEW / DRAFT | ARCHIVE候選 |
+| G1-302 | 2-方案/AI知識管理方案-重大更新研究.md | Research / Candidate | RESEARCH | RETAIN |
+| G1-303 | 2-方案/三方案功能歸屬與治理權分析-第一版.md | Governance Research | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-304 | 2-方案/工程運作與持續改進方案-v1.0.md | Solution / Governance | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-305 | 2-方案/工程運作與持續改進方案-v1.1.md | Solution / Governance | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-306 | 2-方案/工程運作與持續改進方案-v1.2.md | Solution / Governance | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-307 | 2-方案/工程運作與持續改進方案-v1.3.md | Solution / Governance | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-308 | 2-方案/工程運作與持續改進方案-v1.4.md | Solution / Governance | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-309 | 2-方案/工程運作與持續改進方案-v1.5.md | Solution / Governance | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-310 | 2-方案/工程運作與持續改進方案-v1.6.md | Solution / Governance | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-311 | 2-方案/工程運作與持續改進方案-v1.7.md | Solution / Governance | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-312 | 2-方案/工程運作與持續改進方案-企劃-v1.0.md | Solution / Planning | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-313 | 2-方案/搜尋研究方案-v2.0.md | Solution | REVIEW | 版本關係待確認 |
+| G1-314 | 2-方案/搜尋研究方案-功能系統盤點.md | Research / Inventory | REVIEW | RETAIN |
+| G1-315 | 2-方案/搜尋研究方案-圖書館式知識管理外部研究-v1.0.md | Research / External | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-316 | 2-方案/方案規劃膨脹與幻覺稽核-第一輪.md | Audit / Evidence | HISTORICAL候選 | RETAIN |
+| G1-317 | 2-方案/正確成立方案與系統方案-v1.0.md | Engineering Evidence | HISTORICAL候選 | RETAIN |
+| G1-318 | 2-方案/正確成立方案與系統方案-v2.1.md | Engineering Evidence | HISTORICAL候選 | RETAIN |
+| G1-319 | 2-方案/正確成立方案與系統方案-v2.2.md | Engineering Evidence | HISTORICAL候選 | RETAIN |
+| G1-320 | 2-方案/正確成立方案與系統方案-v2.3.md | Engineering Evidence | HISTORICAL候選 | RETAIN |
+| G1-321 | 2-方案/正確成立方案與系統方案-v2.4.md | Engineering Evidence | HISTORICAL候選 | RETAIN |
+| G1-322 | 2-方案/知識迭代與資料治理方案-完整規劃.md | Solution / Planning | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-323 | 2-方案/變更與新知檢測方案.md | Solution | REVIEW | KEEP候選 |
+| G1-324 | 2-方案/更新方案-建立與測試.md | Solution / Test | REVIEW | RETAIN |
+| G1-325 | 2-方案/能力蒸餾與系統重構方案-v1.1.md | Solution | REVIEW / STATE-CONFLICT | 不處置，待溯源 |
+| G1-326 | 2-方案/知識迭代與資料演化方案-v1.0.md | Solution / Predecessor | HISTORICAL候選 | RETAIN / EVIDENCE |
+| G1-327 | 2-方案/知識迭代與能力蒸餾方案重製規劃-v1.0.md | Planning / Engineering Evidence | HISTORICAL候選 | RETAIN / EVIDENCE |
+
+### 15.1 本批特別發現
+
+1. `工程運作與持續改進方案-v1.8.md` 已在 G1-007 登錄為 CURRENT；v1.0～v1.7 應保留為歷史演化證據，不得與 v1.8 並列為目前工程入口。
+
+2. `能力蒸餾與系統重構方案-v1.1.md` 仍維持 STATE-CONFLICT。不能因本次盤點而自行修正其內部狀態。
+
+3. `AI知識管理方案-v2.0.md`、`知識與資料迭代演化方案-v2.0.md` 的檔名／內部版本漂移仍需個別確認，不能直接把 v2.0 改稱 v2.1。
+
+4. `正確成立方案與系統方案` 存在 v1.0～v2.4 多代資料，應作為工程演化證據群處理，而非名稱合併。
+
+### 15.2 G1 第三批結論
+
+目前 `2-方案/` 根目錄的主要問題已從「不知道有哪些方案」進入「版本、責任、狀態與歷史演化需要逐項判定」。
+
+下一步不能直接 Migration；應先處理：
+`版本群 → 前後繼關係 → Canonical Source → State → Evidence → Disposition`。
+
+## 十六、G1 目前進度總表
+
+| 批次 | 範圍 | 狀態 |
+|---|---|---|
+| 第一批 | 目前工程入口、部分知識、部分系統、方案、完善、根目錄藍圖 | 完成 |
+| 第二批 | 0-知識／1-系統 Repository tree | 完成 |
+| 第三批 | 2-方案 根目錄 Repository tree | 完成 |
+| 第四批 | 2-方案/完善 | 待執行 |
+| 第五批 | 2-方案/統御及其他子目錄 | 待執行 |
+| 第六批 | 討論／研究／會議／紀錄 | 待執行 |
+| 第七批 | 根目錄其他企劃／模板／工具 | 待執行 |
+
+G1 尚未完成，因此目前仍禁止大規模 Migration。
