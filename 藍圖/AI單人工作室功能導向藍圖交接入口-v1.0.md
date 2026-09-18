@@ -150,9 +150,9 @@ Model Update → Model Capability Profile → Capability Delta → 受影響 Cap
 
 L0：本文件。先理解目前狀態、邊界與禁止事項。
 
-L1：閱讀「AI單人工作室功能導向藍圖地圖-既有資產完整Mapping-v1.0.md」，查看 A/B/C/D Mapping、K/S 證據缺口、Capability 關係、Namespace 修復與模型更新路徑。
+L1：閱讀「藍圖/AI單人工作室功能導向藍圖地圖-既有資產完整Mapping-v1.0.md」，查看 A/B/C/D Mapping、K/S 證據缺口、Capability 關係、Namespace 修復與模型更新路徑。
 
-L2：閱讀「AI單人工作室未來藍圖規劃書-功能導向架構-v1.0.md」，理解完整 Capability Lifecycle、Evaluation、Overlap、Migration、Distillation 與長期演化邏輯。
+L2：閱讀「藍圖/AI單人工作室未來藍圖規劃書-功能導向架構-v1.0.md」，理解完整 Capability Lifecycle、Evaluation、Overlap、Migration、Distillation 與長期演化邏輯。
 
 L3：需要施工或驗證時，再回讀四方案正式文件。不要因為看到未來藍圖就直接建立新系統。
 
