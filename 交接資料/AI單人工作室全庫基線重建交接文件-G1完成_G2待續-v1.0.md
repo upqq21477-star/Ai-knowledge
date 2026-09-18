@@ -500,7 +500,7 @@ State？
 ### G2-04【已完成】
 
 ### G2-05【已完成】
-已建立：`交接資料/G2-05-State-Evolution-Matrix-v1.0.md`。已串接交接版本、快照、方案四與 CURRENT 的形成鏈，確認 HISTORY/EVIDENCE 與 CURRENT 的責任分離。
+已建立：`交接資料/G2-05-Handoff-Evolution-Matrix-v1.0.md`。已串接交接版本、快照、方案四與 CURRENT 的形成鏈，確認 HISTORY/EVIDENCE 與 CURRENT 的責任分離。
 處理：
 
 `AI知識管理方案-v2.0.md`
@@ -521,7 +521,7 @@ State？
 v2.0～v2.8
 → v2.9
 
-已建立：`交接資料/G2-05-State-Evolution-Matrix-v1.0.md`，確認哪些問題被後續版本真正修復。
+已建立：`交接資料/G2-05-Handoff-Evolution-Matrix-v1.0.md`，確認哪些問題被後續版本真正修復。
 
 ### G2-06【已完成】
 追蹤：
