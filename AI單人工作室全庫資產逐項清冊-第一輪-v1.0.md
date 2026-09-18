@@ -187,7 +187,7 @@
 
 ### 11.1 0-知識：共 81 個 Markdown 資產
 
-本批新增登錄 60 個未在第一批登錄的文件。因為「存在於 0-知識」本身不能證明 CURRENT，以下初始狀態統一採 REVIEW；後續再依 Canonical Source、交接鏈、實際引用、決策與驗證證據逐項確認。
+本批以 Repository recursive tree 確認 0-知識 共 81 個 Markdown 資產；其中部分已在第一批登錄，因此本節不再以「新增數量」作為完整性指標。因為「存在於 0-知識」本身不能證明 CURRENT，以下初始狀態統一採 REVIEW；後續再依 Canonical Source、交接鏈、實際引用、決策與驗證證據逐項確認。
 
 | Asset ID | 路徑 | 類型 | 初步 State | Disposition |
 |---|---|---|---|---|
