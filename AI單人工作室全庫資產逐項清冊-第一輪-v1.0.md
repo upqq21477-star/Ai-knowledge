@@ -790,3 +790,91 @@ G1 仍未完成，Migration 仍然禁止。
 | 第七批 | 根目錄其他企劃／模板／工具 | 待執行 |
 
 G1 尚未完成，Migration 仍禁止。
+
+## 二十三、G1 第七批：根目錄其他企劃／交接／待辦／參考／索引
+
+本批依 Repository recursive tree 實際列出的剩餘 41 個 Markdown 資產進行初步分類。重點不是立即處置，而是先把「舊交接、早期整體企劃、待辦、參考資料、索引、英文舊目錄」從 CURRENT 與歷史混雜狀態中識別出來。
+
+| Asset ID | 路徑 | 類型 | 初步 State | 初步處置／備註 |
+|---|---|---|---|---|
+| G1-700 | 0-knowledge/上下文成本.md | Knowledge / Legacy naming | REVIEW | 與 0-知識 語系目錄重疊，先確認是否舊副本；不可因路徑直接判定廢棄。 |
+| G1-701 | 0-knowledge/人工智慧交接文件分工.md | Knowledge / Handoff | REVIEW | 與現行交接鏈相關，需與目前交接資料及交接規則比對。 |
+| G1-702 | 0-knowledge/以證據決定架構.md | Knowledge / Architecture Principle | REVIEW | 可能是重要原則來源，需確認是否已被正式規則吸收。 |
+| G1-703 | 0-knowledge/區分人工智慧輸出與知識真實性.md | Knowledge / Epistemic Principle | REVIEW | 與 Evidence / Knowledge truth boundary 相關，需追溯 Canonical Source。 |
+| G1-704 | 0-knowledge/區分來源與知識.md | Knowledge / Source Principle | REVIEW | 與來源、知識及 Evidence 邊界相關，需追溯。 |
+| G1-705 | 0-knowledge/區分目前狀態與設計歷史.md | Knowledge / State Principle | REVIEW | 與 Current / History 分離直接相關，需與基線規範比對。 |
+| G1-706 | 0-knowledge/模型能力補償.md | Knowledge / AI Limitation | REVIEW | 可能是歷史設計原則；需確認目前適用性。 |
+| G1-707 | 0-knowledge/知識分類.md | Knowledge / Classification | REVIEW | 可能與目前分類模型重疊；禁止直接以檔名判定權威。 |
+| G1-708 | 0-knowledge/知識定義與邊界.md | Knowledge / Definition | REVIEW | 可能是知識層 Canonical 候選，需與 0-知識 正式文件比對。 |
+| G1-709 | AI單人工作室主系統資料基線重建規範-v1.0.md | Governance / Baseline Specification | CURRENT / HIGH-PRIORITY | 本輪基線重建的正式規範；不得與一般歷史規劃混同。 |
+| G1-710 | AI單人工作室四方案舊版本盤點報告-第一輪-v1.0.md | Audit / Historical Evidence | REVIEW / EVIDENCE | 四方案歷史版本盤點證據；不是新的正式方案。 |
+| G1-711 | AI單人工作室整體系統企劃書-API版本-v0.1.md | Planning / Historical Architecture | HISTORICAL / EVIDENCE | API 版本早期整體企劃；與目前 No-API 約束存在歷史差異，保留演化證據。 |
+| G1-712 | AI單人工作室整體系統企劃書-無API版本-v0.1.md | Planning / Architecture Candidate | HISTORICAL / EVIDENCE | 早期 No-API 架構企劃；需與 v0.2/v0.3 及現行架構比對。 |
+| G1-713 | AI單人工作室整體系統企劃書-無API版本-v0.2.md | Planning / Architecture Candidate | HISTORICAL / EVIDENCE | 架構演化版本；不得直接取代現行正式工程入口。 |
+| G1-714 | AI單人工作室整體系統企劃書-無API版本-v0.3.md | Planning / Architecture Candidate | REVIEW / PRE-CURRENT CANDIDATE | 較新的整體企劃候選；必須與現行正式鏈及 2026-09-18 外部比對紀錄確認關係後才可判定。 |
+| G1-715 | AI單人工作室舊交接與工程快照比對報告-第一輪-v1.0.md | Audit / Handoff Evidence | HISTORICAL / EVIDENCE | 用於舊交接與快照比對；不可取代目前快照-005。 |
+| G1-716 | 三方案角色與狀態澄清-v1.0.md | Governance / Clarification | HISTORICAL / EVIDENCE | 三方案演化中的角色與 State 澄清證據；需避免與四方案現況混淆。 |
+| G1-717 | 交接修復記錄-v1.0.md | Handoff Repair Evidence | HISTORICAL / EVIDENCE | 保存交接失效與修復過程；與目前交接入口形成歷史證據鏈。 |
+| G1-718 | 交接資料-v2.0.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-719 | 交接資料-v2.1.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-720 | 交接資料-v2.2.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-721 | 交接資料-v2.3.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-722 | 交接資料-v2.4.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-723 | 交接資料-v2.5.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-724 | 交接資料-v2.6.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-725 | 交接資料-v2.7.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-726 | 交接資料-v2.8.md | Handoff / Historical | HISTORICAL | 舊交接版本，保留歷史，不作 Current。 |
+| G1-727 | 交接資料.md | Handoff / Historical | HISTORICAL | 最早交接文件；保留演化證據。 |
+| G1-728 | 交接驗證-無記憶AI題詞與模擬-v1.0.md | Handoff Validation | HISTORICAL / EVIDENCE | 無記憶交接驗證證據；應保留測試結果。 |
+| G1-729 | 交接驗證-無記憶AI題詞與模擬-v2.0.md | Handoff Validation | HISTORICAL / EVIDENCE | 較新版無記憶交接驗證證據；與目前 8/8 PASS 結論需追溯。 |
+| G1-730 | 參考資料/目標守恆治理引擎_企劃書.md | Reference / Candidate | HISTORICAL / RESEARCH | 外部／候選治理方向；不得直接作為正式系統。 |
+| G1-731 | 參考資料/重構治理系統研究與設計建議.md | Reference / Research | RESEARCH / CANDIDATE INPUT | 治理／重構研究資料；需與統御候選及舊模式 Mapping 交叉。 |
+| G1-732 | 待辦/交接待辦與統御能力檢驗-v1.0.md | TODO / Validation | REVIEW / ACTIVE CANDIDATE | 待辦與能力檢驗資料；需與目前 FIELD 自然觸發狀態比對。 |
+| G1-733 | 待辦/待辦工作記憶與施工順序-v1.0.md | TODO / Workflow | REVIEW | 可能保存施工順序原則；需與目前待辦清單及規則比對。 |
+| G1-734 | 待辦/架構整合後續工作-v1.0.md | TODO / Integration Plan | REVIEW | 後續整合規劃；不得直接視為 CURRENT。 |
+| G1-735 | 待辦清單-v2.0.md | TODO / Historical | HISTORICAL | 舊待辦版本，保留演化證據。 |
+| G1-736 | 待辦清單-v2.1.md | TODO / Historical | HISTORICAL | 舊待辦版本，保留演化證據。 |
+| G1-737 | 更新紀錄/2026-09.md | Change Log | HISTORICAL / EVIDENCE | 變更時間線；屬證據，不是 Current State。 |
+| G1-738 | 檔案索引.md | Index / Derived View | CURRENT / DERIVED | 全庫定位索引；屬 Derived View，不取代 Canonical Source。 |
+| G1-739 | 歷史方案與不採用方向.md | Historical Decision Index | CURRENT / DERIVED | 歷史方案／不採用方向索引；應隔離於一般 Current Recall。 |
+| G1-740 | 說明.md | Repository Guide | REVIEW / ENTRY CANDIDATE | 需確認與 README、交接入口的責任邊界；不可自動升格第二入口。 |
+
+### 23.1 第七批重要發現
+
+**一、Repository 存在舊的 `0-knowledge/` 英文目錄。**
+
+目前不能直接把它判定為廢棄，也不能把其中內容當成第二套 CURRENT 知識層。這是本輪發現的高優先級結構問題之一。下一階段必須逐項比對 `0-knowledge/` 與 `0-知識/`，判斷是舊版、複製、不同時期內容，還是仍有唯一有效內容。
+
+**二、早期整體企劃存在 API → No-API 的架構演化鏈。**
+
+因此不能用檔名「最新」直接選擇 v0.3。需要把 v0.1 → v0.2 → v0.3 與目前正式工程入口、2026-09-18 外部比對紀錄一起追溯，確認哪些內容已被吸收、哪些被淘汰、哪些仍是候選。
+
+**三、舊交接文件數量很多，但目前正式入口仍只有 v2.9。**
+
+本批不會因舊交接文件存在而建立第二個 Current Entry。舊交接的價值是歷史演化與交接失效證據。
+
+**四、待辦不是狀態本身。**
+
+舊待辦可以說明當時下一步，但不能直接覆蓋現在的 `快照-005`。State 必須以目前正式工程狀態鏈判定。
+
+**五、索引與權威來源分離。**
+
+`檔案索引.md` 是 Derived View。即使索引指出某文件位置，也不能因此提高該文件的權威等級。
+
+### 23.2 G1 七批完成後的判定
+
+G1 的「逐項盤點」階段已完成第一輪全庫覆蓋；但這不等於基線重建完成。
+
+下一階段應停止繼續增加盤點表，轉入 **G2：跨資產衝突、版本漂移、Canonical Source、State 與 Recall 邊界重建**。
+
+G2 第一優先應處理：
+
+1. `0-knowledge/` ↔ `0-知識/` 重疊與唯一性。
+2. `AI單人工作室整體系統企劃書` v0.1／v0.2／v0.3 ↔ CURRENT 架構關係。
+3. `能力蒸餾與系統重構方案-v1.1` 的 State Conflict。
+4. `AI知識管理方案-v2.0` 與內部 v2.1 的版本漂移。
+5. `知識與資料迭代演化方案-v2.0` 與內部 v2.1 的版本漂移。
+6. 舊交接／舊快照與目前 v2.9／快照-005 的覆蓋關係。
+7. 研究／Evidence 是否已被正式 Canonical Source 吸收。
+
+在上述問題完成前，**不得進行大規模 Migration、Delete、Merge 或 Rename。**
