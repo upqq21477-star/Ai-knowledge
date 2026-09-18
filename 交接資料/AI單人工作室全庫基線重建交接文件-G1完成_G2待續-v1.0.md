@@ -445,6 +445,29 @@ G2 必須完成正式追溯後，才決定 KEEP / UPDATE / SUPERSEDED / HISTORIC
 
 不得用檔名直接判定。
 
+#### G2-01 完成條件
+
+G2-01 不以「已經看過兩個資料夾」作為完成，而必須形成可驗收的逐項比對結果。每個資產至少回答：
+
+1. 路徑
+2. 是否存在對應文件
+3. 是否同源
+4. 是否內容重複
+5. 是否存在內容差異
+6. 是否存在只有單方具備的有效內容
+7. 是否已被 CURRENT Canonical Source 吸收
+8. State
+9. Canonical Candidate
+10. Evidence / Source
+11. 無法判定原因（如有）
+12. 暫定處置
+
+至少形成一份 **English ↔ Chinese Knowledge Coverage Matrix** 或等價的可驗收結果。
+
+G2-01 的目的只是：**辨識、比較、追溯、判定。**
+
+G2-01 完成後不得因「看起來重複」就直接 Merge、Delete、Rename 或 Migration；任何實際處置必須進入後續決策與驗證。
+
 ### G2-02
 追蹤整體企劃：
 
