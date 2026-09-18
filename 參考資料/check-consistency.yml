@@ -1,0 +1,38 @@
+name: 現況索引與一致性檢查
+
+# 每次用手機在 GitHub App 編輯／上傳檔案並 commit 到 main 時自動觸發，
+# 完全不需要電腦、也不需要任何 LLM API key ——
+# 只用 GitHub 內建、免設定的 GITHUB_TOKEN 與 Actions 執行環境。
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # 先產生 / 更新 現況-自動產生.md，就算發現一致性問題也不讓這一步失敗，
+      # 這樣才能確保索引檔本身永遠先被提交上去。
+      - name: 產生現況索引並檢查一致性
+        id: check
+        run: python3 scripts/check_consistency.py
+        continue-on-error: true
+
+      - name: 提交自動產生的現況索引
+        run: |
+          git config user.name "auto-index-bot"
+          git config user.email "actions@github.com"
+          git add 現況-自動產生.md
+          git diff --cached --quiet || git commit -m "自動更新現況索引 [skip ci]"
+          git push
+
+      # 真正發現版本／current 標記不一致時，才讓這次 workflow 顯示紅叉，
+      # 手機上的 GitHub App 會推播通知，等同於「自動觸發 Observation」。
+      - name: 若一致性檢查失敗，讓本次執行標記為失敗
+        if: steps.check.outcome == 'failure'
+        run: exit 1
