@@ -63,7 +63,7 @@ History / Evidence → Observation → 下一輪 Change Signal
 |---|---|---|
 | K01 | 系統目錄（System Catalog）原理 | CAP-56 Catalog／目錄 |
 | K02 | 穩定識別與引用（Stable Identifier / Reference）原理 | CAP-01 Identity／穩定識別 |
-| K03 | 觸發條件管理（Trigger Registry）原理 | CAP-55 Trigger／觸發候選召回 |
+| K03 | 觸發條件管理（Trigger Registry）原理 | CAP-60 Trigger Registry／觸發候選召回 |
 | K04 | 事件／條件到能力路由（Event-to-Capability Routing）原理 | CAP-57 Routing／候選能力路由 |
 | K05 | 多重匹配與歧義處理原理 | CAP-58 Ambiguity Handling／歧義處理 |
 | K06 | 目錄與真實來源邊界原理 | CAP-59 Canonical Source Boundary／權威來源邊界 |
@@ -130,20 +130,20 @@ History / Evidence → Observation → 下一輪 Change Signal
 
 ## 四、S01–S37 Mapping
 
-目前可以直接確認的 S 編號，是方案三驗收文件中的 Scenario。
+目前可以直接確認的 S 編號，是方案三驗收文件中的 Scenario。為避免與未來 System／其他資產 Namespace 混淆，本 Mapping 將其正式視為 `SCN`（Scenario）語義；原始 S01–S10 編號僅作為來源舊識別保留。
 
 | ID | Scenario | 實際責任鏈 |
 |---|---|---|
-| S01 | 標準局部修正 | C1→C2→C3→C4→C5→C6→C7→C8→C9→C10→C12→C13→C14→C15→C16→C18 |
-| S02 | 新證據不足 | C1→C2（NEEDS-MORE-EVIDENCE）→保存訊號 |
-| S03 | 現有能力足夠 | C1/C2→C5（SUFFICIENT）→正常工作 |
-| S04 | 部分能力不足 | C5（PARTIAL）→C6→C7→C8（Extend） |
-| S05 | 相容性不足，需要遷移 | C8→C9→C10（INCOMPATIBLE）→C11→C12→C13 |
-| S06 | 變更部分成功 | C13（PARTIAL）→C14（DEFER）→C16 |
-| S07 | 變更失敗 | C13（FAIL）→C14（RETURN）→問題解決→重新候選 |
-| S08 | 驗證未知 | C13（UNKNOWN）→C14（DEFER/RETURN）→保留不確定性 |
-| S09 | 結構性問題 | C7/C8→C17→D1 |
-| S10 | 使用結果產生新訊號 | C18→CHANGE-SIGNAL→C1 |
+| S01 / SCN-01 | 標準局部修正 | C1→C2→C3→C4→C5→C6→C7→C8→C9→C10→C12→C13→C14→C15→C16→C18 |
+| S02 / SCN-02 | 新證據不足 | C1→C2（NEEDS-MORE-EVIDENCE）→保存訊號 |
+| S03 / SCN-03 | 現有能力足夠 | C1/C2→C5（SUFFICIENT）→正常工作 |
+| S04 / SCN-04 | 部分能力不足 | C5（PARTIAL）→C6→C7→C8（Extend） |
+| S05 / SCN-05 | 相容性不足，需要遷移 | C8→C9→C10（INCOMPATIBLE）→C11→C12→C13 |
+| S06 / SCN-06 | 變更部分成功 | C13（PARTIAL）→C14（DEFER）→C16 |
+| S07 / SCN-07 | 變更失敗 | C13（FAIL）→C14（RETURN）→問題解決→重新候選 |
+| S08 / SCN-08 | 驗證未知 | C13（UNKNOWN）→C14（DEFER/RETURN）→保留不確定性 |
+| S09 / SCN-09 | 結構性問題 | C7/C8→C17→D1 |
+| S10 / SCN-10 | 使用結果產生新訊號 | C18→CHANGE-SIGNAL→C1 |
 
 S11–S37 目前未找到可安全引用的現行正式定義，因此不猜測。
 
@@ -175,9 +175,13 @@ S11–S37 目前未找到可安全引用的現行正式定義，因此不猜測�
 - S36：待回收原始定義 → 暫不 Mapping
 - S37：待回收原始定義 → 暫不 Mapping
 
-### S Namespace 碰撞
+### S Namespace 碰撞與修復
 
-未來必須把 Knowledge、Capability、System、Plan Function、Scenario、Evidence、Decision 分成不同 Namespace。不能讓 S01 同時代表 System 與 Scenario。
+S01–S10 已確認為 Scenario，因此本 Mapping 不再把 S 當作通用 System Namespace。自本次修復起，Scenario 的正式藍圖 Namespace 採 `SCN-xx`；原 `Sxx` 僅保留為歷史來源識別。
+
+Namespace 原則：`Kxx=Knowledge`、`CAP-xxx=Capability`、`SYS-xxx=System`、`PLN-xxx=Plan`、`SCN-xxx=Scenario`、`EVD-xxx=Evidence`、`DEC-xxx=Decision`。
+
+此修復不修改既有 A/B/C/D 正式功能 ID，也不修改歷史文件中的 S01–S10 原始編號。
 
 ## 五、方案一 A1–A12 → Capability
 
@@ -263,7 +267,7 @@ S11–S37 目前未找到可安全引用的現行正式定義，因此不猜測�
 | D17 | 新基準建立 | CAP-53 Baseline／新基準 |
 | D18 | 歷史／舊能力保存 | CAP-09 History／歷史保存 |
 | D19 | 蒸餾結果回寫 | CAP-54 Distillation Record／蒸餾回寫 |
-| D20 | 再次蒸餾觸發 | CAP-55 Distillation Trigger／再次蒸餾觸發 |
+| D20 | 再次蒸餾觸發 | CAP-61 Distillation Trigger／再次蒸餾觸發 |
 
 ## 九、四方案的 Capability 聚合
 
@@ -385,17 +389,21 @@ Mapping 表是推導視圖，不應成為所有事實的唯一權威來源。原
 
 ## 十五、正式藍圖地圖
 
+注意：Knowledge、Capability、System、Plan、Scenario 不是強制線性 Pipeline，而是不同資料／責任實體及其關係。以下箭頭表示可能的支撐、使用、提供或調度關係，不表示所有任務都必須依序經過。
+
 ```text
-Knowledge / Kxx
-      ↓
-Capability / CAP-xx
-      ↓
-┌───────────────┬────────────────┬───────────────┐
-│ Systems       │ Plans A/B/C/D  │ Tools / Human │
-│ Provider      │ Provider       │ Provider      │
+Knowledge / Kxx ──定義／支撐──→ Capability / CAP-xx
+                                  │
+                    ┌─────────────┼─────────────┐
+                    │             │             │
+                    ↓             ↓             ↓
+
+│ Systems / SYS │ Plans A/B/C/D │ Tools / Human │
+│ Provider      │ 使用／調度      │ Provider      │
 └───────────────┴────────────────┴───────────────┘
-                       ↓
-                    Task / Work
+                    │
+                    ↓
+                 Task / Work
                        ↓
                   Verification
                   ├─ PASS
@@ -440,3 +448,35 @@ Capability / CAP-xx
 - `AI單人工作室未來藍圖規劃書-功能導向架構-v1.0.md`
 
 **文件狀態：【Mapping 完成第一版；A/B/C/D 已實際映射；K/S 發現現行 Repository 證據缺口；待歷史回收後補齊，不以猜測填空。】**
+
+
+---
+
+# 十八、修復紀錄：Capability ID 與 Namespace 語義
+
+日期：2026-09-18
+
+### 18.1 CAP-55 ID 碰撞已修復
+
+原 Mapping 同時將 K03「觸發條件管理（Trigger Registry）」與 D20「再次蒸餾觸發（Distillation Trigger）」映射為 CAP-55。兩者責任不同，不能共用同一 Capability ID。
+
+修復後：
+
+- K03 → CAP-60 Trigger Registry／觸發候選召回
+- D20 → CAP-61 Distillation Trigger／再次蒸餾觸發
+- CAP-55 不再承擔上述兩項不同責任。
+
+### 18.2 Scenario Namespace 已修復
+
+S01–S10 已由 Repository 證據確認為方案三 Scenario。本 Mapping 採：
+
+- SCN-01～SCN-10：正式 Scenario 語義
+- S01～S10：歷史來源識別
+
+S11～S37 仍無現行權威定義，因此不得猜測或自行補造。
+
+### 18.3 線性 Pipeline 誤讀已修復
+
+Knowledge、Capability、System、Plan、Task 是不同實體／責任及其關係，不是強制線性 Pipeline。本 Mapping 圖示只表示可能的定義、支撐、使用、提供或調度關係。
+
+本修復不新增第五方案，也不要求立即建立 Capability Registry、Graph Engine 或自動化 Orchestrator。
