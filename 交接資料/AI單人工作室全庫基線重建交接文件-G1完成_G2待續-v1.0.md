@@ -402,18 +402,18 @@ G2-01 已完成逐項比對，並已建立報告：
 
 主要結果：
 
-- `0-knowledge/`：9 個 Markdown。
+- `舊資料/0-knowledge/`：9 個歷史 Markdown，已完整歸檔。
 - `0-知識/`：103 個 Markdown。
 - 9/9 英文舊文件均找到中文正式對應。
 - 中文正式層不是單純複製，而是後續演化後的正式結構。
-- `0-knowledge/` 暫定為 HISTORICAL / DEPRECATED CANDIDATE。
-- 暫不 Delete、Merge、Rename 或 Migration。
+- `舊資料/0-knowledge/` 已確定為 HISTORICAL / ARCHIVED。
+- 已完成 Archive / Move；不刪除歷史內容。
 - 「知識分類」與「知識定義與邊界」存在實質規格演化，不能當作單純 Duplicate。
 
 ### G2-01 後的禁止事項
 
-- 不因 G2-01 結果立即刪除 `0-knowledge/`。
-- 不直接 Merge 9 個英文文件。
+- 不刪除 `舊資料/0-knowledge/` 中的歷史內容。
+- 不把歷史文件直接 Merge 回 `0-知識/`。
 - 不因中文文件存在就把所有中文文件自動升格為 Canonical。
 - 不修改歷史文件製造 CURRENT。
 - 不跳過 G2-02。
@@ -639,7 +639,7 @@ G2 不是「文件整理完」就算完成。
 
 G2-01 已確認：
 
-> `0-knowledge/` 的 9 個現存 Markdown 均已在 `0-知識/` 找到對應內容，且中文層存在後續規格演化；目前沒有證據支持建立第二套 CURRENT 知識層。
+> `舊資料/0-knowledge/` 的 9 個歷史 Markdown 均已在 `0-知識/` 找到對應內容，且中文層存在後續規格演化；目前沒有證據支持建立第二套 CURRENT 知識層。
 
 但尚未執行：
 
