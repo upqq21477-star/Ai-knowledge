@@ -65,6 +65,8 @@ A1–A12、B1–B16、C1–C18、D1–D20 已完成模擬／回歸驗收並進�
         ↓
     Provider / Capability / System 關係
         ↓
+    主系統資料基線重建
+        ↓
     Mapping
         ↓
     Scenario / Test Corpus
@@ -573,7 +575,141 @@ Verification 不等於「每件事都做完整測試」。
 
 ---
 
-# 六、P1：既有資產 Mapping【高優先】
+
+
+# 六、P0.5：主系統資料基線重建【前置工程】
+
+目前舊有資料是在規格尚未定案、蒸餾工具尚未完善的階段累積，因此新舊規格、不同格式、草稿、歷史版本與已取代內容可能同時存在。
+
+這不是單純的「整理檔案」問題，而是正式的 Data Migration / Cleanup / Context Hygiene 問題。
+
+核心目標：
+
+> 在進入大量 Mapping 前，建立一個乾淨、可判定、可追溯的 CURRENT Baseline；歷史資料仍保留，但不得無差別參與一般 AI 工作 Context。
+
+## P0.5-01 資料狀態與處置規則
+
+先凍結舊資料的判定規則：
+
+- CURRENT：目前可直接作為工作依據
+- REVIEW：尚未完成確認，不得視為 CURRENT
+- DEPRECATED：已被新規格取代，但保留追溯
+- RETIRED：不再使用
+- HISTORICAL：具有歷史價值，但不參與一般工作
+- UNKNOWN：目前無法可靠判定
+
+處置類型至少包括：
+
+- 保留
+- 修正
+- 蒸餾
+- 重製
+- 合併
+- 移入歷史
+- 移入備份
+- 廢棄
+
+原則：
+
+> 不因「看起來舊」就刪除；不因「存在於 Repository」就視為有效。
+
+## P0.5-02 主系統與備份區分
+
+主系統應只保留目前工作需要的資料與必要歷史索引。
+
+歷史／備份資料可以保留：
+
+- 舊規格
+- 舊格式
+- 已取代版本
+- 已廢棄資料
+- 歷史決策
+- 無法直接參與 CURRENT 判斷的舊材料
+
+但必須明確標記狀態與來源。
+
+核心原則：
+
+> 主系統保存「現在應該被 AI 使用的資料」；備份保存「曾經存在、需要追溯但現在不應直接參與一般決策的資料」。
+
+## P0.5-03 舊資料盤點
+
+不得直接逐份人工重寫。
+
+先建立盤點清單，至少記錄：
+
+- 原始路徑
+- 文件類型
+- 主題
+- 狀態
+- 是否有 CURRENT 對應
+- 是否與其他文件重複
+- 是否存在規格衝突
+- 是否仍有有效內容
+- 是否需要蒸餾
+- 最終處置
+- 來源／證據
+
+## P0.5-04 蒸餾與重製
+
+利用已完善的 Distillation 工具處理：
+
+- 部分有效的舊資料
+- 舊格式但仍有價值的內容
+- 重複資料
+- 新舊規格混合文件
+- 可抽取為 CURRENT 的有效內容
+
+原則：
+
+> 蒸餾不是把舊文件「變短」，而是把仍具有效性的語意、決策、證據與可用內容遷移到新規格。
+
+## P0.5-05 衝突處理
+
+遇到新舊資料衝突時：
+
+    舊資料
+       ↓
+    比對 CURRENT / Canonical Source
+       ↓
+    判定是否仍有效
+       ├─ 有效 → 修正／遷移
+       ├─ 部分有效 → 蒸餾
+       ├─ 已取代 → 歷史／備份
+       └─ 無法判定 → UNKNOWN / REVIEW
+
+不得讓舊資料與 CURRENT 同時以無狀態差異的形式留在一般 Context。
+
+## P0.5-06 Migration 驗證
+
+資料搬移完成後，不只檢查「檔案有沒有移過去」，還必須驗證：
+
+- CURRENT 是否完整
+- 舊資料是否仍可追溯
+- 舊規格是否不會被一般 Recall 優先召回
+- 重要決策是否遺失
+- 蒸餾後語意是否失真
+- 新舊資料是否仍存在未標記衝突
+
+最低驗證：
+
+> 以「無歷史記憶的 AI」只讀主系統，是否能正確理解目前規格、目前狀態與下一步工作。
+
+## P0.5-07 建立乾淨 Baseline
+
+完成資料遷移後，建立明確的：
+
+- CURRENT Baseline
+- Migration Evidence
+- Archive / Backup 邊界
+- 清理完成 Commit
+- 後續 Mapping 的起始點
+
+此 Baseline 才是後續大量 Mapping、Scenario、Evaluation 的資料基準。
+
+---
+
+# 七、P1：既有資產 Mapping【高優先】
 
 核心規格凍結後，才進行大量 Mapping。
 
@@ -609,7 +745,7 @@ Mapping 是 Derived View，不是 Canonical Source。
 
 ---
 
-# 七、P1：Scenario / Test Corpus / Evaluation
+# 八、P1：Scenario / Test Corpus / Evaluation
 
 ## P1-01 Scenario
 
@@ -675,7 +811,7 @@ Evaluation 至少應比較：
 
 ---
 
-# 八、P2：Capability Evolution
+# 九、P2：Capability Evolution
 
 當 Capability Mapping、Scenario、Test Corpus、Evaluation 開始具有實際證據後，才進入：
 
@@ -749,7 +885,7 @@ Evaluation 至少應比較：
 
 ---
 
-# 九、P2：Migration / Distillation / Refactoring
+# 十、P2：Migration / Distillation / Refactoring
 
 只有 Capability Delta 和 Evaluation 顯示有必要，才啟動。
 
@@ -790,7 +926,7 @@ Migration 期間可以暫時並行：
 
 ---
 
-# 十、P3：Registry / Graph / Automation【後置】
+# 十一、P3：Registry / Graph / Automation【後置】
 
 這些是實體化工具，不是前置規格。
 
@@ -860,7 +996,7 @@ Orchestration 是最後階段。
 
 ---
 
-# 十一、管理系統的核心問題：避免「系統存在但沒有被使用」
+# 十二、管理系統的核心問題：避免「系統存在但沒有被使用」
 
 這是未來藍圖目前最重要的實際風險。
 
@@ -896,7 +1032,7 @@ Orchestration 是最後階段。
 
 ---
 
-# 十二、Real Work 是最終驗證入口
+# 十三、Real Work 是最終驗證入口
 
 未來藍圖不得自己製造大量 FIELD 案例。
 
@@ -924,7 +1060,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-# 十三、新 System 的建立條件
+# 十四、新 System 的建立條件
 
 任何未來新增 System 都應經過：
 
@@ -956,7 +1092,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-# 十四、完整待辦順序
+# 十五、完整待辦順序
 
 ## Phase 0：規格凍結
 
@@ -991,7 +1127,23 @@ FIELD 應由自然工作產生。
 
 ---
 
-## Phase 2：既有資產翻譯
+## Phase 2：主系統資料基線重建
+
+- [ ] P0.5-01 凍結資料狀態與處置規則
+- [ ] P0.5-02 定義主系統與歷史／備份邊界
+- [ ] P0.5-03 全面盤點舊有資料
+- [ ] P0.5-04 使用蒸餾工具處理部分有效／舊格式資料
+- [ ] P0.5-05 處理新舊規格衝突
+- [ ] P0.5-06 執行 Migration 驗證
+- [ ] P0.5-07 建立乾淨 CURRENT Baseline
+
+完成後：
+
+> 主系統只保留目前可用、已判定狀態的資料；歷史與備份資料仍可追溯，但不應無差別參與一般 Recall。
+
+---
+
+## Phase 3：既有資產翻譯
 
 - [ ] A/B/C/D → Capability Mapping
 - [ ] K01–K06 → Capability / Knowledge Mapping
@@ -1006,7 +1158,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-## Phase 3：Evaluation 基礎
+## Phase 4：Evaluation 基礎
 
 - [ ] 建立第一批真實 Scenario
 - [ ] 建立必要 Test Corpus
@@ -1018,7 +1170,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-## Phase 4：Real Work
+## Phase 5：Real Work
 
 - [ ] 等待自然工作觸發
 - [ ] 觀察 Trigger 是否成功
@@ -1033,7 +1185,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-## Phase 5：Capability Evolution
+## Phase 6：Capability Evolution
 
 - [ ] Capability Delta
 - [ ] Overlap Analysis
@@ -1047,7 +1199,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-## Phase 6：必要時實體化管理系統
+## Phase 7：必要時實體化管理系統
 
 只有實際工作證明需要，才依序考慮：
 
@@ -1062,7 +1214,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-# 十五、目前不應做的事情
+# 十六、目前不應做的事情
 
 以下事項目前不應因為「未來藍圖完整」而提前執行：
 
@@ -1084,7 +1236,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-# 十六、最重要的工程判斷
+# 十七、最重要的工程判斷
 
 未來藍圖目前最大的風險，不是「系統太少」。
 
@@ -1110,6 +1262,8 @@ FIELD 應由自然工作產生。
       ↓
     先定義 Trigger / Recall / Context
       ↓
+    先建立乾淨 CURRENT Baseline
+      ↓
     先 Mapping
       ↓
     先實際使用
@@ -1124,7 +1278,7 @@ FIELD 應由自然工作產生。
 
 ---
 
-# 十七、完成判定
+# 十八、完成判定
 
 「未來藍圖完成」不代表所有待辦都打勾。
 
@@ -1168,7 +1322,7 @@ AI 能在實際工作中：
 
 ---
 
-# 十八、與前三份未來藍圖文件的關係
+# 十九、與前三份未來藍圖文件的關係
 
 本文件是未來藍圖的第四份文件。
 
@@ -1212,9 +1366,11 @@ AI 能在實際工作中：
 
 ---
 
-# 十九、最終核心原則
+# 二十、最終核心原則
 
-> **規格先於資料。**
+> **規格先於資料整理。**
+>
+> **資料基線先於大規模 Mapping。**
 >
 > **工作循環先於管理系統。**
 >
