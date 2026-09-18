@@ -2115,3 +2115,1097 @@ Distillation / Refactoring
 > 證據先於淘汰。  
 > 實際瓶頸先於自動化。  
 > 模型越強，系統應越精簡，而不是越膨脹。
+
+
+---
+
+# 五十六、前六次工程討論對照稽核
+
+本節是對本藍圖建立後，依前六次相關工程討論進行的交叉稽核。
+
+稽核目的不是把所有歷史內容重新搬入藍圖，而是確認：
+
+1. 是否遺漏已確立的架構原則。
+2. 是否把不同維度錯誤地合併。
+3. 是否把「概念能力」誤寫成「正式系統」。
+4. 是否把未來規劃誤寫成目前已存在。
+5. 是否破壞四方案、職權、交接、資料治理與大型格式變更原則。
+
+稽核後結論：
+
+> 原 v1.0 的 Capability 導向核心成立，但有數項重要語義需要修正與補充，否則長期實作時可能重新產生「能力、系統、方案、資料狀態、Context、職權」混在一起的問題。
+
+---
+
+# 五十七、第一項修正：Knowledge、Capability、System、Plan 不是單一路徑
+
+原本的圖容易被理解成嚴格的上下游流水線。
+
+這是不夠精確的。
+
+正確模型應是：
+
+~~~
+                    ┌── Knowledge
+                    │
+                    ├── Capability
+                    │
+                    ├── System
+                    │
+                    ├── Plan
+                    │
+                    ├── Rule
+                    │
+                    ├── Project
+                    │
+                    └── Evidence
+                           │
+                           ↓
+                         Task
+~~~
+
+其中：
+
+- Knowledge 是資訊資產。
+- Capability 是功能能力。
+- System 是能力的正式組合／實體化方式。
+- Plan 是解決特定問題的方法。
+- Rule 是限制與必須遵守的條件。
+- Project 是工作範圍與目標容器。
+- Evidence 是對判斷、結果與變更的依據。
+- Task 是實際工作單位。
+
+它們存在依賴與組合關係，但不是固定流水線。
+
+---
+
+# 五十八、第二項修正：Data Entity、Data State、Context Loading 必須三維分離
+
+前期討論確認，這三者不能混為同一層。
+
+## Data Entity
+
+回答：「這是什麼東西？」
+
+例如：
+
+- Knowledge
+- Memory
+- Capability
+- System
+- Plan
+- Rule
+- Decision
+- Project
+- Test
+- Evidence
+- History
+
+## Data State
+
+回答：「它目前處於什麼狀態？」
+
+例如：
+
+- CURRENT
+- PENDING
+- DEPRECATED
+- SUPERSEDED
+- HISTORICAL
+- UNCERTAIN
+- CONTESTED
+
+## Context Loading
+
+回答：「這次工作需要載入多少？」
+
+例如：
+
+- L0 Entry
+- L1 Current
+- L2 Task System / Plan
+- L3 Necessary Knowledge
+- L4 Evidence / History
+- L5 Cross-project
+
+因此：
+
+~~~
+Knowledge ≠ CURRENT
+History ≠ Entity Type only
+Archive ≠ Context Level
+~~~
+
+任何未來 Capability Registry 都不能把「Capability」與「CURRENT」或「Loaded」混成同一語義。
+
+---
+
+# 五十九、第三項修正：Role 不等於 Capability
+
+原藍圖使用 Provider 模型是正確方向，但需要補充：
+
+~~~
+Role
+≠
+Capability
+≠
+Provider
+~~~
+
+## Role
+
+回答：「誰在這個工作中負責什麼責任？」
+
+例如：
+
+- User
+- GPT
+- Reviewer
+- Maintainer
+
+## Capability
+
+回答：「需要完成什麼功能？」
+
+例如：
+
+- Search
+- Compare
+- Verify
+- Decide
+- Distill
+
+## Provider
+
+回答：「目前由誰／什麼提供這個能力？」
+
+例如：
+
+- GPT
+- System
+- Tool
+- Human
+
+因此「使用者負責重大採用」是 Role / Authority 問題，不應被寫成 User 是某個 Capability 的 Provider。
+
+---
+
+# 六十、第四項修正：職權與權限需要獨立於 Capability
+
+原藍圖已寫出使用者、GPT、GitHub 的分工，但仍需要更明確。
+
+職權模型：
+
+~~~
+User
+↓
+方向、需求、重大取捨、正式採用、重大架構決策
+
+GPT
+↓
+理解、研究、分析、規劃、執行、驗證、建議
+
+GitHub
+↓
+保存、版本、歷史、Canonical Source、證據載體
+~~~
+
+但：
+
+> GitHub 保存資料，不代表 GitHub 擁有「決策權」。
+
+同樣：
+
+> GPT 能提出決策，不代表 GPT 自動擁有重大變更的最終採用權。
+
+重大 Adoption 應經過：
+
+~~~
+Analysis
+↓
+Evidence
+↓
+Proposal
+↓
+User / Authorized Human Decision
+↓
+Implementation
+~~~
+
+這條邊界必須長期保留。
+
+---
+
+# 六十一、第五項修正：Verification 不能只分三層
+
+原 v1.0 的三層 Verification 足以作為高階概念，但前期工程討論已將驗證責任進一步拆細。
+
+未來應採「風險驅動的多層 Verification」，至少包含：
+
+1. **Content / Fact Verification**：內容與事實是否正確。
+2. **Source / Evidence Verification**：依據是否可靠、可追溯。
+3. **Result Verification**：本次輸出是否完成要求。
+4. **Behavior Verification**：系統是否按照預期運作。
+5. **Integration / Regression Verification**：修改後是否破壞既有能力。
+6. **Architecture Verification**：是否造成責任漂移、重複、衝突、Context 膨脹、版本漂移或入口漂移。
+
+不是每次任務都必須全部執行。
+
+原則：
+
+~~~
+Risk
+↓
+選擇必要 Verification 深度
+~~~
+
+因此 Verification 本身也應遵守「最低有效複雜度」。
+
+---
+
+# 六十二、第六項修正：Evidence 不等於 Verification
+
+兩者相關，但責任不同。
+
+## Verification
+
+回答：
+
+> 「我們有沒有檢查過？」
+
+## Evidence
+
+回答：
+
+> 「為什麼可以相信這個結果？」
+
+例如：
+
+~~~
+Verification
+→ 測試通過
+
+Evidence
+→ 測試案例、結果、來源、Commit、觀察紀錄
+~~~
+
+因此：
+
+> Verification 產生或引用 Evidence，但 Evidence 本身不是 Verification。
+
+未來 Capability Evaluation 必須保留這個區別。
+
+---
+
+# 六十三、第七項補充：Observation 不是 Activity 的附屬品
+
+Activity：
+
+> 發生了什麼。
+
+Observation：
+
+> 從實際運作中發現了什麼。
+
+Observation 是：
+
+~~~
+Experience
+↓
+Observation
+↓
+Evolution Candidate
+~~~
+
+的重要入口。
+
+Evolution 不應只由外部模型更新驅動，也應由：
+
+- 實際使用。
+- 使用失敗。
+- 重複工作。
+- Context 浪費。
+- 使用者反覆修正。
+- 新模型。
+- 新工具。
+- 外部研究。
+
+共同觸發。
+
+---
+
+# 六十四、第八項補充：Trigger 必須位於 Intent 之後
+
+前期討論確認：
+
+> Trigger 不能固定成輸入一來就先觸發。
+
+較正確的概念是：
+
+~~~
+Input
+↓
+Intent / Context Understanding
+↓
+Candidate Trigger
+↓
+Capability / System Selection
+↓
+Execution
+~~~
+
+Trigger 是候選召回機制。
+
+不是：
+
+- Keyword Rule Engine。
+- 自動執行器。
+- 決策者。
+
+---
+
+# 六十五、第九項補充：Response Contract 是控制介面
+
+Response Contract 不只是回答格式。
+
+它應控制：
+
+- 詳細程度。
+- 是否需要外部研究。
+- 是否需要讀 Repository。
+- 是否允許修改。
+- 是否允許建立新文件。
+- 是否需要測試。
+- 是否需要正式 Evidence。
+- 是否需要使用者確認。
+
+因此：
+
+~~~
+Intent
+↓
+Response Contract
+↓
+Allowed Work
+~~~
+
+Contract 是工作邊界，不是單純輸出格式。
+
+---
+
+# 六十六、第十項補充：Blueprint 必須條件式啟用
+
+Blueprint 不是所有任務的標準前置步驟。
+
+應依：
+
+- 任務規模。
+- 依賴數量。
+- 風險。
+- 跨系統程度。
+- 修改範圍。
+- 不可逆程度。
+
+決定是否啟用。
+
+否則 Blueprint 本身會成為新的固定流程負擔。
+
+---
+
+# 六十七、第十一項補充：Entropy 是觀測，不是刪除授權
+
+未來如果加入：
+
+- Context Entropy。
+- Repository Entropy。
+- Architecture Entropy。
+- Duplicate Rate。
+- Stale Rate。
+
+這些只能作為：
+
+> 「系統可能需要整理」的觀察訊號。
+
+不能直接變成：
+
+> 「因此刪除。」
+
+正式清理仍然必須經過：
+
+~~~
+Entropy / Observation
+↓
+Candidate
+↓
+Impact Analysis
+↓
+Evidence
+↓
+Decision
+↓
+Change Control
+↓
+Implementation
+~~~
+
+不能因為某文件很少使用，就自動判定它可以刪除。
+
+---
+
+# 六十八、第十二項補充：大型格式變更不是一般 Refactoring
+
+當資料格式、分類模型或 Canonical Schema 發生重大改變時：
+
+~~~
+Migration
+≠
+一般小型修改
+~~~
+
+應視為一次受控的資料轉換：
+
+~~~
+舊 Canonical
+↓
+Mapping
+↓
+Migration / Distillation
+↓
+新 Canonical
+↓
+完整驗證
+↓
+切換
+↓
+舊資料 Archive
+~~~
+
+禁止長期形成新格式、舊格式與半轉換格式混合成 CURRENT。
+
+歷史可以完整保存，但 CURRENT 必須保持單一明確語義。
+
+---
+
+# 六十九、第十三項補充：GitHub 不只是 Storage，也是 Handoff Boundary
+
+GitHub 在目前無 API 架構中的角色應明確分成：
+
+1. Persistent Memory。
+2. Version Control。
+3. Canonical Source。
+4. Evidence / History。
+5. Handoff Boundary。
+
+尤其對 Memoryless Handoff：
+
+~~~
+Current Entry
++
+Current State
++
+必要 Context
++
+必要 Rules
++
+必要 Decisions
++
+Next Step
+~~~
+
+應能形成最小可攜式交接集合。
+
+必要時可以把這個集合壓縮／下載成最小交接包，而不要求新 GPT 先理解整個 Repository。
+
+這是「完整 Repository」與「最小工作 Context」分離的實際形式。
+
+---
+
+# 七十、第十四項補充：六大維度必須分層，不應互相取代
+
+前期討論確認，整體架構至少存在四組不同分類維度：
+
+## A. 研究／知識領域
+
+回答：「我們在研究什麼？」
+
+## B. 工作職能
+
+回答：「我們能做什麼？」
+
+## C. 資訊／工作產物
+
+回答：「我們現在保存的是什麼種類的東西？」
+
+## D. 四大工程方案
+
+回答：「我們用哪一個工程治理框架管理它？」
+
+因此：
+
+~~~
+領域
+≠
+功能
+≠
+資料型別
+≠
+方案
+~~~
+
+這一點是未來重建 Repository 分類時的硬性原則。
+
+---
+
+# 七十一、第十五項補充：知識仍然需要內部分層
+
+Knowledge 不能成為一個沒有內部分類的大桶。
+
+前期已確認：
+
+~~~
+知識
+├── 記憶
+├── 管理
+├── ...
+~~~
+
+其中具體子分類應由後續正式 Knowledge Taxonomy 決定。
+
+本藍圖不在此硬編一套完整分類，但必須保留原則：
+
+> Knowledge 是一級 Entity，但 Knowledge 內部仍需要依資訊性質、用途與生命週期進行合理分類。
+
+例如「長期記憶」與「知識管理規則」不能因為都屬於 Knowledge 就混在同一語義層。
+
+---
+
+# 七十二、第十六項補充：Capability Registry 不應先於 Capability Mapping 大量建立
+
+原 v1.0 的 Phase 3 容易被理解成先建立 Capability Registry。
+
+應修正為：
+
+~~~
+既有功能盤點
+↓
+Capability Mapping
+↓
+重複／互補／依賴分析
+↓
+確認哪些 Capability 真正值得成為正式管理單位
+↓
+建立最小 Capability Registry
+~~~
+
+也就是：
+
+> Registry 是 Mapping 的結果之一，不是 Mapping 的前提。
+
+這能避免再次把 K01–K61、S01–S37 一股腦轉成大量新系統。
+
+---
+
+# 七十三、第十七項補充：Capability 狀態與 System 狀態不可混用
+
+Capability 可能是：
+
+~~~
+CURRENT
+REVIEW
+DEPRECATED
+~~~
+
+System 也可能是：
+
+~~~
+CURRENT
+CANDIDATE
+DEPRECATED
+ARCHIVED
+~~~
+
+但：
+
+> 某 Capability 被取代，不代表提供它的整個 System 必須消失。
+
+例如：
+
+~~~
+System A
+├─ CAP-001 被 GPT 取代
+├─ CAP-002 仍有價值
+└─ CAP-003 仍有價值
+~~~
+
+正確處理可能是：
+
+~~~
+System A
+↓
+移除 CAP-001
+↓
+保留 CAP-002 / CAP-003
+↓
+System A 精簡
+~~~
+
+---
+
+# 七十四、第十八項補充：功能取代測試需要固定 Test Corpus
+
+A/B Test 不能只比較單次案例。
+
+未來應建立：
+
+> Capability Test Corpus。
+
+包含：
+
+- 正常案例。
+- 邊界案例。
+- 困難案例。
+- 歧義案例。
+- 衝突案例。
+- 高風險案例。
+- 歷史污染案例。
+- Context 不完整案例。
+- 失敗案例。
+
+同一 Capability 的 Provider 比較應盡可能使用相同 Test Corpus。
+
+否則 GPT Only 與 GPT + System 無法形成可靠結論。
+
+---
+
+# 七十五、第十九項補充：模型更新不是唯一 Evolution Trigger
+
+完整 Evolution Trigger 至少包括：
+
+~~~
+新模型
+新工具
+新研究
+實際使用
+Repeated Failure
+Repeated Correction
+Context Waste
+Architecture Bottleneck
+User Requirement Change
+大型格式變更
+~~~
+
+因此：
+
+> Model Update → Capability Delta 是重要入口，但不是唯一入口。
+
+---
+
+# 七十六、第二十項補充：FIELD 必須來自自然運作
+
+前期工程已完成多輪模擬與回歸驗收。
+
+未來不能因為「需要測試」而人工製造 FIELD。
+
+正確狀態：
+
+~~~
+架構驗收完成
+↓
+正常工程運作
+↓
+真實工作
+↓
+自然產生 Observation / FIELD
+↓
+才決定是否新增或修改系統
+~~~
+
+本藍圖描述的是未來可用的 Capability Evolution 框架，不代表現在要立刻建立全部演化機制。
+
+---
+
+# 七十七、第二十一項補充：新系統正式化門檻
+
+前期已確立的正式化門檻：
+
+~~~
+概念
+↓
+實際使用
+↓
+Observation
+↓
+重複瓶頸
+↓
+Proposal
+↓
+Stress Test
+↓
+User / Authorized Confirmation
+↓
+Build
+↓
+Regression
+↓
+正式 Current
+~~~
+
+不能因為「理論上可能需要」就直接建立新的 System。
+
+這是防止 Capability 架構自己膨脹的主要防線。
+
+---
+
+# 七十八、第二十二項補充：外部研究的角色
+
+外部工具、模型與其他軟體公司的做法，可以作為：
+
+- Candidate Architecture。
+- Design Reference。
+- Benchmark。
+- Risk Warning。
+- Alternative Design。
+
+但：
+
+> 外部方案不是本 Repository 的 Canonical Source。
+
+正式採用仍需要：
+
+~~~
+External Research
+↓
+適用性分析
+↓
+本系統 Context
+↓
+Prototype / Stress Test
+↓
+Evidence
+↓
+Decision
+~~~
+
+「別人有這個系統」不能直接推出「我們也必須建立」。
+
+---
+
+# 七十九、第二十三項補充：目前 Repository 文件很多，不等於未來架構很多
+
+目前 Repository 文件數量偏高，是因為系統剛建立蒸餾流程，舊施工資料尚未全部進入集中 Archive / History。
+
+因此：
+
+~~~
+Current File Count
+≠
+Final Working Interface Complexity
+~~~
+
+未來應：
+
+~~~
+大量施工資料
+↓
+Distillation
+↓
+穩定規則 / Current
++
+完整歷史 / Archive
+~~~
+
+真正需要觀察的是：
+
+- 每次工作實際載入多少 Context。
+- 找資料是否困難。
+- Handoff 是否失敗。
+- 是否有重複 Capability。
+- 維護成本是否上升。
+
+---
+
+# 八十、第二十四項補充：交接文件與藍圖文件的責任不同
+
+未來至少區分：
+
+## Blueprint
+
+回答：「系統未來想成為什麼。」
+
+## Current State
+
+回答：「系統現在是什麼。」
+
+## Handoff
+
+回答：「新 GPT 現在需要知道什麼才能接手。」
+
+## History / Evidence
+
+回答：「系統為什麼變成現在這樣。」
+
+四者不能互相取代。
+
+新 GPT 不應因為讀到 Blueprint，就把「未來規劃」誤認為「已實作功能」。
+
+---
+
+# 八十一、第二十五項補充：目前四方案的工程狀態不因本藍圖改變
+
+本藍圖不是四方案重新驗收文件。
+
+目前工程狀態仍以既有正式驗收與 CURRENT 狀態為準。
+
+本藍圖只提供未來功能導向演化的共同框架。
+
+因此：
+
+- 不重新做四方案總驗收。
+- 不因本藍圖建立第五方案。
+- 不因本藍圖人工製造新的 FIELD。
+- 不以藍圖內容冒充目前已實作能力。
+
+---
+
+# 八十二、第二十六項補充：未來功能比較的最小單位應是「Capability + Scenario」
+
+單獨比較 Capability 名稱仍可能不足。
+
+例如「Decision」在不同情境可能完全不同：
+
+~~~
+一般低風險選擇
+vs
+高風險架構決策
+vs
+資訊衝突決策
+~~~
+
+因此未來 Evaluation 的最小有效比較單位應逐步形成：
+
+~~~
+Capability
++
+Scenario
++
+Test Corpus
++
+Provider
++
+Result
++
+Evidence
+~~~
+
+這能避免把「同名功能」誤判成真正重疊。
+
+---
+
+# 八十三、第二十七項補充：Provider Replacement 不等於 System Replacement
+
+未來最容易出現的誤判之一是：
+
+> GPT 已經能做這件事，所以整個 System 可以刪掉。
+
+正確判斷順序：
+
+~~~
+Provider Capability 提升
+↓
+Capability Overlap
+↓
+Scenario Evaluation
+↓
+System 中哪些 Capability 被取代？
+↓
+System 是否仍有其他不可取代能力？
+↓
+局部精簡
+↓
+必要時才評估整個 System
+~~~
+
+因此真正的淘汰單位可以是：
+
+- Capability。
+- Provider。
+- System 內部元件。
+- 整個 System。
+
+不能預設四者同步淘汰。
+
+---
+
+# 八十四、第二十八項補充：未來的「快速判斷」必須建立在可回溯證據上
+
+使用者要求的核心問題之一是：
+
+> 如何快速知道某功能是否還需要保留？
+
+未來應形成：
+
+~~~
+Question
+↓
+Capability Identification
+↓
+Existing Provider Mapping
+↓
+Overlap Candidate
+↓
+Scenario Selection
+↓
+Test Corpus
+↓
+A/B / A/B/C
+↓
+Result
+↓
+Evidence
+↓
+Decision
+↓
+Impact Analysis
+↓
+Regression
+~~~
+
+「快速」來自於：
+
+- 只測受影響 Capability。
+- 固定 Test Corpus。
+- 既有 Evidence 可重用。
+- 關係圖可直接找到受影響 System / Plan。
+- 不需要每次重讀整個 Repository。
+
+而不是降低驗證品質。
+
+---
+
+# 八十五、前六次稽核後的正式修正版核心模型
+
+經本次稽核，未來藍圖的核心模型正式修正為：
+
+~~~
+                         ┌──────────────┐
+                         │    USER      │
+                         └──────┬───────┘
+                                ↓
+                       Intent / Context
+                                ↓
+                       Response Contract
+                                ↓
+                         Orchestration
+                                │
+          ┌─────────────────────┼─────────────────────┐
+          ↓                     ↓                     ↓
+      Knowledge              Capability              Rule
+          │                     │                     │
+          │             ┌───────┼────────┐            │
+          │             ↓       ↓        ↓            │
+          │            GPT    System    Tool          │
+          │             └───────┼────────┘            │
+          │                     ↓                     │
+          └──────────────→     Plan    ←──────────────┘
+                                ↓
+                              Task
+                                ↓
+                            Execution
+                                ↓
+                          Verification
+                           │          │
+                           ↓          ↓
+                       Evidence   Observation
+                                      ↓
+                              Evolution / Impact
+                                      ↓
+                              Evaluation / Decision
+                                      ↓
+                         Distillation / Refactoring
+                              │             │
+                              ↓             ↓
+                           CURRENT       ARCHIVE
+~~~
+
+這個模型不表示所有任務都必須經過全部節點。
+
+它表示這些是不同責任的架構元件，以及它們可能發生的關係。
+
+---
+
+# 八十六、稽核後正式修正的實作原則
+
+本藍圖後續實作時，新增以下硬性原則：
+
+1. 不把 Knowledge、Capability、System、Plan 強制串成單一路徑。
+2. Data Entity、Data State、Context Loading 三維分離。
+3. Role、Capability、Provider 三者分離。
+4. Authority / Permission 不因 Capability Registry 而被吞併。
+5. Evidence 與 Verification 分離。
+6. Verification 採風險驅動的多層驗證。
+7. Observation 是 Evolution 的核心輸入。
+8. Trigger 必須在 Intent / Context 理解後提供候選召回。
+9. Response Contract 是工作邊界。
+10. Blueprint 只有在任務規模與風險需要時啟用。
+11. Entropy 只能提出整理候選，不得直接授權刪除。
+12. 大型格式變更採 Migration / Distillation / Validation / Cutover / Archive。
+13. GitHub 同時是 Persistent Memory 與 Handoff Boundary。
+14. Capability Registry 必須晚於初步 Capability Mapping。
+15. Capability 狀態與 System 狀態分開管理。
+16. 功能取代必須有固定 Test Corpus。
+17. Model Update 只是 Evolution Trigger 之一。
+18. FIELD 必須來自自然運作，不人工製造。
+19. 新 System 必須經過「使用→Observation→重複瓶頸→驗證→確認→建立」。
+20. 外部研究提供參考，不直接成為本系統規範。
+21. CURRENT、Blueprint、Handoff、History / Evidence 必須保持責任分離。
+22. 文件數量不是架構複雜度的直接指標。
+23. 最終目標仍是最低有效複雜度，而不是最大功能數。
+24. Provider Replacement 不等於 System Replacement。
+25. Capability Evaluation 必須逐步加入 Scenario 維度。
+26. 快速判斷必須建立在可回溯 Evidence 上。
+
+---
+
+# 八十七、稽核結論
+
+本次對照沒有發現需要推翻「Capability 導向未來藍圖」的核心錯誤。
+
+但原 v1.0 有一個重要風險：
+
+> 如果直接按照原文件施工，可能再次把「功能分類」實體化成大量新 Registry、System、文件與治理流程。
+
+因此本次修正後，正式採用以下優先順序：
+
+~~~
+先理解
+↓
+先 Mapping
+↓
+先比較
+↓
+先測試
+↓
+確認真的需要
+↓
+才實體化
+~~~
+
+而不是：
+
+~~~
+藍圖描述了
+↓
+立即建立文件
+↓
+立即建立 Registry
+↓
+立即建立 System
+~~~
+
+本文件仍然是：
+
+**【未來藍圖／長期規劃】**
+
+目前工程狀態仍以 Repository 中已確認的 CURRENT、四方案、正式交接資料與既有驗收結果為準。
+
+本次稽核的目的不是增加更多架構，而是讓未來架構具備「能自我約束、不因自身演化而膨脹」的能力。
