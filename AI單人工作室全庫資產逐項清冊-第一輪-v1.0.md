@@ -456,3 +456,205 @@
 | 第七批 | 根目錄其他企劃／模板／工具 | 待執行 |
 
 G1 尚未完成，因此目前仍禁止大規模 Migration。
+
+
+## 十七、G1 第四批：2-方案/完善 Repository 全量資產盤點
+
+本批改用 GitHub Contents API 直接取得 2-方案/完善/ 實際文件集合，共 **160 個 Markdown 文件**。本批不以搜尋結果估算目錄完整性。
+
+其中已有 G1-070～G1-082 等前批資產者視為「既有資產重新稽核」，不重複建立 Asset ID；其餘文件以下新增登錄。這一批仍是文件級初判，不是最終 Canonical／State 判定。
+
+### 17.1 新增文件逐項登錄
+
+| Asset ID | 路徑 | 類型 | 初步 State | 初步處置／備註 |
+|---|---|---|---|---|
+| G1-400 | 2-方案/完善/AI知識庫基本運作系統-v1.0最小實測-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-401 | 2-方案/完善/AI知識管理方案-v2.1完善草案.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-402 | 2-方案/完善/三方案協作驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-403 | 2-方案/完善/三方案問題發現與舊搜尋方案解法驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-404 | 2-方案/完善/三方案問題解法實測結果-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-405 | 2-方案/完善/三方案第二輪真實案例檢驗-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-406 | 2-方案/完善/三方案跨系統長流程壓力測試-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-407 | 2-方案/完善/交接失憶模擬測試-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-408 | 2-方案/完善/兩方案重製交叉驗證案例-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-409 | 2-方案/完善/共同對象與關係目錄系統-最小實作驗收-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-410 | 2-方案/完善/功能到系統能力映射第一版-v1.0.md | Derived View / Mapping | REVIEW | 非Canonical Source |
+| G1-411 | 2-方案/完善/問題處理-功能清單批次錯置-A13至A16未定義-v1.0.md | Engineering Evidence / Review | REVIEW | 需逐文件讀取後判定 |
+| G1-412 | 2-方案/完善/問題處理-實際驗證延後機制-研究與候選解法-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-413 | 2-方案/完善/問題處理-無記憶交接測試發現現行入口引用漂移-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-414 | 2-方案/完善/問題處理-無記憶交接測試發現現行入口引用漂移-研究與候選解法-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-415 | 2-方案/完善/問題處理-第二次無記憶交接測試-完整現行入口鏈回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-416 | 2-方案/完善/問題處理-第二次無記憶交接測試發現現行規則仍引用-v2.7-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-417 | 2-方案/完善/問題處理與回報流程-錯誤發現案例整合驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-418 | 2-方案/完善/問題解決-功能清單批次錯置-回歸模擬驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-419 | 2-方案/完善/問題解決-功能清單批次錯置-研究與候選解法-v1.0.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-420 | 2-方案/完善/問題解決-問題解決系統未被實際啟動案例-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-421 | 2-方案/完善/問題解決-新系統建立流程入口失效案例-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-422 | 2-方案/完善/問題解決-施工階段誤跳至⑨之最小守門能力驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-423 | 2-方案/完善/問題解決-統御異常偵測與問題解決路由第三輪案例驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-424 | 2-方案/完善/問題解決-統御異常偵測與問題解決路由第二輪案例驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-425 | 2-方案/完善/問題解決與新系統建立流程-搜尋研究方案加入實測-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-426 | 2-方案/完善/四方案功能拆解第一版-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-427 | 2-方案/完善/四方案逐項功能研究-001-A1至A4.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-428 | 2-方案/完善/四方案逐項功能研究-002-A5至A8.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-429 | 2-方案/完善/四方案逐項功能研究-003-A9至A12.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-430 | 2-方案/完善/四方案逐項功能研究-004-B1至B4.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-431 | 2-方案/完善/四方案逐項功能研究-005-B5至B8-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-432 | 2-方案/完善/四方案逐項功能研究-005-B5至B8.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-433 | 2-方案/完善/四方案逐項功能研究-006-B9至B12-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-434 | 2-方案/完善/四方案逐項功能研究-006-B9至B12.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-435 | 2-方案/完善/四方案逐項功能研究-007-B13至B16-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-436 | 2-方案/完善/四方案逐項功能研究-007-B13至B16.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-437 | 2-方案/完善/四方案逐項功能研究-008-C1至C4-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-438 | 2-方案/完善/四方案逐項功能研究-008-C1至C4.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-439 | 2-方案/完善/四方案逐項功能研究-009-C5至C8-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-440 | 2-方案/完善/四方案逐項功能研究-009-C5至C8.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-441 | 2-方案/完善/四方案逐項功能研究-010-C9至C12-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-442 | 2-方案/完善/四方案逐項功能研究-010-C9至C12.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-443 | 2-方案/完善/四方案逐項功能研究-011-C13至C16-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-444 | 2-方案/完善/四方案逐項功能研究-011-C13至C16.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-445 | 2-方案/完善/四方案逐項功能研究-012-C17至C18-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-446 | 2-方案/完善/四方案逐項功能研究-012-C17至C18.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-447 | 2-方案/完善/四方案逐項功能研究-013-D1至D4-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-448 | 2-方案/完善/四方案逐項功能研究-013-D1至D4.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-449 | 2-方案/完善/四方案逐項功能研究-014-D5至D8-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-450 | 2-方案/完善/四方案逐項功能研究-014-D5至D8.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-451 | 2-方案/完善/四方案逐項功能研究-016-D13至D16-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-452 | 2-方案/完善/四方案逐項功能研究-016-D13至D16.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-453 | 2-方案/完善/四方案逐項功能研究-017-D17至D20-模擬實作驗收.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-454 | 2-方案/完善/實測結果回寫檢查小系統-最小實測-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-455 | 2-方案/完善/實測結果回寫檢查小系統-第二輪自然施工模擬-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-456 | 2-方案/完善/實際驗證待觸發標記清冊-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-457 | 2-方案/完善/實際驗證待觸發機制-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-458 | 2-方案/完善/實際驗證待觸發機制-模擬實作驗收-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-459 | 2-方案/完善/實際驗證觀察與待觸發機制-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-460 | 2-方案/完善/工程紀錄時機與交接同步-新基準-001.md | Engineering Evidence / Review | REVIEW | 需逐文件讀取後判定 |
+| G1-461 | 2-方案/完善/工程紀錄時機與交接同步-自然工作驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-462 | 2-方案/完善/工程紀錄時機與交接同步狀態-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-463 | 2-方案/完善/工程紀錄時機與交接同步規劃-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-464 | 2-方案/完善/工程紀錄時機與交接同步規劃-交接摘要-001.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-465 | 2-方案/完善/工程紀錄時機與交接同步規劃-待辦狀態-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-466 | 2-方案/完善/工程紀錄時機與交接同步規劃-驗證前狀態-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-467 | 2-方案/完善/工程紀錄時機與交接同步驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-468 | 2-方案/完善/工程運作批次來源驗證-B13至B16批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-469 | 2-方案/完善/工程運作批次來源驗證-B9至B12批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-470 | 2-方案/完善/工程運作批次來源驗證-C13至C16批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-471 | 2-方案/完善/工程運作批次來源驗證-C17至C18批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-472 | 2-方案/完善/工程運作批次來源驗證-C1至C4批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-473 | 2-方案/完善/工程運作批次來源驗證-C5至C8批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-474 | 2-方案/完善/工程運作批次來源驗證-C9至C12批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-475 | 2-方案/完善/工程運作批次來源驗證-D17至D20批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-476 | 2-方案/完善/工程運作批次來源驗證-D1至D4批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-477 | 2-方案/完善/工程運作批次來源驗證-D1至D4批次檢查-修正-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-478 | 2-方案/完善/工程運作批次來源驗證-D5至D8批次檢查-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-479 | 2-方案/完善/工程運作批次來源驗證-迭代修正方案-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-480 | 2-方案/完善/工程運作自然工作驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-481 | 2-方案/完善/工程運作與持續改進方案-最小實作驗收-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-482 | 2-方案/完善/待辦-本輪交接發現事項-v1.0.md | Engineering Evidence / Review | REVIEW | 需逐文件讀取後判定 |
+| G1-483 | 2-方案/完善/後續工作觸發式順便驗證-外部方法比對記錄-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-484 | 2-方案/完善/搜尋研究方案-v2.0加入後新系統穩定性驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-485 | 2-方案/完善/整體系統更新方案-自然案例驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-486 | 2-方案/完善/整體系統更新方案-重大變更遷移演練-001.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-487 | 2-方案/完善/整體資料治理方案-v1.1完善草案.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-488 | 2-方案/完善/新系統與三方案對接穩定性及資料格式檢驗-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-489 | 2-方案/完善/方案一-A1至A12正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-490 | 2-方案/完善/方案一整體責任統整-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-491 | 2-方案/完善/方案一整體責任統整-模擬實作驗收-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-492 | 2-方案/完善/方案三-C13至C16正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-493 | 2-方案/完善/方案三-C13至C16正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-494 | 2-方案/完善/方案三-C17至C18正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-495 | 2-方案/完善/方案三-C17至C18正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-496 | 2-方案/完善/方案三-C1至C4正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-497 | 2-方案/完善/方案三-C1至C4正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-498 | 2-方案/完善/方案三-C5至C8正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-499 | 2-方案/完善/方案三-C5至C8正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-500 | 2-方案/完善/方案三-C9至C12正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-501 | 2-方案/完善/方案三-C9至C12正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-502 | 2-方案/完善/方案三整體責任統整-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-503 | 2-方案/完善/方案三整體責任統整-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-504 | 2-方案/完善/方案三整體責任統整-模擬實作驗收-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-505 | 2-方案/完善/方案三整體驗收後最小實作與工程運作驗證方案-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-506 | 2-方案/完善/方案三最小實作驗收模擬-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-507 | 2-方案/完善/方案三變更失敗修正閉環模擬驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-508 | 2-方案/完善/方案二-B13至B16正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-509 | 2-方案/完善/方案二-B13至B16正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-510 | 2-方案/完善/方案二-B1至B8正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-511 | 2-方案/完善/方案二-B1至B8正式責任整合-模擬回歸驗收-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-512 | 2-方案/完善/方案二-B9至B12正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-513 | 2-方案/完善/方案二-B9至B12正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-514 | 2-方案/完善/方案二任務理解與Context責任鏈模擬驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-515 | 2-方案/完善/方案二功能既有能力映射-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-516 | 2-方案/完善/方案二失敗修正閉環模擬驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-517 | 2-方案/完善/方案二最小實作驗收模擬-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-518 | 2-方案/完善/方案二變更接口模擬驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-519 | 2-方案/完善/方案四-D13至D16正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-520 | 2-方案/完善/方案四-D13至D16正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-521 | 2-方案/完善/方案四-D17至D20正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-522 | 2-方案/完善/方案四-D17至D20正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-523 | 2-方案/完善/方案四-D1至D4正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-524 | 2-方案/完善/方案四-D1至D4正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-525 | 2-方案/完善/方案四-D5至D8正式責任整合-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-526 | 2-方案/完善/方案四-D5至D8正式責任整合-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-527 | 2-方案/完善/方案四共同能力影響分析-001.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-528 | 2-方案/完善/方案四整體責任統整-模擬回歸驗證-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-529 | 2-方案/完善/方案四整體責任統整-模擬實作驗收-v1.0.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-530 | 2-方案/完善/方案四蒸餾邊界與失敗修正模擬驗證-001.md | Test / Evidence | HISTORICAL候選 | 保留驗證證據，需判定後續基準是否已吸收 |
+| G1-531 | 2-方案/完善/方案規劃與施工入口標記模板-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-532 | 2-方案/完善/施工主線-①至⑪-v1.0.md | Engineering Evidence / Review | REVIEW | 需逐文件讀取後判定 |
+| G1-533 | 2-方案/完善/施工順序修正-知識書先於共同規格細化-v1.0.md | Engineering Spec | REVIEW | 需確認是否已併入正式方案 |
+| G1-534 | 2-方案/完善/正確成立方案與系統-功能盤點與外部研究-v1.0.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-535 | 2-方案/完善/正確成立方案與系統-功能盤點與外部研究-v1.1.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-536 | 2-方案/完善/正確成立方案與系統方案-v1.0-外部比對與失效分析-001.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+| G1-537 | 2-方案/完善/正確成立方案與系統方案-v2.0-重建狀態-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-538 | 2-方案/完善/目前工程狀態快照恢復驗證-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-539 | 2-方案/完善/目前狀態來源責任重整-施工前影響分析-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-540 | 2-方案/完善/目前狀態來源責任重整-第二輪失去記憶交接驗證-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-541 | 2-方案/完善/目前狀態來源責任重整狀態-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-542 | 2-方案/完善/目前狀態來源責任重整規劃-v1.0.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-543 | 2-方案/完善/目前狀態與工程狀態快照責任分工分析-001.md | State / Evidence | REVIEW | 需依時間軸與內容判定 |
+| G1-544 | 2-方案/完善/知識迭代與資料演化方案-v1.1完善草案.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-545 | 2-方案/完善/統御方案-提前建立缺陷標記-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-546 | 2-方案/完善/能力蒸餾與系統重構方案-閉環補強規格-v1.0.md | Solution / Planning | REVIEW | 需與正式方案及後續整合文件比對 |
+| G1-547 | 2-方案/完善/變更影響與遷移能力整合盤點-v1.0.md | Research / Analysis | REVIEW | 研究／分析證據，不直接進CURRENT Recall |
+
+### 17.2 第四批高優先關係群
+
+1. 方案四正式責任整合與舊方案文件的狀態差異：能力蒸餾與系統重構方案-v1.1、閉環補強規格、D1～D4／D5～D8／D13～D16／D17～D20 正式責任整合，以及方案四整體責任統整回歸。
+
+2. 能力映射／共同能力候選：功能到系統能力映射、候選系統能力既有能力重疊比對、共同對象與關係目錄系統最小實作驗收、變更影響與遷移能力整合盤點。這些不得直接升格為正式系統。
+
+3. 三方案／跨系統驗證證據群：三方案協作驗證、三方案問題發現與舊搜尋方案解法驗證、三方案問題解法實測、三方案第二輪真實案例檢驗、三方案跨系統長流程壓力測試，以及失憶交接／狀態責任重整驗證。主要價值是 Evidence／Test Corpus，不因 PASS 自動成為 CURRENT 規格。
+
+4. 目前工程入口歷史鏈：快照-001～004 為歷史證據；快照-005 為 CURRENT 唯一工程游標；快照恢復驗證與來源責任重整驗證屬 Evidence。
+
+### 17.3 第四批判定
+
+本批確認 2-方案/完善/ 不是單純「完善文件夾」，而是 Repository 中最大的工程證據、驗證、責任整合與狀態演化資料層之一。因此不能整批 Archive，也不能整批放入 CURRENT Recall。
+
+後續應按：正式責任整合 → 驗證證據 → 研究／候選 → 歷史狀態 → 派生 Mapping，逐項處理，而不是按資料夾一次搬遷。
+
+### 17.4 方案四 v1.1 狀態衝突追溯結果
+
+目前已取得足夠證據把原先的「未知衝突」縮小為「後續正式整合已發生，但 v1.1 文件內 State 未同步」的高可信候選：
+
+- v1.1 文件自身仍標示「整體重整完成；待最小流程驗收；真實系統能力案例待執行」。
+- 後續正式文件已完成 D1～D20 分批正式責任整合。
+- 後續驗收已完成 D17～D20 模擬回歸，並有 D1～D20 整體模擬／回歸結果。
+- 現行交接／快照已明確記錄 D1～D20 模擬／回歸完成，FIELD 待自然觸發。
+- 因此不應再把 v1.1 的舊 State 當作目前方案四狀態；但仍保留 v1.1 作為歷史演化來源，直到確認其內容是否全部被後續文件吸收。
+
+這是狀態追溯結果，不是對舊文件做內容改寫。
+
+## 十八、G1 目前進度修正
+
+| 批次 | 範圍 | 狀態 |
+|---|---|---|
+| 第一批 | 目前工程入口、部分知識、部分系統、方案、完善、根目錄藍圖 | 完成 |
+| 第二批 | 0-知識／1-系統 Repository tree | 完成；存在性完成，最終狀態仍需逐項審查 |
+| 第三批 | 2-方案 根目錄 Repository tree | 完成；存在性完成，最終狀態仍需逐項審查 |
+| 第四批 | 2-方案/完善 Repository tree + 高優先證據追溯 | 完成；逐文件初判完成，最終 State/Canonical 尚未全部定案 |
+| 第五批 | 2-方案/統御及其他子目錄 | 待執行 |
+| 第六批 | 討論／研究／會議／紀錄 | 待執行 |
+| 第七批 | 根目錄其他企劃／模板／工具 | 待執行 |
+
+G1 仍未完成，因此仍禁止大規模 Migration。
