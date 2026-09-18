@@ -1,8 +1,8 @@
 # AI單人工作室全庫資產逐項清冊－第一輪
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-18
-狀態：【CURRENT DERIVED INVENTORY；G1 第一輪全庫盤點完成；G2 尚未開始】
+狀態：【CURRENT DERIVED INVENTORY；G1 第一輪全庫盤點完成；G2 已完成；P0.5-03 正式盤點／State-・Disposition 判定執行中】
 上位文件：AI單人工作室全庫資產盤點-第一輪-v1.0.md
 
 ## 一、用途
@@ -19,7 +19,13 @@
 
 本文件保留 G1 逐批盤點過程，因此後文可能出現「待執行」「進行中」「完成」等不同時間點的批次紀錄。這些文字屬於**歷史批次狀態**，不得直接用來判定目前 G1 State。
 
-目前 G1 State：**第一輪全庫盤點已完成；G2 尚未開始。**
+目前 G1 State：**第一輪全庫盤點已完成。**
+
+目前 G2 State：**G2-01～G2-08 已完成；G2 正式收束。**
+
+目前 P0.5 State：**P0.5-03 正式盤點／State・Disposition 判定執行中。**
+
+注意：本文件仍是 Derived Inventory，不取代 CURRENT 工程游標或 Canonical Source。
 
 目前基線重建游標與下一步，以：
 
@@ -50,6 +56,27 @@
 | Evidence | 判定依據 |
 
 規則：Filename Version ≠ Internal Version ≠ State ≠ Git Commit。
+
+## 三、P0.5-03 執行狀態更新
+
+G2 收束後，本清冊正式進入 P0.5-03 的執行依據角色。
+
+本輪不直接 Migration；先以既有 Inventory 為基礎，逐資產確認：
+
+1. Identity
+2. Type / Topic
+3. State
+4. Canonical Source
+5. Current Counterpart
+6. Conflict
+7. Duplicate
+8. Valid Content
+9. Distillation Needed
+10. Disposition
+11. Evidence
+12. Notes
+
+本輪新增的判定不得倒寫成歷史批次狀態；若與原始 G1 初步判定不同，以後續具證據的 P0.5 判定為準，並保留原始 G1 判定作為演化證據。
 
 ## 三、目前工程權威入口
 
