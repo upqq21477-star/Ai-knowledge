@@ -2,8 +2,8 @@
 
 > 文件定位：未來藍圖的第四份核心文件。  
 > 文件性質：工程待辦（TODO）與建設順序規格，不是第五套正式方案。  
-> 目前狀態：規劃中，尚未代表所有項目都應立即實作。  
-> 核心原則：先凍結規格假設，再建立工作管理與能力啟動規則；先驗證實際工作循環，再決定哪些管理系統值得實體化。
+> 目前狀態：規劃中；本文件的待辦狀態必須以既有 Lifecycle / State 語彙表示，不另造第三套狀態詞。  
+> 核心原則：先凍結規格假設，再建立工作管理與能力啟動規則；先建立乾淨基線與自然 Real Work 證據，再進行 Evaluation 與 Evolution；只有實際瓶頸證明有需要時才實體化管理系統。
 
 ---
 
@@ -59,27 +59,25 @@ A1–A12、B1–B16、C1–C18、D1–D20 已完成模擬／回歸驗收並進�
 
     規格假設
         ↓
-    工作管理規格
-        ↓
-    Trigger / Recall / Context
-        ↓
-    Provider / Capability / System 關係
+    P0-15-Lite 最小驗證
         ↓
     主系統資料基線重建
         ↓
     Mapping
         ↓
-    Scenario / Test Corpus
-        ↓
-    Evaluation
+    Scenario / Test Corpus 準備
         ↓
     Real Work
         ↓
-    Change Signal
+    Evaluation
+        ↓
+    Change Signal / Observation
         ↓
     Capability Evolution
         ↓
     必要時才實體化 Registry / Graph / Automation
+
+> P0-11～P0-14 可與 P0.5 並行；P0-15 的完整 Risk-driven Verification 可後續展開，但 P0-15-Lite 必須先於 P0.5-06。Scenario / Test Corpus 可以提前準備，但正式 Evaluation 不作為第一次 Real Work 的前置門檻。
 
 ---
 
@@ -549,7 +547,25 @@ Failure 類型至少包括：
 
 ---
 
-## P0-15 Verification 規格
+## P0-15-Lite Verification 最小規格【P0.5 前置】
+
+P0.5-06 本身需要判定 Migration 是否成功，因此不能等待完整 Verification Framework 完成後才建立最小驗收規則。
+
+P0-15-Lite 只負責定義 P0.5-06 的最低驗收條件：
+
+- CURRENT Baseline 是否完整
+- 舊資料是否仍可追溯
+- 舊規格是否不會被一般 Recall 優先召回
+- 重要決策是否遺失
+- 蒸餾後語意是否失真
+- 新舊資料是否仍存在未標記衝突
+- 無歷史記憶的 AI 是否能只讀主系統理解目前規格、目前狀態與下一步工作
+
+完成條件：
+
+> P0.5-06 至少有一組明確、可重複執行的最小驗收判準。
+
+## P0-15 Verification 完整規格【後續展開】
 
 Verification 不等於「每件事都做完整測試」。
 
@@ -572,6 +588,8 @@ Verification 不等於「每件事都做完整測試」。
 目標：
 
 > 用最小充分驗證取得足以支持決策的證據，而不是無限測試。
+
+> P0-15-Lite 與 P0-15 使用同一套 Verification 語義；Lite 只是 P0.5 的最低子集，不是另一套 Verification 系統。
 
 ---
 
@@ -1096,16 +1114,16 @@ FIELD 應由自然工作產生。
 
 ## Phase 0：規格凍結
 
-- [ ] P0-01 核心物件模型
-- [ ] P0-02 Namespace
-- [ ] P0-03 Capability 標準
-- [ ] P0-04 Provider
-- [ ] P0-05 State / Version / Git Commit
-- [ ] P0-06 Lifecycle
-- [ ] P0-07 Relationship
-- [ ] P0-08 Change / Evolution
-- [ ] P0-09 Failure Closure
-- [ ] P0-10 Disposition
+- [DESIGNED] P0-01 核心物件模型
+- [DESIGNED] P0-02 Namespace
+- [DESIGNED] P0-03 Capability 標準
+- [DESIGNED] P0-04 Provider
+- [DESIGNED] P0-05 State / Version / Git Commit
+- [DESIGNED] P0-06 Lifecycle
+- [DESIGNED] P0-07 Relationship
+- [DESIGNED] P0-08 Change / Evolution
+- [DESIGNED] P0-09 Failure Closure
+- [DESIGNED] P0-10 Disposition
 
 完成後：
 
@@ -1115,11 +1133,14 @@ FIELD 應由自然工作產生。
 
 ## Phase 1：AI 工作管理
 
-- [ ] P0-11 Trigger
-- [ ] P0-12 Recall
-- [ ] P0-13 Context Selection / Assembly
-- [ ] P0-14 Response Contract
-- [ ] P0-15 Verification
+- [DESIGNED] P0-11 Trigger
+- [DESIGNED] P0-12 Recall
+- [DESIGNED] P0-13 Context Selection / Assembly
+- [DESIGNED] P0-14 Response Contract
+- [DESIGNED] P0-15 Verification 完整規格
+- [DESIGNED] P0-15-Lite Migration / Baseline 最小驗證規格
+
+> 執行關係：P0-11～P0-14 可與 P0.5 並行；P0-15-Lite 必須在 P0.5-06 前完成；完整 P0-15 不阻塞 P0.5 的前段盤點與遷移工作。
 
 完成後應能回答：
 
@@ -1129,13 +1150,15 @@ FIELD 應由自然工作產生。
 
 ## Phase 2：主系統資料基線重建
 
-- [ ] P0.5-01 凍結資料狀態與處置規則
-- [ ] P0.5-02 定義主系統與歷史／備份邊界
-- [ ] P0.5-03 全面盤點舊有資料
-- [ ] P0.5-04 使用蒸餾工具處理部分有效／舊格式資料
-- [ ] P0.5-05 處理新舊規格衝突
-- [ ] P0.5-06 執行 Migration 驗證
-- [ ] P0.5-07 建立乾淨 CURRENT Baseline
+- [DESIGNED] P0.5-01 凍結資料狀態與處置規則
+- [DESIGNED] P0.5-02 定義主系統與歷史／備份邊界
+- [DESIGNED] P0.5-03 全面盤點舊有資料
+- [DESIGNED] P0.5-04 使用蒸餾工具處理部分有效／舊格式資料
+- [DESIGNED] P0.5-05 處理新舊規格衝突
+- [DESIGNED] P0.5-06 執行 Migration 驗證【使用 P0-15-Lite】
+- [DESIGNED] P0.5-07 建立乾淨 CURRENT Baseline
+
+> P0.5-01～05 不等待 P0-11～P0-14 全部完成；P0.5-06 的最低驗收依 P0-15-Lite 執行。
 
 完成後：
 
@@ -1184,12 +1207,14 @@ FIELD 應由自然工作產生。
 
 ## Phase 3：既有資產翻譯
 
-- [ ] A/B/C/D → Capability Mapping
-- [ ] K01–K06 → Capability / Knowledge Mapping
-- [ ] S01–S10 → Scenario Mapping
-- [ ] 恢復 K07–K61 的權威定義
-- [ ] 恢復 S11–S37 的權威定義
-- [ ] 檢查 Mapping 與 Canonical Source 一致性
+- [BUILT] A/B/C/D → Capability Mapping（A1–A12、B1–B16、C1–C18、D1–D20 已完成第一版）
+- [BUILT] K01–K06 → Capability / Knowledge Mapping
+- [BUILT] S01–S10 → Scenario Mapping
+- [DESIGNED] 恢復 K07–K61 的權威定義
+- [DESIGNED] 恢復 S11–S37 的權威定義
+- [DESIGNED] 檢查 Mapping 與 Canonical Source 一致性
+
+> 已完成項目直接以既有 Lifecycle 語彙標記，不再使用單純 [ ] / [x] 表示工程狀態。K07–K61、S11–S37 仍不得猜測。
 
 注意：
 
@@ -1197,28 +1222,34 @@ FIELD 應由自然工作產生。
 
 ---
 
-## Phase 4：Evaluation 基礎
+## Phase 4：Real Work
 
-- [ ] 建立第一批真實 Scenario
-- [ ] 建立必要 Test Corpus
-- [ ] 定義 Minimum Sufficient Test
-- [ ] 執行第一批 Provider Comparison
-- [ ] 建立 Evidence
-- [ ] 記錄不確定性
-- [ ] 驗證 Stop Condition
+- [DESIGNED] 等待自然工作觸發
+- [DESIGNED] 觀察 Trigger 是否成功
+- [DESIGNED] 觀察 Recall 是否成功
+- [DESIGNED] 觀察 Context 是否正確
+- [DESIGNED] 觀察 Capability 是否真的被使用
+- [DESIGNED] 觀察 Verification 是否足夠
+- [DESIGNED] 記錄失敗閉環
+- [DESIGNED] 產生 Change Signal
 
 ---
 
-## Phase 5：Real Work
+## Phase 5：Evaluation
 
-- [ ] 等待自然工作觸發
-- [ ] 觀察 Trigger 是否成功
-- [ ] 觀察 Recall 是否成功
-- [ ] 觀察 Context 是否正確
-- [ ] 觀察 Capability 是否真的被使用
-- [ ] 觀察 Verification 是否足夠
-- [ ] 記錄失敗閉環
-- [ ] 產生 Change Signal
+- [DESIGNED] 建立第一批可由 Real Work 驅動的 Scenario
+- [DESIGNED] 建立必要 Test Corpus
+- [DESIGNED] 定義 Minimum Sufficient Test
+- [DESIGNED] 執行第一批 Provider Comparison
+- [DESIGNED] 建立 Evidence
+- [DESIGNED] 記錄不確定性
+- [DESIGNED] 驗證 Stop Condition
+
+> 主流程固定為：Real Work → Evaluation → Change Signal / Observation → Capability Evolution。
+>
+> Scenario / Test Corpus / Minimum Sufficient Test 可以在 Real Work 前準備；但正式 Evaluation 的證據與 Provider Comparison 不再被設定為第一次 Real Work 的前置關卡。
+>
+> Evaluation 可以在後續循環再次發生，不代表只做一次。
 
 這一階段不能為了「完成待辦」而虛構案例。
 
@@ -1291,35 +1322,60 @@ FIELD 應由自然工作產生。
 
 > **把藍圖上的概念直接實體化，導致管理成本超過實際工作收益。**
 
-因此優先順序必須固定為：
+因此主流程固定為：
 
     先理解
       ↓
     先凍結規格
       ↓
-    先定義工作循環
+    P0-15-Lite 最小驗證
       ↓
-    先定義 Trigger / Recall / Context
+    建立乾淨 CURRENT Baseline
       ↓
-    先建立乾淨 CURRENT Baseline
+    固化已知 Mapping
       ↓
-    先 Mapping
+    建立 Scenario / Test Corpus
       ↓
-    先實際使用
+    先實際使用（Real Work）
       ↓
     再 Evaluation
       ↓
-    再觀察瓶頸
+    再觀察 Change Signal / 瓶頸
       ↓
     確認真的需要
       ↓
     才實體化 System
+
+> P0-11～P0-14 可與 P0.5 並行；P0-15-Lite 是 P0.5-06 的必要最小前置，不要求完整 P0-15 先全部完成。
+>
+> Real Work 與 Evaluation 不是永遠只發生一次；但在本藍圖的主流程定義中，第一次自然工作證據先於正式 Evaluation。
 
 ---
 
 # 十八、完成判定
 
 「未來藍圖完成」不代表所有待辦都打勾。
+
+## 待辦狀態表示規則
+
+本文件不再使用 [ ] / [x] 作為唯一工程狀態。
+
+直接沿用 P0-05 / P0-06 已定義的既有語彙：
+
+- DESIGNED：已完成規格／設計，可進入實作或驗證
+- BUILT：已建立實際產物
+- SIMULATION-VALIDATED：已通過模擬／回歸驗證
+- REAL-WORK-VALIDATED：已通過真實工作驗證
+- CURRENT：目前採用中的有效狀態
+
+State 與 Lifecycle 仍分開：
+
+- State：CURRENT / REVIEW / DEPRECATED / RETIRED / HISTORICAL
+- Lifecycle：DESIGNED → BUILT → SIMULATION-VALIDATED → REAL-WORK-VALIDATED → CURRENT
+
+> 以上不是新增狀態系統，而是直接引用 P0-05 / P0-06 的既有定義。
+>
+> 若一個待辦尚未產生實際產物，標為 DESIGNED；產物已建立則標為 BUILT；有驗證證據才升級到相應 Validation；不要用 [x] 掩蓋「已設計但未驗證」的差異。
 
 應分成：
 
