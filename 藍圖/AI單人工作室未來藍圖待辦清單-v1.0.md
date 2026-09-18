@@ -1143,6 +1143,45 @@ FIELD 應由自然工作產生。
 
 ---
 
+## Phase 2.5：命名治理與 Rename Migration
+
+- [x] 建立《AI單人工作室命名治理規範-v1.0》
+- [ ] 凍結新文件命名規則
+- [ ] 盤點主要資產的實際文件類型與主要責任
+- [ ] 建立 Old Path → New Path Rename Mapping
+- [ ] 優先處理 System／Process／Capability 混用與高歧義名稱
+- [ ] 檢查 Repository 內引用與交叉連結
+- [ ] 執行必要 Rename
+- [ ] 驗證 Git 歷史、來源追溯與引用完整性
+- [ ] 更新 Blueprint Mapping
+- [ ] 建立命名治理完成／未完成紀錄
+
+### 執行前置條件
+
+命名規則可以現在建立，但大規模 Rename 不提前執行。
+
+必須先完成：
+
+1. P0／P0.5 基礎語意與 State 規則已足以判定文件類型。
+2. 目前 P0.5-03 系統／方案資產盤點已完成到可判定責任的程度。
+3. 高風險版本群已完成語意閉合。
+4. Canonical Source 關係已足以避免因改名造成錯誤合併。
+5. Rename Mapping 已建立並可追溯。
+
+### 為什麼放在 Phase 2 與 Phase 3 之間
+
+命名治理若太早執行，容易在 P0.5 語意盤點尚未完成前二次改名。
+
+若太晚執行，則大量 Mapping、Scenario、Evaluation 已建立後，名稱變更會擴大引用與 Derived View 的維護成本。
+
+因此：
+
+> **規則現在建立；實際 Rename 放在 P0.5 基線重建完成後、既有資產 Mapping 大規模固化前。**
+
+命名治理本身不是第五方案，也不是新的正式工程方案。
+
+---
+
 ## Phase 3：既有資產翻譯
 
 - [ ] A/B/C/D → Capability Mapping
