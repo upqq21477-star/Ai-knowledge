@@ -3209,3 +3209,783 @@ Regression
 目前工程狀態仍以 Repository 中已確認的 CURRENT、四方案、正式交接資料與既有驗收結果為準。
 
 本次稽核的目的不是增加更多架構，而是讓未來架構具備「能自我約束、不因自身演化而膨脹」的能力。
+
+
+---
+
+# 八十八、第二次遺漏稽核：與既有實際方案文件交叉比對
+
+第二次稽核不是重新檢查概念，而是將本藍圖與目前 Repository 中已形成的實際方案文件、資料關係語義、舊能力重製判定原則、失敗處理流程交叉比對。
+
+本次發現以下內容雖然部分已被間接涵蓋，但尚未在未來藍圖中明確成為共同原則：
+
+1. 失敗處理閉環。
+2. 重疊判定的正式語義維度。
+3. 「融合／拆分／部分取代／完全取代／淘汰」之間的精確區別。
+4. 實際使用 ≠ 文件存在。
+5. Version、State、Git Commit 不得混為一談。
+6. 遷移失敗與回復（Rollback / Recovery）。
+7. 系統能力的完成度與實戰驗證狀態。
+8. 關係的時間、範圍、條件與狀態。
+9. 軟體／工具與 System 的邊界。
+10. 共同能力 ≠ 共同責任 ≠ 中央巨型系統。
+11. 蒸餾候選必須先判斷是否為一次性問題。
+12. 新舊能力可以在遷移期間暫時並存，但不能無期限並存。
+13. 功能比較需要固定 Baseline，而不只是固定 Test Corpus。
+14. Evaluation 的結果不應只有數值，還必須保存案例、條件與限制。
+15. 「系統完成」必須與「文件完成」明確分離。
+
+因此，本次不是增加一套新架構，而是把既有工程原則補進未來藍圖，避免未來 Capability 化後遺失已驗證的語義。
+
+---
+
+# 八十九、第二十九項補充：失敗處理必須成為 Capability Evolution 的閉環
+
+目前藍圖已有 Verification、Evidence、Observation，但缺少明確的 FAIL 路徑。
+
+未來完整工作閉環應能表示：
+
+~~~
+Execution
+↓
+Verification
+├─ PASS
+│   ↓
+│ Evidence / Observation
+│
+└─ FAIL
+    ↓
+Failure Classification
+    ↓
+Diagnosis
+    ↓
+Problem Confirmation
+    ↓
+Solution Research
+    ↓
+Fix Proposal
+    ↓
+Implementation
+    ↓
+Revalidation
+    ├─ PASS → Resolved
+    ├─ Partial → Continue
+    └─ FAIL → Rediagnose
+~~~
+
+這一點非常重要。
+
+> 「修正已完成」不等於「問題已解決」。
+
+Capability Evolution 也必須能區分：
+
+- 資料不足。
+- 證據不足。
+- 資料衝突。
+- Context 不足。
+- Context 過量。
+- 版本／狀態不適用。
+- System Capability 不足。
+- Plan 組合錯誤。
+- Verification 不足。
+
+不同失敗應回饋到不同責任層。
+
+因此不能所有 FAIL 都導向「新增 System」。
+
+---
+
+# 九十、第三十項補充：重疊分析必須使用完整語義，而非名稱或單一輸出
+
+既有重製判定原則已明確定義，重疊至少比較：
+
+| 維度 | 問題 |
+|---|---|
+| Purpose | 是否解決同一問題？ |
+| Input | 是否接收相同／高度重疊輸入？ |
+| Output | 是否產生相同或可替代結果？ |
+| Trigger | 是否在相同條件下啟動？ |
+| Responsibility | 是否對同一責任負責？ |
+| State | 是否維護同一狀態？ |
+| Data | 是否保存／修改相同資料？ |
+| User / Role | 是否由同類工作使用？ |
+| Dependency | 是否依賴相同上下游？ |
+| Verification | 是否用相同方式判定成功？ |
+
+因此：
+
+> 名稱相似、輸出相似、或 Capability 名稱相同，都不足以判定真正重疊。
+
+本藍圖原有的 Overlap Detection 應正式採用上述語義作為最低分析基準。
+
+---
+
+# 九十一、第三十一項補充：處置結果必須細分，不能只用 REMOVE / REPLACE
+
+未來功能演化至少需要保留以下處置語義：
+
+~~~
+Keep
+Extend
+Refactor
+Merge
+Split
+Replace
+Rebuild
+Retain
+Retire
+Archive
+~~~
+
+此外，資料／知識演化還可能存在：
+
+~~~
+補充
+修正
+部分取代
+完全取代
+融合
+拆分
+廢棄
+前身／歷史
+~~~
+
+兩組語義不能完全混成一套。
+
+第一組主要描述：
+
+> 能力／系統／架構如何處置。
+
+第二組主要描述：
+
+> 資料／知識內容如何演化。
+
+這是兩個不同維度。
+
+---
+
+# 九十二、第三十二項補充：使用、支撐、依賴、來源必須分開
+
+未來關係分析不得把所有「有關」都寫成 Dependency。
+
+正式保留：
+
+~~~
+使用 ≠ 依賴
+支撐 ≠ 依賴
+來源 ≠ 支持
+比較 ≠ 衝突
+分類 ≠ 關係
+~~~
+
+其中：
+
+- 使用：工作過程中會用到。
+- 依賴：缺少對象會使能力無法正常成立／使用。
+- 支撐：提供設計或判斷上的支撐，但不一定是必要依賴。
+- 來源：描述資料從哪裡來。
+- 支持：描述某來源／證據是否支持某主張。
+
+這會直接影響 Capability Impact Analysis。
+
+錯誤把「使用」當成「依賴」，會造成過度擴大的受影響範圍。
+
+---
+
+# 九十三、第三十三項補充：關係必須保留時間與適用條件
+
+Capability Graph / System Graph 不應只保存：
+
+~~~
+A → Depends On → B
+~~~
+
+對可能變動的關係，至少應能表達：
+
+~~~
+Relationship Type
++
+Source
++
+Target
++
+Time
++
+Scope
++
+Condition
++
+State
+~~~
+
+例如：
+
+> Capability A 在某版本、某專案、某條件下依賴 System B。
+
+不能因為今天存在依賴，就推論歷史上與未來永遠存在。
+
+---
+
+# 九十四、第三十四項補充：Version、State、Commit 是三種不同資料
+
+未來藍圖必須明確禁止：
+
+~~~
+Version = State = Git Commit
+~~~
+
+三者不同：
+
+### Version
+
+回答：
+
+> 「這個物件的哪一個版本？」
+
+### State
+
+回答：
+
+> 「目前處於什麼生命週期狀態？」
+
+例如：
+
+- CURRENT
+- REVIEW
+- DEPRECATED
+- RETIRED
+- HISTORICAL
+
+### Git Commit
+
+回答：
+
+> 「Repository 在哪一次版本控制變更中保存了這個狀態？」
+
+因此：
+
+> Git Commit 可以作為 Evidence / Traceability，但不能直接當成 Capability Lifecycle State。
+
+---
+
+# 九十五、第三十五項補充：實際使用必須與文件存在分離
+
+未來 Capability Matrix 不得因為：
+
+> Repository 裡有這個文件。
+
+就判定：
+
+> Capability 正在使用。
+
+至少要區分：
+
+~~~
+Defined
+Documented
+Available
+Used
+Validated
+Production / Real Work Proven
+~~~
+
+其中：
+
+- Defined：已定義。
+- Documented：已有文件。
+- Available：目前可以使用。
+- Used：曾經實際使用。
+- Validated：經過明確驗證。
+- Real Work Proven：已在正常工作中證明具有實際價值。
+
+這能防止「文件數量」被誤當成「能力數量」或「能力成熟度」。
+
+---
+
+# 九十六、第三十六項補充：大型替換必須考慮回復路徑
+
+任何高影響：
+
+- Replace
+- Merge
+- Split
+- Rebuild
+- 大型 Migration
+
+都必須回答：
+
+~~~
+如果新方案失敗：
+如何回復？
+回復到什麼狀態？
+哪些資料已經轉換？
+哪些舊能力仍可用？
+如何判定可以重新切換？
+~~~
+
+因此大型變更的標準流程應補成：
+
+~~~
+Proposal
+↓
+Impact Analysis
+↓
+Migration Design
+↓
+Validation Plan
+↓
+Approval
+↓
+Implementation
+↓
+Verification
+↓
+Cutover
+↓
+Observation
+↓
+Regression / Recovery if needed
+↓
+Final Adoption
+↓
+Archive
+~~~
+
+不應只設計「成功路徑」。
+
+---
+
+# 九十七、第三十七項補充：A/B Test 必須有 Baseline
+
+固定 Test Corpus 是必要條件，但仍不足。
+
+還需要：
+
+> Baseline。
+
+Baseline 用來回答：
+
+> 「新方案相對於什麼狀態改善或退化？」
+
+因此：
+
+~~~
+Baseline
++
+Test Corpus
++
+Scenario
++
+Provider
++
+Result
++
+Evidence
+~~~
+
+才形成可比較的 Evaluation。
+
+Baseline 可以是：
+
+- 現行 GPT Only。
+- 現行 System。
+- 舊版本。
+- 已驗證的 Reference Implementation。
+
+不同測試不可任意更換 Baseline，否則不同輪結果難以比較。
+
+---
+
+# 九十八、第三十八項補充：Evaluation 必須保存條件，不只保存結果
+
+未來不能只記：
+
+> A = 90%，B = 94%。
+
+還必須知道：
+
+- 測試日期。
+- Model Version。
+- System Version。
+- Capability Version。
+- Test Corpus Version。
+- Scenario。
+- Context 條件。
+- 工具條件。
+- 評估方式。
+- 已知限制。
+- Evidence。
+
+否則模型更新後，即使數值不同，也無法判斷差異究竟來自模型、系統、資料或測試條件。
+
+---
+
+# 九十九、第三十九項補充：非功能性成本必須納入 Capability 評估
+
+功能正確不代表值得保留。
+
+未來 Evaluation 除了：
+
+- 正確性。
+- 完整性。
+- 穩定性。
+- 漏判。
+- 錯判。
+
+還應觀察：
+
+- Context 成本。
+- 搜尋成本。
+- 維護成本。
+- 更新成本。
+- 同步成本。
+- 驗證成本。
+- 遷移成本。
+- 回復成本。
+- 理解成本。
+- 依賴成本。
+- 複雜度成本。
+
+核心原則：
+
+> 功能價值必須與生命週期成本一起判斷。
+
+---
+
+# 一百、第四十項補充：蒸餾候選首先要判斷是否為一次性問題
+
+不是每一個問題都值得進入蒸餾。
+
+應先判斷：
+
+~~~
+Signal
+↓
+是否一次性？
+↓
+是否超出正常迭代範圍？
+↓
+是否涉及多個能力／系統／責任？
+↓
+是否存在長期結構成本？
+↓
+才建立 Distillation Candidate
+~~~
+
+否則：
+
+> 一次性的 Bug 也會被誤認成架構問題。
+
+這會使方案四與日常工程運作混在一起。
+
+---
+
+# 一○一、第四十一項補充：共同能力不能變成中央巨型系統
+
+跨方案共同 Capability 可以存在。
+
+但：
+
+~~~
+共同 Capability
+≠
+共同責任
+≠
+中央巨型 System
+~~~
+
+例如「Impact Analysis」可以由多個方案共同使用，但不代表建立一個中央 Impact Engine 來接管所有方案。
+
+共同能力應盡可能共享：
+
+- 語義。
+- 資料契約。
+- 評估方法。
+- 關係定義。
+
+而不是自動共享所有執行責任。
+
+---
+
+# 一○二、第四十二項補充：軟體、工具、System、Capability 必須保持邊界
+
+既有交接資料已確認：
+
+~~~
+Capability
+≠
+System
+≠
+Software
+≠
+Tool
+~~~
+
+建議未來採：
+
+- Capability：能完成什麼。
+- System：由多項能力、資料與規則組成的可重複工作結構。
+- Tool：提供操作／外部介面的工具。
+- Software：實際運行的軟體產品或程式。
+- Provider：目前提供某 Capability 的來源。
+
+同一個 Software 可以提供多個 Capability。
+
+同一個 Capability 也可能由 GPT、System、Tool、Human 等不同 Provider 提供。
+
+因此不能因為找到一個 Tool，就把 Tool 本身當成 Capability。
+
+---
+
+# 一○三、第四十三項補充：Capability 演化需要「部分取代」能力
+
+未來不應只有：
+
+~~~
+保留
+或
+取代
+~~~
+
+常見實際狀態是：
+
+~~~
+A Capability
+↓
+70% 被 GPT 原生能力覆蓋
+30% 仍由 System 提供
+~~~
+
+此時可能：
+
+- 保留剩餘部分。
+- 精簡 System。
+- 拆分 Capability。
+- 讓 GPT 成為主要 Provider。
+- System 保留特殊情境。
+
+因此 Capability Mapping 必須支援：
+
+> Partial Replacement。
+
+不能把功能重疊理解成二元關係。
+
+---
+
+# 一○四、第四十四項補充：允許「有理由的重複」
+
+Capability 去重的目標不是讓 Repository 中每個功能只出現一次。
+
+有些重複具有正當理由：
+
+- 不同責任。
+- 不同風險邊界。
+- 不同可靠性要求。
+- 不同隔離需求。
+- 不同使用情境。
+- 不同驗證方式。
+- 不同失敗成本。
+
+因此：
+
+> Duplicate ≠ Redundant。
+
+真正需要處理的是：
+
+> Unjustified Redundancy。
+
+---
+
+# 一○五、第四十五項補充：新舊能力在遷移期間可以暫時並存
+
+大型 Migration 不一定能一次完成。
+
+可以存在：
+
+~~~
+Old Capability
++
+New Capability
+↓
+Parallel Validation
+↓
+Cutover
+↓
+Old Retire
+~~~
+
+但必須明確：
+
+- 哪個是 CURRENT。
+- 哪個是 Candidate。
+- 哪個只用於驗證。
+- 何時停止舊路徑。
+- 退役條件。
+- 回復方式。
+
+因此「新舊並存」本身不是錯誤；「無期限、無狀態的新舊混存」才是問題。
+
+---
+
+# 一○六、第四十六項補充：Capability Evaluation 必須有停止條件
+
+評估也可能無限膨脹。
+
+因此需要：
+
+~~~
+Evaluation Goal
+↓
+Minimum Sufficient Test
+↓
+Result
+↓
+Uncertainty
+↓
+是否仍影響決策？
+├─ 否 → Stop
+└─ 是 → Additional Test
+~~~
+
+不是所有 Capability 都需要大量測試。
+
+測試深度應由：
+
+- 風險。
+- 決策影響。
+- 不確定性。
+- 變更不可逆程度。
+
+決定。
+
+這與 Blueprint、Verification 的「最低有效複雜度」原則一致。
+
+---
+
+# 一○七、第四十七項補充：完成度必須分層
+
+未來 Capability、System、Plan 不應只有：
+
+~~~
+完成 / 未完成
+~~~
+
+至少可以區分：
+
+~~~
+DESIGNED
+↓
+BUILT
+↓
+SIMULATION-VALIDATED
+↓
+REAL-WORK-VALIDATED
+↓
+CURRENT
+~~~
+
+而：
+
+> CURRENT 不一定代表永久正確，只代表目前正式採用。
+
+同時：
+
+> Archive 不代表錯誤，也可能只是歷史上曾經正式有效。
+
+這能防止把「歷史版本」與「錯誤版本」混為一談。
+
+---
+
+# 一○八、第四十八項補充：未來功能導向架構仍必須服從停止擴充原則
+
+既有方案二已確立：
+
+> 當主要責任、成功路徑、失敗閉環與驗收方法已經形成，就應停止結構性擴充，進入實際工作驗證。
+
+因此 Capability 架構也必須遵守：
+
+~~~
+能力已能描述
++
+真正需要的資料已存在
++
+最小工作閉環成立
++
+驗收方式已定義
+↓
+停止結構性擴充
+↓
+真實工作
+↓
+Observation
+↓
+再決定是否需要增加能力
+~~~
+
+不能因為還能列出新的 Capability 名稱，就繼續建立架構。
+
+---
+
+# 一○九、第二次稽核後的補充結論
+
+第二次交叉檢查後，確認目前未來藍圖的核心沒有需要推翻的部分。
+
+但原本仍存在一個明顯缺口：
+
+> 第一版藍圖比較完整描述了「如何比較功能」，但還沒有完整描述「如何處理比較失敗、資料關係語義、遷移風險、回復、成熟度與停止條件」。
+
+本次補充後，未來功能導向架構的完整閉環應理解為：
+
+~~~
+需求／模型／工具／實際工作變化
+↓
+Intent / Context
+↓
+Capability Mapping
+↓
+Overlap Candidate
+↓
+Scenario + Baseline + Test Corpus
+↓
+Evaluation
+↓
+Evidence
+↓
+Decision
+↓
+Impact Analysis
+↓
+Migration / Refactoring
+↓
+Verification
+↓
+Cutover
+↓
+Observation
+↓
+Real-Work Validation
+↓
+Distillation
+↓
+CURRENT / ARCHIVE
+~~~
+
+其中任何一步失敗，都可以回到：
+
+~~~
+Failure Classification
+↓
+Diagnosis
+↓
+Problem Solving
+↓
+Revalidation
+~~~
+
+因此未來藍圖現在不只是「功能清單管理架構」，而是：
+
+> **以 Capability 為比較單位、以 Scenario 為情境、以 Baseline 為比較基準、以 Test Corpus 為測試基礎、以 Evidence 為證據、以 Impact Analysis 為影響邊界、以 Change Control 為採用門檻、以 Real-Work Observation 為長期演化依據的功能生命週期架構。**
+
+這仍然是未來藍圖，不代表上述全部機制現在已經實體化。
+
+目前工程仍以既有四方案 CURRENT、既有交接資料與正式驗收結果為準。
