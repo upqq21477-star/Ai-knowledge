@@ -725,3 +725,68 @@ G1 仍未完成，因此仍禁止大規模 Migration。
 | 第七批 | 根目錄其他企劃／模板／工具 | 待執行 |
 
 G1 仍未完成，Migration 仍然禁止。
+
+## 二十一、G1 第六批：討論／研究／會議／紀錄
+
+本批以 Repository recursive tree 實際盤點根目錄 `討論/` 與 `紀錄/`，共發現 **12 個文件項目**；其中 `討論/README.md` 為目錄說明，不列入工程資產逐項清冊，因此本批新增 **11 個實質資產**。
+
+### 21.1 文件級初步判定
+
+| Asset ID | 路徑 | 類型 | 初步 State | 初步處置／備註 |
+|---|---|---|---|---|
+| G1-650 | `紀錄/整體架構外部比對與合理性驗證紀錄-2026-09-18.md` | External Research / Architecture Validation | CURRENT EVIDENCE / HIGH-PRIORITY | 已完成外部比對並形成「核心架構通過、進入實體化與實際驗證」的研究證據；不是取代正式架構的 Canonical Source。 |
+| G1-651 | `紀錄/新內容未問題化處理失效-2026-09-17.md` | Failure Record / Process Evidence | CURRENT EVIDENCE / HIGH-PRIORITY | 已確認失效並納入流程修正；應作為 Problem Intake Gate 的反向測試案例。 |
+| G1-652 | `紀錄/方案四完善-2026-09-17.md` | Engineering Change Record | HISTORICAL / EVIDENCE | 保留方案四 v1.0 → 閉環補強 → 後續正式整合的演化證據，不應當成目前方案四 State。 |
+| G1-653 | `紀錄/統御方案建立錯誤-2026-09-17.md` | Failure Record / Governance Evidence | CURRENT EVIDENCE / HIGH-PRIORITY | 已記錄實際施工順序失效；與目前統御候選不得混為正式方案。 |
+| G1-654 | `紀錄/舊模式重疊能力重製映射-v1.0.md` | Derived Mapping / Refactoring Evidence | REVIEW / FUTURE INPUT | 明確聲明不是新方案／新系統規格；供未來整體重製作為輸入，不能直接升格架構。 |
+| G1-655 | `討論/研究會議記錄-001-研究架構啟動與第一階段結果.md` | Research Meeting / External Evidence | RESEARCH / CANDIDATE INPUT | 研究層第一階段；應提取有效外部證據與結論，不直接進 CURRENT Recall。 |
+| G1-656 | `討論/研究會議記錄-002-AI決策與控制層初步研究.md` | Research Meeting / Architecture Research | RESEARCH / CANDIDATE INPUT | 研究決策／控制層責任；研究結論需與現行方案及系統逐項對照。 |
+| G1-657 | `討論/研究會議記錄-003-品質與可信度層初步研究.md` | Research Meeting / Evidence Research | RESEARCH / CANDIDATE INPUT | 包含 Evidence／Provenance 等方向；可作未來 Evidence 架構研究輸入，不等於已正式導入完整框架。 |
+| G1-658 | `討論/研究會議記錄-004-時間與上下文層初步研究.md` | Research Meeting / Context Research | RESEARCH / CANDIDATE INPUT | Current/History、Handoff、Context Control、No-API Retrieval 等研究；與現行交接與基線重建高度相關，但仍標示研究中。 |
+| G1-659 | `討論/研究會議記錄-005-決策治理層研究.md` | Research Meeting / Decision Governance | RESEARCH / CANDIDATE INPUT | 提出 Evidence→Proposal→Decision→Implementation→Verification 分離，以及 Adoption Gate；研究結論不能自行改變正式架構。 |
+| G1-660 | `討論/研究會議記錄-006-長期演化層研究.md` | Research Meeting / Lifecycle Research | RESEARCH / CANDIDATE INPUT | 研究 System/Knowledge Lifecycle 與長期 System Entropy；可作未來藍圖輸入，不直接等同正式新增能力。 |
+
+### 21.2 第六批的核心判定
+
+這一批證明「討論／研究／紀錄」不能被簡單視為低價值歷史資料。
+
+其中至少存在三種完全不同的資產：
+
+1. **失效證據（Failure Evidence）**：例如新內容未問題化、統御方案建立錯誤。這些不是 Current 規則本身，但對驗證規則是否真正約束 AI 行動具有高價值。
+2. **研究／外部證據（Research Evidence）**：研究會議與外部架構比對，應保留 provenance，必要時再將已確認結論蒸餾進正式 Canonical Source。
+3. **工程演化紀錄（Engineering Change Record）**：例如方案四完善紀錄，用來解釋正式方案如何從舊版本演化，不能直接當成目前 State。
+
+因此「History 不等於無用」；真正要做的是：**隔離其 Recall 權重，同時保留其證據價值。**
+
+### 21.3 研究 → 採用的治理邊界
+
+第 005 號研究紀錄提出的：
+
+`Evidence → Proposal → Decision → Implementation → Verification`
+
+與本次基線重建的 Source Priority、State、Evidence 分離高度一致，但目前仍屬研究結論，不能因研究文件存在就自行升格為新的正式治理規則。
+
+同樣地，第 006 號對 System Entropy 的分析很有價值，尤其把長期腐化拆成 Semantic／State／Structural／Decision／Context／Historical 六類；目前應保留為研究資產，而不是現在立即建立六套新系統。
+
+### 21.4 第六批處置原則
+
+- 不把研究會議直接放進 CURRENT 規格層。
+- 不刪除失效案例。
+- 不因外部研究「支持」某方向就直接採用。
+- 若未來正式採用，必須建立從 Evidence → Decision → Canonical Source 的可追溯鏈。
+- Failure Record 應進入後續自然工作／回歸驗證的候選案例庫。
+- 舊模式 Mapping 應作為未來重製輸入，不作為目前架構權威。
+
+## 二十二、G1 第六批後進度
+
+| 批次 | 範圍 | 狀態 |
+|---|---|---|
+| 第一批 | 目前工程入口、部分知識、部分系統、方案、根目錄藍圖 | 完成 |
+| 第二批 | 0-知識／1-系統 Repository tree | 完成 |
+| 第三批 | 2-方案 根目錄 Repository tree | 完成 |
+| 第四批 | 2-方案/完善 Repository tree + 高優先證據追溯 | 完成 |
+| 第五批 | 2-方案/統御 + 廢棄目錄檢查 | 完成 |
+| 第六批 | 討論／研究／會議／紀錄 | 完成；11 個實質資產完成初判 |
+| 第七批 | 根目錄其他企劃／模板／工具 | 待執行 |
+
+G1 尚未完成，Migration 仍禁止。
