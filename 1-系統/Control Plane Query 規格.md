@@ -1,6 +1,6 @@
 # Control Plane Query 規格
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-19
 
 ## 目的
@@ -18,8 +18,19 @@ GET SKILL STATE
 GET ROUTING TERMS
 GET REQUIRED CONTEXT POINTER
 
+L1 不足以唯一判斷時，才追加：
+
+GET MINIMAL SKILL EVIDENCE
+
 目的：
 確認「是否存在可用能力」，而非取得執行所需完整資料。
+
+GET MINIMAL SKILL EVIDENCE 僅返回路由所需最小證據，例如：
+- Responsibility
+- Trigger / Boundary
+- Input / Output
+
+不得返回完整 Skill 文件。
 
 標準順序：
 
@@ -33,7 +44,7 @@ Task
 ## Router 查詢停止規則
 
 1. 找到唯一且可用的 Skill → 停止路由查詢。
-2. 多候選 → 只增加必要 Metadata。
+2. 多候選 → 只增加必要 Metadata；Metadata 不足時才取得最小候選證據。
 3. 無候選 → STOP，回退 Agent。
 4. 仍不明確 → STOP，回退 Agent 或要求最小必要澄清。
 5. 不得為了提高「完整性」而讀取完整 Skill / System / Knowledge。
@@ -52,8 +63,10 @@ GET LIFECYCLE
 GET CAPABILITY
 GET CAPABILITY METADATA
 GET SKILL METADATA
+GET SKILL STATE
 GET ROUTING TERMS
 GET REQUIRED CONTEXT POINTER
+GET MINIMAL SKILL EVIDENCE
 
 ## 任務查詢
 修改 X：
@@ -118,7 +131,7 @@ Registry 不完整：
 
 ## 成本原則
 Router：
-最低成本 Metadata 查詢。
+最低成本 Metadata 查詢；只有 Metadata 不足時才追加最小候選證據。
 
 一般工作：
 L0-L1。
