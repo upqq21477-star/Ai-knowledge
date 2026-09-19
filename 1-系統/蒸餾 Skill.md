@@ -1,43 +1,55 @@
-# 蒸餾 Skill（Distillation Skill） v1.0
+# 蒸餾 Skill（Distillation Skill） v1.1
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
 狀態：【建立；待實際運作驗收】
 
 ## 1. 定位
 進行長期、結構性的壓縮與重組，降低重複、重疊、責任漂移與長期維護成本。
 
-## 2. 核心責任
-- 發現重複與重疊能力。
-- 發現責任漂移。
-- 分析結構性 Context / Execution 成本。
-- 將多個歷史版本抽取為目前可用結構。
-- 保留必要歷史，不把壓縮誤當刪除。
+## 2. Trigger
+至少存在一項持續性結構證據：
+- Repeated Duplication：重複能力持續出現。
+- Responsibility Drift：Skill 職責持續膨脹或偏移。
+- Structural Cost：Context / Execution / Maintenance 成本持續偏高。
 
-## 3. Trigger
-只有存在結構性證據時才啟動。
-不是「問題很大」就自動進入 Distillation。
+單次問題不自動觸發 Distillation。
+
+## 3. 核心責任
+發現重複與重疊。
+發現責任漂移。
+分析結構成本。
+從多版本抽取目前可用結構。
+保留必要歷史。
 
 ## 4. Input
-多版本資料、重複能力、使用紀錄、Failure Pattern、結構成本。
+多版本資料、Usage Record、Failure Pattern、結構成本、Evolution 結果。
 
 ## 5. Output
-- Distillation Candidate
-- Preserved Core
-- Removed / Merged Redundancy
-- Migration / Reference Notes
-- Verification Target
+Distillation Candidate
+Preserved Core
+Removed / Merged Redundancy
+Migration / Reference Notes
+Verification Target
 
-## 6. 邊界
-一般局部修正屬 Evolution Management；長期結構優化才進入 Distillation。
+## 6. 路由
+一般局部修改 → Evolution。
+有長期結構證據 → Distillation。
+蒸餾完成 → Verification。
+Verification FAIL → Diagnosis → Evolution 或重新 Distillation。
 
-## 7. 原則
-不得因追求壓縮而破壞必要責任、來源與可驗證性。
+## 7. 邊界
+Distillation 不是刪除歷史。
+不因追求壓縮破壞責任、來源或可驗證性。
 
-## 8. 來源
+## 8. 原則
+先證據、後結構重組。
+不足 → DEFER。
+
+## 9. 來源
 - `藍圖/Skill分類融合更新取代判斷問題紀錄-v1.0.md`
 - 本輪「功能盤點 → Skill 聚合 → Agent 化」工程決策。
 
-## 9. 驗收
+## 10. 驗收
 文件建立：PASS
 實際運作：PENDING
