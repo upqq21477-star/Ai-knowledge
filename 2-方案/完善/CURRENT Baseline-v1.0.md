@@ -195,6 +195,8 @@ G1/G2 Natural FIELD
 下一游標：
 完整引用／Authority 回歸 → 下一個功能工作包依賴盤點。
 
+本次回歸進度：已修正核心分層 README 的過期施工描述，並修正 `說明.md`、`規則.md` 中現行 Handoff Skill 舊路徑；歷史規劃／Evidence 舊路徑保留為 Historical Evidence，不作現行入口。
+
 原則：
 「邊搬、邊記錄、邊驗證」；不得全部搬完後才補工程紀錄。
 
