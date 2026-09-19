@@ -870,3 +870,29 @@ Phase 2 → G1/G2 小批次 Natural FIELD。
 蒸餾後原則：**保留決策與失效原因，不保留已被現行藍圖／CURRENT／正式系統取代的施工細節。**
 
 本節為歷史足跡，不新增 CURRENT、Workpool 或第二套規則。
+
+
+## 2026-09-19｜交接資料生命週期 Blueprint 對齊
+
+本次新增的「交接推進 → 進度驗收 → EXIT-CHECK → 蒸餾 → RETIRED → 刪除」已進入藍圖規劃，不新增獨立系統。
+
+### Blueprint 判定
+- **已進入藍圖**：Handoff 作為 Control / Governance 能力的生命週期管理；交接與 CURRENT、待辦、驗收、History 的邊界；完成後蒸餾與退出。
+- **已進入既有施工主線**：Phase 0 的 Handoff / Completion Gate、Phase 1 的 CURRENT Baseline、Phase 2 起的 Natural FIELD 證據，以及 Phase 9 的 CURRENT / Historical 分離與最終清理。
+- **本次新增的具體規則**：交接主要待辦接近剩 2 項時進入 EXIT-CHECK；這是操作觸發器，不是新的狀態系統或硬性刪除門檻。
+- **尚未進入獨立 Blueprint Work Item 的部分**：自動化刪除、完整 Handoff Registry、獨立交接管理平台。現階段沒有證據支持新增這些系統。
+
+### 交接退出驗收
+```
+Handoff
+→ 推進游標
+→ 待辦完成
+→ 驗收
+→ EXIT-CHECK
+→ 依賴／入口確認
+→ 必要資訊蒸餾
+→ RETIRED
+→ 刪除
+```
+
+因此，本次變更不是新增一條平行工程線，而是把既有 Handoff / State / Workpool / Verification / History 閉環補完整。
