@@ -136,7 +136,7 @@ Phase 2：G1/G2 小批次 Natural FIELD。
 
 ## 8. Current Problem State
 
-G1-P01～P11 均 CLOSED。
+G1-P01～P12 均 CLOSED。
 
 共同結構模式：
 `Atomic Synchronization / Completion Gate`
@@ -153,9 +153,9 @@ Phase 2 Natural FIELD 已再次發現同步失配：G1-F19 / G1-P09、G1-F20 / G
 
 ## 9. 下一施工游標
 
-**目前唯一下一步：Phase 2 G1/G2 小批次 Natural FIELD。**
+**目前唯一下一步：Phase 2 G1/G2 小批次 Natural FIELD；Runtime Closure Natural E2E 為其中的觀察主線。**
 
-目前 Natural FIELD 累計：G1=21 cases；P01～P12 全部 CLOSED / Re-test PASS。
+目前 Natural FIELD 累計：G1=22 cases；P01～P12 全部 CLOSED / Re-test PASS。
 
 Phase 1 Gate 已通過：
 CURRENT 引用同步
@@ -167,8 +167,19 @@ CURRENT 引用同步
 
 下一步：
 G1/G2 Natural FIELD
+→ Runtime Closure Natural E2E Observation
 → Real Work Observation
 → Dependency Audit。
+
+## Runtime Closure 狀態
+
+已建立《1-系統/Agent Runtime Closure 最小契約.md》與 12/12 Simulation Acceptance。
+
+狀態：契約 PASS；Simulation PASS；Natural FIELD PENDING。
+
+自然工作觀察項：Trigger / Route / Invocation / Context / Execution / Verification / Failure Recovery / Receipt / Stop Reason / Multi-Skill。
+
+不得因自然觀察前的規格或 Simulation 結果宣告 Runtime Reliability PASS。
 
 ## 10. 禁止
 
