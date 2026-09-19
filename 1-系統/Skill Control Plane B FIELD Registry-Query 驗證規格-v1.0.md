@@ -2,7 +2,7 @@
 
 日期：2026-09-19
 工作包：B — Registry View / Control Plane Query
-狀態：【FIELD PROTOCOL READY；NATURAL EVIDENCE PENDING】
+狀態：【SIMULATION ACCEPTANCE ACTIVE；NATURAL FIELD OPTIONAL】
 
 ## 1. 目的
 
@@ -20,11 +20,13 @@
 
 ## 2. FIELD 原則
 
-只有自然工作實際發生的 Query / Registry 事件才能形成 FIELD Evidence。
+本階段正式採用「模擬運行驗收」取代 Natural FIELD 作為 B 完成門檻。Simulation Evidence 必須明確標記為 SIMULATION，不得冒充 Natural FIELD。
+
+Natural FIELD 仍保留作為未來真實運行觀察，不再阻塞本階段 B 完成。
 
 不得：
-- 人工製造結果後宣稱 FIELD PASS
-- 用 Simulation 取代自然工作
+- 將 Simulation 標記為 Natural FIELD
+- 沒有實際觀測資料就填寫 Token / 時間 / Accuracy
 - 沒有實際觀測資料就填寫 Token / 時間 / Accuracy
 - 把 Registry 推論當 Source
 - 因單一事件直接宣稱整體 B 完成
@@ -145,8 +147,10 @@ FIELD Protocol：READY
 Natural FIELD Evidence：PENDING
 B Final FIELD：PENDING
 
-## 8. 完成終點
+## 8. 模擬驗收完成終點
 
-自然工作累積足夠 Evidence，且 Candidate、Stop、Cost、Drift / Rebuild、Definition synchronization 均無未解決結構性問題後，B FIELD 才可判定 PASS。
+B 本階段以 Simulation Acceptance 作為完成門檻。至少完成受控案例：Candidate、Stop、MULTIPLE / NONE / INVALID、Dependency / Impact、Registry Rebuild、Definition Change synchronization；且無未解決結構性問題，即可判定 B Simulation PASS。
 
-若發現缺口，建立 Change Request 並重新驗證；不得直接覆寫既有 Evidence。
+若模擬發現缺口，建立 Change Request 並重新驗證；不得直接覆寫既有 Evidence。
+
+Natural FIELD 不再是本階段必要條件。
