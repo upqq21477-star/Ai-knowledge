@@ -1,8 +1,8 @@
-# Skill 運作回饋紀錄 v1.0
+# Skill 運作回饋紀錄 v1.1
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
-狀態：【建立；Phase 2 Natural FIELD；持續累積】
+狀態：【CURRENT；Phase 2 Natural FIELD；持續累積】
 用途：把實際運作結果回饋給 Skill 分類判斷、演化與蒸餾。
 
 ## 1. 使用紀錄 Usage Record
@@ -203,7 +203,7 @@ Re-test：PASS
 | G1-F19 | 核對 G1 FIELD、Feedback、Problem Registry、CURRENT 的目前狀態 | Context + Verification + Diagnosis + Execution | PASS → 發現 P09 → Fix → Re-test PASS | 不建立新 Skill；驗證同步 Gate 需涵蓋 Feedback |
 
 Actual：
-G1 FIELD 已累計 18 cases，但本文件仍停留在 16 cases，且尚未完整記錄 F17/F18。
+歷史同步問題：本文件曾落後於 G1 FIELD；該問題已於後續 P06/P12 同步流程中關閉。
 
 Failure：
 Data / Verification。
@@ -212,7 +212,7 @@ Diagnosis：
 FIELD 與 Feedback 未被視為同一同步批次。
 
 Fix：
-補齊 F17、F18、F19，更新本文件 CURRENT 累計為 19 cases，並同步 Problem Registry / CURRENT / TODO / Index。
+已完成 F17～F22 與後續同步；目前以 G1=21、P01～P12 CLOSED 為準。
 
 Re-test：
 PASS。
@@ -231,7 +231,7 @@ REAL-WORK-VALIDATED。
 | G1-F20 | 核對 README / CURRENT / Handoff / G1 FIELD 狀態一致性 | PASS → 發現 P10 → Fix → Re-test PASS | 不建立新 Skill；確認 Atomic Synchronization recurrence |
 
 Actual：
-README 與目前施工交接包仍停留在 G1=18、P01～P08、Phase 1 施工中；CURRENT Baseline 已為 Phase 1 PASS、G1=19、P01～P09。
+歷史同步問題：README / Handoff 曾落後於 CURRENT；後續已完成原子同步。
 
 Failure：
 Data / Context / Verification。
@@ -266,7 +266,7 @@ Diagnosis：
 前次 P10 的受影響文件集合未完整涵蓋 G1 FIELD Header 與 Feedback 的最新 CURRENT Summary。
 
 Fix：
-補齊 G1-F20 / G1-F21，更新 Header 與 Feedback，並同步 Problem Registry、CURRENT、TODO、Handoff、Index。
+已完成 G1-F20 / G1-F21；同步問題已納入 Completion Gate。
 
 Re-test：
 PASS。
@@ -290,7 +290,7 @@ G1-P01～P11：CLOSED / Re-test PASS
 | G1-F22 | 回讀 Feedback / CURRENT / Problem Registry 的內部累計與問題狀態 | PASS → 發現 P12 → Fix → Re-test PASS | 不建立新 Skill；確認 Atomic Synchronization recurrence |
 
 Actual：
-回讀既有同步文件時，發現 Feedback 的 CURRENT Summary 仍寫 P01～P09；CURRENT Baseline 的 Current Problem State 仍寫 P01～P08。兩者均落後於已完成的 P01～P11。
+歷史同步問題：Feedback 與 CURRENT Problem State 曾落後於 P01～P11；後續 P12 已完成關閉並同步。
 
 Failure：
 Data / Verification。
