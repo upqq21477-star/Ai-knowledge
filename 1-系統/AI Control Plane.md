@@ -1,101 +1,125 @@
 # AI Control Plane
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
-狀態：正式建立
+狀態：【設計規劃完成；FIELD 驗證待進行】
 
-## 目的
-統一管理 AI 工作室中「平常不必載入、但不能遺失、需要追蹤時必須可查」的後台資料。
+## 定位
+AI Control Plane 是後台管理／控制層。
+它不取代資產層、Agent、CURRENT Authority 或 Problem Registry。
 
-核心原則：
-- Source of Truth 優先於 Registry。
-- Registry 優先於 Cache / Graph。
-- 所有衍生資料可重建。
-- Context 按需載入，不全庫預載。
-- AI 可觀察、分析、提出方案；高風險修改仍經 USER CONFIRM。
-- 不另建常駐 Server、Graph DB、Vector DB。
+核心目的：
+「讓 AI 在不載入全庫的情況下，知道目前需要查什麼、去哪裡查、查到何種深度即可停止，以及修改後如何驗證與恢復。」
 
-## 管理範圍
-Entity、State、Dependency、Impact、Change、Evidence、Provenance、Authority、Lifecycle、Capability、Runtime Trace、Drift、Reconciliation、Snapshot、Recovery。
-
-## 架構
-Source of Truth
-→ Registry
-→ Query
+## 核心閉環
+Task
+→ Task Understanding
+→ Control Plane Query
 → 最小 Context
-→ AI 分析
-→ Proposal
-→ USER CONFIRM
-→ Change
+→ Skill Selection
+→ Execute
+→ Trace
+→ Verify
+→ Evidence
+→ Impact / Problem（需要時）
+→ Change Set（需要時）
 → Verification
-→ Evidence / Registry 更新
+→ Reconcile
+→ Close
 
-## Source of Truth
-最高權威依序由當前正式文件、FIELD Evidence、Problem Registry、Git History 等提供。
-Registry 不取代原始文件。
+## 三個核心能力
+1. Observe：觀察目前任務、變更、Verification、Problem、Drift。
+2. Query：按需取得最小必要後台資訊。
+3. Reconcile：把 Desired / Observed 差異轉成可驗證的變更閉環。
 
-## Registry
-- Entity：資產身份與基本 metadata。
-- State：目前狀態。
-- Dependency：明確關係。
-- Impact：變更可能影響的範圍。
-- Change：跨文件變更集合。
-- Evidence：驗證與事件證據索引。
-- Provenance：資料來源與形成鏈。
-- Authority：文件權威層級。
-- Lifecycle：建立、驗證、使用、替代、歷史。
-- Capability：能力來源與可用功能。
-- Trace：實際工作執行摘要。
+## 管理 Entity
+Entity、State、Dependency、Impact、Change、Evidence、Provenance、Authority、Lifecycle、Capability、Trace、Drift、Recovery。
+
+Registry 只保存 metadata / relationship / evidence pointer，不複製原始文件全文。
+
+## Retrieval
+L0：現有 Context
+L1：Entity metadata / State / Authority
+L2：直接 Dependency / Impact
+L3：Evidence / Provenance / Problem
+L4：原始文件
+L5：History
+
+停止規則：
+目前層已足夠 → 停止。
+不得為完整性而預載後續層。
+
+## Routing 與 Context 邊界
+Routing：
+Task → Capability / Skill
+
+Control Plane：
+Task / Capability → 必要 Context Query
+
+因此上層不負責決定載入整庫資料，只需識別任務與能力需求；後台查詢再按需分發。
 
 ## Observer
-Observer 只負責：
-Observe → Detect → Compare → Diagnose → Propose。
-不得繞過 USER CONFIRM 直接執行高風險 Repository 修改。
+Observe → Detect → Compare → Diagnose → Propose
 
-## Reconciliation
+Observer 不等於常駐全庫掃描器。
+自然工作、Change、Failure、Problem、Drift 才是主要觸發來源。
+
+## Change / Reconciliation
 Desired State
 → Observed State
 → Diff
 → Impact
 → Proposal
-→ Approval
+→ USER CONFIRM（高風險）
 → Change
 → Verification
-→ Close。
+→ Close
 
-## Retrieval
-Level 0：目前 Context。
-Level 1：Entity metadata。
-Level 2：直接 Dependency / Impact。
-Level 3：Evidence / Provenance。
-Level 4：原始文件。
-Level 5：History。
+跨文件修改一律以 Change Set 為完成單位。
 
-前一層足夠即停止。
+## Source / Authority
+Source of Truth 高於 Registry。
+Registry 高於 Cache / Graph。
+Derived data 必須可由 Source 重建。
 
-## 資料遺失防護
-Graph、Index、Cache 遺失時，可由 Registry / Source 重建。
-Registry 遺失時，可由 Source 重建。
-不得讓衍生圖成為唯一真相。
+CURRENT Baseline 仍是唯一目前工程狀態 Authority。
 
-## 與既有系統關係
-Agent：使用 Control Plane。
-Task Understanding：決定需要查什麼。
-Context：接收 Query 結果。
-Problem：觸發 Impact Query。
-Evidence：提供驗證依據。
-Evolution：使用 Change / Impact / Dependency。
-Handoff：使用 State / Authority / Recovery。
-Monitoring：提供事件與 Drift 訊號。
+## 與既有系統
+Agent：執行與協調。
+Skill：能力。
+System：可重複工作方法。
+Problem Registry：問題生命週期。
+Evidence：驗證依據。
+Handoff：跨 AI 最小恢復。
+Monitoring：低成本觀察訊號。
+Evolution：依 Evidence 決定結構演化。
+Control Plane：後台狀態、查詢、關係、影響、變更與恢復。
 
-## 禁止
-- 不建立第二個 CURRENT。
-- 不建立第二個 Workpool。
+## 不做
+- 不建立第二 CURRENT。
+- 不建立第二 Workpool。
+- 不全庫預載。
 - 不把全部 Chat 歷史寫入 Registry。
-- 不把所有資料建立 Dependency。
-- 不把 AI 推測直接視為真值。
-- 不因 Control Plane 建立而重新引入已暫緩的複雜 State。
-- 不建立獨立 Graph Database 作為必要基礎設施。
+- 不把 AI 推測當真值。
+- 不因 Control Plane 新增大量 State。
+- 不提前建立 Graph DB / Vector DB / 常駐 Server。
+- 不把 Registry 當 Source of Truth。
 
-## 完成判定
-能查目前狀態、關係、影響、來源、變更、證據；能在不載入全庫的情況下支援工作；衍生資料遺失可重建；高風險修改有 USER CONFIRM；無記憶 AI 可依 Repository 恢復運作。
+## 設計完成 Gate
+已完成：
+- Entity / State / Dependency / Impact / Change / Evidence / Authority / Trace 邊界。
+- Query 深度與停止規則。
+- Observer / Trigger 邊界。
+- Change Set / Reconciliation。
+- Context 最小化。
+- Source 可重建原則。
+- 與 Agent / Skill / Problem / Handoff / Monitoring / Evolution 邊界。
+
+尚待：
+- Natural FIELD 驗證 Context 成本。
+- Natural FIELD 驗證 Query 是否可停止於最低必要深度。
+- Natural FIELD 驗證 Registry / Derived data 重建。
+- Natural FIELD 驗證 Drift / Impact / Change Set。
+- 手機 + ChatGPT + GitHub 實際工作成本驗證。
+
+因此目前狀態是「設計規劃完成」，不是「實戰驗收完成」。
