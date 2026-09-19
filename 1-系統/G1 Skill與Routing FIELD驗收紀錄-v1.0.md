@@ -668,7 +668,7 @@ G1 累計：
 17 cases。
 
 Problem Registry：
-G1-P01 CLOSED / G1-P02 CLOSED / G1-P03 CLOSED / G1-P04 CLOSED / G1-P05 CLOSED。
+G1-P01 CLOSED / G1-P02 CLOSED / G1-P03 CLOSED / G1-P04 CLOSED / G1-P05 CLOSED / G1-P06 CLOSED。
 
 目前新增觀察：
 Data / Verification 狀態同步問題已連續出現三次；後續不再只視為單次文件錯誤，需進行 Failure Pattern Diagnosis，但在完成研究前不直接建立新 Skill 或 Large Mode。
@@ -739,3 +739,26 @@ G1 累計：
 
 P01～P05：
 全部 CLOSED / Re-test PASS。
+
+
+### G1-F18 延伸發現：同步 Gate 本身仍有操作缺口
+
+G1-F18 修正同步規則後，重新檢查發現 G1 FIELD 已為 18 cases，但 Index 曾仍為 17，形成 G1-P06。
+
+這不是否定同步規則，而是驗證出：
+「有規則」≠「施工批次具備完成 Gate」。
+
+修正：
+→ Index 更新至 18
+→ Problem Registry 建立 G1-P06
+→ 同步規則升級為「相關文件視為同一批次，全部一致後才可結束該批次」。
+
+Re-test：
+PASS。
+
+Pattern Diagnosis 更新：
+共同根因由「缺少同步規則」進一步收斂為「增量修改缺少 atomic synchronization / completion gate」。
+
+目前 G1：
+18 cases。
+P01～P06 全部 CLOSED。
