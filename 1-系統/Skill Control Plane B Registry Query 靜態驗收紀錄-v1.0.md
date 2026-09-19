@@ -52,3 +52,18 @@ Definition → Change Set → Affected Relations → Registry Invalidate / Rebui
 真實 Context / Token 成本、真實 Query Stop depth、Candidate 正確率、Drift detection、Rebuild recovery、Definition Change synchronization 均只能在 Natural FIELD 後宣稱 PASS。
 
 因此 B 現在是：DESIGN / STATIC PASS；FIELD PENDING。
+
+
+## 5. FIELD Protocol
+
+已建立：
+`1-系統/Skill Control Plane B FIELD Registry-Query 驗證規格-v1.0.md`
+
+目前：
+- Registry / Query Static：PASS
+- Interface Alignment：PASS
+- FIELD Protocol：READY
+- Natural FIELD Evidence：PENDING
+- B Final FIELD：PENDING
+
+FIELD 僅接受自然 Query / Registry 事件與實際 Evidence；Simulation 不得升格 FIELD。B 獨立進行，不等待 A/C 的實際驗證結果；跨包結果最後交由 D 統一驗收。
