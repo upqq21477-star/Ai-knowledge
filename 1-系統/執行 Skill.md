@@ -1,8 +1,8 @@
 # 執行 Skill（Execution Skill） v1.2
 
-版本：v1.2
+版本：v1.3
 日期：2026-09-19
-狀態：【Control Plane 接入；正式 Definition】
+狀態：【Control Plane 接入；正式 Definition；自然運作 Evidence 持續累積】
 
 ## 1. Definition
 執行已確認的 Action，並產生可追溯的 Operation Evidence；不負責決定是否應修改架構。
