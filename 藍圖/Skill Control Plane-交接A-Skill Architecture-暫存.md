@@ -1,6 +1,6 @@
 # Skill Control Plane｜交接 A：Skill Architecture
 
-狀態：【A WORK PACKAGE：STATIC PASS；等待 B/C 整合與 FIELD 驗證】
+狀態：【A WORK PACKAGE：獨立施工完成；Natural FIELD 部分證據已取得；等待自然補證與最終共同驗收】
 日期：2026-09-19
 工作包：A — Skill Architecture
 工作方式：與 B、C **並行施工**；不得把 B/C 完成作為 A 的開工前置條件。
@@ -212,7 +212,7 @@ A 不等待 B/C 的實際驗證結果，先完成自己的 FIELD 驗證準備。
 - A Architecture Static：PASS
 - A Boundary Static：PASS
 - Natural FIELD Protocol：READY
-- Natural FIELD Evidence：PENDING
+- Natural FIELD Evidence：PARTIAL（已取得部分自然證據，完整覆蓋仍 PENDING）
 
 FIELD 僅接受自然工作證據，不以 Simulation / 推演代替。
 
@@ -257,7 +257,7 @@ A 不因 B/C 尚未驗證而停止，也不把其他工作包的結果提前寫�
 
 本輪沒有證據支持修改 Architecture，因此保持 v1.0。
 
-目前 A-only 可完成工作已做到：
-Static → 30-case Stress → 50-case Consistency Audit → FIELD Protocol Ready → Handoff State Synchronized。
+目前 A-only 可完成的架構施工與受控驗證已完成：
+Static → 30-case Stress → 50-case Consistency Audit → FIELD Protocol → Natural FIELD Evidence 對照 → Handoff State Synchronized。
 
-FIELD Protocol 已建立，但 Natural FIELD Evidence 尚未發生，不能自行填 PASS。
+A 的獨立施工終點已達成。後續不再擴張 Architecture；只有自然工作產生新證據、B/C Interface Alignment 或最終共同驗收時才重新進入 A。Natural FIELD 仍為 PARTIAL，不得填成 PASS。
