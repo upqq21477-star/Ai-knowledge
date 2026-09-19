@@ -1,6 +1,6 @@
 # Agent Skill 語意路由系統
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
 狀態：【正式建立；FIELD 驗證待進行】
 
@@ -76,7 +76,7 @@ User Task
 
 Router 不是每次任務都強制執行。
 
-外部實作顯示：工具數量很少時，直接提供全部工具可能比增加檢索層更簡單；Semantic Tool Router 自身也將「少於約 10 個工具」列為可跳過 Router 的情境。citeturn0search0
+外部研究僅作設計依據，不把第三方數字直接變成本庫硬門檻。
 
 因此本系統採條件式啟動：
 
@@ -110,7 +110,7 @@ Skill Metadata 只需支援分流所需資訊，例如：
 
 ## 6. 路由證據與漸進揭露
 
-外部研究對「只靠 Skill metadata 是否足夠」給出警告。SkillRouter 在約 80K Skill 的 benchmark 中發現移除完整 Skill body 後，retrieval 表現下降 29–44 個百分點；另一項 2026 年研究則顯示，部分模型可以從自身 forward signal 做 Skill routing。citeturn0academia24turn0academia25
+外部研究顯示，Skill metadata 不一定包含全部路由訊號；因此本系統採漸進揭露，而非假設 metadata 永遠足夠。
 
 因此本系統不把「Metadata 足夠」當成真理，也不直接把完整 Skill 全部載入。採漸進揭露：
 
@@ -269,10 +269,10 @@ Simulation 可驗證流程，但不能取代 FIELD。
 
 外部比對形成四項採用結論：
 
-1. 保留「先分流、後載入」：Semantic Tool Router 將工具發現與執行分離，只把候選工具送入後續 Context。citeturn0search0
-2. Router 必須條件式啟動：工具庫很小時，Router 本身可能是多餘成本；外部實作直接給出少量工具可跳過 Router 的使用情境。citeturn0search0
-3. 不假設 Metadata 永遠足夠：大規模 Skill benchmark 顯示 body 可能含有關鍵路由訊號，因此本系統增加候選 Skill 最小證據片段的第二階段。citeturn0academia24
-4. 不把 Router 擴張成 Agent：vLLM 的 agent/context routing 方向同樣強調選擇、Context 與 Agent execution 的責任界線。citeturn0search2turn0search5
+1. 保留「先分流、後載入」：外部 Tool / Semantic Routing 實作支持將能力發現與後續執行 Context 分離。
+2. Router 必須條件式啟動：外部實作也存在小型能力集合可跳過額外 Router 的情境；但本庫不直接採用固定數量門檻。
+3. 不假設 Metadata 永遠足夠：外部 Skill Routing 研究顯示完整 Skill 內容可能包含額外路由訊號，因此保留第二階段最小證據揭露。
+4. 不把 Router 擴張成 Agent：外部 Semantic / Agent Routing 架構同樣將 routing、context 與 execution 分離。
 
 採用結論：保留獨立 Semantic Router，但將其定位從「固定前置層」修正為「條件式成本閘門」；不提前導入 Vector DB、獨立 Router Server 或大型 Router LLM。
 
@@ -294,3 +294,40 @@ Simulation 可驗證流程，但不能取代 FIELD。
 
 「讓最上層只看懂『現在可能需要什麼能力』，而不是先讀懂整個系統；先找到 Skill，再讓 Control Plane 找資料。」
 
+
+
+## 17. 建立後交接驗證
+
+以「完全沒有本輪對話記憶，只取得 README + 本系統 + Agent Skill + Skill Routing + Query 規格」為條件進行推演。
+
+驗證案例：
+
+A. 明確單一責任
+Task：要求執行已確認文件修改。
+預期：可判斷 Execution 能力；若 Router 啟用，唯一命中後停止，不讀完整 Skill。
+
+B. 多候選
+Task：要求分析某問題並驗證結論。
+預期：不得因「分析」單一詞直接選 Skill；至少進入 Capability / Candidate 比較。
+
+C. 無匹配
+Task：要求一個目前 Skill 未覆蓋的新型工作。
+預期：NO_MATCH → Agent / Research，不自動建立 Skill。
+
+D. Metadata 不足
+Task：兩個 Skill Metadata 相似。
+預期：AMBUIGUOUS → 最小候選證據 → 仍不明確則既有 Skill Routing；不得硬選。
+
+E. Router 不值得啟動
+Task：目前候選 Skill 很少且既有 Small Mode 可直接判斷。
+預期：跳過 Semantic Router，不為了形式完整增加額外成本。
+
+F. Router 成本高於收益
+預期：回退既有 Small Mode；不得為了維持 Router 使用率而強制啟動。
+
+驗證通過條件：
+- 能說明 Router 與 Skill Routing 不同。
+- 能說明何時跳過 Router。
+- 能說明 Metadata 不足時如何逐級揭露。
+- 能正確回退 Agent / 既有 Routing。
+- 不把 Simulation 結果寫成 FIELD。
