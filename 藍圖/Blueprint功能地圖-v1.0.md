@@ -66,9 +66,7 @@ Acceptance：
 - 有足夠實際 Evidence → 移除【代】。
 - 實際運行發現需要修正的問題 → 【驗】。
 
-禁止：
-ACTIVE（代）
-ACTIVE【代】
+禁止把 State 與 Acceptance 合併成複合狀態字串。
 
 Blueprint 只顯示，不建立第二套狀態規則。
 
