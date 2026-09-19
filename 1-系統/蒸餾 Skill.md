@@ -1,8 +1,8 @@
 # 蒸餾 Skill（Distillation Skill） v1.2
 
-版本：v1.2
+版本：v1.3
 日期：2026-09-19
-狀態：【Control Plane 接入；正式 Definition】
+狀態：【Control Plane 接入；正式 Definition；自然運作 Evidence 持續累積】
 
 ## 1. Definition
 在累積結構性證據後，對重複、重疊、責任漂移與長期成本進行壓縮與重組；不是一般修改，也不是單純刪除歷史。
