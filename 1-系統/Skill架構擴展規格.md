@@ -95,14 +95,22 @@ Large Mode 必須能讀取現有 Skill Definition。
 
 如果大型化後沒有降低主要瓶頸，允許停止或退回 Small Mode。
 
-## 10. 與現有 Skill 系統的關係
+## 10. Skill 建立與擴展關係
+
+新 Skill 建立屬於 D3 結構研究結果，不屬於一般功能新增。
+
+標準鏈：Research D3 → Skill Classification → Evolution → Execution → Verification。
+
+只有確認存在獨立 Responsibility、Trigger、I/O、路由價值，且既有 Skill 無法合理承接後，才建立正式 Skill。
+
+## 11. 與現有 Skill 系統的關係
 Problem Triage：目前由 Research Skill 內部負責研究深度判斷。
 Skill Boundary Analysis：目前由 Skill Classification Skill 負責。
 Skill Routing：目前由 Agent 直接負責。
 
 大型化後，這些責任不必重新定義；只增加檢索、排序、組合等基礎設施。
 
-## 11. 禁止事項
+## 12. 禁止事項
 - 不因大型化預期而提前建立大型 Runtime。
 - 不因新 Provider 建立 Skill。
 - 不因新 Tool 建立 Skill。
