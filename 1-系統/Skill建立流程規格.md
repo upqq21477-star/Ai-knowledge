@@ -61,10 +61,11 @@ NEW / KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE
 分類確認 NEW
 → Evolution Management
 → Execution
-→ Verification
+→ Simulation Verification
 → 寫入 Skill Definition
 → Derived Registry Reconcile
 → 更新檔案索引
+→ 正式運行（未實際驗證者標註「（代）」）
 → 建立 Usage / Failure 回饋
 
 若建立過程發現問題：
@@ -94,7 +95,7 @@ Large Mode：未來可透過 Registry / Retrieval / Ranking 找到本 Skill；�
 
 建立文件 ≠ Skill 驗收。
 
-最低驗證：
+前置驗收一律先採模擬驗收：
 - Trigger 可觸發。
 - Input 足夠。
 - Output 可交付。
@@ -102,12 +103,15 @@ Large Mode：未來可透過 Registry / Retrieval / Ranking 找到本 Skill；�
 - 可完成責任。
 - Verification 可執行。
 - Failure 可分類。
+- 正常與主要失敗情境均通過模擬。
 
-狀態：文件建立 PASS；實際運作 FIELD-PENDING。
+模擬 PASS → 正式 Skill → 立即進入運行。
+尚未取得實際運行證據 → 標註「（代）」並進入追蹤。
+實際運行不再是准入門檻，而是解除「（代）」的成熟度驗證。
 
 ## 11. 建立階段問題處理 Gate
 
-單一 Skill 建立以「完成建立 → 實際驗證 → 非阻塞問題集中回修」為預設。
+單一 Skill 建立以「完成建立 → 模擬驗收 → 正式運行（代）→ 實際運行追蹤 → 必要回修」為預設。
 
 只有會影響後續結構的問題才立即阻塞建立，包括：
 - Responsibility Boundary 錯誤
