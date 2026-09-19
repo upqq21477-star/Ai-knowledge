@@ -41,6 +41,15 @@ Evidence
 | Verification | 已有正式能力 | 驗證系統／Skill 是否符合條件 | 1-系統/證據驗證診斷 Skill.md |
 | Evidence | 已有正式能力；非獨立 Evidence System | 保存／引用驗證依據 | 1-系統/AI Control Plane.md；1-系統/Control Plane Registry 規格.md |
 
+
+
+## 3A. 整體功能總圖
+
+本地圖只保留最小導航；現有 Skill、Control Plane、既有 CAP Mapping 與未來未建立能力的整合視圖，統一見：
+`藍圖/AI單人工作室整體功能藍圖-v1.0.md`
+
+該文件不取代本地圖、CURRENT、Registry 或 Workpool。
+
 ## 4. 未實作功能
 
 真正尚未實作的主要功能必須明確標記：
