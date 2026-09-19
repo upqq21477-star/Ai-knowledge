@@ -2,7 +2,7 @@
 
 版本：v2.0
 日期：2026-09-19
-狀態：【重新規劃；尚未建立正式 Skill】
+狀態：【代】；正式 Skill 已建立，尚待實際驗收
 定位：維護 Blueprint 地圖與正式系統演化之間的對齊。
 
 ## 1. 核心定位
@@ -179,15 +179,31 @@ Case D：主要功能換位置 → 更新 Position / Relation，必要時 Change
 Case E：規劃尚未實作 → 保留節點、標記未實作、指向規劃文件。
 Case F：Blueprint 與 CURRENT 不一致 → 標記 DRIFT / CONFLICT，不自行猜測。
 
-## 20. 第一版完成條件
+## 20. 模擬驗收結果【代】
+
+本輪已完成 Skill Definition 建立，並將驗收階段明確化為【未】／【驗】／【代】。
+
+模擬檢查結果：
+- A 新增未建立功能：PASS（代）
+- B 已規劃但未完成：PASS（代）
+- C 全功能完成只剩實際驗收：PASS（代）
+- D Registry 與 Blueprint 分工：PASS（代）
+- E 普通內部修改不觸發：PASS（代）
+- F 主要位置變更：PASS（代）
+- G Blueprint 與 CURRENT 不一致：PASS（代）
+- H 實際驗收失敗回退【驗】：PASS（代）
+
+結論：已達「功能建立完成、只剩實際驗收」階段，因此狀態為【代】。上述 PASS 僅為模擬驗收，不代表自然工作實際驗收通過。
+
+## 21. 第一版完成條件
 能維護 Blueprint Map；區分已實作與未實作；未實作節點具有最小功能說明與詳細來源；能讀取 Registry 而不取代 Registry；維持主要位置與關係；發現基本 Drift；UNKNOWN 不被猜成已知；不建立第二套 Registry、Impact 或 TODO System。
 
-## 21. 明確不做
+## 22. 明確不做
 Blueprint Database、Blueprint Graph Database、Full Repository Graph、Automatic Architecture Refactoring、Automatic Skill Creation / Merge / Delete、Automatic Impact Engine、Automatic TODO Engine、Automatic Blueprint Rewrite。
 
 理由：目前已存在 Control Plane、Registry、Impact、Evolution、CURRENT 等相關責任；只有自然工作 Evidence 證明存在缺口時才重新評估。
 
-## 22. 最高原則
+## 23. 最高原則
 > Blueprint 是地圖，不是詳細規格。
 > 規劃內容可以很龐大，但不能全部塞進地圖。
 > 詳細內容交給 Planning / Meeting Record；地圖必須告訴 AI 去哪裡找。
