@@ -228,9 +228,9 @@ Router Failure 不等於 Task Failure。
 
 任何回退都應保留最小 Trace，供後續 FIELD 分析。
 
-## 13. FIELD 驗證
+## 13. FIELD 運作紀錄
 
-目前狀態：【未驗收】
+目前狀態：【待持續累積；不作為本輪架構阻塞條件】
 
 自然工作中觀察：
 
@@ -250,9 +250,9 @@ Router Failure 不等於 Task Failure。
 A：現有 Agent / Routing
 B：Semantic Router → Agent / Skill
 
-禁止人工製造 Failure。
+只記錄自然運作中出現的 Routing / Context / Verification 結果；不為了驗證而人工製造 Failure。
 
-Simulation 可驗證流程，但不能取代 FIELD。
+Simulation 僅作設計檢查，不標記為 FIELD。
 
 ## 14. 不做
 
@@ -286,7 +286,7 @@ Simulation 可驗證流程，但不能取代 FIELD。
 - Router 有成本控制。
 - 不需要新增 Server / Graph DB / Vector DB。
 
-實戰完成仍需 Natural FIELD 證據。
+實際效果由後續自然運作 Evidence 決定，不阻塞目前 Control Plane 接入。
 
 ---
 
