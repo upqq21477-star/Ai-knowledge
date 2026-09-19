@@ -233,3 +233,61 @@ Trace 不是 Skill Definition，也不是 Registry Source。
 - Anthropic Agent Skills
 - Agent Skills open specification
 - Microsoft Agent Skills
+
+
+## B-01 Skill Registry View Contract
+
+Skill Entity 最小 View：ID / Name / Family / Capability / Trigger Summary / Input Summary / Output Summary / State / Version / Lifecycle / Dependency Summary / Verification Summary / Path / Updated。
+
+Registry View 是 Derived metadata，不取代 Skill Definition。
+
+Provenance：SOURCE / DERIVED / INFERRED / UNKNOWN。INFERRED、UNKNOWN 不得偽裝成 SOURCE。
+
+Router View 不預載：完整 Execution / Failure Procedure / 完整 Verification Procedure / Evidence / Trace / Change History。
+
+## B-02 Candidate Filtering
+
+Runtime Query 預設排除：INACTIVE、Invalid Definition、Invalid Dependency、明確驗證失效。
+Deprecated 是否可候選由正式 Lifecycle / Routing 規則決定，不由 Router 臨時猜測。
+
+Candidate 結果：UNIQUE / MULTIPLE / NONE / INVALID。
+Registry 提供候選與必要 metadata，不宣判最佳 Candidate。
+
+## B-03 Dependency / Impact Boundary
+
+DEPENDS_ON 不等於 AFFECTS。
+Impact 必須有 Change Set、AFFECTS relation 或 Evidence 支持；不得由名稱相似或 Dependency 自動推導 Impact。
+
+## B-04 Rebuild
+
+Skill Definition → derive metadata → Registry View → Query。
+
+Registry 遺失或 Drift：Registry → Source → Git History（必要時）→ derive → Verification → Rebuild。
+Registry 損壞不代表 Skill 遺失。
+
+## B-05 Drift
+
+優先檢查：Query 涉及 Entity、最近 Definition Change、最近 Verification、已知 Problem、Registry / Source mismatch。
+不做每次全庫掃描。
+
+至少區分：Missing Registry Entry / Stale Metadata / Broken Relation / Authority Conflict / Verification Drift。
+
+## B-06 Query Result Boundary
+
+Query 只返回必要 Entity、Relation、Evidence、Source pointer，以及 Scope / Depth / UNKNOWN / Fallback。
+
+## B-07 C Interface
+
+提供：GET SKILL METADATA / GET SKILL STATE / GET ROUTING TERMS / GET REQUIRED CONTEXT POINTER / GET MINIMAL SKILL EVIDENCE / GET DEPENDENCIES / GET VERIFICATION / GET IMPACT / GET CHANGE / GET PROVENANCE / REBUILD SKILL REGISTRY。
+
+Query Result 最小格式：Entity ID + Scope + Authority + Depth + Result + UNKNOWN/Fallback + Source Pointer。
+
+## B-08 Scope Boundary
+
+B 不重新定義 Skill Contract，不決定 Skill / Agent / Workflow 邊界，不建立大型 Ranking、Embedding、Vector Search、Graph DB、Capability Registry 或 Skill Runtime。
+
+## B-09 Static Acceptance Target
+
+必須覆蓋：Registry View Contract、Query Contract、Candidate Filtering、Query Stop、No Candidate Fallback、Multiple Candidate Handling、Invalid Skill Handling、Dependency Query、Registry Rebuild、Definition Change → Registry Update、Impact Query。
+
+FIELD 尚需驗證 Query 成本、Stop 深度、Candidate 正確性、Drift / Rebuild 恢復與 Definition Change synchronization。
