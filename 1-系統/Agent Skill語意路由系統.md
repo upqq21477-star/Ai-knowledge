@@ -316,7 +316,7 @@ Task：要求一個目前 Skill 未覆蓋的新型工作。
 
 D. Metadata 不足
 Task：兩個 Skill Metadata 相似。
-預期：AMBUIGUOUS → 最小候選證據 → 仍不明確則既有 Skill Routing；不得硬選。
+預期：AMBIGUOUS → 最小候選證據 → 仍不明確則既有 Skill Routing；不得硬選。
 
 E. Router 不值得啟動
 Task：目前候選 Skill 很少且既有 Small Mode 可直接判斷。
