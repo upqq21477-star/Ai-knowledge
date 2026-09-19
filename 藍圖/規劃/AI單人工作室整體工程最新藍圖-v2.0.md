@@ -875,7 +875,7 @@ Phase 2 → G1/G2 小批次 Natural FIELD。
 本輪確認：
 - Blueprint Governance Skill：已建立，State=ACTIVE、Acceptance=【代】。
 - 會議紀錄管理 Skill：已建立，State=ACTIVE、Acceptance=【代】。
-- G1 FIELD：目前以 CURRENT Baseline / Workpool 的 G1=21 為準。
+- G1 FIELD：目前以 CURRENT Baseline / Workpool 的 G1=22 為準。
 - Phase 2 Natural FIELD：目前施工主線。
 - Minimum Evaluation、Dependency Audit、Capability Evolution、Migration：仍依 Evidence 推進。
 - Capability Registry / Graph / Automation / Orchestration / Large Mode：保持條件式後置，不因藍圖完整而提前施工。
