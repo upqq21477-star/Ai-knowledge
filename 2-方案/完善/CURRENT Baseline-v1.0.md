@@ -189,6 +189,7 @@ G1/G2 Natural FIELD
 - Control Plane A/B/C 工作包：PASS。
 - Agent / Routing / Runtime 工作包：PASS。
 - Core Orchestration Skills 工作包：PASS。
+- Research-Lifecycle Skill 工作包：PASS（模擬）。
 - 完整全庫引用／Authority 回歸仍待施工。
 
 下一游標：
@@ -227,3 +228,18 @@ G1/G2 Natural FIELD
 Control Plane 不取代 CURRENT Authority；所有衍生 Registry / Index / Graph / Cache 均須可由 Source 重建。
 
 Skill Control Plane：正式接入現有核心 Skill；A/B/C 工作包施工階段已結束。自然工作 Evidence 持續累積，不另設人工測試門檻。
+
+
+## 2026-09-19｜Research-Lifecycle Skill 工作包施工紀錄
+
+本包範圍：Research Skill、Skill Classification Skill、Evolution Management Skill、Knowledge Management Skill、Distillation Skill。
+
+已完成：
+- 五份正式 Skill Definition 實體搬遷至 1-系統/01-Skill/。
+- 現行導航／分類／Blueprint／檔案索引引用同步。
+- 未改變 Skill 責任內容；僅調整實體分層位置。
+- package-level 模擬回歸 PASS。
+
+回歸結果：Research → Classification → Evolution → Execution / Verification 邊界成立；Knowledge Management 與 Context / Evidence 邊界成立；Distillation 的長期結構成本觸發邊界成立；Control Plane 仍為 metadata / derived view，不取代 Source of Truth。
+
+下一游標保持：完整全庫引用／Authority 回歸 → 下一個功能工作包依賴盤點。
