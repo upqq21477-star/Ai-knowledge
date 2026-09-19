@@ -1,31 +1,24 @@
-# Context 管理 Skill（Context Management Skill） v1.1
+# Context 管理 Skill（Context Management Skill） v1.2
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-19
-狀態：【建立；待實際運作驗收】
+狀態：【Control Plane 接入；正式 Definition】
 
-## 1. 定位
-決定目前任務需要載入哪些 Context，控制上下文邊界與成本。
+## 1. Definition
+決定本次任務需要載入哪些 Context，控制上下文邊界、來源權威與成本；不負責保存 Knowledge，也不負責一般任務路由。
 
 ## 2. Trigger
-- 開始新任務。
+- 新任務開始。
 - 任務跨文件／跨 Skill。
-- 現有 Context 不足。
-- Context 過大造成成本或失真風險。
-- 發生上下文重置。
-- 來源出現衝突。
+- 現有 Context 不足或過大。
+- Context 重置。
+- 來源衝突。
+- 需要從 Control Plane 取得最小必要 metadata。
 
-## 3. 核心責任
-- 判斷必要文件與資料。
-- 控制載入範圍。
-- 避免預載整個 repository。
-- 衝突時回到現行入口與 Canonical Source。
-- 重置後恢復必要狀態。
+## 3. Input
+Task Definition、CURRENT、Repository 入口、文件索引、可用 metadata、已載入 Context。
 
-## 4. Input
-Task Definition、工作狀態、Repository 入口、文件索引。
-
-## 5. Output
+## 4. Output
 Required Context
 Context Boundary
 Loaded Sources
@@ -33,33 +26,31 @@ Missing Context
 Conflict Flags
 Context Cost（L / M / H）
 
-## 6. 路由
-Context 不足 → Research / Knowledge。
-來源衝突 → Evidence / Verification。
-Context 過大 → 縮減載入範圍。
-重置 → 重新讀取必要入口。
+## 5. Procedure
+L0：現有 Context
+→ L1：必要 metadata
+→ L2：直接關係
+→ L3：Evidence / Provenance
+→ L4：Canonical Source
+→ L5：History
 
-## 7. 邊界
-Knowledge 管資料生命週期；Context 管現在載入什麼。
+取得足以完成目前任務的資訊後立即停止，不預載整個 Repository。
 
-## 8. 失敗
-不能確認 Canonical Source → UNKNOWN，不以舊文件猜測。
+## 6. Responsibility Boundary
+Context：現在需要載入什麼。
+Knowledge：資料如何保存與管理。
+Handoff：如何把目前工作狀態交給下一個 AI。
+Agent：拿到 Context 後如何分流。
 
-## 9. 成本
-第一版使用 L / M / H，不追求虛假的精密 Token 數。
+## 7. Source Rule
+來源衝突時優先現行入口與 Canonical Source。
+無法確認 Canonical Source → UNKNOWN，不用舊文件猜測。
 
-## 10. 來源
-- `藍圖/Skill分類融合更新取代判斷問題紀錄-v1.0.md`
-- `README.md`
-- `1-系統/Agent Skill.md`
+## 8. Control Plane
+Control Plane 提供 Entity / State / Dependency / Impact / Evidence / Provenance / Authority metadata。
+Context 只決定載入範圍，不複製 Registry。
 
-## 11. 驗收
-文件建立：PASS
-實際運作：PENDING
-
-## 12. AI Control Plane 整合
-
-Control Plane 提供 Entity / State / Dependency / Impact / Evidence / Provenance / Authority / Change metadata。
-Context Skill 負責判斷本次任務需要哪些資料，不複製 Control Plane。
-
-採 Progressive Retrieval：L0 現有 Context → L1 metadata → L2 直接關係 → L3 Evidence/Provenance → L4 Source → L5 History；足夠即停止。
+## 9. Stop
+Context 足以讓下一個 Skill 工作即停止。
+若仍缺資料 → Research / Knowledge。
+若只是 Context 過大 → 縮減，不自動重建架構。
