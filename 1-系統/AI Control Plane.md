@@ -49,6 +49,16 @@ L5：History
 目前層已足夠 → 停止。
 不得為完整性而預載後續層。
 
+## Runtime Closure 接口
+
+Control Plane Query 的 Candidate / Metadata 輸出，不能直接視為 Skill 已執行。
+
+完整 Runtime 由：
+Route → Invocation → Context → Execute → Verify → Receipt → Final / Stop
+組成。
+
+Invocation / Recovery / Receipt / Stop Contract 由《1-系統/Agent Runtime Closure 最小契約.md》定義。
+
 ## Semantic Router 與 Control Plane 邊界
 
 Agent Skill Semantic Router 是獨立的輕量分流系統。
