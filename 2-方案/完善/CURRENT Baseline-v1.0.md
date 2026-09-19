@@ -195,7 +195,7 @@ Research 回歸 → 功能工作包依賴盤點 → Control Plane A/B/C package-
 
 ## Runtime Closure 狀態
 
-已建立《1-系統/Agent Runtime Closure 最小契約.md》與 12/12 Simulation Acceptance。
+已建立《1-系統/03-Spec/Agent Runtime Closure 最小契約.md》與 12/12 Simulation Acceptance。
 
 狀態：契約 PASS；Simulation PASS；Natural FIELD PENDING。
 
