@@ -1,8 +1,8 @@
 # AI Control Plane
 
-版本：v1.2
+版本：v1.3
 日期：2026-09-19
-狀態：【設計規劃完成；FIELD 驗證待進行】
+狀態：【正式架構規格；Control Plane 已接入現有 Skill；FIELD 持續累積】
 
 ## 定位
 AI Control Plane 是後台管理／控制層。
@@ -13,8 +13,9 @@ AI Control Plane 是後台管理／控制層。
 
 ## 核心閉環
 Task
-→ Agent Skill Semantic Router
-→ Control Plane Query
+→ Task Understanding
+→ Semantic Router（條件式）
+→ Control Plane Registry / Query
 → 最小 Context
 → Skill Execute
 → Trace
@@ -141,12 +142,12 @@ Control Plane：後台狀態、查詢、關係、影響、變更與恢復。
 - 與 Agent / Skill / Problem / Handoff / Monitoring / Evolution 邊界。
 - Semantic Router 與 Control Plane 的責任邊界。
 
-尚待：
-- Natural FIELD 驗證 Context 成本。
-- Natural FIELD 驗證 Query 是否可停止於最低必要深度。
-- Natural FIELD 驗證 Registry / Derived data 重建。
-- Natural FIELD 驗證 Drift / Impact / Change Set。
-- Natural FIELD 驗證 Semantic Router 路由正確率與額外成本。
-- 手機 + ChatGPT + GitHub 實際工作成本驗證。
+後續自然運作觀察：
+- Context 成本。
+- Query Stop 深度。
+- Registry / Derived data 重建。
+- Drift / Impact / Change Set。
+- Semantic Router 路由結果與額外成本。
+- 實際工作成本與恢復效果。
 
-因此目前狀態是「設計規劃完成」，不是「實戰驗收完成」。
+因此目前架構已正式接入既有 Skill；實際成本與效果由後續自然運作 Evidence 持續更新，不以額外測試阻塞架構使用。
