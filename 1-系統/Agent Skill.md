@@ -1,8 +1,8 @@
 # Agent Skill v1.2
 
-版本：v1.2
+版本：v1.3
 日期：2026-09-19
-狀態：【建立；Small Mode 分流規格已接入；待實際運作驗收】
+狀態：【建立；Small Mode 分流規格已接入；暫行監控指令已接入；待 FIELD】
 定位：最上層 Orchestration Skill（Agent as Top-Level Skill）
 
 ## 1. 目的
@@ -79,6 +79,29 @@ Skill Classification：「系統是否應該建立、融合、更新、取代、
 
 交接 Skill 不負責一般任務路由，也不取代 Context 管理。
 
+## 7.6 暫行品質監控指令
+
+暫行方案：
+`2-方案/暫行-上下文品質閾值監測方案-v1.0.md`
+
+控制指令：
+- 使用者輸入「啟動監控」→ 啟用暫行品質監控。
+- 使用者輸入「停止監控」→ 停用暫行品質監控。
+- 「刪除品質監測方案」→ 進入方案停用／刪除流程，不直接刪除正式 Skill。
+
+監控啟用後：
+1. 前 5 輪不做品質審計。
+2. 第 6 輪起依 Context 風險與提前觸發事件決定檢查層級。
+3. 正常情況只做對應級別的輕量檢查。
+4. 發現 SUSPECT / FAIL 才進入深度 Diagnosis。
+5. 單輪只記錄 PASS / SUSPECT / FAIL；累積樣本後才計算錯誤率。
+6. 監控本身不新增 Skill，也不改變正式 Skill 邊界。
+
+執行限制：
+目前環境沒有獨立、可信的 Context 百分比計量器，因此 25% / 40% / 60% / 75% 不得被宣稱為實測值。實際 FIELD 階段只能使用可觀測的 Context／任務複雜度代理指標，或在取得可靠量測後再套用百分比閾值。
+
+監控是方案層暫行機制，不取代 Agent 的正常分流、Execution 或 Verification。
+
 ## 8. Failure Re-routing
 Failure 不直接重跑相同路由。
 
@@ -150,7 +173,15 @@ Large：
 兩者共用 Skill Definition。
 Large Mode 不重新定義 Skill，也不因大型化提前建立新 Skill。
 
-## 16. 驗收
+## 16. 暫行監控驗收
+
+文件接入：PASS
+「啟動監控」指令路由：已接入
+「停止監控」指令路由：已接入
+自動 Context 百分比量測：NOT AVAILABLE
+實際 FIELD 監控：PENDING
+
+## 17. 驗收
 文件建立：PASS
 規則定義：PASS
 Skill 治理路由：PASS（文件層）
