@@ -180,15 +180,18 @@ G1/G2 Natural FIELD
 - 04-Evidence 第一批低風險實體搬遷。
 - 05-Research 第一階段 10 份外部比對材料搬遷。
 - Research / System 機制邊界確認。
+- Control Plane A/B/C Functional Package 搬遷與 package-level 模擬回歸 PASS。
+- Agent / Routing / Runtime Functional Package 搬遷與 package-level 模擬回歸 PASS。
 - 搬遷風險與批次紀錄同步更新。
 
 目前：
 - Research 第一階段搬遷完成。
-- 完整引用／Authority 回歸仍待施工。
-- 01-Skill / 03-Spec 核心 Runtime 文件尚未實體搬遷。
+- Control Plane A/B/C 工作包：PASS。
+- Agent / Routing / Runtime 工作包：PASS。
+- 完整全庫引用／Authority 回歸仍待施工。
 
 下一游標：
-Research 回歸 → 功能工作包依賴盤點 → Control Plane A/B/C package-level 回歸 → 下一工作包搬遷。
+完整引用／Authority 回歸 → 下一個功能工作包依賴盤點。
 
 原則：
 「邊搬、邊記錄、邊驗證」；不得全部搬完後才補工程紀錄。
