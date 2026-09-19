@@ -5,7 +5,7 @@
 用途：確認 Repository 中哪些文件可以作為 CURRENT 入口、哪些只是高階總覽／交接背景／工作池／候選藍圖／歷史證據，避免多份文件競爭目前狀態。
 
 ## 一、Authority 判定原則
-目前工程狀態只認 `2-方案/完善/目前工程狀態快照-005.md` 為唯一工程游標。
+目前工程狀態只認 `2-方案/完善/CURRENT Baseline-v1.0.md` 為唯一工程游標。
 其他文件可以引用、摘要或提供背景，但不得自行覆蓋快照-005。
 歷史文件即使內容仍然正確，也不因存在而自動成為 CURRENT。
 Version、Git Commit、文件存在、文件內「狀態」欄位都不能單獨決定 CURRENT。
@@ -14,7 +14,7 @@ Version、Git Commit、文件存在、文件內「狀態」欄位都不能單獨
 | 文件 | Authority Scope | CURRENT？ | 用途 | 判定 |
 |---|---|---:|---|---|
 | README.md | 入口導航 | 是（導航層） | 告訴 AI 往哪裡讀 | KEEP |
-| 2-方案/完善/目前工程狀態快照-005.md | 目前工程游標 | 是 | 現在在哪裡、工程下一步、禁止事項 | PRIMARY CURRENT |
+| 2-方案/完善/CURRENT Baseline-v1.0.md | 目前工程游標 | 是 | 現在在哪裡、工程下一步、禁止事項 | PRIMARY CURRENT |
 | 目前狀態.md | 專案／架構高階總覽 | 否（不作工程游標） | 穩定高階定位與架構 | CURRENT SUPPORT |
 | 規則.md | 操作規則 | 是（規則 Authority） | 怎麼做、衝突如何處理 | CURRENT RULE AUTHORITY |
 | 待辦清單.md | 工作池 | 否（不取代工程游標） | 未完成工作、自然觸發項目 | CURRENT WORKPOOL |
@@ -33,7 +33,7 @@ Version、Git Commit、文件存在、文件內「狀態」欄位都不能單獨
 一個完全沒有歷史記憶的新 AI，若只是要回答「現在工程在哪裡、下一步做什麼、不能做什麼」，最小必要入口為：
 
 1. README.md
-2. 2-方案/完善/目前工程狀態快照-005.md
+2. 2-方案/完善/CURRENT Baseline-v1.0.md
 3. 規則.md
 4. 待辦清單.md
 
@@ -82,3 +82,9 @@ G2-04 完成。
 G2-05：建立 State Evolution Matrix。
 
 目標：把主要文件的「設計 → 執行 → 驗證 → CURRENT → HISTORY」演化鏈串起來，確認目前 CURRENT 的形成依據與歷史退場位置。
+
+## 八、2026-09-19 Baseline Transition
+
+CURRENT Authority 已由舊快照切換至 `2-方案/完善/CURRENT Baseline-v1.0.md`。舊快照-006及更早快照自此僅作 Historical Evidence，不得作為目前工程游標。
+
+Phase 1 下一步：執行 Memoryless Takeover Test，確認新入口可以在無本次對話記憶下恢復 CURRENT、待辦與下一施工游標。
