@@ -17,7 +17,7 @@
 4. `待辦清單.md`
 
 需要跨 AI 接手資訊時：
-由 `1-系統/交接 Skill.md` 依 CURRENT／Workpool／Evidence 按需產生最小交接資訊；不再維持固定交接檔。
+由 `1-系統/01-Skill/交接 Skill.md` 依 CURRENT／Workpool／Evidence 按需產生最小交接資訊；不再維持固定交接檔。
 
 需要工程藍圖再讀：
 `藍圖/AI單人工作室整體工程最新藍圖-v2.0.md`
