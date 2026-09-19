@@ -1,52 +1,61 @@
-# 執行 Skill（Execution Skill） v1.1
+# 執行 Skill（Execution Skill） v1.2
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-19
-狀態：【建立；待實際運作驗收】
+狀態：【Control Plane 接入；正式 Definition】
 
-## 1. 定位
-執行已確認的動作，不取代決策與演化判斷。
+## 1. Definition
+執行已確認的 Action，並產生可追溯的 Operation Evidence；不負責決定是否應修改架構。
 
 ## 2. Trigger
-只有存在 Confirmed Action 時執行。
-若 Action 未確認、依賴未滿足或目標不明，退回 Task Understanding / Evolution / User Required。
+存在 Confirmed Action，且必要 Input、Dependency、Permission 均具備。
 
-## 3. 核心責任
-依確認任務執行。
-呼叫必要 Provider / Tool。
-建立／修改文件。
-回報結果與失敗資訊。
-遵守 repository 規則。
+未確認 Action、目標不明或依賴未滿足 → Stop / User Required / Diagnosis，不執行猜測動作。
 
-## 4. Input
-Confirmed Action、必要 Context、Provider / Tool。
+## 3. Input
+Confirmed Action、Target、Required Context、Provider / Tool、Constraints。
 
-## 5. Output
+## 4. Output
 Execution Result
 Changed Files
 Errors
 Operation Evidence
+Change Set
 Execution Cost（L / M / H）
 
-## 6. 路由
-執行完成 → Evidence / Verification。
-執行失敗 → Diagnosis。
-需要改變方案 → Evolution。
-Provider 不可用 → INSUFFICIENT，不自行換成未知工具。
+## 5. Responsibility Boundary
+Execution：
+「已決定要做什麼 → 實際做」。
 
-## 7. 邊界
-Evolution 決定是否與如何改變。
-Execution 執行已確認動作。
-Provider / Tool 不自動成為 Skill。
+Evolution：
+「是否需要結構改變、改什麼」。
 
-## 8. 原則
-最小必要操作；完成後交給 Verification。
+Verification：
+「做完是否正確」。
 
-## 9. 來源
-- `藍圖/Skill分類融合更新取代判斷問題紀錄-v1.0.md`
-- `1-系統/Agent Skill.md`
-- `README.md`
+Provider / Tool：
+「實際提供外部能力」。
 
-## 10. 驗收
-文件建立：PASS
-實際運作：PENDING
+## 6. Procedure
+Validate Input
+→ Check Dependency / Permission
+→ Execute
+→ Record Changed Scope
+→ Return Evidence
+→ Verification
+
+Execution Failure 不直接重試；交由 Diagnosis 判斷。
+
+## 7. Repository Change
+涉及文件／Skill 修改時：
+讀取現行版本 → 最小修改 → 保留有效內容 → 更新引用／索引 → 回報 Change Set。
+
+## 8. Control Plane
+可讀取 Change / Dependency / Impact / Authority metadata。
+不得把 Registry 當 Source of Truth，也不得自行建立 Skill。
+
+## 9. Stop
+PASS：動作完成並交 Verification。
+INSUFFICIENT：工具／權限／必要資料不足。
+FAILED：執行失敗。
+USER_REQUIRED：需要使用者決策。
