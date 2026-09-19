@@ -2,7 +2,7 @@
 
 日期：2026-09-19
 性質：【SIMULATION ACCEPTANCE；不冒充 Natural FIELD】
-依據：《1-系統/Agent Runtime Closure 最小契約.md》
+依據：《1-系統/03-Spec/Agent Runtime Closure 最小契約.md》
 
 ## 結果
 
