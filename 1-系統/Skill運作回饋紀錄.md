@@ -62,7 +62,19 @@
 - Recurrence：目前首次發現。
 - Status：CLOSED；RE-TEST PASS
 
-## 5. Skill 生命週期判斷資料
+## 5. 第三批 G1 FIELD Evidence
+
+| Record ID | Task | Skill / Mode | Result | Decision |
+|---|---|---|---|---|
+| G1-F13 | 判斷新責任是否已足以形成 Skill | Classification | PASS | DEFER |
+| G1-F14 | 單次候選是否足以 NEW | Classification | PASS | DEFER |
+| G1-F15 | 同責任能力補強 | Classification | PASS | UPDATE |
+| G1-F16 | 高度重疊 Skill | Classification | PASS | MERGE CANDIDATE |
+
+第三批累計：4 cases。
+G1 FIELD 累計：16 cases。
+
+## 6. Skill 生命週期判斷資料
 
 累積資料用於：
 
@@ -75,7 +87,7 @@ Maintenance Cost
 
 不得只用單次事件決定 REPLACE / ARCHIVE。
 
-## 6. 回饋路由
+## 7. 回饋路由
 
 Usage / Failure
 → Evidence / Verification
@@ -86,16 +98,17 @@ Usage / Failure
 → Verification
 → 再記錄
 
-## 7. 成本規則
+## 8. 成本規則
 
 第一版只記 L / M / H。
 尚無可靠數據時標記 UNKNOWN，不製造精確數字。
 
-## 8. 驗收
+## 9. 驗收
 
 格式建立：PASS
 第一批實際 FIELD：PASS（8 cases）
 第二批實際 FIELD：PASS（4 cases）
+第三批實際 FIELD：PASS（4 cases）
 G1 FIELD 累計：12 cases
 G1-P01 Failure Loop：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
