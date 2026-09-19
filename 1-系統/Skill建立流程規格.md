@@ -65,7 +65,7 @@ NEW / KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE
 → 寫入 Skill Definition
 → Derived Registry Reconcile
 → 更新檔案索引
-→ 正式運行（未實際驗證者標註「（代）」）
+→ 正式運行（Acceptance Stage=【代】者持續追蹤）
 → 建立 Usage / Failure 回饋
 
 若建立過程發現問題：
@@ -106,8 +106,8 @@ Large Mode：未來可透過 Registry / Retrieval / Ranking 找到本 Skill；�
 - 正常與主要失敗情境均通過模擬。
 
 模擬 PASS → 正式 Skill → 立即進入運行。
-尚未取得實際運行證據 → 標註「（代）」並進入追蹤。
-實際運行不再是准入門檻，而是解除「（代）」的成熟度驗證。
+尚未取得實際運行證據 → Acceptance Stage=【代】並進入追蹤。
+實際運行不再是准入門檻，而是解除 Acceptance Stage=【代】的成熟度驗證。
 
 ## 11. 建立階段問題處理 Gate
 
@@ -123,3 +123,12 @@ Large Mode：未來可透過 Registry / Retrieval / Ranking 找到本 Skill；�
 建立族群若包含多個相互依賴 Skill，先完成整體族群，再統一進行 Verification 與非阻塞問題回修。
 
 建立階段結束前，該批次 Problem 必須完成或正式 DEFER / ACCEPTED RISK；不得把未處理 OPEN 問題直接帶入下一依賴階段。
+
+
+## 狀態控制對接
+
+本流程中的「【代】」屬 Acceptance Stage，不是 State，也不是 Lifecycle。
+
+共同規格：1-系統/工程資產狀態與驗收控制規格.md
+
+因此不得建立 ACTIVE（代）這種複合 State。
