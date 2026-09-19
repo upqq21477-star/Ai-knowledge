@@ -46,10 +46,10 @@
 - Cause：文件更新後索引未同步。
 - Impact：降低狀態追溯與交接可靠性。
 - Correction：同步索引中的現行版本描述，並加入本批 FIELD 紀錄。
-- Re-test：待更新後重新讀取索引與對應文件。
+- Re-test：PASS；更新後重新讀取索引，已確認 Task Understanding v1.1、Research v1.3 與 G1 FIELD 紀錄可正確對應。
 - Preventive Rule：實質修改 Skill 後，版本描述與索引必須同批更新。
 - Recurrence：目前首次發現。
-- Status：FIXED；RE-TEST REQUIRED
+- Status：CLOSED；RE-TEST PASS
 
 ## 4. Skill 生命週期判斷資料
 
@@ -84,6 +84,7 @@ Usage / Failure
 
 格式建立：PASS
 第一批實際 FIELD：PASS（8 cases）
+G1-P01 Failure Loop：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
 可支援 Skill 決策：PENDING
