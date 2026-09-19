@@ -118,7 +118,7 @@ Usage / Failure
 第二批實際 FIELD：PASS（4 cases）
 第三批實際 FIELD：PASS（4 cases）
 後續 FIELD：G1-F17～F19 已納入
-G1 FIELD 累計：19 cases
+G1 FIELD 累計：21 cases
 G1-P01～P09：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
@@ -247,3 +247,37 @@ PASS。
 
 Status：
 REAL-WORK-VALIDATED。
+
+
+## 18. Phase 2 Natural FIELD｜G1-F20 / G1-F21
+
+| Record ID | Task | Skill / Mode | Result | Decision |
+|---|---|---|---|---|
+| G1-F20 | 核對 README / CURRENT / Handoff / G1 FIELD 狀態一致性 | Context + Verification + Diagnosis + Execution | PASS → 發現 P10 → Fix → Re-test PASS | 不建立新 Skill；確認 Atomic Synchronization recurrence |
+| G1-F21 | 回讀 G1 FIELD Header / Feedback / Problem Registry / CURRENT 一致性 | Context + Verification + Diagnosis + Execution | PASS → 發現 P11 → Fix → Re-test PASS | 不建立新 Skill；確認 Change Set / Completion Gate 仍有遺漏 |
+
+G1-F21 Actual：
+G1 FIELD 頂部仍停留在 16 cases，Skill 運作回饋停留在 19 cases；CURRENT 已為 20 cases。此為前次同步修正後的內部狀態遺漏。
+
+Failure：
+Data / Verification。
+
+Diagnosis：
+前次 P10 的受影響文件集合未完整涵蓋 G1 FIELD Header 與 Feedback 的最新 CURRENT Summary。
+
+Fix：
+補齊 G1-F20 / G1-F21，更新 Header 與 Feedback，並同步 Problem Registry、CURRENT、TODO、Handoff、Index。
+
+Re-test：
+PASS。
+
+Pattern：
+Atomic Synchronization / Completion Gate；自然 recurrence。
+
+## 19. CURRENT Feedback State
+
+G1 FIELD：21 cases
+G1-P01～P11：CLOSED / Re-test PASS
+實際紀錄：ACTIVE
+多案例回饋：IN PROGRESS
+可支援 Skill 決策：PENDING
