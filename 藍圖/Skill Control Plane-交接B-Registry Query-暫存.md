@@ -281,3 +281,33 @@ B 當前正確游標：
 因此維持：Natural FIELD Evidence = PENDING。
 
 本輪不填造 Evidence、不宣稱 B FIELD PASS、不建立跨包替代證據。B 的任務終點仍以 FIELD Protocol 第 8 節為準：自然工作累積足夠 Evidence，且 Candidate、Stop、Cost、Drift / Rebuild、Definition synchronization 無未解決結構性問題後，才可 PASS。
+
+
+## 本次驗收方法變更與結果（2026-09-19）
+
+使用者正式決定：B 的實際階段驗收改採「模擬運行」取代等待 Natural FIELD。
+
+本次執行 10 個受控案例：
+- Q0 Identity：PASS
+- Q1 Capability：PASS
+- Q2 Trigger / MULTIPLE：PASS
+- Q3 I/O：PASS
+- Q4 Constraint：PASS
+- Q5 Dependency：PASS
+- Q6 Verification / UNKNOWN：PASS
+- Q8 Impact / AFFECTS 邊界：PASS
+- Registry 遺失 / Rebuild：PASS
+- Definition Change / Registry synchronization：PASS
+
+補測 NONE / fallback、INVALID / exclude、MULTIPLE 不由 Registry 自選最佳者：PASS。
+
+驗收判定：
+- Registry / Query Static：PASS
+- Interface Alignment：PASS
+- Simulation Acceptance：PASS
+- Natural FIELD：不再作為本階段完成必要條件
+- B Final：PASS
+
+說明：Simulation 不被標記為 Natural FIELD；原 FIELD Protocol 保留作未來真實運行觀察標準。本次採用模擬驗收，是正式變更驗收方法，而非製造 FIELD 證據。
+
+**B 任務終點已到達。**
