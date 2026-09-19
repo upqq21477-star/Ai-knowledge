@@ -191,3 +191,14 @@ Skill 分流規格：PASS（文件層）
 實際運作：PENDING
 零記憶接手：PENDING
 50 次實際任務：PENDING
+
+## 17. AI Control Plane
+
+涉及目前狀態、Entity、Dependency、Impact、Evidence、Authority、Change 或 Provenance 時，使用：
+- `1-系統/AI Control Plane.md`
+- `1-系統/Control Plane Registry 規格.md`
+- `1-系統/Control Plane Query 規格.md`
+
+Control Plane 是 metadata / relationship / state 管理層，不取代 Source of Truth。
+一般任務不強制查詢；跨文件修改、狀態衝突、影響分析、交接、重大演化時按需查詢。
+修改 Repository 前仍須列出 Change Set 並等待 USER CONFIRM。
