@@ -826,3 +826,31 @@ v2.0 本身的工作不是「把所有工程做完」，而是完成以下重新
 
 下一施工游標：
 Phase 2 → G1/G2 小批次 Natural FIELD。
+
+
+---
+
+## 2026-09-19｜Blueprint 整體掃描後對齊
+
+本版仍是施工順序與決策框架；目前實際工程狀態以：
+`2-方案/完善/CURRENT Baseline-v1.0.md`
+為唯一 CURRENT Authority。
+
+本輪掃描已另外建立：
+`藍圖/AI單人工作室整體功能藍圖-v1.0.md`
+
+其責任是把本版的未來施工路線，與目前已建立 Skill、Control Plane、既有 CAP Mapping、【代】Skill、以及尚未實體化的 Capability / System / Infrastructure 對齊。
+
+本輪確認：
+- Blueprint Governance Skill：已建立，State=ACTIVE、Acceptance=【代】。
+- 會議紀錄管理 Skill：已建立，State=ACTIVE、Acceptance=【代】。
+- G1 FIELD：目前以 CURRENT Baseline / Workpool 的 G1=21 為準。
+- Phase 2 Natural FIELD：目前施工主線。
+- Minimum Evaluation、Dependency Audit、Capability Evolution、Migration：仍依 Evidence 推進。
+- Capability Registry / Graph / Automation / Orchestration / Large Mode：保持條件式後置，不因藍圖完整而提前施工。
+- 未來藍圖中的 Trigger / Recall / Evaluation 等項目，目前不自動升格為新 Skill。
+
+因此，本版的施工順序不因本次 Blueprint 掃描而另建一條平行工程線。
+
+完整功能位置與未來項目對照：
+`藍圖/AI單人工作室整體功能藍圖-v1.0.md`
