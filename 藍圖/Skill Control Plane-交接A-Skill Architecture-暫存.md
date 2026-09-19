@@ -3,7 +3,7 @@
 狀態：【TEMP HANDOFF｜完成後刪除】
 日期：2026-09-19
 工作包：A — Skill Architecture
-上游：目前 Skill Registry 規劃基線 + AI Control Plane / Query + Semantic Router 邊界設計
+工作方式：與 B、C **並行施工**；不得把 B/C 完成作為 A 的開工前置條件。
 下游：B Registry / Query、C Router / Runtime
 
 ## 1. 工作目的
@@ -16,19 +16,37 @@
 
 不負責正式 Registry Query、Semantic Router Runtime。
 
-## 2. 啟動前強制流程
+## 2. 並行施工規則
+
+A / B / C 是三個**可同時開始的獨立工作包**，不是 A→B→C 流水線。
+
+本工作可以在 B/C 尚未完成時直接開始。
+
+若施工中發現 B/C 尚未提供的接口或成果：
+- 不得因此停止 A。
+- 將需求記為 Interface Requirement / UNKNOWN / Change Request。
+- 先完成 A 可獨立完成的工作。
+- 最終整合時再驗證跨工作包接口。
+
+若發現 B/C 與 A 的規格衝突：
+- 不自行猜測。
+- 保留衝突。
+- 依 CURRENT / Authority 規則判定。
+- 必要時建立 Interface Change Request。
+- 不擅自改寫其他工作包核心規格。
+
+## 3. 啟動前強制流程
 
 第一次讀到本文件，不得直接施工。
 
 必須：
-
 1. 讀取 README.md。
 2. 讀取 CURRENT Baseline。
 3. 讀取目前施工交接包。
 4. 檢查現有 Skill / Agent / Routing / Control Plane 文件與實際狀態。
 5. 盤點本工作已完成、未完成、衝突、UNKNOWN。
 6. 做整體架構分析。
-7. 進入深度研究模式：研究 Skill definition、boundary、hierarchy、agent/workflow boundary、progressive disclosure、version/lifecycle/evolution 等外部實踐。
+7. 深度研究 Skill definition、boundary、hierarchy、agent/workflow boundary、progressive disclosure、version/lifecycle/evolution 等外部實踐。
 8. 找漏洞、反例、重複與過度工程化風險。
 9. 依影響與嚴重程度排序。
 10. 確認施工方案與完成終點。
@@ -36,7 +54,7 @@
 
 若發現上游資料與本文件衝突，以 CURRENT / Authority 規則為準；未知不得猜測。
 
-## 3. 已確立的架構基線
+## 4. 已確立的架構基線
 
 Agent = 任務級推理與協調。
 Workflow = 多 Skill 的流程組合。
@@ -53,7 +71,7 @@ Verification：如何判定結果。
 Evidence：本次實際驗證證據。
 Trace：實際運作紀錄。
 
-## 4. 本工作範圍
+## 5. 本工作範圍
 
 ### A1 Skill Definition Contract
 至少處理：
@@ -102,7 +120,7 @@ Verification = 驗證方法。
 Evidence = 實際驗證證據。
 不得混合。
 
-## 5. 不得越權
+## 6. 不得越權
 
 不得在本工作自行建立：
 - Registry Query
@@ -115,10 +133,9 @@ Evidence = 實際驗證證據。
 
 若需要修改下游介面，只提出 Interface Requirement。
 
-## 6. 完成驗收
+## 7. 完成驗收
 
 以下全部 PASS 才算 A 完成：
-
 - Skill Definition Contract
 - Skill Boundary Test
 - Skill Family 規則
@@ -131,29 +148,20 @@ Evidence = 實際驗證證據。
 - Verification / Evidence 邊界
 - Evolution 流程
 
-至少用 8 個邊界案例驗證：
-1. 新能力是否建立 Skill
-2. 大型能力是否拆分
-3. 兩 Skill 是否合併
-4. 舊 Skill 是否取代
-5. Skill 是否其實是 Workflow
-6. Skill 是否其實是 Agent
-7. Mode 還是新 Skill
-8. 修改後如何 Version / Lifecycle / Change
+至少用 8 個邊界案例驗證。
 
-## 7. 明確完成終點
+## 8. 明確完成終點
 
 A 結束的必要條件：
 
 「任何新能力都可以依固定規則判斷：是否為 Skill、是否需要拆分、屬於哪個 Family、是否應 Merge / Replace / Archive / Defer，以及如何形成 Definition。」
 
 達成後立即停止 A 的架構擴張。
-
 新增想法只能記為 Future Work / Change，不得讓本工作無限延伸。
 
-## 8. 給 B 的輸出
+## 9. 給 B/C 的輸出
 
-完成後必須交付：
+完成後交付：
 - Skill Definition Contract
 - Boundary Test
 - Classification Rules
@@ -161,11 +169,14 @@ A 結束的必要條件：
 - 已知漏洞
 - 未解決 UNKNOWN
 - Registry 所需欄位與 Interface Requirements
+- Router / Runtime 所需 Skill Interface Requirements
 
-## 9. 清理規則
+B/C 不必等待 A 完成才能施工；整合階段再共同驗證接口。
+
+## 10. 清理規則
 
 本文件是一次性施工交接，不是永久架構文件。
 
-A 完成並被整合測試吸收後，刪除此檔。
+A 完成、成果被正式系統吸收，且 Phase 1 最終整合驗收完成後，與 B/C 暫存交接檔**一次性統一刪除**。
 
 不要把本文件升格為 CURRENT、System 或正式 Skill Definition。
