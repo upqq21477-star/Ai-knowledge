@@ -160,3 +160,18 @@ Version / Current-State Synchronization Gap。
 
 目前證據：
 P01～P04 共四筆同類問題；優先研究共同流程原因，而非繼續個別修補。
+
+
+## 14. G1-F18 FIELD Evidence
+
+| Record ID | Task | Skill / Mode | Result | Decision |
+|---|---|---|---|---|
+| G1-F18 | CURRENT / Historical / Index 同步驗證 | Verification / Diagnosis / Execution | 發現 P05 → Fix → Re-test PASS | 流程修正；不建立新 Skill |
+
+Pattern Diagnosis：
+G1-P01～P05 均指向同一控制缺口：增量文件施工缺少固定的 CURRENT / Historical / Index Synchronization Gate。
+
+目前判定：
+【流程／驗證控制問題；已完成第一輪修正，持續 FIELD 驗證】
+
+尚不能宣告 Pattern 永久解決，因為必須在後續新增不同文件／不同施工批次中再次驗證規則是否有效。
