@@ -221,6 +221,28 @@ FIELD 僅接受自然工作證據，不以 Simulation / 推演代替。
 A 不因 B/C 尚未驗證而停止，也不把其他工作包的結果提前寫成 A 的 FIELD 結論。最終跨包結果由 D 統一驗收。
 
 
+## A Natural FIELD Evidence 對照（2026-09-19）
+
+新增：
+- `1-系統/A-Skill Architecture Natural FIELD 證據對照紀錄-v1.0.md`
+
+本輪從既有 G1 Natural FIELD 實際工作中提取 A 可使用的自然證據：
+- F-A1 Provider / Tool：G1-F06、G1-F12 → PASS（案例層）
+- F-A2 Mode：G1-F09 → PASS（案例層）
+- F-A7 No Candidate / DEFER：G1-F13、G1-F14 → PASS（案例層）
+- UPDATE：G1-F15 → PASS（案例層）
+- F-A4 Merge：G1-F16 → Partial；Merge Candidate，Migration 尚未完成
+- F-A5 Workflow / Agent：G1-F03 → Partial
+- F-A6 Routing Failure：目前只有保護規則與非自然失敗案例，Natural Failure Event PENDING
+- F-A8 Replacement / Defer：DEFER 有自然證據；REPLACE / Migration PENDING
+- F-A3 Split：尚無自然 Split Evidence
+
+結論：
+- A Natural FIELD Evidence：已存在，但覆蓋不完整
+- A Structural Failure：目前未發現
+- A Architecture：保持 v1.0
+- A FIELD：PARTIAL / PENDING，不得宣稱 PASS
+
 ## A-only 獨立一致性審計（2026-09-19）
 
 新增：
