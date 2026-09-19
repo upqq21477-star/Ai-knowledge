@@ -248,14 +248,29 @@
 
 ## 12. 與 ADR / Decision Log 的外部方法比較
 
-外部工程實務普遍將「討論背景、決策、理由、後果」與「實作文件」分開；AWS、Microsoft、Google 等 ADR 指南也強調決策應可追溯，重要決策變更應透過新的記錄取代舊決策，而不是讓歷史脈絡消失。citeturn0search1turn0search2turn0search3turn0search11
+外部工程實務對 ADR 的共通原則可作為參考：重要決策應保存 Context、Decision、Consequences／Trade-offs；應有明確狀態；已接受的決策通常不直接改寫，而以新決策取代；集中保存可降低重複討論。AWS 明確將 ADR 視為具生命週期的決策記錄，Microsoft 也要求記錄問題背景、選項、決策、取捨與狀態。這支持本方案「保存決策脈絡、但不保存完整聊天」的方向。
+
+參考：
+- AWS ADR Process：https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html
+- AWS ADR Best Practices：https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/best-practices.html
+- Microsoft Azure ADR：https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record
 
 本專案不直接照搬 ADR，原因是目前需求更廣：
 - 這裡不只記「已接受的架構決策」。
 - 還要處理討論中途暫停、切換主題、AI 交接、Skill 企劃與過渡資料清理。
 - 因此「會議紀錄」屬於暫時性 Context Artifact；真正具有長期工程權威性的內容仍應進入正式 Skill / System / Knowledge / Plan。
 
-## 13. 目前判定
+## 13. 深度研究後的結構修正
+
+研究後確認，本系統不能把「會議紀錄」設計成永久 Decision Log。原因是 ADR 的核心對象是已形成、具架構影響的決策；本系統的會議紀錄還包含討論中途的暫停、上下文切換、未決事項與進入企劃前的過渡狀態。因此兩者應分層：
+
+- 會議紀錄：短生命週期 Context Artifact。
+- 企劃：方案／Skill 建立前的 Design Artifact。
+- ADR 類決策：若未來確認需要永久保存，應進入適當正式工程文件，而不是永久堆在會議紀錄區。
+
+另外，外部方法強調「所有重大決策都記錄」；本系統不採完全自動保存，而採 Trigger + Semantic Confirmation。原因是 AI 工作流的 Context 成本更敏感，過度記錄本身會形成噪音與維護成本。
+
+## 14. 目前判定
 
 本方案目前應視為：
 `企劃候選 Skill`
@@ -271,7 +286,7 @@
 
 若證據不足 → DEFER，不建立正式 Skill。
 
-## 14. 第一階段施工
+## 15. 第一階段施工
 
 先建立：
 - `藍圖/規劃/會議紀錄/`
