@@ -66,6 +66,12 @@ NEW / KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE
 → 更新檔案索引
 → 建立 Usage / Failure 回饋
 
+若建立過程發現問題：
+- 立即建立 Problem Record。
+- Structural Blocking：立即修正後再繼續建立。
+- Non-Blocking：允許完成本 Skill 建立，再於 Verification / 回修階段處理。
+- 不因非阻塞問題中斷整個建立流程。
+
 ## 8. 不建立的情況
 
 Provider 不同：不建立。
@@ -97,3 +103,18 @@ Large Mode：未來可透過 Registry / Retrieval / Ranking 找到本 Skill；�
 - Failure 可分類。
 
 狀態：文件建立 PASS；實際運作 FIELD-PENDING。
+
+## 11. 建立階段問題處理 Gate
+
+單一 Skill 建立以「完成建立 → 實際驗證 → 非阻塞問題集中回修」為預設。
+
+只有會影響後續結構的問題才立即阻塞建立，包括：
+- Responsibility Boundary 錯誤
+- Data Contract 錯誤
+- Routing 基礎錯誤
+- 關鍵 Dependency / 上下游契約錯誤
+- 會使後續 Skill 建立建立在錯誤前提上的問題
+
+建立族群若包含多個相互依賴 Skill，先完成整體族群，再統一進行 Verification 與非阻塞問題回修。
+
+建立階段結束前，該批次 Problem 必須完成或正式 DEFER / ACCEPTED RISK；不得把未處理 OPEN 問題直接帶入下一依賴階段。
