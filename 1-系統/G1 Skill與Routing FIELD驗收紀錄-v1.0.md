@@ -816,3 +816,51 @@ P01～P09：
 
 目前 Natural FIELD 觀察：
 首次在 Phase 2 正式自然工作中再次發現同步失配，證明 Atomic Synchronization / Completion Gate 尚有未覆蓋的回饋文件範圍；暫不新增 Skill，後續進行 Failure Pattern / Evaluation。
+
+
+## 二十三、G1-F20｜Natural FIELD：CURRENT 入口與交接狀態一致性檢查
+
+Task：
+在 Phase 2 Natural FIELD 正常工作中，重新檢查 README、CURRENT Baseline、目前施工交接包與 G1 FIELD 的目前工程狀態是否一致。
+
+Expected：
+所有現行入口文件應指向 CURRENT Baseline；Phase 1 應為 Gate PASS；Phase 2 為目前施工階段；G1 應為 19 cases；P01～P09 應 CLOSED。
+
+Actual：
+README 與目前施工交接包仍保留 Phase 1「施工中」、G1=18、P01～P08 的舊摘要，且 README 尚以交接包／施工總控作為目前施工狀態依據。
+
+Failure Type：
+Data / Context / Verification。
+
+Diagnosis：
+CURRENT Baseline 已建立並通過 Phase 1 Gate，但兩個現行入口支援文件未在同一 Change Set 中同步完成，造成 CURRENT Support Drift。
+
+Fix：
+同步 README 與目前施工交接包至 CURRENT Baseline 現況；補記 G1-F20 / P10；同步 Feedback、Problem Registry、TODO、Index。
+
+Re-test：
+重新讀取 README、CURRENT Baseline、規則、待辦、Handoff、G1 FIELD、Feedback、Problem Registry、Index。
+
+Verification：
+PASS（修正後）。
+
+Decision：
+不建立新 Skill；視為既有 Atomic Synchronization / Completion Gate 的再次自然 recurrence。
+
+State：
+REAL-WORK-VALIDATED；Natural Verification / Context Consistency Event。
+
+## 二十四、G1-F20 結果
+
+| Case | 類型 | 結果 |
+|---|---|---|
+| G1-F20 | CURRENT / Handoff synchronization | 發現 P10 → Fix → Re-test PASS |
+
+G1 累計：
+20 cases。
+
+P01～P10：
+全部 CLOSED / Re-test PASS。
+
+目前觀察：
+Atomic Synchronization / Completion Gate 已連續在 Natural FIELD 中再次暴露受影響文件集合未完整涵蓋的問題；不新增 Skill，進入 Failure Pattern / Minimum Evaluation 證據累積。
