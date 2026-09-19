@@ -1,10 +1,42 @@
 # Control Plane Query 規格
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
 
 ## 目的
 以最低 Context 成本取得完成任務所需的最小後台資訊。
+
+## Semantic Router 前置查詢
+
+Semantic Router 不直接讀完整 Skill。
+
+需要時只查：
+
+GET CAPABILITY METADATA
+GET SKILL METADATA
+GET SKILL STATE
+GET ROUTING TERMS
+GET REQUIRED CONTEXT POINTER
+
+目的：
+確認「是否存在可用能力」，而非取得執行所需完整資料。
+
+標準順序：
+
+Task
+→ Semantic Router
+→ Capability / Skill
+→ Control Plane Query
+→ 最小 Context
+→ Execute
+
+## Router 查詢停止規則
+
+1. 找到唯一且可用的 Skill → 停止路由查詢。
+2. 多候選 → 只增加必要 Metadata。
+3. 無候選 → STOP，回退 Agent。
+4. 仍不明確 → STOP，回退 Agent 或要求最小必要澄清。
+5. 不得為了提高「完整性」而讀取完整 Skill / System / Knowledge。
 
 ## 基本查詢
 GET ENTITY
@@ -18,6 +50,10 @@ GET TRACE
 GET AUTHORITY
 GET LIFECYCLE
 GET CAPABILITY
+GET CAPABILITY METADATA
+GET SKILL METADATA
+GET ROUTING TERMS
+GET REQUIRED CONTEXT POINTER
 
 ## 任務查詢
 修改 X：
@@ -57,6 +93,8 @@ Query 結果只返回：
 必要證據
 必要 Source 指針
 
+Router 階段尤其禁止返回完整 Skill / System / Knowledge。
+
 ## Cache
 Search / Graph / Query Result 可快取。
 Cache 非 Source of Truth。
@@ -79,13 +117,24 @@ Registry 不完整：
 → 更新 Registry
 
 ## 成本原則
-一般工作：L0-L1。
-關係問題：L2。
-異常／驗證：L3-L4。
-歷史研究／大型重構：L5。
+Router：
+最低成本 Metadata 查詢。
+
+一般工作：
+L0-L1。
+
+關係問題：
+L2。
+
+異常／驗證：
+L3-L4。
+
+歷史研究／大型重構：
+L5。
 
 ## 禁止
 - 不全庫預載。
 - 不把完整 Graph 放入 Context。
 - 不把所有 History 放入 Context。
 - 不因查詢便利而複製全文。
+- 不為 Semantic Router 載入完整 Skill / System / Knowledge。
