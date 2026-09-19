@@ -668,7 +668,7 @@ G1 累計：
 17 cases。
 
 Problem Registry：
-G1-P01 CLOSED / G1-P02 CLOSED / G1-P03 CLOSED / G1-P04 CLOSED。
+G1-P01 CLOSED / G1-P02 CLOSED / G1-P03 CLOSED / G1-P04 CLOSED / G1-P05 CLOSED。
 
 目前新增觀察：
 Data / Verification 狀態同步問題已連續出現三次；後續不再只視為單次文件錯誤，需進行 Failure Pattern Diagnosis，但在完成研究前不直接建立新 Skill 或 Large Mode。
@@ -693,3 +693,49 @@ Data / Verification 狀態同步問題已連續出現三次；後續不再只視
 
 目前：
 P01 / P02 / P03 / P04 均 CLOSED。
+
+
+## 十九、G1-F18｜CURRENT / Historical / Index 同步規則驗證
+
+Task：
+針對前次發現的 Version / Current-State Synchronization Gap，重新檢查施工總控、G1 FIELD 與檔案索引是否能維持一致。
+
+Expected：
+- G1 CURRENT = 17 cases
+- Historical batches remain historical
+- Index = 17 cases
+- Problem Registry includes P01～P05
+- 同步規則已被實際套用
+
+Actual：
+首次檢查施工總控時發現前段仍為「第一批 FIELD 驗收完成」，與後段 17 cases 不一致；因此建立 G1-P05。
+
+Fix：
+更新施工總控 CURRENT State、標示 Historical Record、加入同步規則；同步更新 Index。
+
+Re-test：
+重新讀取施工總控、G1 FIELD、Problem Registry、Index。
+
+Verification：
+PASS。
+
+Problem Registry：
+G1-P05。
+
+State：
+REAL-WORK-VALIDATED。
+
+Pattern Diagnosis：
+P01～P05 均可由同一流程缺口解釋：增量修改缺少「CURRENT / Historical / Index」同步 Gate。此階段判定為流程／驗證控制問題，不建立新 Skill、不啟動 Large Mode。
+
+## 二十、G1-F18 結果
+
+| Case | 類型 | 結果 |
+|---|---|---|
+| G1-F18 | CURRENT / Historical / Index synchronization | 發現 P05 → Fix → Re-test PASS |
+
+G1 累計：
+18 cases。
+
+P01～P05：
+全部 CLOSED / Re-test PASS。
