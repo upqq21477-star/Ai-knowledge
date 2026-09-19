@@ -57,3 +57,85 @@
 ## 參考資料
 
 本專案的外部／補充參考資料放在「參考資料」資料夾。
+
+
+## 共用框架與專案專屬資料分層
+
+方案 A 的遊戲資料分為兩種：
+
+### A. 可跨遊戲重用的「遊戲開發框架層」
+
+這是針對「如何使用本系統開發遊戲」的共通方法，例如：
+- Game Model 最小契約
+- Core Loop 設計方法
+- Game System / Rule / State / Flow 的建模方式
+- L1 / L2 / L3 驗證分層
+- System Integration Validation
+- Game Rule → Game Model → Skill → Transformation → Code → Verification 的追蹤
+- Runtime → Evidence → Code → Transformation → Skill → Rule / Game Model 的反向除錯
+- 遊戲開發相關的共通 Skill 治理與最小記錄格式
+
+這些內容不應因 Project A 結束而重新建立一次。經 Project A 實際使用、驗證並確認具有跨遊戲價值後，整理成中央「遊戲開發共用框架封存」。
+
+中央封存的狀態是：
+【ARCHIVE-REUSABLE；不啟用；可供新遊戲專案套用】
+
+它不是中央 Agent / Control Plane 的第二套執行系統，也不是第二個 CURRENT。
+
+### B. Project A 專屬遊戲設計層
+
+實際屬於本遊戲的內容，例如：
+- 戰鬥設計
+- 敵人
+- 武器
+- 數值
+- 地圖
+- 關卡
+- 經濟
+- 技能效果
+- 特殊規則
+- 劇情
+- 美術／音效規格
+- 實際 Game Data
+- 本遊戲專屬測試與 Playtest 結果
+
+預設留在方案 A，不因其存在而升格為中央共用框架。
+
+判定原則：
+「如何開發遊戲」偏向共用框架；
+「這個遊戲是什麼」偏向專案專屬。
+
+無法確認跨遊戲價值時，先留在 Project A，不提前抽取。
+
+## 跨遊戲重用流程
+
+Project A 開發取得的共通能力：
+
+Project A 實際使用
+→ Evidence / Verification
+→ 判定是否具有跨遊戲重用價值
+→ 蒸餾共通部分
+→ 更新中央遊戲開發共用框架封存
+→ 新 Project B 建立時直接套用
+→ Project B 再以實際 Evidence 回饋框架
+
+Project B 不需要重新建立 Project A 已驗證的共通框架。
+
+但是 Project B 不直接讀取 Project A 的專屬遊戲資料。
+
+## 框架版本同步原則
+
+中央封存的「遊戲開發共用框架」視為共通框架的可重用版本庫。
+
+當共通框架本身發生修正：
+- 先修改共通框架的正式內容
+- 同步更新中央封存版本
+- 新專案套用最新版本
+- 已在開發中的專案是否升級，依相容性與影響分析決定，不強制覆蓋專案現況
+
+因此：
+「共通框架要跟著改」；
+但「專案專屬遊戲設計不跟著共通框架同步」。
+
+這避免中央備份與各遊戲專案形成無限雙向同步。
+
