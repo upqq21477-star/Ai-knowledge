@@ -56,3 +56,10 @@ Knowledge 管資料生命週期；Context 管現在載入什麼。
 ## 11. 驗收
 文件建立：PASS
 實際運作：PENDING
+
+## 12. AI Control Plane 整合
+
+Control Plane 提供 Entity / State / Dependency / Impact / Evidence / Provenance / Authority / Change metadata。
+Context Skill 負責判斷本次任務需要哪些資料，不複製 Control Plane。
+
+採 Progressive Retrieval：L0 現有 Context → L1 metadata → L2 直接關係 → L3 Evidence/Provenance → L4 Source → L5 History；足夠即停止。
