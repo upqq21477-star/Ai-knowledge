@@ -48,7 +48,7 @@ Blueprint Governance 只負責主要功能、位置、主要關係、最小狀�
 - 足夠 Evidence：移除【代】。
 - 發現需要修正的問題：回【驗】。
 
-不再建立【已建立】作為額外 Acceptance 狀態。
+不再建立額外的完成狀態；實際證據充分後移除【代】。
 
 ## 5. State
 
@@ -58,7 +58,7 @@ Blueprint Governance 目前：
 State = ACTIVE
 Acceptance = 【代】
 
-禁止 ACTIVE（代）或 ACTIVE【代】。
+State 與 Acceptance 必須分欄，不使用複合狀態字串。
 
 ## 6. Mapping
 
