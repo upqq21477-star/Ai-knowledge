@@ -2,7 +2,7 @@
 
 日期：2026-09-19
 工作包：A — Skill Architecture
-狀態：【STATIC PASS；FIELD / 跨包整合 PENDING】
+狀態：【STATIC PASS；SIMULATION ACCEPTANCE PASS；NATURAL FIELD OPTIONAL】
 
 ## 1. 驗收依據
 
@@ -86,20 +86,20 @@ CURRENT Authority：
 目前：
 - 文件規則：PASS
 - 8 邊界案例邏輯：PASS
-- 自然工作驗證：PENDING
-- B/C 實際接口整合：PENDING
-- FIELD 成本／Context 影響：PENDING
+- Simulation Acceptance：PASS
+- B/C Interface Simulation：PASS
+- Natural FIELD：OPTIONAL / 不作本階段完成門檻
+- FIELD 成本／Context 影響：未宣稱
 
-不得把本紀錄寫成 FIELD PASS。
+本紀錄不得把 Simulation 寫成 Natural FIELD。
 
 ## 5. A 目前結論
 
-A 已形成可施工的 Skill Architecture Contract，且靜態邊界驗收通過。
+A 已形成 Skill Architecture Contract，靜態邊界與受控模擬驗收通過。
 
-A 尚未宣告最終完成，原因只有：
-1. 需要與 B/C 進行最終接口整合。
-2. 需要自然工作驗證 Boundary 規則。
-3. 需要實際 Evidence 驗證 Context / Routing / Maintenance 成本。
+本階段以 Simulation Acceptance 作為完成門檻；Natural FIELD 不再阻塞 A Final。
+B/C 跨包流程另由 D 的 E2E Simulation Acceptance 驗收。
+實際 Context / Routing / Maintenance 成本不填寫虛構數據，留作未來觀察。
 
 若後續 FIELD / 整合發現規則不足：
 Evidence → Problem → Change Request
@@ -117,8 +117,8 @@ A 停止架構擴張，保持目前規格。
 目前結果：
 - Architecture Static：PASS
 - Boundary Static：PASS
-- FIELD Protocol：READY
-- Natural FIELD Evidence：PENDING
-- A Final FIELD：PENDING
+- Simulation Acceptance：PASS
+- Natural FIELD：OPTIONAL / 不阻塞本階段
+- A Final：PASS（Simulation Acceptance）
 
 本次不填入人工製造的 FIELD 結果；自然工作發生後才記錄 Evidence。B/C 的實際成本與整合結果留待最終 D 驗收。
