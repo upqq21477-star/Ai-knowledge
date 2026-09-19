@@ -62,19 +62,19 @@ Monitoring
 
 | Skill | 目前位置 | 狀態 | 主要責任 |
 |---|---|---|---|
-| Agent Skill | 1-系統 | ACTIVE | 任務級決策、編排、重新分流 |
-| 任務理解 Skill | 1-系統 | ACTIVE | Goal / Output / Constraint / Unknown / Verification Target |
-| Context 管理 Skill | 1-系統 | ACTIVE | 最小充分 Context、來源與邊界 |
-| Skill 分類判斷 Skill | 1-系統 | ACTIVE | KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE |
-| 交接 Skill | 1-系統 | ACTIVE；FIELD PASS | 最小充分 Handoff 與 Memoryless Recovery |
-| 執行 Skill | 1-系統 | ACTIVE | 執行已確認 Action 並產生 Operation Evidence |
-| 研究 Skill | 1-系統 | ACTIVE | 問題拆解、研究深度、搜尋、比較、證據候選 |
-| 證據／驗證／診斷 Skill | 1-系統 | ACTIVE | Evidence、Verification、Diagnosis |
-| 知識管理 Skill | 1-系統 | ACTIVE | 長期可重用資料、Source、Version、Lifecycle |
-| 演化管理 Skill | 1-系統 | ACTIVE | Change Set、Impact、Migration |
-| 蒸餾 Skill | 1-系統 | ACTIVE | 結構性重複、壓縮、重組 |
-| Blueprint Governance Skill | 1-系統 | ACTIVE；【代】 | 維護 Blueprint 位置、主要關係與一致性 |
-| 會議紀錄管理 Skill | 1-系統 | ACTIVE；【代】 | 會議成果保存、轉 Planning / Handoff / Update |
+| Agent Skill | 1-系統/01-Skill | ACTIVE | 任務級決策、編排、重新分流 |
+| 任務理解 Skill | 1-系統/01-Skill | ACTIVE | Goal / Output / Constraint / Unknown / Verification Target |
+| Context 管理 Skill | 1-系統/01-Skill | ACTIVE | 最小充分 Context、來源與邊界 |
+| Skill 分類判斷 Skill | 1-系統/01-Skill | ACTIVE | KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE |
+| 交接 Skill | 1-系統/01-Skill | ACTIVE；FIELD PASS | 最小充分 Handoff 與 Memoryless Recovery |
+| 執行 Skill | 1-系統/01-Skill | ACTIVE | 執行已確認 Action 並產生 Operation Evidence |
+| 研究 Skill | 1-系統/01-Skill | ACTIVE | 問題拆解、研究深度、搜尋、比較、證據候選 |
+| 證據／驗證／診斷 Skill | 1-系統/01-Skill | ACTIVE | Evidence、Verification、Diagnosis |
+| 知識管理 Skill | 1-系統/01-Skill | ACTIVE | 長期可重用資料、Source、Version、Lifecycle |
+| 演化管理 Skill | 1-系統/01-Skill | ACTIVE | Change Set、Impact、Migration |
+| 蒸餾 Skill | 1-系統/01-Skill | ACTIVE | 結構性重複、壓縮、重組 |
+| Blueprint Governance Skill | 1-系統/01-Skill | ACTIVE；【代】 | 維護 Blueprint 位置、主要關係與一致性 |
+| 會議紀錄管理 Skill | 1-系統/01-Skill | ACTIVE；【代】 | 會議成果保存、轉 Planning / Handoff / Update |
 
 註：
 Skill 的【代】表示已模擬驗收 PASS、可運行，但尚缺自然工作 Evidence；不是未完成，也不是新的 State。
