@@ -144,12 +144,12 @@ Skill 分類判斷器：未正式建立。
 
 已建立正式 Skill：
 1. `1-系統/Skill分類判斷 Skill.md`
-2. `1-系統/任務理解 Skill.md`
+2. `1-系統/01-Skill/任務理解 Skill.md`
 3. `1-系統/研究 Skill.md`
-4. `1-系統/Context管理 Skill.md`
-5. `1-系統/證據驗證診斷 Skill.md`
+4. `1-系統/01-Skill/Context管理 Skill.md`
+5. `1-系統/01-Skill/證據驗證診斷 Skill.md`
 6. `1-系統/知識管理 Skill.md`
-7. `1-系統/執行 Skill.md`
+7. `1-系統/01-Skill/執行 Skill.md`
 8. `1-系統/演化管理 Skill.md`
 9. `1-系統/蒸餾 Skill.md`
 
