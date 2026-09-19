@@ -371,6 +371,12 @@ Failure 至少包含 Missing Input / Invalid Input / Dependency Failure / Execut
 
 Failure → Classification / Diagnosis → 判斷是否可 Re-route → 可：重新 Query / Router；不可：STOP + 原因 + Evidence / Trace。禁止因 Failure 任意建立新 Skill。
 
+## C-05.1 Invocation Boundary
+Router 的輸出在進入 Skill 前，必須形成 Invocation Contract：
+Task / Trigger / Selected Skill / Mode / Required Context / Input / Expected Output / Verification Target / Failure Boundary。
+
+Router 不執行 Skill，不負責最終 Verification。
+
 ## C-06 E2E Acceptance Target
 
 至少驗證：正常 E2E、Skill Update、Skill Disable、Registry Rebuild、Dependency Failure、Verification Failure。以上目前均屬 DESIGN / STATIC TARGET；Natural FIELD 才能判定實際 Accuracy、Cost、Recovery 為 PASS。
