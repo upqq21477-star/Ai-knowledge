@@ -188,3 +188,5 @@ G1/G2 Natural FIELD
 狀態：核心建立 PASS；實際 FIELD 驗證 PENDING。
 
 Control Plane 不取代 CURRENT Authority；所有衍生 Registry / Index / Graph / Cache 均須可由 Source 重建。
+
+Skill Control Plane Phase 1：ACCEPTED（D Final Acceptance；Controlled Simulation）。Natural FIELD 不作本階段完成門檻。
