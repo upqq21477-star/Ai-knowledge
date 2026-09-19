@@ -265,3 +265,19 @@ B 當前正確游標：
 - B Final FIELD：尚未完成
 
 下一個 B 行動不是繼續擴充 Registry 規格，而是在自然工作實際發生 Registry / Query 行為時，依 FIELD Protocol 擷取 Evidence；若自然事件暴露結構問題，再進 Problem → Proposal → Verification → Change Request。
+
+
+## 本輪 B 自然證據搜尋（2026-09-19）
+
+再次檢索 Repository 現有文件與 FIELD / Real Work 紀錄，針對 B-F1～B-F10 尋找可追溯的自然 Registry / Query Evidence。
+
+結果：目前沒有找到可直接證明 B-F1～B-F10 任一完整 FIELD Case 已由 B Registry / Query 實際執行產生的 Evidence。
+
+已確認存在的是：
+- Registry / Query 設計與 Static Acceptance。
+- 其他工作中的 Skill / Routing / FIELD 資料，但不能反向視為 B Registry / Query FIELD。
+- Simulation / Design Target 不能升格為 B FIELD。
+
+因此維持：Natural FIELD Evidence = PENDING。
+
+本輪不填造 Evidence、不宣稱 B FIELD PASS、不建立跨包替代證據。B 的任務終點仍以 FIELD Protocol 第 8 節為準：自然工作累積足夠 Evidence，且 Candidate、Stop、Cost、Drift / Rebuild、Definition synchronization 無未解決結構性問題後，才可 PASS。
