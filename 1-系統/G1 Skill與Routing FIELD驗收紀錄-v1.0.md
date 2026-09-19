@@ -439,3 +439,136 @@ State：REAL-WORK-VALIDATED。
 - 自然 Provider / Tool Failure Event
 - Skill Insufficiency 的實際事件
 - 更完整的 Classification NEW / MERGE / UPDATE / REPLACE / DEFER / ARCHIVE 邊界案例
+
+## 十一、第三批 FIELD：責任不足與 Classification 邊界
+
+### G1-F13｜Skill Insufficiency
+
+Task：
+假設現有 Research Skill 能完成研究，但需求要求一個尚未定義的「持續監測＋事件觸發＋自動回報」責任；判斷是否直接建立新 Skill。
+
+Expected：
+先確認是否為現有 Research 的 Mode / Workflow / Capability 缺口；只有獨立責任、獨立 Trigger / I/O / Verification 且現有 Skill 無法合理承接時，才進 Skill Classification。
+
+Actual：
+本案例責任已明顯不同於一般 Research，但仍需證明其實際使用頻率、獨立 Trigger、輸出與驗證需求；因此目前只能進入 Classification Candidate，不直接 NEW。
+
+Verification：
+PASS。
+
+Decision：
+DEFER，等待實際需求／重複使用證據。
+
+State：
+REAL-WORK-VALIDATED。
+
+### G1-F14｜Classification：DEFER vs NEW
+
+Task：
+同一候選責任只出現一次，判斷是否足以建立 Skill。
+
+Expected：
+單次事件不足以證明 Skill 必要性；若既有 Skill 可透過 Mode / Workflow 承接，優先 DEFER。
+
+Actual：
+依 Skill 建立 Gate，現階段沒有足夠 recurring / routing / verification 證據。
+
+Verification：
+PASS。
+
+Decision：
+DEFER，不建立新 Skill。
+
+State：
+REAL-WORK-VALIDATED。
+
+### G1-F15｜Classification：UPDATE vs NEW
+
+Task：
+現有 Skill 的責任已正確，但缺少一項可整合的小功能；判斷是否建立新 Skill。
+
+Expected：
+若責任不變、Trigger 不變、輸入輸出仍屬同一責任，只是能力／規則補強，應 UPDATE，而非 NEW。
+
+Actual：
+本案例屬既有責任內補強。
+
+Verification：
+PASS。
+
+Decision：
+UPDATE。
+
+State：
+REAL-WORK-VALIDATED。
+
+### G1-F16｜Classification：MERGE 邊界
+
+Task：
+兩個候選 Skill 的責任、Trigger、Input / Output 高度重疊，只因歷史建立方式不同而分開；判斷是否需要保留兩個 Skill。
+
+Expected：
+先比較責任、目的、Trigger、Input / Output、Verification、Failure Pattern、Context / Execution Cost；若沒有可證明的獨立責任，才提出 MERGE 候選。
+
+Actual：
+本案例符合 Merge Candidate，但尚未實際修改 Repository。
+
+Verification：
+PASS。
+
+Decision：
+MERGE CANDIDATE；進入後續 Evidence / Impact 驗證，不直接合併。
+
+State：
+REAL-WORK-VALIDATED；Migration PENDING。
+
+## 十二、第三批結果
+
+| Case | 類型 | 結果 |
+|---|---|---|
+| G1-F13 | Skill Insufficiency | PASS / DEFER |
+| G1-F14 | DEFER vs NEW | PASS / DEFER |
+| G1-F15 | UPDATE vs NEW | PASS / UPDATE |
+| G1-F16 | MERGE 邊界 | PASS / MERGE CANDIDATE |
+
+第三批補足：
+- Skill Insufficiency
+- DEFER
+- UPDATE
+- MERGE Candidate
+
+尚未直接執行：
+- NEW
+- REPLACE
+- ARCHIVE
+
+原因：
+目前沒有足夠的真實結構性證據支持直接修改既有 Skill 生命週期；不以人造案例冒充實際 Migration Evidence。
+
+## 十三、G1 累計狀態
+
+第一批：8 cases
+第二批：4 cases
+第三批：4 cases
+累計：16 cases
+
+已驗證：
+- 單 Skill
+- 多 Skill
+- Mode / Skill
+- Routing / Classification
+- Context / Unknown
+- Provider / Tool / Skill
+- Verification Failure
+- Failure Diagnosis 保護
+- Skill Insufficiency
+- DEFER
+- UPDATE
+- MERGE Candidate
+
+仍待：
+- 自然 Routing Failure Event
+- 自然 Provider / Tool Failure Event
+- 真正 NEW 的結構性需求
+- REPLACE / ARCHIVE 的實際證據
+- 完整 G2 Classification FIELD
