@@ -245,3 +245,12 @@ Skill Control Plane：正式接入現有核心 Skill；A/B/C 工作包施工階�
 回歸結果：Research → Classification → Evolution → Execution / Verification 邊界成立；Knowledge Management 與 Context / Evidence 邊界成立；Distillation 的長期結構成本觸發邊界成立；Control Plane 仍為 metadata / derived view，不取代 Source of Truth。
 
 下一游標保持：完整全庫引用／Authority 回歸 → 下一個功能工作包依賴盤點。
+
+
+## 2026-09-19｜Skill Governance 工作包施工紀錄
+
+完成 Blueprint Governance Skill、會議紀錄管理 Skill、Skill 建立流程規格、Skill 架構擴展規格、Skill 模擬驗收與代運行規則之責任分層實體搬遷。
+
+結果：01-Skill／03-Spec 分層保持；現行導航同步；舊路徑不作現行入口；package-level 模擬回歸【PASS】。兩個 Skill 的 `【代】` Acceptance Stage 保持，尚不宣告 Natural FIELD。
+
+下一施工游標仍為：完整全庫引用／Authority 回歸 → 下一個功能工作包依賴盤點。
