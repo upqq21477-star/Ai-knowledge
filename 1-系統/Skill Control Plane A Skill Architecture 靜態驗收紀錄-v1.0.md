@@ -107,3 +107,18 @@ Evidence → Problem → Change Request
 
 若沒有結構性缺口：
 A 停止架構擴張，保持目前規格。
+
+
+## 6. FIELD Protocol
+
+已建立正式 FIELD 驗證規格：
+`1-系統/Skill Control Plane A FIELD Boundary 驗證規格-v1.0.md`
+
+目前結果：
+- Architecture Static：PASS
+- Boundary Static：PASS
+- FIELD Protocol：READY
+- Natural FIELD Evidence：PENDING
+- A Final FIELD：PENDING
+
+本次不填入人工製造的 FIELD 結果；自然工作發生後才記錄 Evidence。B/C 的實際成本與整合結果留待最終 D 驗收。
