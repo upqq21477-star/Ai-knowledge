@@ -932,3 +932,23 @@ Handoff
 已完成最小契約蒸餾：Trigger → Capability → Routing → Invocation → Context → Execution → Verification → Final / Stop；並定義 Failure → Diagnosis → Retry / Fallback / Re-route / Stop、Runtime Receipt、Agent-level Retry / Re-route / Chain / Context / Cost 邊界，以及 Multi-Skill Composition 的最小接口。
 
 目前只完成規格與 Simulation 邊界；Natural FIELD 尚未宣稱完成。下一游標為自然工作中的 Agent E2E、Failure Recovery、Receipt 完整度與成本／停止邊界驗證。
+
+
+## 2026-09-19｜Skill → Transformation → Code 實作追蹤規劃
+
+新增規劃：
+`藍圖/規劃/Skill-Transformation-Code追蹤與反向除錯規劃-v1.0.md`
+
+本規劃將遊戲實體化階段定義為：
+
+Game Model → Skill → Transformation → Code → Test / Verification → Runtime Evidence
+
+並建立反向除錯：
+
+Runtime → Evidence → Code → Transformation → Skill → Rule / Game Model → Diagnosis → Fix → Re-test
+
+核心目的：重用已驗證的 Skill → Transformation 實作模式，降低程式漂移與不必要 Context；Bug 發生時，優先透過 Trace 定位到 Skill / Transformation / Rule，而不是直接讀取整片程式碼。
+
+目前狀態：【規劃中；尚未施工／尚未 Natural FIELD】。
+
+本規劃不新增大型 Registry、Generator 或 Bug-to-Skill 平台；先以極小 Damage Calculation 案例驗證最小追蹤單位、查詢成本、正反向 Trace 與重新驗證是否成立。
