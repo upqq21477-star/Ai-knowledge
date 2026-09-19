@@ -1,6 +1,6 @@
-# 交接 Skill（Handoff Skill） v1.2
+# 交接 Skill（Handoff Skill） v1.3
 
-版本：v1.2
+版本：v1.3
 日期：2026-09-19
 狀態：【FIELD 驗收 PASS；Control Plane 接入；正式 Definition】
 
@@ -55,25 +55,6 @@ HANDOFF-DRAFT：整理中。
 HANDOFF-READY：可交接但尚未完成恢復驗證。
 HANDOFF-VALIDATED：恢復條件已確認。
 HANDOFF-STALE：Repository 狀態變更後未同步。
-
-## 8. Control Plane
-按需查詢 CURRENT、Authority、State、Relevant Entity、Evidence、Recovery Data。
-不要求完整 Registry；Source 文件仍為權威。
-
-## 9. Stop
-交接包足以恢復 → HANDOFF-READY。
-若狀態已變更 → HANDOFF-STALE。
-缺必要資訊 → UNKNOWN / 回到 Context 或 Knowledge。
-
-## 10. Boundary Rule
-Memoryless 驗收 PASS 不代表所有後續任務 PASS；它只證明交接包具備恢復所需資訊。
-
-
-## 7. Lifecycle
-HANDOFF-DRAFT：整理中。
-HANDOFF-READY：可交接但尚未完成恢復驗證。
-HANDOFF-VALIDATED：恢復條件已確認。
-HANDOFF-STALE：Repository 狀態變更後未同步。
 HANDOFF-EXIT-CHECK：本交接所承擔的主要未完成事項已接近完成，開始檢查是否仍有必要存在。
 HANDOFF-RETIRED：本交接不再是工作入口；必要決策／經驗已蒸餾至正式資料或歷史足跡，原交接可刪除。
 
@@ -100,3 +81,14 @@ EXIT-CHECK → 蒸餾 → RETIRED → 刪除原交接。
 ## 8. Control Plane
 按需查詢 CURRENT、Authority、State、Relevant Entity、Evidence、Recovery Data。
 不要求完整 Registry；Source 文件仍為權威。
+
+## 9. Stop
+交接包足以恢復 → HANDOFF-READY。
+若狀態已變更 → HANDOFF-STALE。
+缺必要資訊 → UNKNOWN / 回到 Context 或 Knowledge。
+
+## 10. Boundary Rule
+Memoryless 驗收 PASS 不代表所有後續任務 PASS；它只證明交接包具備恢復所需資訊。
+
+## 11. Exit Rule
+交接資料目錄是長期存在的暫存容器；只刪除已完成 EXIT-CHECK、已蒸餾且不再作為入口的個別交接檔，不刪除交接資料目錄本身。
