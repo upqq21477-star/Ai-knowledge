@@ -1,24 +1,29 @@
-# Skill 分類判斷 Skill（Skill Classification & Lifecycle Judge） v1.1
+# Skill 分類判斷 Skill（Skill Classification & Lifecycle Judge） v1.2
 
-版本：v1.0
+版本：v1.2
 日期：2026-09-19
-狀態：【建立；待實際運作驗收】
+狀態：【建立；Small Mode 分類治理已接入；待實際運作驗收】
 定位：Skill 治理層；判斷新能力、新 Skill 或既有 Skill 變更應如何處理。
 
 ## 1. 核心責任
-
 當出現新能力、新工具、新 Provider、新 Mode、新 Skill 候選或既有 Skill 失效／重疊時，判斷：
 
 KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE
 
+本 Skill 不負責一般任務的 Skill 選擇。
+
+Skill Routing 負責：
+「目前任務應使用哪個既有 Skill？」
+
+本 Skill 負責：
+「Skill 結構本身是否應該改變？」
+
 本 Skill 不直接執行變更；決策確認後交給 Evolution Management，再由 Execution 執行。
 
 ## 2. Trigger
-
 Skill 建立、分層、融合、更新、取代等結構變更候選，預設視為 D3 結構研究輸入；本 Skill 不得因「只是新增檔案」而跳過研究與邊界判斷。
 
 以下任一情況觸發：
-
 - 出現新的 Skill 候選。
 - 新增能力可能與既有 Skill 重疊。
 - 新 Provider / Tool / Model 被提出為 Skill。
@@ -27,10 +32,37 @@ Skill 建立、分層、融合、更新、取代等結構變更候選，預設�
 - Actual Usage 顯示 Skill 長期未使用或使用方式改變。
 - 需要融合、更新、取代或封存 Skill。
 
-一般工作任務若沒有 Skill 結構變更，不啟動本 Skill。
+一般工作任務若只是選擇既有 Skill，不啟動本 Skill。
 
-## 3. 判斷順序
+## 3. 分類與分流邊界
 
+Skill Routing：
+Task → Capability → Candidate Skill → Route → Mode → Execute
+
+Skill Classification：
+Candidate / Failure Pattern / Structural Gap
+→ Responsibility Boundary
+→ Classification
+→ Evolution
+
+「路由不到」不得直接視為「需要新 Skill」。
+
+先排除：
+- Task Understanding 錯誤
+- Context 不足
+- Capability 判斷錯誤
+- Candidate 檢索不足
+- Routing 判斷錯誤
+- Provider / Tool 不可用
+- Verification 誤判
+
+只有確認存在結構性責任缺口，才進入 Skill Classification。
+
+完整分流規則由：
+1-系統/Skill分流運作規格.md
+定義。
+
+## 4. 判斷順序
 若候選尚未經 Research D3：先回 Research Skill 完成問題拆解、研究問題地圖、既有 Skill 盤點與證據比較；本 Skill 接收研究結果後進行正式分類。
 
 N
@@ -44,8 +76,7 @@ N
 → 判斷是否形成獨立責任
 → 決定處置
 
-## 4. 分類規則
-
+## 5. 分類規則
 Capability：要完成什麼。
 Provider：誰提供能力。
 Tool：如何進行外部操作。
@@ -55,8 +86,7 @@ Reference / Rule / Knowledge：提供依據，但本身不是工作責任。
 
 新 Provider、Tool、Model、名稱或方法本身，不足以建立新 Skill。
 
-## 5. 比較欄位
-
+## 6. 比較欄位
 至少比較：
 
 Purpose
@@ -77,8 +107,7 @@ Long-term Maintenance Cost
 
 缺資料不得猜測，標記 UNKNOWN。
 
-## 6. 處置
-
+## 7. 處置
 建立新 Skill 的必要條件：
 - 已完成 D3 結構研究，或有明確證據證明可直接判定。
 - 存在獨立 Responsibility。
@@ -89,8 +118,6 @@ Long-term Maintenance Cost
 
 若上述條件不足，不直接建立，優先 MERGE / UPDATE / DEFER。
 
-
-
 KEEP：形成獨立責任且與既有 Skill 不重疊。
 MERGE：責任相近，可由既有 Skill + Mode 承接。
 UPDATE：既有 Skill 責任仍正確，但規則需要改進。
@@ -99,8 +126,7 @@ REFERENCE：不是工作責任，只需保留為 Rule / Knowledge / Reference。
 DEFER：證據不足，不做永久結構變更。
 ARCHIVE：退出現行工作結構，但保留歷史。
 
-## 7. Unknown / Evidence 規則
-
+## 8. Unknown / Evidence 規則
 不能因「看起來更好」而 REPLACE。
 不能因「功能很多」而拆成多個 Skill。
 不能因「文件不同」而視為不同責任。
@@ -110,8 +136,7 @@ ARCHIVE：退出現行工作結構，但保留歷史。
 證據不足 → DEFER。
 重複失敗且有結構性證據 → UPDATE / MERGE / REPLACE 評估。
 
-## 8. Output
-
+## 9. Output
 每次判斷至少輸出：
 
 Candidate
@@ -125,9 +150,9 @@ Dependencies
 Migration Needed
 Verification Target
 
-## 9. 與其他 Skill 的路由
-
+## 10. 與其他 Skill 的路由
 新能力／Skill 候選
+→ Research D3
 → 本 Skill
 
 需要實際修改結構
@@ -136,15 +161,15 @@ Verification Target
 → Evidence / Verification
 
 只是一般工作
-→ 不進入本 Skill。
+→ Skill Routing，不進入本 Skill。
 
 若發現長期重複、責任漂移或結構性成本
 → Distillation 評估。
 
-## 10. 驗收
-
+## 11. 驗收
 文件建立：PASS
 規則定義：PASS
+Classification / Routing Boundary：PASS（文件層）
 實際運作：PENDING
 多案例分類：PENDING
 50 次實際任務測試：PENDING
