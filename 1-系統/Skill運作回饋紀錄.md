@@ -122,3 +122,16 @@ G1-P01 Failure Loop：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
 可支援 Skill 決策：PENDING
+
+
+## 11. G1-P02 Problem Registry 關聯
+
+G1 FIELD 持續施工時發現 CURRENT 狀態段落落後於第三批實際結果。
+
+Problem Registry：`1-系統/問題清單.md` → G1-P02
+
+Layer：Data / Verification  
+Status：CLOSED  
+Re-test：PASS
+
+此問題與 G1-P01 共同顯示「文件狀態同步」是目前需要持續觀察的 Failure Pattern 候選，但目前不直接升格為結構性架構問題。
