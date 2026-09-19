@@ -107,7 +107,7 @@ Agent 不取代資料層；Agent 是使用資料層資產的運作控制器。
 
 ## P3｜G1/G2 太早成為長期主線，CURRENT Baseline 反而延後
 
-目前 Skill / Agent / Routing 已經建立大量規格與 FIELD 證據，但 CURRENT Baseline 尚未完成。
+目前 Skill / Agent / Routing 已建立正式規格與 FIELD 證據；CURRENT Baseline 已建立並通過 Phase 1 Gate。
 
 風險：
 Skill 可能依據尚未整理的舊 System / Plan / Knowledge 建立，後續重構時再產生引用漂移。
@@ -235,7 +235,7 @@ NEW / REPLACE / ARCHIVE = DEFER。
 
 ---
 
-## P8｜大型 Skill / Registry / Graph / Automation 有過早工程化風險
+## P8｜大型 Skill / Graph / Automation 有過早工程化風險
 
 Large Mode 已有介面與規格，但目前仍沒有證據證明 Small Mode 已經成為瓶頸。
 
@@ -393,7 +393,7 @@ Large Mode 是條件式支線，不是主線。
 # 四、最新施工階段
 
 ## Phase 0｜架構與入口收束
-狀態：進行中 → 本版完成後進入穩定期
+狀態：已完成；進入穩定觀察期
 
 工作：
 1. 固定資產層與 AI 運作層的兩維架構。
@@ -411,7 +411,9 @@ Gate：
 
 ## Phase 1｜CURRENT Baseline v1
 
-優先級：最高
+狀態：Gate PASS
+
+優先級：已完成；後續僅維護與更新
 
 工作：
 1. 盤點現行文件。
@@ -757,7 +759,7 @@ Final Closure
 7. 不以 Simulation 代替 FIELD。
 8. 不以 50 次作為僵硬通過門檻。
 9. 不因「看起來重複」直接刪 Knowledge / System。
-10. 不提前施工 Registry / Graph / Automation。
+10. 不提前施工 Graph / Automation；Registry / Query 已進入正式 Small Mode Control Plane。
 11. 不為了填滿 Blueprint 而建立新系統。
 12. 不把暫行監控視為永久能力，直到有成本／收益證據。
 13. 不讓舊快照覆蓋 CURRENT。
@@ -820,7 +822,7 @@ v2.0 本身的工作不是「把所有工程做完」，而是完成以下重新
 「證據決定架構，不是架構要求證據。」
 
 目前狀態：
-【施工中】
+【正式基線已建立；進入 Phase 2 Natural FIELD / Real Work Observation】
 
 下一施工游標：
-Phase 0 → Phase 1：CURRENT Baseline v1。
+Phase 2 → G1/G2 小批次 Natural FIELD。
