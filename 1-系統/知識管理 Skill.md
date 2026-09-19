@@ -1,8 +1,8 @@
 # 知識管理 Skill（Knowledge Management Skill） v1.2
 
-版本：v1.2
+版本：v1.3
 日期：2026-09-19
-狀態：【Control Plane 接入；正式 Definition】
+狀態：【Control Plane 接入；正式 Definition；自然運作 Evidence 持續累積】
 
 ## 1. Definition
 管理可長期引用資料的生命週期、來源、版本與 Derived View；不決定本次任務載入哪些 Context。
