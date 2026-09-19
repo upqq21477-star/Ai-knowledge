@@ -188,7 +188,7 @@ G1/G2 Natural FIELD
 - 01-Skill / 03-Spec 核心 Runtime 文件尚未實體搬遷。
 
 下一游標：
-Research 回歸 → 核心 Skill / Spec 依賴盤點 → 小批次高依賴搬遷 → 每批模擬回歸。
+Research 回歸 → 功能工作包依賴盤點 → Control Plane A/B/C package-level 回歸 → 下一工作包搬遷。
 
 原則：
 「邊搬、邊記錄、邊驗證」；不得全部搬完後才補工程紀錄。
