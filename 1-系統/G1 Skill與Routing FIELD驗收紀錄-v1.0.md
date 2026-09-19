@@ -332,7 +332,7 @@ Data / Verification。
 - PARTIAL：2
 - INSUFFICIENT：1
 - 明確需要修正的 Failure：1
-- 已完成修正：待本批索引更新後重新驗證
+- 已完成修正：PASS；索引已更新並重新驗證
 - 真實 Provider Failure：0
 - 真實 Routing Failure：0
 - 真實 Verification Failure：1
@@ -347,7 +347,7 @@ Data / Verification。
 3. Provider / Tool 不應升格為 Skill 的規則可實際套用。
 4. Unknown 保護有效；本批沒有因 Mapping 不完整而補猜。
 5. 第一個真實問題出現在「索引同步」，不是 Skill 結構。
-6. Failure Loop 已被實際觸發一次：Verification → Diagnosis → Fix → Re-test。
+6. Failure Loop 已被實際觸發一次：Verification → Diagnosis → Fix → Re-test，且 Re-test PASS。
 7. Routing Failure 與 Provider Failure 的實際事件證據仍不足，不能宣告 PASS。
 8. 不因本批結果提前建立新 Skill，也不啟動 Large Mode。
 
