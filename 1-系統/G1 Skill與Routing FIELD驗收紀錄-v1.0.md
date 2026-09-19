@@ -668,7 +668,28 @@ G1 累計：
 17 cases。
 
 Problem Registry：
-G1-P01 CLOSED / G1-P02 CLOSED / G1-P03 CLOSED。
+G1-P01 CLOSED / G1-P02 CLOSED / G1-P03 CLOSED / G1-P04 CLOSED。
 
 目前新增觀察：
 Data / Verification 狀態同步問題已連續出現三次；後續不再只視為單次文件錯誤，需進行 Failure Pattern Diagnosis，但在完成研究前不直接建立新 Skill 或 Large Mode。
+
+
+### G1-F17 延伸檢查：Index 批次一致性
+
+在 G1-F17 的同一 Verification 工作中，進一步對照全部現行核心 Skill 與檔案索引，發現四項索引仍為 v1.0，而實際文件已為 v1.1：
+
+- 知識管理 Skill
+- 執行 Skill
+- 演化管理 Skill
+- 蒸餾 Skill
+
+處理：
+→ 建立 G1-P04
+→ 同步四項 Index
+→ 重新比對
+→ PASS
+
+這使狀態／版本同步問題由單一文件錯誤提升為跨文件 Failure Pattern Candidate。
+
+目前：
+P01 / P02 / P03 / P04 均 CLOSED。
