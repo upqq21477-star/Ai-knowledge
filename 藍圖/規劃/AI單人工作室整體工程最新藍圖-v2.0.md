@@ -952,3 +952,62 @@ Runtime → Evidence → Code → Transformation → Skill → Rule / Game Model
 目前狀態：【規劃中；尚未施工／尚未 Natural FIELD】。
 
 本規劃不新增大型 Registry、Generator 或 Bug-to-Skill 平台；先以極小 Damage Calculation 案例驗證最小追蹤單位、查詢成本、正反向 Trace 與重新驗證是否成立。
+
+
+## 2026-09-19｜方案 A 遊戲開發工作區正式規劃
+
+本輪確認：遊戲開發期間不將遊戲能力提前拆成獨立 Domain Runtime。方案 A 定位為「遊戲開發完整能力工作區」，以開發效率優先；中央系統仍提供完整 Agent、Context、Routing、Runtime Closure、Verification、Evidence、Evolution、Change 與其他共用治理能力。
+
+### 運作模型
+
+```
+GAME MODE
+→ 讀取方案 A
+→ 使用中央系統完整必要能力
+→ 使用方案 A 的遊戲專用資料 / Skill / Game Model / Evidence
+→ 執行遊戲開發
+```
+
+其他專案在 GAME MODE 不載入。方案 A 可讀寫，但不得直接改寫中央治理規格。
+
+### 方案 A 資產分層
+
+方案 A 比照主程式的資料分層概念整理遊戲開發資產：
+
+- `0-知識/`：遊戲領域知識
+- `1-系統/`：遊戲專用 System / Skill / Game Model
+- `2-方案/`：遊戲開發方案、Transformation、實作規劃
+- `3-軟體/`：實際遊戲工具或程式
+- `應用/`：實際遊戲專案
+- `參考資料/`：外部／補充資料
+
+目前只建立已有需求的層級，不預先建立大型空架構。
+
+### 開發期原則
+
+開發期間允許完整使用中央能力，並將已確認屬於遊戲開發的 Skill 與資料集中於方案 A。此分層主要是遊戲資產的整理與工作區邊界，不是增加第二套 Agent / Control Plane / Runtime。
+
+Context 仍採任務需要的最小載入，以控制 Token 與檢索成本；不以此要求開發期建立額外跨層路由。
+
+### 完成後精簡
+
+方案 A 是開發工作區，不是最終發布結構。遊戲完成後才依真實使用 Evidence 執行：
+
+`使用紀錄 → Dependency Audit → 影響分析 → Evidence 整理 → KEEP / MERGE / COMPRESS / ARCHIVE / DELETE → 可重用能力抽取 → 最終精簡`
+
+哪些 Skill 應保留於專案、哪些可成為共用能力、哪些應壓縮或移除，均由完成後的實際證據決定，不在開發期提前判斷。
+
+### 已完成的資產搬移
+
+遊戲附加 Skill 統御與 Skill → Transformation → Code 遊戲實體化規劃已移入方案 A；舊位置已移除並同步檔案索引。
+
+目前入口：
+- `專案A/PROJECT.md`
+- `專案A/1-系統/遊戲開發附加Skill統御.md`
+- `專案A/2-方案/Skill-Transformation-Code追蹤與反向除錯規劃-v1.0.md`
+
+### 本規劃的下一步
+
+下一階段不是再建立遊戲治理層，而是把「GAME MODE → 讀取方案 A」納入主程式的 Mode / Context 啟動規則，先做 Simulation，再於實際遊戲開發時取得 Natural FIELD 證據。
+
+本項屬目前多專案 Agent / 工作區規劃的延伸，不新增第二套 CURRENT、Workpool 或治理 Authority。
