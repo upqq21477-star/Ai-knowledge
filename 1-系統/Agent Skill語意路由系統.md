@@ -18,6 +18,18 @@ Agent Skill 語意路由系統（Agent Skill Semantic Router）是獨立的輕�
 
 先分流，再取 Context。
 
+## 2. 建立前檢查結論
+
+既有 `1-系統/Agent Skill.md` 與 `1-系統/Skill分流運作規格.md` 已負責完整 Skill Routing：Task Understanding → Problem Triage → Required Capability → Candidate Skill → Skill Routing → Mode → Context。
+
+本系統不取代上述流程，而是在其前面增加一個「低成本前置分流」：先判斷是否存在明確 Skill 候選；只有命中、歧義或需要進一步判斷時，才進入既有完整 Skill Routing。
+
+因此兩者不是同一責任：
+- Semantic Router：前置粗分流，目標是減少不必要的完整 Routing / Context 成本。
+- Skill Routing：正式候選比較與最終路由。
+
+既有 Agent Skill 保持為 Top-Level Orchestration Skill。
+
 ## 2. 系統邊界
 
 Semantic Router：
@@ -219,7 +231,13 @@ Simulation 可驗證流程，但不能取代 FIELD。
 - 不預設固定 Token 節省比例。
 - 不以 Simulation 結果宣稱實戰成本下降。
 
-## 13. 完成條件
+## 13. 外部方法比對
+
+外部 Agent / Skill Routing 實作普遍採用「路由層先於完整能力載入」的方向；例如 Tool Router 將能力發現與執行分離，以避免整個能力目錄進入 Agent Context。citeturn0search1 vLLM Semantic Router 也將語意路由定位為 LLM / Agent 前的決策層。citeturn0search7 近期 Skill Routing 研究則顯示，大規模 Skill 庫的選擇本身是獨立問題，但不同研究對「只用 metadata 是否足夠」存在明顯差異；因此本系統不預設 metadata 一定足夠，將透過 FIELD 驗證決定是否需要第二階段資訊。citeturn0academia23turn0academia22
+
+採用結論：保留「先分流、後載入」原則；不提前導入向量資料庫、獨立 Router Server 或大型模型 Router。
+
+## 14. 完成條件
 
 設計完成：
 
