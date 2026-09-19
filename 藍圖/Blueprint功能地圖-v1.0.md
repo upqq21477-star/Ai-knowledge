@@ -38,7 +38,7 @@ Evidence
 | Blueprint Governance | ACTIVE / 【代】 | 維護 Blueprint 地圖與一致性 | 1-系統/Blueprint Governance Skill（代）.md |
 | 會議紀錄管理 | ACTIVE / 【代】 | 管理會議紀錄保存與轉換 | 1-系統/會議紀錄管理 Skill（代）.md |
 | Blueprint | 本地圖 | 顯示整體功能位置與關係 | 本文件 |
-| Verification | 已有正式能力 | 驗證系統／Skill 是否符合條件 | 1-系統/證據驗證診斷 Skill.md |
+| Verification | 已有正式能力 | 驗證系統／Skill 是否符合條件 | 1-系統/01-Skill/證據驗證診斷 Skill.md |
 | Evidence | 已有正式能力；非獨立 Evidence System | 保存／引用驗證依據 | 1-系統/AI Control Plane.md；1-系統/03-Spec/Control Plane Registry 規格.md |
 
 
