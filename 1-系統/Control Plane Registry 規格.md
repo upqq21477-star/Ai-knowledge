@@ -2,7 +2,7 @@
 
 版本：v1.2
 日期：2026-09-19
-狀態：【正式規格；Derived View / Query 已接入現有 Skill】
+狀態：【正式規格；Derived View / Query 已接入現有 Skill；自然運作 Evidence 持續累積】
 
 ## 1 Entity
 
