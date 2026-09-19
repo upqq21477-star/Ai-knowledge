@@ -1,6 +1,7 @@
 # Skill Control Plane｜E01–E06 E2E Simulation Acceptance v1.0
 
 日期：2026-09-19
+狀態性質：【HISTORICAL；保留作為驗收／設計證據，不作 CURRENT 運作狀態來源】
 性質：A/B/C 跨包受控模擬；不冒充 Natural FIELD 或 Runtime Evidence
 
 | Case | Flow | 結果 |
