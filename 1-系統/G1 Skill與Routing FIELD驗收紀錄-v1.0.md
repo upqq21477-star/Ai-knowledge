@@ -762,3 +762,57 @@ Pattern Diagnosis 更新：
 目前 G1：
 18 cases。
 P01～P06 全部 CLOSED。
+
+
+## 二十一、G1-F19｜Natural FIELD：回饋紀錄與 G1 CURRENT 狀態一致性檢查
+
+Task：
+Phase 2 Natural FIELD 啟動後，依正常 Verification 流程核對 G1 FIELD、Skill 運作回饋與 Problem Registry 的目前累計狀態。
+
+Required Capability：
+Context Retrieval + Verification + Diagnosis + Execution。
+
+Candidate：
+Context管理 → 證據／驗證／診斷 → 執行。
+
+Expected：
+G1 FIELD、Skill運作回饋、Problem Registry 對目前 G1 累計與已關閉問題的描述一致。
+
+Actual：
+G1 FIELD 已為 18 cases，但 Skill運作回饋前段仍停留在 16 cases，且尚未完整記錄 G1-F17 / G1-F18；因此目前回饋紀錄的 CURRENT 摘要落後於實際 FIELD。
+
+Failure Type：
+Data / Verification。
+
+Diagnosis：
+前次 G1 FIELD 持續追加時，G1 FIELD 與回饋紀錄沒有被視為同一同步批次；既有 Atomic Synchronization / Completion Gate 尚未涵蓋所有回饋文件。
+
+Fix：
+同步 Skill運作回饋的 G1-F17、G1-F18、G1-F19 與目前累計狀態，並建立 G1-P09。
+
+Re-test：
+重新比對 G1 FIELD、Skill運作回饋、Problem Registry、CURRENT Baseline、待辦與 Index。
+
+Verification：
+PASS（修正後）。
+
+Decision：
+不建立新 Skill；確認為既有 Atomic Synchronization / Completion Gate 的自然 recurrence，進入 Failure Pattern / Evaluation 觀察。
+
+State：
+REAL-WORK-VALIDATED；Natural Verification Failure Event。
+
+## 二十二、G1-F19 結果
+
+| Case | 類型 | 結果 |
+|---|---|---|
+| G1-F19 | Natural Verification / synchronization | 發現 P09 → Fix → Re-test PASS |
+
+G1 累計：
+19 cases。
+
+P01～P09：
+全部 CLOSED / Re-test PASS。
+
+目前 Natural FIELD 觀察：
+首次在 Phase 2 正式自然工作中再次發現同步失配，證明 Atomic Synchronization / Completion Gate 尚有未覆蓋的回饋文件範圍；暫不新增 Skill，後續進行 Failure Pattern / Evaluation。
