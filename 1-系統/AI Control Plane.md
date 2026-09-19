@@ -1,8 +1,8 @@
 # AI Control Plane
 
-版本：v1.3
+版本：v1.4
 日期：2026-09-19
-狀態：【正式架構規格；Control Plane 已接入現有 Skill；FIELD 持續累積】
+狀態：【正式架構規格；Control Plane 已接入現有 Skill；自然運作 Evidence 持續累積】
 
 ## 定位
 AI Control Plane 是後台管理／控制層。
