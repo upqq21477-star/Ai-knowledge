@@ -307,6 +307,10 @@ FIELD-PENDING。
 
 ### G1-P01｜索引版本同步失配
 
+Problem Registry：`1-系統/問題清單.md` → G1-P01
+
+狀態：CLOSED；Re-test PASS
+
 類型：
 Data / Verification。
 
@@ -545,7 +549,15 @@ REAL-WORK-VALIDATED；Migration PENDING。
 原因：
 目前沒有足夠的真實結構性證據支持直接修改既有 Skill 生命週期；不以人造案例冒充實際 Migration Evidence。
 
-## 十三、G1 累計狀態
+## 十四、問題流程修正 FIELD 驗證
+
+本批再次確認：發現異常時，問題不得只停留在 FIELD Case；必須建立 Problem Record，並在修正後更新其 Status。
+
+本次實際補登 G1-P01 至 Problem Registry，並將 G1-F05、Skill 運作回饋、施工總控建立關聯。
+
+Verification：PASS（流程已實際落地）。
+
+## 十五、G1 累計狀態
 
 第一批：8 cases
 第二批：4 cases
