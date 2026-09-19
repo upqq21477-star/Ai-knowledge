@@ -2,7 +2,7 @@
 
 版本：v1.0
 日期：2026-09-19
-狀態：【FIELD 施工中；Phase 2 Natural FIELD；累計 21 cases】
+狀態：【FIELD；Phase 2 Natural FIELD；累計 21 cases；持續累積】
 定位：記錄 G1 實際工作中的 Skill / Agent / Routing 運作，不把文件模擬視為 FIELD PASS。
 
 ## 一、驗收原則
@@ -367,7 +367,7 @@ Data / Verification。
 6. G3 的 50 次 Real Work 獨立計數，不與本批案例混為一談。
 
 目前 G1：
-【施工中】
+【歷史批次紀錄】
 
 
 ## 八、第二批 FIELD：邊界與失敗路由
@@ -735,7 +735,7 @@ P01～P05 均可由同一流程缺口解釋：增量修改缺少「CURRENT / His
 | G1-F18 | CURRENT / Historical / Index synchronization | 發現 P05 → Fix → Re-test PASS |
 
 G1 累計：
-18 cases。
+當時累計 18 cases；後續已更新至 21 cases。
 
 P01～P05：
 全部 CLOSED / Re-test PASS。
@@ -743,7 +743,7 @@ P01～P05：
 
 ### G1-F18 延伸發現：同步 Gate 本身仍有操作缺口
 
-G1-F18 修正同步規則後，重新檢查發現 G1 FIELD 已為 18 cases，但 Index 曾仍為 17，形成 G1-P06。
+G1-F18 修正同步規則後，重新檢查發現 歷史同步問題：G1 FIELD 曾為 18 cases 而 Index 落後；已形成並關閉 G1-P06。
 
 這不是否定同步規則，而是驗證出：
 「有規則」≠「施工批次具備完成 Gate」。
@@ -760,7 +760,7 @@ Pattern Diagnosis 更新：
 共同根因由「缺少同步規則」進一步收斂為「增量修改缺少 atomic synchronization / completion gate」。
 
 目前 G1：
-18 cases。
+當時累計 18 cases；後續已更新至 21 cases。
 P01～P06 全部 CLOSED。
 
 
