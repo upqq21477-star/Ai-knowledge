@@ -202,3 +202,12 @@ Skill 分流規格：PASS（文件層）
 Control Plane 是 metadata / relationship / state 管理層，不取代 Source of Truth。
 一般任務不強制查詢；跨文件修改、狀態衝突、影響分析、交接、重大演化時按需查詢。
 修改 Repository 前仍須列出 Change Set 並等待 USER CONFIRM。
+
+
+## C Integration Boundary
+
+正式鏈：Task → Agent → Semantic Router → Control Plane Query → Candidate → Skill Definition → Runtime → Verification → Evidence / Trace。
+
+Agent 仍為 Top-Level Orchestration；Semantic Router 只做條件式前置分流；Control Plane Query 提供最小必要後台資訊；Skill Runtime 執行正式 Definition。
+
+A/B/C 尚未完成 Natural FIELD 前，不得將文件層 PASS 寫成實戰 PASS。
