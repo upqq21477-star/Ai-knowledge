@@ -486,4 +486,87 @@
 `企劃候選 Skill / DEFER`
 
 下一輪模擬重點應轉向「與現有 Skill 實際委派時是否產生責任重疊」，尤其是蒸餾、交接、演化、執行、驗證之間的邊界。
+## 22. 第三輪模擬：Control Plane 委派與責任邊界
+
+本輪將候選能力放入現有 Skill Control Plane 進行模擬，不建立正式 Skill，不修改 Runtime。
+
+### 22.1 委派鏈測試
+
+| 情境 | 首責 | 委派 | 禁止吞併 | 結果 |
+|---|---|---|---|---|
+| 是否值得保存 | 會議紀錄管理 | 蒸餾 | 不自行壓縮全文 | PASS |
+| 長討論壓縮 | 蒸餾 | — | 不自行決定是否建檔 | PASS |
+| 是否進企劃 | 會議紀錄管理 | 分類判斷可協助 | 不自行判定新 Skill | PASS |
+| 是否建立新 Skill | 分類判斷 | — | 不由會議紀錄管理決定 | PASS |
+| 正式結構變更 | 演化 | 執行 | 不直接改正式架構 | PASS |
+| 建立／修改／刪除檔案 | 執行 | — | 不由管理能力直接操作 | PASS |
+| 驗證結果 | 驗證 | — | 不自行宣布 PASS | PASS |
+| AI 交接 | 交接 | — | 不重做 Handoff | PASS |
+| Context 分層載入 | Context管理 | — | 不自行管理 Context | PASS |
+
+### 22.2 路由衝突注入
+
+#### Case A：使用者說「整理一下」
+可能是一般摘要，也可能是會議紀錄。
+預期：Task Understanding 先判定意圖；若不足則確認，不直接路由到會議紀錄管理。
+結果：PASS。
+
+#### Case B：使用者說「幫我留下剛才的重點」
+若上下文明確涉及切換工作／保留決策，路由至會議紀錄管理；若只是要求一般摘要，路由至蒸餾。
+結果：PASS。
+
+#### Case C：使用者說「把這個做成 Skill」
+預期：先進企劃／分類判斷；不是直接把內容寫成會議紀錄管理 Skill。
+結果：PASS。
+
+#### Case D：使用者說「把這個交接給下一個 AI」
+預期：Handoff Skill 主責；會議紀錄管理只能提供討論來源材料。
+結果：PASS。
+
+#### Case E：使用者說「這個方案要不要改架構」
+預期：Evolution／研究相關流程主責；本能力不取代架構演化判斷。
+結果：PASS。
+
+#### Case F：使用者說「剛才那段存起來」
+預期：若語意真正歧義，最短確認；不得因單一「存」字自動建立過渡文件。
+結果：PASS。
+
+### 22.3 與 Control Plane 原則一致性
+
+檢查以下既有原則：
+
+- Skill Definition 是 Source of Truth：不違反。
+- Registry 是 Derived View：不新增第二 Registry。
+- Router 不是 Runtime：不修改 Router／Runtime 邊界。
+- Dependency ≠ Impact：委派與影響分析分開。
+- Evidence ≠ Trace：Path Record 不冒充 Verification Evidence。
+- Verification ≠ Evidence：本能力不自行宣布驗證成立。
+- Unknown 不猜測：歧義與不足資訊走確認／DEFER。
+- Failure 不自動產生 Skill：符合。
+- No Candidate 不自動建立 Skill：符合。
+- Registry 從 Source 重建：本方案不改此規則。
+
+結果：PASS。
+
+## 23. 第三輪模擬結論
+
+目前沒有發現需要新增核心 Skill、修改 Control Plane 基線或建立新 Runtime 元件的必要性。
+
+最值得保留的獨立責任仍然只有：
+
+> 管理討論成果是否需要保存，以及應以何種過渡形式進入下一工程階段。
+
+但第三輪也確認一個重要風險：這個責任很容易被「Task Understanding + 蒸餾 + 交接 + 執行」四者組合吸收。
+
+因此目前不能只因邏輯上可以獨立，就升格正式 Skill。必須繼續驗證「集中管理是否真的比既有 Skill 協作更有價值」。
+
+第三輪結果：
+
+`SIMULATION-3 = PASS`
+
+目前狀態仍為：
+
+`企劃候選 Skill / DEFER`
+
+下一輪應測試「成本與收益」：相同 10 組工作情境，分別比較「加入會議紀錄管理」與「完全由現有 Skill 協作」兩條路徑，觀察額外步驟、文件數、Context 載入量、責任重疊與可恢復性。
 
