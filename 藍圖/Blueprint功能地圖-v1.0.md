@@ -50,6 +50,18 @@ Blueprint
    │      ├── 功能：驗證系統／Skill 是否符合既定條件
    │      └── 詳細規格 → 1-系統/證據驗證診斷 Skill.md
    │
+   ├── Blueprint Governance
+   │      ├── State：ACTIVE
+   │      ├── Acceptance Stage：【代】
+   │      ├── 功能：維護 Blueprint 地圖、狀態、關係、一致性與詳細來源入口
+   │      └── 詳細規格 → 1-系統/Blueprint Governance Skill（代）.md
+   │
+   ├── 會議紀錄管理
+   │      ├── State：ACTIVE
+   │      ├── Acceptance Stage：【代】
+   │      ├── 功能：管理討論成果保存、轉換與過渡紀錄
+   │      └── 詳細規格 → 1-系統/會議紀錄管理 Skill（代）.md
+   │
    └── Evidence
           ├── 狀態：已有正式 Evidence 能力／Control Plane 資料能力；不是因此宣告為獨立 Evidence System
           ├── 功能：保存、引用與追蹤驗證依據
@@ -60,6 +72,8 @@ Blueprint
 | 節點 | 狀態 | 最小作用 | 詳細入口 |
 |---|---|---|---|
 | Skill Registry | 【已建立／正式接入】 | 提供 Skill 可查詢資訊 | 2-方案/完善/Skill Registry規劃基線-v1.0.md；1-系統/Control Plane Registry 規格.md |
+| Blueprint Governance | State=ACTIVE；Acceptance Stage=【代】 | 維護 Blueprint 地圖與一致性 | 1-系統/Blueprint Governance Skill（代）.md |
+| 會議紀錄管理 | State=ACTIVE；Acceptance Stage=【代】 | 管理會議紀錄保存與轉換 | 1-系統/會議紀錄管理 Skill（代）.md |
 | Blueprint | 【本地圖】 | 顯示整體功能位置與關係 | 本文件 |
 | Verification | 【已有正式能力；地圖節點依層級判定】 | 驗證系統／Skill 是否符合條件 | 1-系統/證據驗證診斷 Skill.md |
 | Evidence | 【已有正式能力；非獨立 Evidence System】 | 保存／引用驗證依據 | 1-系統/AI Control Plane.md；1-系統/Control Plane Registry 規格.md |
@@ -81,9 +95,9 @@ Blueprint
 
 ## 6. 狀態語義與驗收階段
 
-Blueprint 必須區分「尚未建立」、「尚未完成」、「已完成但尚待實際驗收」、「已完成且驗收通過」。
+Blueprint 必須區分 Acceptance Stage 與正式 State / Lifecycle。完整共同規格見《工程資產狀態與驗收控制規格》。
 
-### 6.1 三個工作狀態標記
+### 6.1 Acceptance Stage；State / Lifecycle 分離
 
 | 狀態 | 定義 | 判定／執行責任 | 下一步 |
 |---|---|---|---|
@@ -197,3 +211,19 @@ Blueprint Governance 本身也遵守同一套階段語義：
 正式實際驗收成功後，移除「【代】」，並由正式狀態取代。
 
 模擬驗收不是「功能已驗收」；它只證明在尚未進行實際運作前，流程與規則已經可以被預先檢查。
+
+
+## 13. 狀態控制來源
+
+所有正式 Skill／System 等工程資產的狀態語義，以《1-系統/工程資產狀態與驗收控制規格.md》為共同規格。
+
+三個維度必須分開：
+- State：目前正式可用／工作狀態。
+- Acceptance Stage：【未】→【驗】→【代】→【已建立】。
+- Lifecycle：正式生命週期。
+
+例如「會議紀錄管理 Skill」不是 ACTIVE（代）這種單一狀態，而是：State=ACTIVE、Acceptance Stage=【代】、Lifecycle=Active。
+
+會議紀錄自身的 OPEN → READY → CONVERTED → CLOSED 只屬於紀錄內容生命週期。
+
+因此 Blueprint 可以統一顯示不同類型資產，而不把不同狀態系統混成一套。
