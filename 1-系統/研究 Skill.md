@@ -1,8 +1,8 @@
 # 研究 Skill（Research Skill） v1.4
 
-版本：v1.4
+版本：v1.5
 日期：2026-09-19
-狀態：【Control Plane 接入；正式 Definition】
+狀態：【Control Plane 接入；正式 Definition；自然運作 Evidence 持續累積】
 
 ## 1. Definition
 將需要研究的問題拆解、配置研究深度、搜尋與比較證據、形成可支持的候選方案，並依新證據動態升降研究深度。
