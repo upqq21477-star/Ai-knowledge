@@ -1,8 +1,8 @@
 # 演化管理 Skill（Evolution Management Skill） v1.2
 
-版本：v1.2
+版本：v1.3
 日期：2026-09-19
-狀態：【Control Plane 接入；正式 Definition】
+狀態：【Control Plane 接入；正式 Definition；自然運作 Evidence 持續累積】
 
 ## 1. Definition
 管理已確認的系統、Skill、文件與結構變更，負責 Change Scope、Impact 與必要 Migration；不負責實際修改。
