@@ -146,7 +146,7 @@ G1-P01～P08 均 CLOSED。
 若 recurrence：
 → 進入 Failure Pattern / Evaluation。
 
-Phase 2 Natural FIELD 已再次發現同步失配：G1-F19 / G1-P09、G1-F20 / G1-P10；目前仍屬同一 Atomic Synchronization / Completion Gate 模式，不建立新 Skill。
+Phase 2 Natural FIELD 已再次發現同步失配：G1-F19 / G1-P09、G1-F20 / G1-P10、G1-F21 / G1-P11；目前仍屬同一 Atomic Synchronization / Completion Gate 模式，不建立新 Skill。
 
 若不再 recurrence：
 → 保持現規則。
