@@ -46,20 +46,30 @@ Skill Routing 與 Skill Classification 分離：
 Failure → Classification → Diagnosis → Fix / Re-route → Execute → Verify。
 不得因 Routing Failure 直接建立新 Skill。
 
-## 7. Control Plane
+## 7. Runtime Closure
+正式鏈：
+Task → Understand → Trigger → Capability → Candidate → Route → Invocation → Context → Execute → Verify → Final / Stop
+
+失敗鏈：
+Failure → Classify → Diagnosis → Retry / Fallback / Re-route / Stop → Verify → Final / Stop
+
+Invocation、Failure Recovery、Runtime Receipt 與 Agent-level Stop Boundary 依《1-系統/Agent Runtime Closure 最小契約.md》。
+Simulation 可驗；Natural FIELD 尚待證。
+
+## 8. Control Plane
 正式鏈：
 Task → Agent → Semantic Router → Control Plane Query → Candidate → Skill Definition → Runtime → Verification → Evidence / Trace
 
 Control Plane 提供 metadata / relationship / state，不取代 Skill Definition 或其他 Source of Truth。
 
-## 8. 停止
+## 9. 停止
 PASS / INSUFFICIENT / FAILED / USER_REQUIRED / LIMIT。
 完成後停止本次任務，不因 Agent 保持可用而持續執行。
 
-## 9. Governance
+## 10. Governance
 涉及 Skill 結構變更：
 Research / Classification → Evolution → Execution → Verification。
 Agent 不可無證據永久新增、刪除或取代 Skill。
 
-## 10. Context
+## 11. Context
 不預載整個 Repository；只取得本次任務所需 metadata 與 Source。
