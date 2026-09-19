@@ -16,8 +16,8 @@
 3. `規則.md`
 4. `待辦清單.md`
 
-需要交接背景再讀：
-`交接資料/目前施工交接包-2026-09-19-v1.0.md`
+需要跨 AI 接手資訊時：
+由 `1-系統/交接 Skill.md` 依 CURRENT／Workpool／Evidence 按需產生最小交接資訊；不再維持固定交接檔。
 
 需要工程藍圖再讀：
 `藍圖/AI單人工作室整體工程最新藍圖-v2.0.md`
@@ -82,7 +82,7 @@ Agent
 | 規則.md | 操作規則 Authority |
 | 待辦清單.md | 唯一 Workpool |
 | 目前狀態.md | 高階專案／架構總覽 |
-| 目前施工交接包 | 跨 AI Handoff Support |
+| Handoff Skill | 跨 AI 接手資訊的生成與退出規則 |
 | 最新藍圖 v2.0 | 施工順序與決策框架 |
 | Problem Registry | 問題生命週期 |
 | 檔案索引.md | 近期變更檢索驗證 |
@@ -102,7 +102,7 @@ Agent
 
 ### B. Gate 結果
 
-- README / 規則 / 目前狀態 / Handoff Package：已同步。
+- README / 規則 / CURRENT / Handoff Skill：已同步。
 - Authority Matrix：已切換至 CURRENT Baseline v1.0。
 - Memoryless Takeover Test：PASS（只提供 README → CURRENT → 規則 → Workpool，可恢復目前工程、禁止事項與下一游標）。
 - CURRENT / Historical 掃描：PASS；搜尋仍可找到歷史文件，但其角色已明確標示為 Historical，不得覆蓋 CURRENT。
