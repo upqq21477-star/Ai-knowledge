@@ -144,4 +144,19 @@ Re-test：PASS
 | G1-F17 | Skill 版本一致性檢查 | Verification / Diagnosis / Execution | PASS → Fix → Re-test PASS | 不建立新 Skill；登錄 G1-P03 |
 
 Observation：
-G1-P01、G1-P02、G1-P03 均屬 Data / Verification 狀態同步問題。三次重複已形成 Failure Pattern Candidate，後續進 Pattern Diagnosis；目前不直接修改 Skill 架構。
+G1-P01～G1-P04 均屬 Data / Verification 狀態同步問題。P04 已顯示問題可跨多個 Skill 與 Index 發生，形成高可信 Failure Pattern Candidate；後續進 Pattern Diagnosis，不直接建立新 Skill。
+
+
+## 13. G1-P04 FIELD Evidence
+
+G1-F17 延伸檢查發現四項 Skill Index 版本落後。
+
+Problem Registry：G1-P04  
+Status：CLOSED  
+Re-test：PASS
+
+Pattern：
+Version / Current-State Synchronization Gap。
+
+目前證據：
+P01～P04 共四筆同類問題；優先研究共同流程原因，而非繼續個別修補。
