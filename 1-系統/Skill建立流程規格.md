@@ -1,8 +1,8 @@
 # Skill 建立流程規格 v1.0
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
-狀態：【創建模式；Small Mode 使用】
+狀態：【正式規格；Control Plane 接入】
 定位：Skill 建立的流程規格；本文件不是 Skill。
 
 ## 1. 目的
@@ -63,6 +63,7 @@ NEW / KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE
 → Execution
 → Verification
 → 寫入 Skill Definition
+→ Derived Registry Reconcile
 → 更新檔案索引
 → 建立 Usage / Failure 回饋
 
@@ -85,7 +86,7 @@ Model 不同：不建立。
 
 ## 9. Small / Large 相容
 
-Small Mode：由 Agent 直接依 Responsibility 與 Trigger 選擇。
+Small Mode：由 Agent / Semantic Router 依 Responsibility、Trigger 與 Control Plane 最小 metadata 選擇。
 
 Large Mode：未來可透過 Registry / Retrieval / Ranking 找到本 Skill；不得要求重新定義 Skill Responsibility。
 
