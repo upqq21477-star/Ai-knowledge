@@ -1,8 +1,8 @@
 # Control Plane Query 規格
 
-版本：v1.3
+版本：v1.4
 日期：2026-09-19
-狀態：【Skill Registry B 工作包施工中；Query Contract 已收束】
+狀態：【正式規格；Query Contract 已收束；已接入現有 Skill】
 
 ## 1 目的
 
@@ -321,7 +321,7 @@ C 不需要知道 Registry 儲存方式。
 
 不得全庫預載、複製全文、把 Inferred 當 Source、把 Dependency 當 Impact、因 Multiple Candidate 自動建立 Skill、建立大型 Ranking / Embedding / Vector DB / Server。
 
-## B-07 Static Acceptance
+## B-07 Current Operating Boundary
 
 已定義 Q0-Q8、Filtering、Stop、NONE fallback、MULTIPLE handling、INVALID handling、Rebuild、Definition Change → Registry Update、Impact Query。
 FIELD 仍待自然工作驗證：Context / Token 成本、實際 Stop 深度、Candidate 正確率、Drift detection、Rebuild recovery、Change synchronization。
