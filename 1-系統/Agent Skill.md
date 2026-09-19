@@ -95,6 +95,8 @@ Skill Classification：「系統是否應該建立、融合、更新、取代、
 3. 正常情況只做對應級別的輕量檢查。
 4. 發現 SUSPECT / FAIL 才進入深度 Diagnosis。
 5. 單輪只記錄 PASS / SUSPECT / FAIL；累積樣本後才計算錯誤率。
+6. 若本輪實際執行監控，在回答最底部追加極簡「監控額外消耗」行；未執行則不顯示。
+7. 成本只能使用工作量代理估算，不得虛構 GPU／FLOPs／計費數據。
 6. 監控本身不新增 Skill，也不改變正式 Skill 邊界。
 
 執行限制：
@@ -179,7 +181,7 @@ Large Mode 不重新定義 Skill，也不因大型化提前建立新 Skill。
 「啟動監控」指令路由：已接入
 「停止監控」指令路由：已接入
 自動 Context 百分比量測：NOT AVAILABLE
-實際 FIELD 監控：PENDING
+實際 FIELD 監控：PENDING；成本帳本已接入
 
 ## 17. 驗收
 文件建立：PASS
