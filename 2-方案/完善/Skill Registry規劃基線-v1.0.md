@@ -1,7 +1,7 @@
 # Skill Registry 規劃基線 v1.0
 
 日期：2026-09-19
-狀態：【B 工作包施工中；Registry View / Query Contract 已收束】
+狀態：【規劃基線；Control Plane Registry / Query 已正式接入；歷史規劃文件】
 定位：AI Control Plane 後台管理層中的 Skill Registry Family 規劃與施工基線。
 
 ## 1. 目的
@@ -55,7 +55,7 @@ Skill 的 Input / Output。
 記錄驗證、證據、來源、結果、Confidence。
 
 ### Lifecycle
-Created → Tested → FIELD → Active → Updated → Superseded → Historical。
+Created → Verified → FIELD → Active → Updated → Superseded → Historical。
 
 ### Change
 記錄 Skill 的變更及其前後狀態。
@@ -191,7 +191,7 @@ CURRENT Authority：
 Problem Registry：
 仍負責問題生命週期，不由 Skill Registry 取代。
 
-## 7. Change Set
+## 7. 原規劃 Change Set（歷史）
 
 本規劃下一階段預定施工 8 個文件：
 
@@ -206,7 +206,7 @@ Problem Registry：
 
 施工前仍須依 Change Set 規則確認實際修改範圍。
 
-## 8. 明確暫不修改
+## 8. 原規劃暫不修改（歷史）
 
 目前沒有足夠證據要求修改：
 
@@ -220,7 +220,7 @@ Problem Registry：
 
 FIELD 若證明存在查詢缺口，再建立新的 Change Set。
 
-## 9. 驗證目標
+## 9. 原規劃驗證目標（歷史）
 
 至少驗證：
 
@@ -253,25 +253,14 @@ FIELD 若證明存在查詢缺口，再建立新的 Change Set。
 
 ## 11. 目前狀態
 
-【A/B 工作包並行施工；B Registry View / Query Contract 已收束；A Skill Architecture Contract 已建立】
+本文件是 Skill Registry 的歷史規劃基線，不再作為目前施工游標。
 
-已完成：
-- A Skill Architecture Contract v1.0。
-- A 靜態 8 Boundary Cases。
-- 功能需求整理。
-- Registry Family 拆分。
-- Trigger Index 獨立化。
-- Hot / Warm / Cold 分層。
-- Query / Stop Rule 設計。
-- Change Set 定義。
-- 驗證目標定義。
-- 參考系統比較。
+目前實際狀態：
+- Control Plane Registry：正式規格，Derived View / Query 已接入現有 Skill。
+- Control Plane Query：正式規格，Query Contract 已收束。
+- Skill Definition 是 Source of Truth；Registry 可由 Source 重建。
+- 11 個核心 Skill 已完成 Control Plane Definition 接入。
+- Candidate、Fallback、Multiple Candidate、Invalid Skill、Dependency、Rebuild、Definition Change、Impact 等規則已納入現行規格與既有驗收證據。
+- 真實成本、Stop Depth、Drift、Recovery 等仍由自然工作 Evidence 累積，不另建立測試門檻。
 
-未完成：
-- B 工作包：Registry View / Query Contract 已正式施工；其餘跨包文件待 A/C 整合。
-- FIELD 驗證。
-- Registry Drift / Rebuild 實測。
-- 實際 Skill 相似功能遷移／蒸餾驗證。
-
-下一游標：
-B → Candidate Filtering / Rebuild / Change-Impact 驗證案例 → 再與 A/C 整合；不得提前擴張至 Ranking / Vector / Graph。
+CURRENT 以 CURRENT Baseline、現行 Control Plane 規格與正式 Skill Definition 為準。
