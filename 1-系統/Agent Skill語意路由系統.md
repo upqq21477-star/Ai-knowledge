@@ -233,7 +233,7 @@ Simulation 可驗證流程，但不能取代 FIELD。
 
 ## 13. 外部方法比對
 
-外部 Agent / Skill Routing 實作普遍採用「路由層先於完整能力載入」的方向；例如 Tool Router 將能力發現與執行分離，以避免整個能力目錄進入 Agent Context。citeturn0search1 vLLM Semantic Router 也將語意路由定位為 LLM / Agent 前的決策層。citeturn0search7 近期 Skill Routing 研究則顯示，大規模 Skill 庫的選擇本身是獨立問題，但不同研究對「只用 metadata 是否足夠」存在明顯差異；因此本系統不預設 metadata 一定足夠，將透過 FIELD 驗證決定是否需要第二階段資訊。citeturn0academia23turn0academia22
+外部 Agent / Skill Routing 實作普遍採用「路由層先於完整能力載入」的方向；例如 Tool Router 將能力發現與執行分離，以避免整個能力目錄進入 Agent Context；vLLM Semantic Router 也將語意路由定位為 LLM / Agent 前的決策層。近期 Skill Routing 研究則顯示，大規模 Skill 庫的選擇本身是獨立問題，但不同研究對「只用 metadata 是否足夠」存在明顯差異；因此本系統不預設 metadata 一定足夠，將透過 FIELD 驗證決定是否需要第二階段資訊。
 
 採用結論：保留「先分流、後載入」原則；不提前導入向量資料庫、獨立 Router Server 或大型模型 Router。
 
