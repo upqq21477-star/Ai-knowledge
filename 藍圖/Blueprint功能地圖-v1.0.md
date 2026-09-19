@@ -34,7 +34,7 @@ Evidence
 
 | 節點 | State / Acceptance | 最小作用 | 詳細入口 |
 |---|---|---|---|
-| Skill Registry | 【已建立／正式接入】 | 提供 Skill 可查詢資訊 | 2-方案/完善/Skill Registry規劃基線-v1.0.md；1-系統/Control Plane Registry 規格.md |
+| Skill Registry | ACTIVE | 提供 Skill 可查詢資訊 | 2-方案/完善/Skill Registry規劃基線-v1.0.md；1-系統/Control Plane Registry 規格.md |
 | Blueprint Governance | ACTIVE / 【代】 | 維護 Blueprint 地圖與一致性 | 1-系統/Blueprint Governance Skill（代）.md |
 | 會議紀錄管理 | ACTIVE / 【代】 | 管理會議紀錄保存與轉換 | 1-系統/會議紀錄管理 Skill（代）.md |
 | Blueprint | 本地圖 | 顯示整體功能位置與關係 | 本文件 |
