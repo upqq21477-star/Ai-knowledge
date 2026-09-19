@@ -1,8 +1,8 @@
 # Skill 分流運作規格 v1.0
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
-狀態：【正式規格；Small Mode 啟用；Large Mode 介面預留】
+狀態：【正式規格；Control Plane Query 接入；Small Mode 啟用】
 定位：Skill Routing / Skill 分流運作規格；本文件不是 Skill。
 
 ## 1. 創建模式分類結果
@@ -78,6 +78,7 @@ Task
 → Task Understanding
 → Problem Triage
 → Required Capability
+→ Control Plane Query
 → Candidate Skill
 → Skill Routing
 → Mode Selection
@@ -151,9 +152,9 @@ Capability 是中間判斷層，不代表必須建立 Capability Runtime。
 
 依 Capability、Task、Trigger、Responsibility、Context 與現有 Skill Definition 找候選。
 
-目前 Small Mode 不建立自動 Registry / Ranking Runtime。
+Small Mode 已可使用 Control Plane Registry 的 Derived View / Query；不啟用大型 Ranking Runtime。
 
-Agent 直接讀取現有 Skill Definition。
+Agent 透過 Control Plane Query 取得最小候選 metadata；只有需要時才展開 Skill Definition。
 
 候選不足時：
 
