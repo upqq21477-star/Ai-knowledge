@@ -9,13 +9,13 @@
 Registry 不建立第二套 Skill Source of Truth；Skill Definition 仍是 Skill 的正式來源。
 
 一般 Entity 欄位：
-ID / Type / Name / Path / State / Authority / Version / Source / Updated / Confidence
+ID / Type / Name / Path / State / Acceptance Stage / Authority / Version / Lifecycle / Source / Updated / Confidence
 
 Type：
 Rule / Knowledge / Memory / System / Skill / Plan / Application / Problem / Evidence / FIELD / Change / Handoff / CURRENT / Document / Tool / Model / Provider / Runtime / Capability
 
 Skill Registry View 的最小欄位：
-ID / Name / Family / Capability / Trigger Summary / Input Summary / Output Summary / State / Version / Lifecycle / Dependency Summary / Verification Summary / Path / Updated
+ID / Name / Family / Capability / Trigger Summary / Input Summary / Output Summary / State / Acceptance Stage / Version / Lifecycle / Dependency Summary / Verification Summary / Path / Updated
 
 可選但不得預設載入：
 Authority / Source Pointer / Confidence / Usage Summary / Change Pointer / Impact Pointer
@@ -61,6 +61,9 @@ Deprecated 是否仍可候選，不由 Registry 自行決定；必須由正式 L
 Created → Verified → FIELD → Active → Updated → Superseded → Historical
 
 Lifecycle 描述演變，不取代 State。
+
+Acceptance Stage 另依《工程資產狀態與驗收控制規格》表示【未】／【驗】／【代】／【已建立】，不與 State 或 Lifecycle 合併。
+例如：State=ACTIVE、Acceptance Stage=【代】、Lifecycle=Active。不得把 ACTIVE（代）儲存為單一 State。
 
 ## 5 Relation
 
@@ -237,7 +240,7 @@ Trace 不是 Skill Definition，也不是 Registry Source。
 
 ## B-01 Skill Registry View Contract
 
-Skill Entity 最小 View：ID / Name / Family / Capability / Responsibility Summary / Trigger Summary / Input Summary / Output Summary / Boundary Summary / Mode / State / Version / Lifecycle / Dependency Summary / Verification Summary / Required Context Pointer / Authority / Provenance / Path / Updated。
+Skill Entity 最小 View：ID / Name / Family / Capability / Responsibility Summary / Trigger Summary / Input Summary / Output Summary / Boundary Summary / Mode / State / Acceptance Stage / Version / Lifecycle / Dependency Summary / Verification Summary / Required Context Pointer / Authority / Provenance / Path / Updated。
 
 Registry View 是 Derived metadata，不取代 Skill Definition。
 
