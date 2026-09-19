@@ -26,7 +26,7 @@
 本 repository 採用「Agent as Top-Level Skill」運作方式。
 
 任何 AI／工具第一次接手時，必須先恢復必要工作狀態並讀取：
-`1-系統/Agent Skill.md`
+`1-系統/01-Skill/Agent Skill.md`
 
 讀取後立即啟動 Agent Skill，不等待使用者另外輸入「啟動」。
 除非使用者明確要求停止，否則保持 `AGENT_STATE = ACTIVE`。
