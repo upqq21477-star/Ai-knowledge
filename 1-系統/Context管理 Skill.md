@@ -1,8 +1,8 @@
 # Context 管理 Skill（Context Management Skill） v1.2
 
-版本：v1.2
+版本：v1.3
 日期：2026-09-19
-狀態：【Control Plane 接入；正式 Definition】
+狀態：【Control Plane 接入；正式 Definition；自然運作 Evidence 持續累積】
 
 ## 1. Definition
 決定本次任務需要載入哪些 Context，控制上下文邊界、來源權威與成本；不負責保存 Knowledge，也不負責一般任務路由。
