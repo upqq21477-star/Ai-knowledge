@@ -331,3 +331,46 @@ F. Router 成本高於收益
 - 能說明 Metadata 不足時如何逐級揭露。
 - 能正確回退 Agent / 既有 Routing。
 - 不把 Simulation 結果寫成 FIELD。
+
+
+## C-01 Control Plane Query Interface Alignment
+
+C 不自行實作 Registry；Router 只消費 B 已定義的最小 Query Interface。
+
+可使用：GET SKILL METADATA / GET SKILL STATE / GET ROUTING TERMS / GET REQUIRED CONTEXT POINTER / GET MINIMAL SKILL EVIDENCE。
+
+最小 Query Result：EntityID / Scope / Authority / Depth / Result / Unknowns / Fallback / SourcePointer。
+
+Router 不需要知道 Registry 儲存方式，也不得把 Query 結果當成 Skill Definition Source of Truth。
+
+## C-02 Candidate Handling
+
+UNIQUE → 必要 Context → Route。
+MULTIPLE → 最小 Metadata → 最小 Evidence → 仍不明確則既有 Skill Routing / Agent。
+NONE → STOP → Agent fallback。
+INVALID → 排除；無有效候選則 NO_VALID_CANDIDATE。
+UNKNOWN → 停止目前 scope，不把未知補成真值；必要時提高 Query depth。
+
+Router 不得把 MULTIPLE 變成唯一答案，也不得因 NONE 自動建立 Skill。
+
+## C-03 Runtime Boundary
+
+Route 決定後：Load Skill Definition → Validate Input → Check Dependency → Execute → Stop Condition → Output。
+
+Runtime 才可讀取完整 Skill Definition；Router 不預載完整 Definition。Runtime 不修改 Skill Definition、Registry 或 Query Contract。
+
+## C-04 Verification / Evidence / Trace
+
+Execution Output → Verification Rule → Verification Result → Evidence → Trace。
+
+Verification Rule = 驗證方法；Evidence = 本次實際證據；Trace = 本次運作紀錄。Simulation 不得標記為 FIELD。
+
+## C-05 Failure / Re-route
+
+Failure 至少包含 Missing Input / Invalid Input / Dependency Failure / Execution Failure / Verification Failure / No Candidate / Ambiguous Candidate。
+
+Failure → Classification / Diagnosis → 判斷是否可 Re-route → 可：重新 Query / Router；不可：STOP + 原因 + Evidence / Trace。禁止因 Failure 任意建立新 Skill。
+
+## C-06 E2E Acceptance Target
+
+至少驗證：正常 E2E、Skill Update、Skill Disable、Registry Rebuild、Dependency Failure、Verification Failure。以上目前均屬 DESIGN / STATIC TARGET；Natural FIELD 才能判定實際 Accuracy、Cost、Recovery 為 PASS。
