@@ -199,3 +199,23 @@ A 已完成 Definition Contract、Boundary Gate、Family / Skill / Mode、Agent 
 4. A/B/C End-to-End Final Acceptance。
 
 後續原則：A 不再擴張 Architecture；若整合或 FIELD 發現缺口，走 Evidence → Problem → Change Request。
+
+
+## 本次獨立施工進度（2026-09-19）
+
+A 不等待 B/C 的實際驗證結果，先完成自己的 FIELD 驗證準備。
+
+已新增：
+- `1-系統/Skill Control Plane A FIELD Boundary 驗證規格-v1.0.md`
+
+已確認：
+- A Architecture Static：PASS
+- A Boundary Static：PASS
+- Natural FIELD Protocol：READY
+- Natural FIELD Evidence：PENDING
+
+FIELD 僅接受自然工作證據，不以 Simulation / 推演代替。
+
+下一步仍只屬 A：在自然工作中累積 Boundary Evidence；若發現結構性缺口，走 Evidence → Problem → Proposal → Verification → Change Request。若沒有結構性缺口，不再擴張 Architecture。
+
+A 不因 B/C 尚未驗證而停止，也不把其他工作包的結果提前寫成 A 的 FIELD 結論。最終跨包結果由 D 統一驗收。
