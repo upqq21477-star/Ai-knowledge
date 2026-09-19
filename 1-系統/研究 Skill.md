@@ -1,4 +1,4 @@
-# 研究 Skill（Research Skill） v1.2
+# 研究 Skill（Research Skill） v1.3
 
 版本：v1.2
 日期：2026-09-19
@@ -192,7 +192,19 @@ Evolution Management：
 Distillation：
 只有在累積結構性證據後，才進行長期結構壓縮與重組。
 
-## 10. Skill 新增／分層問題
+## 10. Skill 建立屬於 D3 結構研究
+
+「建立新 Skill」不是一般功能新增，而是系統責任邊界的結構性變更候選，因此預設以 D3 深度／結構研究處理。
+
+除非研究證明只是既有 Skill 的內部功能、Mode、Workflow、Shared Capability、Provider / Tool 或 Reference，才可降級處理，不建立新 Skill。
+
+標準流程：
+
+D3 問題定義 → 問題拆解 → 研究問題地圖 → 現有 Skill 盤點 → Capability / Responsibility 分析 → Boundary Analysis → Skill 分類判斷 → 建立／融合／更新／取代／延後 → Execution → Verification → Feedback。
+
+因此「建立 Skill」是 D3 研究的實際產出之一，不是研究完成後可直接跳過分類判斷的普通檔案建立。
+
+## 11. Skill 新增／分層問題
 當研究問題涉及：
 - 新 Skill 是否應建立
 - 現有 Skill 是否應分層
@@ -212,7 +224,7 @@ Skill分類判斷 Skill
 Skill 分類結果若確認需要結構變更，再交由：
 演化管理 Skill → 執行 Skill → 證據驗證診斷 Skill
 
-## 11. Input
+## 12. Input
 - Task Definition
 - Problem Definition
 - Problem Triage 結果
@@ -221,7 +233,7 @@ Skill 分類結果若確認需要結構變更，再交由：
 - 既有 Knowledge
 - 既有 Skill／System 文件
 
-## 12. Output
+## 13. Output
 最低輸出：
 - Research Problem
 - Problem Decomposition
@@ -239,7 +251,7 @@ Skill 分類結果若確認需要結構變更，再交由：
 
 D3 必須保留完整研究鏈。
 
-## 13. 路由
+## 14. 路由
 問題尚未理解 → Task Understanding。
 
 需要 Context → Context Management。
@@ -260,7 +272,7 @@ D3 必須保留完整研究鏈。
 
 出現長期重複結構成本 → Distillation。
 
-## 14. 失敗
+## 15. 失敗
 - 搜尋不足不得以合理性補空缺。
 - 找不到資料時標記 UNKNOWN。
 - 單一來源不得自動視為充分證據。
@@ -269,7 +281,7 @@ D3 必須保留完整研究鏈。
 - 研究過度膨脹時重新評估研究深度。
 - 發現結構性問題時不得以局部修補掩蓋。
 
-## 15. 成本控制
+## 16. 成本控制
 研究深度與成本一起評估：
 - Context Cost：L / M / H
 - Search Cost：L / M / H
@@ -280,14 +292,14 @@ D3 必須保留完整研究鏈。
 不是「能研究多深就研究多深」，
 而是「問題值得多少研究成本，就投入多少」。
 
-## 16. 驗收
+## 17. 驗收
 文件建立：PASS
 問題分級模型：已建立
 研究深度模型：已建立
 動態升降級：已建立
 實際運作：PENDING
 
-## 17. 來源
+## 18. 來源
 - 藍圖/Skill分類融合更新取代判斷問題紀錄-v1.0.md
 - 1-系統/Agent Skill.md
 - 外部研究：Task Decomposition、Skill Routing、Incident Triage、Research Query Decomposition 等相關研究與實務資料。
