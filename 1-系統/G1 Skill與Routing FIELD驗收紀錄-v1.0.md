@@ -364,3 +364,78 @@ Data / Verification。
 
 目前 G1：
 【施工中】
+
+
+## 八、第二批 FIELD：邊界與失敗路由
+
+### G1-F09｜Mode vs Skill 邊界
+
+Task：判斷同一責任下新增「快速／深度」工作方式是否需要新 Skill。
+Required Capability：Skill Classification。
+Candidate：Skill分類判斷 Skill。
+Actual：快速／深度屬同一 Research 責任下的 Mode；不能僅因工作深度不同建立新 Skill。
+Verification：PASS。
+Decision：維持同一 Skill，以 Mode 表達差異。
+State：REAL-WORK-VALIDATED。
+
+### G1-F10｜Routing Ambiguity
+
+Task：同時涉及「判斷目前 Skill 是否足夠」與「選擇目前任務應走哪個 Skill」時，判斷先後。
+Expected：先判斷當前任務路由；只有出現結構性責任缺口才進 Classification。
+Actual：先走 Task Understanding → Capability → Candidate → Routing；若發現候選本身存在結構缺口，再轉 Classification。
+Verification：PASS。
+Decision：Routing 不直接取代 Classification；兩者串接但責任不合併。
+State：REAL-WORK-VALIDATED。
+
+### G1-F11｜Routing Failure 保護
+
+Task：刻意提供一個無法由現有候選直接承接的複合需求，檢查是否會立即創建 Skill。
+Expected：Failure Classification → Diagnosis → 檢查 Task / Context / Capability / Candidate / Routing / Provider / Verification → 再決定 Re-route 或 Classification。
+Actual：本次判斷未直接建立 Skill；先進入 Failure Diagnosis 邏輯。
+Verification：PASS（路由保護邏輯）。
+Limitation：尚非由外部運作錯誤自然觸發，因此不提升為「自然 Routing Failure Event」。
+Decision：不建立新 Skill。
+State：REAL-WORK-VALIDATED；Natural Failure Event PENDING。
+
+### G1-F12｜Classification 候選：Provider 不升格
+
+Task：提出「GitHub 操作 Skill」作為新 Skill 候選，判斷是否成立。
+Expected：先檢查是否只是 Provider / Tool。
+Actual：GitHub 是操作 Provider / Tool，不具獨立工作責任；目前由 Execution / Context / Verification 使用。
+Verification：PASS。
+Decision：DEFER / REFERENCE，不建立新 Skill。
+State：REAL-WORK-VALIDATED。
+
+## 九、第二批結果
+
+| Case | 類型 | 結果 |
+|---|---|---|
+| G1-F09 | Mode / Skill | PASS |
+| G1-F10 | Routing / Classification 邊界 | PASS |
+| G1-F11 | Routing Failure 保護 | PASS（非自然 Failure Event） |
+| G1-F12 | Classification 候選 | PASS |
+
+第二批補足：Mode 邊界、Routing / Classification 邊界、無候選保護、Provider 候選判斷。
+仍缺：自然發生的 Routing Failure、Provider Failure，以及更多真正不同責任的 Classification 候選。
+
+## 十、目前 G1 FIELD 狀態
+
+第一批：8 cases
+第二批：4 cases
+累計：12 cases
+
+已驗證：
+- 單 Skill
+- 多 Skill
+- Mode / Skill
+- Routing / Classification
+- Context / Unknown
+- Provider / Tool / Skill
+- Verification Failure
+- Failure Diagnosis 保護
+
+仍待：
+- 自然 Routing Failure Event
+- 自然 Provider / Tool Failure Event
+- Skill Insufficiency 的實際事件
+- 更完整的 Classification NEW / MERGE / UPDATE / REPLACE / DEFER / ARCHIVE 邊界案例
