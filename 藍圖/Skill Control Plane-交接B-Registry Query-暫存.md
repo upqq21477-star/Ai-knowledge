@@ -247,3 +247,21 @@ B 不等待 A/C，先完成自己的 FIELD 驗證準備。
 FIELD 驗證範圍包含 Candidate 正確性、Query Stop、Context / Token 成本、MULTIPLE / NONE / INVALID、Dependency / Impact、Registry Drift / Rebuild、Definition Change synchronization。
 
 B 不把 Simulation 當 FIELD，也不提前使用 A/C 結果替自己背書。若自然工作產生結構性問題，走 Evidence → Problem → Proposal → Verification → Change Request；否則維持現有 Registry / Query Contract，不再擴張。
+
+
+## 本輪 B 獨立檢查結果（2026-09-19）
+
+本輪只檢查 B：Registry / Query 是否已有可直接產生 Natural FIELD 的實際執行入口。
+
+檢查結果：目前 Repository 可確認的 B 成果為 Registry / Query Contract、Static Acceptance、FIELD Protocol；未找到可由 B 直接執行並產生 Registry Query runtime event 的正式實作入口。現有文件中的 GET / Query / Rebuild 目前屬 Contract / Design，不把文件描述視為實際運行證據。
+
+因此本輪不建立假的 FIELD、不用 Simulation 冒充 FIELD，也不為取得 FIELD 而越權建立 Skill Runtime、Router Runtime 或大型 Registry Runtime。
+
+B 當前正確游標：
+- Design / Contract：完成
+- Static Acceptance：PASS
+- FIELD Protocol：READY
+- Natural FIELD：等待真實工作事件
+- B Final FIELD：尚未完成
+
+下一個 B 行動不是繼續擴充 Registry 規格，而是在自然工作實際發生 Registry / Query 行為時，依 FIELD Protocol 擷取 Evidence；若自然事件暴露結構問題，再進 Problem → Proposal → Verification → Change Request。
