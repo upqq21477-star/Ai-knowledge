@@ -1,60 +1,63 @@
-# 演化管理 Skill（Evolution Management Skill） v1.1
+# 演化管理 Skill（Evolution Management Skill） v1.2
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-19
-狀態：【建立；待實際運作驗收】
+狀態：【Control Plane 接入；正式 Definition】
 
-## 1. 定位
-處理系統、Skill、文件與結構的正常演化，以及必要時的 Impact / Migration。
+## 1. Definition
+管理已確認的系統、Skill、文件與結構變更，負責 Change Scope、Impact 與必要 Migration；不負責實際修改。
 
 ## 2. Trigger
+- Skill Classification 結果為 UPDATE / MERGE / REPLACE / ARCHIVE。
 - 已確認需要修改既有結構。
-- Skill 分類判斷結果為 UPDATE / MERGE / REPLACE / ARCHIVE。
-- 依賴、相容性或結構發生變化。
-- Failure Pattern 顯示現行結構需要改進。
+- Dependency、Compatibility、Namespace、Path 或結構發生變化。
+- Failure Pattern 有充分證據顯示現行結構需要改進。
 
-若只是一次性執行，不進 Evolution。
+一次性執行不進 Evolution。
 
-## 3. 核心責任
-KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE。
-分析影響。
-必要時 Migration。
-保留來源與可追溯性。
+## 3. Input
+Change Request、Current Definition、Dependencies、Verification、Failure Pattern、Actual Usage、Authority。
 
-## 4. Input
-Change Request、現有結構、依賴、Verification、Failure Pattern、Actual Usage。
-
-## 5. Output
+## 4. Output
 Evolution Decision
-Impact Assessment（條件式）
+Change Set
+Impact Assessment（必要時）
 Migration Plan（必要時）
 Changed Scope
 Migration Cost（L / M / H）
 
-## 6. Decision Boundary
-局部規則或文件修正 → Evolution。
-長期重複、責任漂移、結構性成本 → Distillation 評估。
-實際修改 → Execution。
-修改後 → Verification。
+## 5. Procedure
+Change Request
+→ Validate Authority
+→ Define Change Set
+→ Check Impact Trigger
+→ Migration（必要時）
+→ USER CONFIRM
+→ Execution
+→ Verification
+→ Close
 
-## 7. Impact / Migration
-只有相容性、依賴、Namespace、路徑或結構變動時啟動。
-沒有影響時跳過，不固定執行。
+## 6. Impact / Migration Boundary
+只有相容性、依賴、Namespace、路徑、跨文件／跨 Skill 關係改變時啟動 Impact / Migration。
+沒有影響時明確記錄 Not Required，不強制建立分析。
 
-## 8. 判斷依據
-Purpose、Trigger、Input、Output、Responsibility、Mode、Dependency、Context Cost、Execution Cost、Verification、Actual Usage、Overlap、Migration Cost、Failure Pattern、Long-term Maintenance Cost。
+## 7. Responsibility Boundary
+Classification：決定應不應改、改成什麼類型。
+Evolution：定義怎麼安全改與影響範圍。
+Execution：實際修改。
+Verification：判定修改是否正確。
+Distillation：長期結構壓縮與重組。
 
-## 9. 原則
-不得只依名稱、文件相似度、功能數量或主觀偏好決定。
+## 8. Rules
+不得只依名稱、相似度、功能數量或主觀偏好決定。
+保留 Source、Change Set、Version、Migration 與可追溯關係。
+未經 USER CONFIRM 的結構變更不得直接執行。
 
-## 10. 來源
-- `藍圖/Skill分類融合更新取代判斷問題紀錄-v1.0.md`
+## 9. Control Plane
+可查 Dependency / Impact / Change / Evidence / Lifecycle / Authority。
+Control Plane 提供 metadata，不取代修改後的 Source 文件。
 
-## 11. 驗收
-文件建立：PASS
-實際運作：PENDING
-
-## 12. AI Control Plane 整合
-
-涉及結構變更時，可查 Dependency / Impact / Change / Evidence / Lifecycle / Authority。
-標準流程：Problem → Impact → Change Set → USER CONFIRM → Modify → Verify → Close。
+## 10. Stop
+無需結構變更 → Close。
+Change Set 已明確 → 交 Execution。
+需要使用者決策 → USER_REQUIRED。
