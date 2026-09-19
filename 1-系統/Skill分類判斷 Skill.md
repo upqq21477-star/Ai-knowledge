@@ -1,8 +1,8 @@
 # Skill 分類判斷 Skill（Skill Classification & Lifecycle Judge） v1.3
 
-版本：v1.3
+版本：v1.4
 日期：2026-09-19
-狀態：【Control Plane 接入；正式治理 Definition】
+狀態：【Control Plane 接入；正式 Definition；自然運作 Evidence 持續累積】
 
 ## 1. Definition
 判斷新能力、新 Skill 候選或既有 Skill 結構變更應採 KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE。
