@@ -72,3 +72,8 @@ Simulation PASS 不等於 Field PASS。
 ## 11. 驗收
 文件建立：PASS
 實際運作：PENDING
+
+## 12. AI Control Plane 整合
+
+使用 Evidence / Provenance / Change metadata 追蹤證據來源與關聯；原始 Evidence 仍保留在 FIELD、Feedback、Problem 等 Source 文件。
+Source of Truth > Registry > Cache；Simulation ≠ FIELD；推測 ≠ 證據。
