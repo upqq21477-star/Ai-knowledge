@@ -2,7 +2,7 @@
 
 版本：v1.0
 日期：2026-09-19
-狀態：【FIELD 施工中；第一批驗收完成】
+狀態：【FIELD 施工中；第三批完成；累計 16 cases】
 定位：記錄 G1 實際工作中的 Skill / Agent / Routing 運作，不把文件模擬視為 FIELD PASS。
 
 ## 一、驗收原則
@@ -355,7 +355,7 @@ Data / Verification。
 7. Routing Failure 與 Provider Failure 的實際事件證據仍不足，不能宣告 PASS。
 8. 不因本批結果提前建立新 Skill，也不啟動 Large Mode。
 
-## 七、下一批
+## 七、第一批當時的下一批（歷史紀錄）
 
 優先順序：
 
@@ -584,3 +584,31 @@ Verification：PASS（流程已實際落地）。
 - 真正 NEW 的結構性需求
 - REPLACE / ARCHIVE 的實際證據
 - 完整 G2 Classification FIELD
+
+
+## 十六、G1-P02｜紀錄狀態落後問題
+
+本次持續 FIELD 檢查發現：本文件前段仍保留第一批／第二批時的「目前狀態」描述，而後段已新增第三批與 16 cases；若只閱讀前段，會得到過時狀態。
+
+Problem Registry：`1-系統/問題清單.md` → G1-P02
+
+Layer：
+Data / Verification。
+
+Diagnosis：
+增量施工時持續追加紀錄，但歷史狀態段落沒有同步提升為 CURRENT 狀態。
+
+Fix：
+已將文件頂部狀態更新為第三批完成／16 cases；歷史「下一批」標記為歷史紀錄。後續以本文件最後的「G1 累計狀態」作為 CURRENT 統計。
+
+Re-test：
+重新讀取文件，確認 Header、累計狀態與第三批紀錄一致。
+
+Verification：
+PASS。
+
+Status：
+CLOSED。
+
+Preventive Rule：
+增量施工文件必須區分「Historical Record」與「CURRENT State」；每批施工完成後，至少同步更新 Header、CURRENT Summary、Next Step。
