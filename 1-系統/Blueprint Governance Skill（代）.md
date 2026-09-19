@@ -2,7 +2,10 @@
 
 版本：v1.0
 日期：2026-09-19
-狀態：【代】
+State：ACTIVE
+Acceptance Stage：【代】
+Lifecycle：Active
+狀態控制依據：1-系統/工程資產狀態與驗收控制規格.md
 定位：Blueprint 地圖維護與一致性判斷 Skill。
 
 ## 1. 核心責任
@@ -71,7 +74,7 @@ Candidate
 
 Blueprint 只保存理解全局所需的最小資訊。
 
-## 6. 狀態
+## 6. Acceptance Stage
 
 ### 【未】
 
@@ -87,13 +90,15 @@ Blueprint 只保存理解全局所需的最小資訊。
 
 「代」表示實際驗收尚未發生，因此先以模擬驗收追蹤；不代表正式驗收已通過。
 
-### 正式完成
+### 【已建立】
 
-實際驗收成功並具有 Evidence 後，移除「【代】」，由正式完成狀態取代。
+實際運行取得足夠 Evidence 後，Acceptance Stage 由【代】轉為【已建立】。State / Lifecycle 仍由各自正式規則管理。
 
-狀態流程：
+Acceptance Stage 流程：
 
 【未】 → 【驗】 → 【代】 → 【已建立】
+
+注意：Acceptance Stage ≠ State ≠ Lifecycle。Blueprint 不自行創造新的 State。
 
 【代】實際驗收失敗 → 【驗】。
 
@@ -104,7 +109,7 @@ Blueprint 只保存理解全局所需的最小資訊。
 - Skill / System 實作者：建立、整合、修正並完成功能。
 - Verification：負責最後實際驗收。
 - Evidence：保存驗收依據。
-- CURRENT：反映實際驗收成功後的正式現況。
+- CURRENT：反映正式工程現況；不得被 Acceptance Stage 單獨取代。
 
 Blueprint Governance 不代替實作者建立功能，也不代替 Verification 做正式驗收。
 
@@ -217,7 +222,7 @@ G. Blueprint 與 CURRENT 不一致
 H. 【代】實際驗收失敗
 → 退回【驗】，進入 Problem / Evidence 流程。
 
-模擬驗收 PASS 不等於實際驗收 PASS。
+模擬驗收 PASS 不等於實際運行 Evidence；它只支持進入【代】並准入運行。
 
 ## 13. 正式來源
 
