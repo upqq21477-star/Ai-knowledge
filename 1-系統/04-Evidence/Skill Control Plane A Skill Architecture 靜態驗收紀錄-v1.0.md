@@ -113,7 +113,7 @@ A 停止架構擴張，保持目前規格。
 ## 6. FIELD Protocol
 
 已建立正式 FIELD 驗證規格：
-`1-系統/Skill Control Plane A FIELD Boundary 驗證規格-v1.0.md`
+`1-系統/03-Spec/Skill Control Plane A FIELD Boundary 驗證規格-v1.0.md`
 
 目前結果：
 - Architecture Static：PASS
