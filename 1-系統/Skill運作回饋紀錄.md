@@ -50,6 +50,8 @@
 
 ### G1-P01｜索引版本同步失配
 
+Problem Registry：`1-系統/問題清單.md` → G1-P01
+
 - Task：核對近期檔案索引與 Repository 現行 Skill 版本。
 - Failure Type：Data / Verification
 - Expected：索引與現行文件版本一致。
@@ -62,7 +64,13 @@
 - Recurrence：目前首次發現。
 - Status：CLOSED；RE-TEST PASS
 
-## 5. 第三批 G1 FIELD Evidence
+## 5. Problem Registry 流程修正
+
+G1-P01 已正式登錄於 Problem Registry。後續 Failure / Problem 發現必須先建立 Problem Record，再進入 Diagnosis → Fix → Verification → Re-test。
+
+Verification：PASS（流程已實際落地）。
+
+## 6. 第三批 G1 FIELD Evidence
 
 | Record ID | Task | Skill / Mode | Result | Decision |
 |---|---|---|---|---|
@@ -74,7 +82,7 @@
 第三批累計：4 cases。
 G1 FIELD 累計：16 cases。
 
-## 6. Skill 生命週期判斷資料
+## 7. Skill 生命週期判斷資料
 
 累積資料用於：
 
@@ -87,7 +95,7 @@ Maintenance Cost
 
 不得只用單次事件決定 REPLACE / ARCHIVE。
 
-## 7. 回饋路由
+## 8. 回饋路由
 
 Usage / Failure
 → Evidence / Verification
@@ -98,18 +106,18 @@ Usage / Failure
 → Verification
 → 再記錄
 
-## 8. 成本規則
+## 9. 成本規則
 
 第一版只記 L / M / H。
 尚無可靠數據時標記 UNKNOWN，不製造精確數字。
 
-## 9. 驗收
+## 10. 驗收
 
 格式建立：PASS
 第一批實際 FIELD：PASS（8 cases）
 第二批實際 FIELD：PASS（4 cases）
 第三批實際 FIELD：PASS（4 cases）
-G1 FIELD 累計：12 cases
+G1 FIELD 累計：16 cases
 G1-P01 Failure Loop：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
