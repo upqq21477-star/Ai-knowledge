@@ -5,6 +5,37 @@
 狀態：【最新施工藍圖；正式施工依此排序】
 前版：藍圖/工程施工總控與收尾計畫-v1.0.md
 
+## 整體系統健檢治理｜2026-09-19
+
+本輪研究確認：整體健檢屬跨系統治理，不升格為獨立 Skill。
+
+固定資料流：
+健檢 → Findings → Type / Priority → Problem Registry / Workpool → Verification / Re-test → CURRENT / Blueprint 必要同步。
+
+健檢採「事件觸發＋定期保底」，不設僵化週期。重大架構／Control Plane 變更、自然異常 recurrence、主要工程階段完成、Authority / Source of Truth 變更，以及跨系統依賴／Lifecycle 異常，均可觸發健檢。
+
+Finding 分為：
+- BUG_CONFIRMED
+- STRUCTURAL_GAP
+- RISK
+- OBSERVATION
+- UNPROVEN
+
+Priority 分為 P0 / P1 / P2 / P3 / Deferred。
+P0/P1 進唯一 Workpool；已確認 Bug 進 Problem Registry；未證明假設不得直接列 Bug 或施工。
+
+本輪已確認並修正：
+- Handoff Skill Lifecycle 重複／版本不同步。
+- State / Acceptance Canonical Source 路徑斷裂。
+- G1 FIELD CURRENT count 漏記 F22；F01-F22 實際為 22 cases。
+
+後續健檢重點轉向 Runtime Closure：
+Trigger → Capability → Routing → Invocation
+→ Context → Execution → Verification
+→ Failure / Fallback / Re-route → Final / Stop。
+
+不得因健檢結果自動新增大型 Registry、Automation、Orchestration 或新 Skill；只有自然 Evidence 證明責任獨立且反覆需要時才重新評估。
+
 ## 0. 本版目的
 
 本版不是再增加一套架構，而是把目前已建立的 Skill、Agent、Routing、四方案、Problem Registry、Handoff、CURRENT Baseline、Evaluation、Evolution 與 Large Mode，重新整理成一條可實際施工、驗證、收斂的工程路線。
