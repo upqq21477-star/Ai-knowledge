@@ -43,3 +43,50 @@ Project B 等新遊戲可直接套用已驗證的共通框架，不重新建立�
 「如何開發遊戲」與「這個遊戲是什麼」分離。
 共通框架集中管理；遊戲專屬設計留在 Project A。
 開發期不為了最終結構過早拆分；先實際工作、取得證據，再決定哪些能力跨遊戲重用。
+
+## 11. 共用框架分類
+
+Project A 的遊戲開發資產採三種語義：
+- **Common**：跨遊戲可重用的開發方法與最小契約。
+- **Variant**：只在部分遊戲類型／條件下適用的可重用能力。
+- **Project-specific**：本遊戲的規則、數值、內容與資料。
+
+這是分類語義，不建立三套大型 Registry。
+
+## 12. Core Loop 一級驗證
+
+Core Loop 不只是藍圖章節，而是遊戲設計的核心驗證對象：
+
+Core Loop → System → Mechanic → State → Player Decision → Feedback → Next Loop
+
+L2 驗證時確認核心循環是否成立，以及重要系統交互是否破壞核心循環。L1 仍負責規則／邏輯；L3 仍負責引擎／平台／Runtime。
+
+## 13. 共用框架升格 Gate
+
+Project A 中任何候選共用能力：
+
+使用 → Evidence → Verification → Generalization → Cross-project applicability → 蒸餾 → Central Archive
+
+「在 Project A 能工作」只能證明 Project A 可用，不足以直接證明跨遊戲可重用。
+
+升格前至少確認：有實際使用證據、有 Verification、不依賴 A 的專屬規則、有清楚 Input / Output / Preconditions、已知 Applicability / Non-applicability、蒸餾後不夾帶 A 專屬設計。不足時留在 Project A。
+
+## 14. 框架履歷與版本綁定
+
+進入中央封存的共用能力，保留最小履歷：Asset / Capability ID、Common / Variant、Source Project、Source Evidence / Verification、Purpose、Applicability、Non-applicability、Version、Dependency、Last Validated、Promotion Reason。
+
+Project A 使用中央框架時記錄：Common Framework Version + Project-specific additions + Project-specific overrides（若有）。目前框架尚未建立正式版本號，因此不假設一個不存在的版本。
+
+新專案使用最新正式版本；既有專案不自動覆蓋，升級需經 Compatibility / Impact Analysis → Upgrade / Stay / Migrate → Verification。
+
+## 15. 遊戲開發框架的邊界
+
+目前不建立 Game Framework Registry、Feature Registry、Variant Registry、Game Project Factory、大型 Game Knowledge Graph、全自動 Framework Sync、全自動 Migration、全自動 Code Generator。
+
+這些只有在多專案實際使用後，維護成本或檢索成本成為瓶頸，才重新評估。
+
+## 16. Project A 的驗證角色
+
+Project A 是第一個真實驗證專案：Project A proves → Central distills → Project B validates reuse → 再決定是否擴大中央共用框架。
+
+因此目前優先工作不是繼續增加框架，而是讓 Project A 真正使用、留下 Evidence，並觀察 Common / Variant / Project-specific 的邊界是否穩定。
