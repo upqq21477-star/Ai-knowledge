@@ -1,6 +1,6 @@
 # AI Control Plane
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-19
 狀態：【設計規劃完成；FIELD 驗證待進行】
 
@@ -13,11 +13,10 @@ AI Control Plane 是後台管理／控制層。
 
 ## 核心閉環
 Task
-→ Task Understanding
+→ Agent Skill Semantic Router
 → Control Plane Query
 → 最小 Context
-→ Skill Selection
-→ Execute
+→ Skill Execute
 → Trace
 → Verify
 → Evidence
@@ -49,14 +48,37 @@ L5：History
 目前層已足夠 → 停止。
 不得為完整性而預載後續層。
 
+## Semantic Router 與 Control Plane 邊界
+
+Agent Skill Semantic Router 是獨立的輕量分流系統。
+
+Router：
+Task → Observation / Task Features → Capability / Skill
+
+Control Plane：
+Capability / Skill → 必要 Context Query
+
+因此正式邊界為：
+
+「Router 決定誰來做；Control Plane 決定做它需要知道什麼。」
+
+Router 不得為了分流而載入完整 Skill / System / Knowledge。
+Router 只使用最小 Skill Metadata。
+無匹配或不明確時回退 Agent，不強行推測。
+
+詳細規格：
+1-系統/Agent Skill語意路由系統.md
+
 ## Routing 與 Context 邊界
+
 Routing：
 Task → Capability / Skill
 
 Control Plane：
 Task / Capability → 必要 Context Query
 
-因此上層不負責決定載入整庫資料，只需識別任務與能力需求；後台查詢再按需分發。
+因此上層先分流，後台再按需分發必要查詢。
+目的不是增加一層完整推理，而是避免為了選 Skill 提前載入大量 Context。
 
 ## Observer
 Observe → Detect → Compare → Diagnose → Propose
@@ -87,6 +109,7 @@ CURRENT Baseline 仍是唯一目前工程狀態 Authority。
 ## 與既有系統
 Agent：執行與協調。
 Skill：能力。
+Agent Skill Semantic Router：低成本能力分流。
 System：可重複工作方法。
 Problem Registry：問題生命週期。
 Evidence：驗證依據。
@@ -104,6 +127,8 @@ Control Plane：後台狀態、查詢、關係、影響、變更與恢復。
 - 不因 Control Plane 新增大量 State。
 - 不提前建立 Graph DB / Vector DB / 常駐 Server。
 - 不把 Registry 當 Source of Truth。
+- 不讓 Semantic Router 變成第二個 Agent。
+- 不為 Router 預載完整 Skill / System / Knowledge。
 
 ## 設計完成 Gate
 已完成：
@@ -114,12 +139,14 @@ Control Plane：後台狀態、查詢、關係、影響、變更與恢復。
 - Context 最小化。
 - Source 可重建原則。
 - 與 Agent / Skill / Problem / Handoff / Monitoring / Evolution 邊界。
+- Semantic Router 與 Control Plane 的責任邊界。
 
 尚待：
 - Natural FIELD 驗證 Context 成本。
 - Natural FIELD 驗證 Query 是否可停止於最低必要深度。
 - Natural FIELD 驗證 Registry / Derived data 重建。
 - Natural FIELD 驗證 Drift / Impact / Change Set。
+- Natural FIELD 驗證 Semantic Router 路由正確率與額外成本。
 - 手機 + ChatGPT + GitHub 實際工作成本驗證。
 
 因此目前狀態是「設計規劃完成」，不是「實戰驗收完成」。
