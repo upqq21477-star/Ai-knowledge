@@ -215,3 +215,15 @@ Central Framework
 最高原則：
 
 > 先隔離資料，再共享方法；先建立最小接口，再由實際運作決定是否擴張。
+
+
+## 2026-09-19｜附加 Skill 分層
+
+新增「遊戲開發附加 Skill 統御」層，與中央 Core System 分開管理。
+
+分層：
+L0 中央治理 → L1 附加 Skill 統御 → L2 領域附加 Skills → L3 專案 Skills → L4 Game Model / Transformation / Code / Runtime。
+
+附加 Skill 按需載入，不進行全庫預載；專案 Skill 不自動升格中央；升格必須經 Evidence / Evaluation / Evolution。
+
+統御 Skill 不建立第二個 Agent、Control Plane、CURRENT、Workpool 或 Registry Authority。
