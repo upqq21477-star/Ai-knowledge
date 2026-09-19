@@ -139,3 +139,43 @@ Project B 不需要重新建立 Project A 已驗證的共通框架。
 
 這避免中央備份與各遊戲專案形成無限雙向同步。
 
+
+
+## 共用框架版本綁定
+
+Project A 採用中央「遊戲開發共用框架」作為開發基線。
+
+目前：
+- Framework Source：`封存/遊戲開發共用框架/`
+- Framework Status：`ARCHIVE-REUSABLE；不啟用`
+- Framework Version：目前尚未建立正式版本號，待第一次自然 FIELD 驗證後建立正式基線版本
+
+在正式版本號建立前，不得假設存在某個未記錄的框架版本。
+
+Project A 的實際結構為：Common Framework + Variant（若本遊戲需要）+ Project-specific Design + Project-specific Evidence。
+
+中央框架更新時，Project A 不自動覆蓋；必須經相容性／影響分析，再決定是否升級。
+
+## Project A 內部分類規則
+
+- **Common**：跨遊戲可重用的開發方法與最小契約。
+- **Variant**：具有重用價值但只適用部分遊戲類型或條件的能力。
+- **Project-specific**：只描述 Project A 本身的規則、數值、內容與資料。
+
+無法確認時，先留在 Project A，不提前抽取。
+
+## 共用框架升格 Gate
+
+Project A 內的能力只有在以下流程完成後，才提出中央升格：
+
+使用 → Evidence → Verification → Generalization → 跨遊戲適用性檢查 → 蒸餾 → 中央封存
+
+「Project A 成功」不等於「跨遊戲成功」。
+
+至少需要確認：非 Project A 專屬、有清楚介面／前置條件、有適用與不適用範圍、有 Evidence / Verification，且蒸餾後不帶入 A 的特殊規則。
+
+## 禁止自動同步
+
+中央共用框架可以集中更新，但不得自動改寫 Project A 專屬設計、把 Project A 專屬資料反向同步到中央，或因中央框架版本更新而直接覆蓋現有專案。
+
+框架更新採：中央版本更新 → Project A 收到變更訊號 → Compatibility / Impact Analysis → Upgrade / Stay / Migrate → Verification。
