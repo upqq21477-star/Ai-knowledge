@@ -2,7 +2,7 @@
 
 版本：v1.0
 日期：2026-09-19
-狀態：【FIELD；Phase 2 Natural FIELD；累計 21 cases；持續累積】
+狀態：【FIELD；Phase 2 Natural FIELD；累計 22 cases；持續累積】
 定位：記錄 G1 實際工作中的 Skill / Agent / Routing 運作，不把文件模擬視為 FIELD PASS。
 
 ## 一、驗收原則
@@ -884,10 +884,10 @@ Diagnosis：
 前次 P10 修正雖更新了外部 CURRENT Support，但 G1 FIELD 內部 Header 與 Feedback 的受影響欄位未完整納入同一 Change Set；「已修正」與「整體 Re-read 後一致」仍有落差。
 
 Fix：
-將 G1 FIELD Header / CURRENT Summary 更新至 21 cases；補入 G1-F20、G1-F21；同步 Skill 運作回饋、Problem Registry、CURRENT、TODO、Handoff 與 Index。
+將 G1 FIELD Header / CURRENT Summary 更新至 22 cases；已補入 G1-F20～F22；同步 Skill 運作回饋、Problem Registry、CURRENT、TODO、Handoff 與 Index。
 
 Re-test：
-完成同步後重新讀取全部受影響文件，確認 G1=21、P01～P11 均 CLOSED / Re-test PASS，且現行入口與 Evidence 一致。
+完成同步後重新讀取全部受影響文件，確認 G1=22、P01～P12 均 CLOSED / Re-test PASS，且現行入口與 Evidence 一致。
 
 Verification：
 PASS（修正後）。
