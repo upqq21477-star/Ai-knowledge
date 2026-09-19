@@ -175,3 +175,21 @@ G1-P01～P05 均指向同一控制缺口：增量文件施工缺少固定的 CUR
 【流程／驗證控制問題；已完成第一輪修正，持續 FIELD 驗證】
 
 尚不能宣告 Pattern 永久解決，因為必須在後續新增不同文件／不同施工批次中再次驗證規則是否有效。
+
+
+## 15. G1-P06 FIELD Evidence
+
+G1-F18 後續一致性檢查發現 Index 曾落後於 G1 FIELD 的 18 cases。
+
+Problem Registry：G1-P06  
+Status：CLOSED  
+Re-test：PASS
+
+重要診斷：
+已有同步規則，但仍可因「先改 A、後改 B」的施工順序產生短暫／最終失配。
+
+因此共同根因進一步收斂為：
+**增量修改缺少 atomic synchronization / completion gate。**
+
+下一輪 FIELD 必須驗證：
+相關文件是否能被視為單一施工批次，全部同步完成後才宣告該批次完成。
