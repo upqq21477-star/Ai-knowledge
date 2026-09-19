@@ -76,7 +76,7 @@ Blueprint 不重建 Registry 的詳細資料。
 State = ACTIVE
 Acceptance = 【代】
 
-不要寫成 ACTIVE（代）或 ACTIVE【代】。
+State 與 Acceptance 必須分欄，不使用複合狀態字串。
 
 ## 7. 關係
 
