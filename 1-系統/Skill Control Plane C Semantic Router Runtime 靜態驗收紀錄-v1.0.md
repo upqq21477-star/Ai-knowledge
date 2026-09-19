@@ -1,6 +1,7 @@
 # Skill Control Plane｜C Semantic Router / Runtime 靜態驗收紀錄
 
 日期：2026-09-19
+狀態性質：【HISTORICAL；保留作為驗收／設計證據，不作 CURRENT 運作狀態來源】
 工作包：C — Semantic Router / Runtime
 狀態：【DESIGN / STATIC PASS；SIMULATION ACCEPTANCE PASS；NATURAL FIELD OPTIONAL】
 
