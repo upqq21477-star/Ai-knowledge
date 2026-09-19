@@ -1,4 +1,4 @@
-# Skill 分類判斷 Skill（Skill Classification & Lifecycle Judge） v1.0
+# Skill 分類判斷 Skill（Skill Classification & Lifecycle Judge） v1.1
 
 版本：v1.0
 日期：2026-09-19
@@ -15,6 +15,8 @@ KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE
 
 ## 2. Trigger
 
+Skill 建立、分層、融合、更新、取代等結構變更候選，預設視為 D3 結構研究輸入；本 Skill 不得因「只是新增檔案」而跳過研究與邊界判斷。
+
 以下任一情況觸發：
 
 - 出現新的 Skill 候選。
@@ -28,6 +30,8 @@ KEEP / MERGE / UPDATE / REPLACE / REFERENCE / DEFER / ARCHIVE
 一般工作任務若沒有 Skill 結構變更，不啟動本 Skill。
 
 ## 3. 判斷順序
+
+若候選尚未經 Research D3：先回 Research Skill 完成問題拆解、研究問題地圖、既有 Skill 盤點與證據比較；本 Skill 接收研究結果後進行正式分類。
 
 N
 → 定義責任
@@ -74,6 +78,18 @@ Long-term Maintenance Cost
 缺資料不得猜測，標記 UNKNOWN。
 
 ## 6. 處置
+
+建立新 Skill 的必要條件：
+- 已完成 D3 結構研究，或有明確證據證明可直接判定。
+- 存在獨立 Responsibility。
+- 有獨立 Trigger 或明確獨立路由需求。
+- Input / Output 可明確定義。
+- 與既有 Skill 無法以 Mode / Workflow / Shared Capability 合理承接。
+- 分離後的 Context、Routing、Execution、Maintenance 成本具合理性。
+
+若上述條件不足，不直接建立，優先 MERGE / UPDATE / DEFER。
+
+
 
 KEEP：形成獨立責任且與既有 Skill 不重疊。
 MERGE：責任相近，可由既有 Skill + Mode 承接。
