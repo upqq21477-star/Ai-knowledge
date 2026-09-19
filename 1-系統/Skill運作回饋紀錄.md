@@ -212,7 +212,7 @@ Diagnosis：
 FIELD 與 Feedback 未被視為同一同步批次。
 
 Fix：
-已完成 F17～F22 與後續同步；目前以 G1=21、P01～P12 CLOSED 為準。
+已完成 F17～F22 與後續同步；目前以 G1=22、P01～P12 CLOSED 為準。
 
 Re-test：
 PASS。
@@ -302,7 +302,7 @@ Fix：
 同步 Feedback、CURRENT、Problem Registry、TODO、Handoff、README、Index 與 G1 FIELD 的 CURRENT 相關摘要；建立 P12。
 
 Re-test：
-重新讀取整組 CURRENT / Support / Evidence 文件，確認 G1=21、P01～P11 CLOSED，且不再存在同層級 CURRENT Summary 落後。
+重新讀取整組 CURRENT / Support / Evidence 文件，確認 G1=22、P01～P12 CLOSED，且不再存在同層級 CURRENT Summary 落後。
 
 Status：
 REAL-WORK-VALIDATED；Natural Verification / Data Consistency Event。
