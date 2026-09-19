@@ -260,3 +260,11 @@ Runtime → Code → Transformation → Skill → Rule
 最高原則：
 
 > Skill 定義能力，Transformation 定義實作轉換，Code 是實體化結果，Evidence 決定它是否可信。
+
+
+## 13. 附加 Skill 統御
+
+本規劃納入「遊戲開發附加 Skill 統御」管理範圍，但不因此將 Transformation、Code Trace 等全部內容自動建立為 Skill。
+
+附加 Skill 層與中央 Core System 分離，採按需載入；Project-specific Skill 保持專案範圍。詳見：
+`附加技能/遊戲開發/附加Skill統御.md`。
