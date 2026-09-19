@@ -37,18 +37,61 @@ Backstage Catalog 使用 Entity + Relation 建立可導航的高階模型，並�
 - Position / Layer
 - Relationship
 - Source / Detail Pointer
+- Acceptance Stage
 
-Status 至少區分：【已建立】【規劃中】【未實作】【未獨立成立】【UNKNOWN】。
+## 5. 狀態生命週期與責任
 
-## 5. 未實作功能規則
-尚未實作的主要功能必須明確標記狀態，並同時保留最小功能說明與詳細規劃／會議紀錄名稱。
+本 Skill 使用三個階段標記，避免把「有規劃」、「功能未完成」與「只剩實際驗收」混為一談。
 
-例如：
-Verification【未實作】
-功能：驗證系統／Skill 是否符合既定條件。
-詳細規劃 → 對應規劃／紀錄文件。
+### 【未】
+定義：Blueprint 只有一句功能描述，以及對應的會議紀錄／規劃線索；連第一次正式建立都尚未開始。
 
-目的：防止 AI 把規劃中誤讀成已實作。
+責任：
+- Blueprint Governance：維持地圖標記與來源。
+- Planning / Meeting Record：決定是否形成正式規劃。
+- 尚未進入正式實作責任。
+
+### 【驗】
+定義：已有正式規劃，但功能尚未全部完成，或尚未走到最後實際驗收階段。即使目前沒有實際功能，只要已經有正式規劃並進入建立準備，就不再使用【未】。
+
+責任：
+- Planning / Meeting Record：提供可執行規格。
+- Skill / System 實作者：負責建立、整合、修正功能。
+- Blueprint Governance：同步目前階段。
+- Verification：可定義驗收條件，但此時不宣告實際驗收完成。
+
+### 【代】
+定義：規劃中的功能全部已完成，Skill／System 已具備完整功能，只剩最後的實際驗收。
+
+「代」的意思是：在實際驗收尚未發生前，以模擬驗收代替實際驗收來追蹤，不代表已經通過正式驗收。
+
+責任：
+- Skill / System 實作者：確認所有規劃功能已完成並提交驗收。
+- Verification：負責最後實際驗收。
+- Evidence：保存驗收證據。
+- Blueprint Governance：將狀態記為【代】，並在實際驗收後移除「【代】」。
+
+### 狀態轉移
+
+【未】
+  ↓ 正式規劃建立／進入建立階段
+【驗】
+  ↓ 全部功能完成，只剩實際驗收
+【代】
+  ↓ 實際驗收成功
+【已建立】
+
+若【驗】階段發現規劃變更，不應直接跳成【代】；先完成必要修改。
+若【代】實際驗收失敗，退回【驗】並進入 Problem / Evidence 流程。
+
+### 核心責任原則
+
+> Blueprint Governance 負責「標記與同步」；
+> Planning 負責「規劃」；
+> Skill / System 實作者負責「建立與完成」；
+> Verification 負責「實際驗收」；
+> Evidence 負責「留下證據」；
+> CURRENT 負責「反映正式現況」。
 
 ## 6. Blueprint Mapping
 Candidate → 判斷是否為主要功能 → 查既有節點 → Position → Relationship → Status → Source Pointer → 必要時更新 Blueprint。
@@ -109,8 +152,24 @@ Skill Registry → Blueprint Mapping → Blueprint。
 Blueprint → Planning / Meeting Record → 詳細設計 → Implementation → Verification → Evidence → Blueprint Status 更新。
 
 ## 18. 驗收方式
-尚未有自然實際運作證據的部分，先使用【Simulation Acceptance（代）】。
-自然工作穩定成功後移除「（代）」；若失敗則進入 Problem / Evidence，修正後重新驗證。
+
+### 18.1 模擬驗收與三階段標記
+
+未完成實際運作前，不把「模擬驗收」寫成正式驗收通過。
+
+- 【未】：只有 Blueprint 線索／一句話功能與會議紀錄，尚未正式建立。
+- 【驗】：已有正式規劃，但功能尚未完成，或尚未達到最後驗收前狀態。
+- 【代】：全部功能已完成，只剩實際驗收；此時可以先做模擬驗收並持續追蹤。
+- 【已建立】：實際驗收完成且有 Evidence 支持。
+
+### 18.2 模擬驗收的責任
+
+模擬驗收由 Blueprint Governance 負責地圖層級的預先檢查；它不能取代 Verification 的正式實際驗收。
+
+### 18.3 失敗處理
+
+若模擬驗收發現缺陷，回到對應規劃／實作責任，不得把【代】視為完成。
+若實際驗收失敗，Verification 產生問題／證據，狀態由【代】退回【驗】，直到再次達成「全部功能完成、只剩實際驗收」。
 
 ## 19. 最小模擬案例
 Case A：新增未實作 Verification → 有狀態、功能說明、詳細來源，不誤標完成。
