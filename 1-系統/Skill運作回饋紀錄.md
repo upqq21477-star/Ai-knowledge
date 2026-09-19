@@ -35,7 +35,18 @@
 | G1-F07 | 檢查路由不到時的 Failure Loop | Diagnosis / Re-routing | PARTIAL | 規則成立，真實 Routing Failure Event 待累積 |
 | G1-F08 | Provider / Tool Failure | Failure Classification | INSUFFICIENT | 本批未發生可驗證 Provider Failure |
 
-## 3. Failure Record
+## 3. 第二批 G1 FIELD Evidence
+
+| Record ID | Task | Skill / Mode | Result | Notes |
+|---|---|---|---|---|
+| G1-F09 | 判斷快速／深度是否需新 Skill | Classification / Mode Boundary | PASS | 同責任以 Mode 表達 |
+| G1-F10 | Routing 與 Classification 先後 | Agent / Routing + Classification | PASS | 先路由，結構缺口才進 Classification |
+| G1-F11 | 無法直接承接的複合需求 | Failure Diagnosis / Re-routing | PASS | 未立即建 Skill；自然 Failure Event 仍待 |
+| G1-F12 | GitHub 操作 Skill 候選 | Classification / Provider Boundary | PASS | Provider / Tool 不升格 |
+
+第二批累計：4 cases。
+
+## 4. Failure Record
 
 ### G1-P01｜索引版本同步失配
 
@@ -51,7 +62,7 @@
 - Recurrence：目前首次發現。
 - Status：CLOSED；RE-TEST PASS
 
-## 4. Skill 生命週期判斷資料
+## 5. Skill 生命週期判斷資料
 
 累積資料用於：
 
@@ -64,7 +75,7 @@ Maintenance Cost
 
 不得只用單次事件決定 REPLACE / ARCHIVE。
 
-## 5. 回饋路由
+## 6. 回饋路由
 
 Usage / Failure
 → Evidence / Verification
@@ -75,15 +86,17 @@ Usage / Failure
 → Verification
 → 再記錄
 
-## 6. 成本規則
+## 7. 成本規則
 
 第一版只記 L / M / H。
 尚無可靠數據時標記 UNKNOWN，不製造精確數字。
 
-## 7. 驗收
+## 8. 驗收
 
 格式建立：PASS
 第一批實際 FIELD：PASS（8 cases）
+第二批實際 FIELD：PASS（4 cases）
+G1 FIELD 累計：12 cases
 G1-P01 Failure Loop：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
