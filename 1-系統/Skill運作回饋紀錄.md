@@ -2,7 +2,7 @@
 
 版本：v1.0
 日期：2026-09-19
-狀態：【建立；已累積第一批 G1 FIELD Evidence；持續累積】
+狀態：【建立；Phase 2 Natural FIELD；持續累積】
 用途：把實際運作結果回饋給 Skill 分類判斷、演化與蒸餾。
 
 ## 1. 使用紀錄 Usage Record
@@ -117,8 +117,9 @@ Usage / Failure
 第一批實際 FIELD：PASS（8 cases）
 第二批實際 FIELD：PASS（4 cases）
 第三批實際 FIELD：PASS（4 cases）
-G1 FIELD 累計：16 cases
-G1-P01 Failure Loop：CLOSED；Re-test PASS
+後續 FIELD：G1-F17～F19 已納入
+G1 FIELD 累計：19 cases
+G1-P01～P09：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
 可支援 Skill 決策：PENDING
@@ -193,3 +194,31 @@ Re-test：PASS
 
 下一輪 FIELD 必須驗證：
 相關文件是否能被視為單一施工批次，全部同步完成後才宣告該批次完成。
+
+
+## 16. Phase 2 Natural FIELD｜G1-F19
+
+| Record ID | Task | Skill / Mode | Result | Decision |
+|---|---|---|---|---|
+| G1-F19 | 核對 G1 FIELD、Feedback、Problem Registry、CURRENT 的目前狀態 | Context + Verification + Diagnosis + Execution | PASS → 發現 P09 → Fix → Re-test PASS | 不建立新 Skill；驗證同步 Gate 需涵蓋 Feedback |
+
+Actual：
+G1 FIELD 已累計 18 cases，但本文件仍停留在 16 cases，且尚未完整記錄 F17/F18。
+
+Failure：
+Data / Verification。
+
+Diagnosis：
+FIELD 與 Feedback 未被視為同一同步批次。
+
+Fix：
+補齊 F17、F18、F19，更新本文件 CURRENT 累計為 19 cases，並同步 Problem Registry / CURRENT / TODO / Index。
+
+Re-test：
+PASS。
+
+Pattern：
+與 G1-P01～P08 同屬 Atomic Synchronization / Completion Gate；本次為 Phase 2 Natural FIELD 首次再次發生的實際 recurrence。
+
+Status：
+REAL-WORK-VALIDATED。
