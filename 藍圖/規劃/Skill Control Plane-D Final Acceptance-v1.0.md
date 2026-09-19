@@ -50,7 +50,7 @@ E05 Dependency Failure：PASS
 E06 Verification Failure：PASS
 
 正式受控模擬成果：
-`1-系統/Skill Control Plane E2E Simulation Acceptance-v1.0.md`
+`1-系統/04-Evidence/Skill Control Plane E2E Simulation Acceptance-v1.0.md`
 
 ## 4. Change / Disable / Rebuild
 
