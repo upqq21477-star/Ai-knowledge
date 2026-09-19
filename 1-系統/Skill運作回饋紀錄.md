@@ -135,3 +135,13 @@ Status：CLOSED
 Re-test：PASS
 
 此問題與 G1-P01 共同顯示「文件狀態同步」是目前需要持續觀察的 Failure Pattern 候選，但目前不直接升格為結構性架構問題。
+
+
+## 12. G1-F17 FIELD Evidence
+
+| Record ID | Task | Skill / Mode | Result | Decision |
+|---|---|---|---|---|
+| G1-F17 | Skill 版本一致性檢查 | Verification / Diagnosis / Execution | PASS → Fix → Re-test PASS | 不建立新 Skill；登錄 G1-P03 |
+
+Observation：
+G1-P01、G1-P02、G1-P03 均屬 Data / Verification 狀態同步問題。三次重複已形成 Failure Pattern Candidate，後續進 Pattern Diagnosis；目前不直接修改 Skill 架構。
