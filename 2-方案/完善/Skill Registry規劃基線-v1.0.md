@@ -1,7 +1,7 @@
 # Skill Registry 規劃基線 v1.0
 
 日期：2026-09-19
-狀態：【規劃完成；尚未施工】
+狀態：【B 工作包施工中；Registry View / Query Contract 已收束】
 定位：AI Control Plane 後台管理層中的 Skill Registry Family 規劃與施工基線。
 
 ## 1. 目的
@@ -253,7 +253,7 @@ FIELD 若證明存在查詢缺口，再建立新的 Change Set。
 
 ## 11. 目前狀態
 
-【規劃完成；尚未施工】
+【B 工作包施工中；Registry View / Query Contract 已收束】
 
 已完成：
 - 功能需求整理。
@@ -266,10 +266,10 @@ FIELD 若證明存在查詢缺口，再建立新的 Change Set。
 - 參考系統比較。
 
 未完成：
-- 8 個文件正式施工。
+- B 工作包：Registry View / Query Contract 已正式施工；其餘跨包文件待 A/C 整合。
 - FIELD 驗證。
 - Registry Drift / Rebuild 實測。
 - 實際 Skill 相似功能遷移／蒸餾驗證。
 
 下一游標：
-先完成交接；後續確認 Change Set 後再施工。
+B → Candidate Filtering / Rebuild / Change-Impact 驗證案例 → 再與 A/C 整合；不得提前擴張至 Ranking / Vector / Graph。
