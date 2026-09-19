@@ -2,7 +2,7 @@
 
 版本：v1.4
 日期：2026-09-19
-狀態：【正式規格；Query Contract 已收束；已接入現有 Skill】
+狀態：【正式規格；Query Contract 已收束；已接入現有 Skill；自然運作 Evidence 持續累積】
 
 ## 1 目的
 
