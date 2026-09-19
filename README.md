@@ -55,8 +55,9 @@
 ```text
 G1 FIELD：18 cases
 G1-P01～P06：CLOSED / Re-test PASS
-G1-P07：FIXING（Memoryless Handoff 入口同步）
-Handoff Skill：已建立；首次無記憶驗收尚未完成
+G1-P07：CLOSED / Re-test PASS
+Handoff Skill：FIELD 驗收 PASS；Memoryless Homepage-only PASS
+暫行品質監控：已接入「啟動監控」指令；FIELD 尚未開始
 Large Mode：暫緩
 ```
 
