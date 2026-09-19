@@ -40,8 +40,8 @@ Phase 9：Final Closure【未開始】
 - Agent as Top-Level Skill：現行運作模型。
 - Task Understanding / Context / Skill Selection / Execute / Verify / Replan：固定運作鏈。
 - Handoff Skill：FIELD PASS；Memoryless Homepage-only PASS。
-- G1 FIELD：18 cases。
-- G1-P01～P08：CLOSED / Re-test PASS。
+- G1 FIELD：19 cases。
+- G1-P01～P09：CLOSED / Re-test PASS。
 - Problem Registry：正式使用。
 - Atomic Synchronization / Completion Gate：已建立，正在用自然工作驗證 recurrence。
 - 暫行品質監控：已接入「啟動監控／停止監控」；尚無完整 FIELD 成本收益證據。
@@ -145,6 +145,8 @@ G1-P01～P08 均 CLOSED。
 
 若 recurrence：
 → 進入 Failure Pattern / Evaluation。
+
+Phase 2 Natural FIELD 已首次再次發現同步失配：G1-F19 / G1-P09；目前仍屬同一 Atomic Synchronization / Completion Gate 模式，不建立新 Skill。
 
 若不再 recurrence：
 → 保持現規則。
