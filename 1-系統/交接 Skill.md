@@ -100,3 +100,8 @@ HANDOFF-STALE：Repository 狀態變更後交接包未同步。
 10. 執行後能繼續更新 Problem Registry 與施工總控。
 
 文件建立 ≠ 交接驗收。
+
+## 9. AI Control Plane 整合
+
+交接可按需查詢 CURRENT / Authority / State / Relevant Entity / Evidence / Recovery Data。
+不要求完整載入 Registry；Control Plane 只提供恢復所需 metadata，Source 文件仍為權威。
