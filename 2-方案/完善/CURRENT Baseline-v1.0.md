@@ -1,7 +1,7 @@
 # CURRENT Baseline v1.0
 
 日期：2026-09-19
-狀態：【CURRENT；Phase 1 施工中】
+狀態：【CURRENT；Phase 1 Gate PASS；進入 Phase 2】
 前一工程游標：`2-方案/完善/目前工程狀態快照-006.md`
 定位：目前工程狀態、下一施工游標與最小恢復資訊的唯一 CURRENT Authority。
 
@@ -25,7 +25,7 @@
 ## 2. CURRENT 工程位置
 
 Phase 0：架構與入口收束【完成第一輪；持續觀察】
-Phase 1：CURRENT Baseline【施工中】
+Phase 1：CURRENT Baseline【Gate PASS】
 Phase 2：G1/G2 小批次 FIELD【持續】
 Phase 3：Real Work Observation【未開始正式批次】
 Phase 4：Dependency Audit【待證據】
@@ -100,15 +100,18 @@ Agent
 - 將快照-006降為歷史候選。
 - 固定 Handoff / Problem / Blueprint 的角色邊界。
 
-### B. 尚待完成
+### B. Gate 結果
 
-1. 更新所有現行入口對 CURRENT 的引用。
-2. 更新 Handoff Package 的 CURRENT 入口。
-3. 更新舊 Authority Matrix，使其不再把快照-005當目前游標。
-4. 執行 Memoryless Takeover Test。
-5. 檢查 CURRENT / Historical 是否仍存在直接入口衝突。
-6. 完成第一輪 Dependency Map。
-7. Gate 後才進入 Phase 2 主批次。
+- README / 規則 / 目前狀態 / Handoff Package：已同步。
+- Authority Matrix：已切換至 CURRENT Baseline v1.0。
+- Memoryless Takeover Test：PASS（只提供 README → CURRENT → 規則 → Workpool，可恢復目前工程、禁止事項與下一游標）。
+- CURRENT / Historical 掃描：PASS；搜尋仍可找到歷史文件，但其角色已明確標示為 Historical，不得覆蓋 CURRENT。
+- Dependency Map v0：已建立；未知依賴維持 UNKNOWN，不猜測。
+- Phase 1 Gate：PASS。
+
+### C. 下一階段
+
+Phase 2：G1/G2 小批次 Natural FIELD。
 
 ## 7. Dependency Map v0
 
@@ -148,20 +151,18 @@ G1-P01～P08 均 CLOSED。
 
 ## 9. 下一施工游標
 
-**目前唯一下一步：完成 Phase 1 Gate。**
+**目前唯一下一步：Phase 2 G1/G2 小批次 Natural FIELD。**
 
-順序：
-
+Phase 1 Gate 已通過：
 CURRENT 引用同步
 → Handoff 同步
 → Authority Matrix 更新
-→ Memoryless Takeover Test
-→ Repository CURRENT / Historical 掃描
-→ Phase 1 Gate
+→ Memoryless Takeover Test PASS
+→ CURRENT / Historical 掃描 PASS
+→ Gate PASS
 
-Gate 通過後：
-
-G1/G2 小批次 Natural FIELD
+下一步：
+G1/G2 Natural FIELD
 → Real Work Observation
 → Dependency Audit。
 
