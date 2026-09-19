@@ -237,7 +237,7 @@ Trace 不是 Skill Definition，也不是 Registry Source。
 
 ## B-01 Skill Registry View Contract
 
-Skill Entity 最小 View：ID / Name / Family / Capability / Trigger Summary / Input Summary / Output Summary / State / Version / Lifecycle / Dependency Summary / Verification Summary / Path / Updated。
+Skill Entity 最小 View：ID / Name / Family / Capability / Responsibility Summary / Trigger Summary / Input Summary / Output Summary / Boundary Summary / Mode / State / Version / Lifecycle / Dependency Summary / Verification Summary / Required Context Pointer / Authority / Provenance / Path / Updated。
 
 Registry View 是 Derived metadata，不取代 Skill Definition。
 
@@ -291,3 +291,26 @@ B 不重新定義 Skill Contract，不決定 Skill / Agent / Workflow 邊界，�
 必須覆蓋：Registry View Contract、Query Contract、Candidate Filtering、Query Stop、No Candidate Fallback、Multiple Candidate Handling、Invalid Skill Handling、Dependency Query、Registry Rebuild、Definition Change → Registry Update、Impact Query。
 
 FIELD 尚需驗證 Query 成本、Stop 深度、Candidate 正確性、Drift / Rebuild 恢復與 Definition Change synchronization。
+
+
+## C-07 Interface Reconciliation
+
+A 提供的 C Interface 要求：
+Candidate Skill ID / Responsibility / Trigger / Boundary / Input / Output compatibility / Required Context pointer / Mode / Lifecycle / Availability / Minimal Verification target / Source pointer。
+
+B 對 C 的正式輸出因此固定映射為：
+- ID → EntityID
+- Responsibility / Capability → Capability / Responsibility Summary
+- Trigger → Trigger Summary / Routing Terms
+- Boundary → Boundary Summary
+- Input / Output → Input Summary / Output Summary
+- Required Context → Required Context Pointer
+- Mode → Mode
+- Lifecycle / Availability → Lifecycle / State
+- Minimal Verification → Verification Summary / Minimal Skill Evidence
+- Source → Source Pointer
+- Authority / Provenance → Query Result metadata
+
+若某欄位不存在或無證據，必須回 UNKNOWN，不得由 Router 補猜。
+
+本次只做 Interface Reconciliation，不重新定義 A 的 Skill Contract。
