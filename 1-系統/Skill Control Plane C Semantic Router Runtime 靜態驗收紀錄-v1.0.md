@@ -2,7 +2,7 @@
 
 日期：2026-09-19
 工作包：C — Semantic Router / Runtime
-狀態：【DESIGN / STATIC PASS；FIELD PENDING】
+狀態：【DESIGN / STATIC PASS；SIMULATION ACCEPTANCE PASS；NATURAL FIELD OPTIONAL】
 
 ## 1. 驗收範圍
 本紀錄只驗證 C 的文件／接口是否已形成可施工的完整規格，不把 Simulation 或文件一致性視為 Natural FIELD。
@@ -45,7 +45,7 @@ C09 Skill Update：Definition Change → Registry Update → Query 取得新 Ver
 
 C10 Registry Rebuild：Registry 遺失 → Source → Derive → Verify → Rebuild → 原 Query 重跑。
 
-## 4. Natural FIELD 尚未驗證
+## 4. Natural FIELD 尚未驗證（非本階段完成門檻）
 
 Routing Accuracy、NO_MATCH / MULTIPLE 實際比例、Router 額外 Context / Token 成本、Query 實際 Stop Depth、Runtime Failure / Re-route 正確率、Verification Failure handling、Skill Update synchronization、Disable filtering、Registry Rebuild recovery、E2E 實際成功率。
 
@@ -53,6 +53,8 @@ Routing Accuracy、NO_MATCH / MULTIPLE 實際比例、Router 額外 Context / To
 
 ## 5. C 判定
 
-C 目前為：DESIGN / STATIC PASS；FIELD PENDING。
+C Simulation Acceptance：PASS（見 `1-系統/Skill Control Plane C Simulation Acceptance-v1.0.md`）。
+Natural FIELD：OPTIONAL / 不作本階段完成門檻。
+C Final：PASS（以受控模擬為本階段驗收證據）。
 
-不可宣告 C FIELD PASS 或 SKILL CONTROL PLANE PHASE 1 DONE。
+本結論不宣稱 Natural FIELD、真實 Runtime Evidence 或實測 Token / Time / Accuracy。
