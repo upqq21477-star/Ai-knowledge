@@ -40,8 +40,8 @@
 `2-方案/完善/CURRENT Baseline-v1.0.md`
 
 目前：
-- G1 FIELD：20 cases
-- G1-P01～P10：CLOSED / Re-test PASS
+- G1 FIELD：21 cases
+- G1-P01～P11：CLOSED / Re-test PASS
 - Handoff Skill：FIELD PASS；Memoryless Homepage-only PASS
 - 暫行品質監控：已接入「啟動監控／停止監控」；FIELD 成本收益尚未完成
 - Phase 1 CURRENT Baseline：Gate PASS
