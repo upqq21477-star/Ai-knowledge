@@ -1,8 +1,8 @@
-# Skill Architecture 規格 v1.0
+# Skill Architecture 規格 v1.1
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
-狀態：【A 工作包施工成果；待 A 邊界案例驗收】
+狀態：【Control Plane 基線；已套用至現有核心 Skill】
 定位：Skill Control Plane 的 Skill Architecture 正式規格。
 來源：A 交接「Skill Architecture」施工成果。
 Authority：本文件定義 Skill Architecture；Skill Definition 個別內容仍由各 Skill 自身 Source of Truth 保存。
@@ -411,7 +411,7 @@ Evidence
 → Verification
 → Change
 → New Version
-→ Test
+→ Verification
 → Activate
 
 禁止：
@@ -629,8 +629,8 @@ A 必須全部 PASS：
 2. Boundary Gate 在自然工作中是否能穩定降低錯誤分類：PENDING。
 3. Skill Definition 的最小欄位是否仍可進一步壓縮：PENDING。
 4. Version / Lifecycle 的實際操作成本：PENDING。
-5. B Registry 與本 Contract 的最終接口整合：PENDING。
-6. C Router / Runtime 與本 Contract 的最終接口整合：PENDING。
+5. B Registry 與本 Contract 的實際 Derived View 同步：依 Source 重建，不另建第二 Source of Truth。
+6. C Router / Runtime 與本 Contract 的實際自然運作證據：後續工作，不作本輪阻塞條件。
 
 不得在證據不足時自行補完以上項目。
 
