@@ -58,7 +58,7 @@ Definition → Change Set → Affected Relations → Registry Invalidate / Rebui
 ## 5. FIELD Protocol
 
 已建立：
-`1-系統/Skill Control Plane B FIELD Registry-Query 驗證規格-v1.0.md`
+`1-系統/03-Spec/Skill Control Plane B FIELD Registry-Query 驗證規格-v1.0.md`
 
 目前：
 - Registry / Query Static：PASS
