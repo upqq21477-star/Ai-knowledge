@@ -612,3 +612,63 @@ CLOSED。
 
 Preventive Rule：
 增量施工文件必須區分「Historical Record」與「CURRENT State」；每批施工完成後，至少同步更新 Header、CURRENT Summary、Next Step。
+
+
+## 十七、G1-F17｜Skill 版本一致性實際檢查
+
+Task：
+對現行多個 Skill 文件執行版本一致性檢查，確認標題、內部版本欄位與索引是否一致。
+
+Required Capability：
+Context Retrieval + Verification + Diagnosis + Execution。
+
+Candidate：
+Context管理 → 證據／驗證／診斷 → 執行。
+
+Expected：
+Skill 標題版本 = 內部版本欄位 = 檔案索引版本。
+
+Actual：
+發現 `1-系統/研究 Skill.md` 標題為 v1.3，但內部「版本」欄位為 v1.2。
+
+Failure Type：
+Data / Verification。
+
+Diagnosis：
+版本升級時只更新標題，未同步更新內部版本欄位。
+
+Fix：
+將內部版本欄位修正為 v1.3。
+
+Re-test：
+重新讀取 Research Skill，確認標題與版本欄位均為 v1.3；再與檔案索引的 v1.3 描述核對。
+
+Verification：
+PASS。
+
+Problem Registry：
+`1-系統/問題清單.md` → G1-P03。
+
+Decision：
+不建立新 Skill；這是文件狀態同步問題。
+
+State：
+REAL-WORK-VALIDATED。
+
+Pattern：
+與 G1-P01、G1-P02 同屬 Data / Verification 狀態同步問題，已達到「重複模式候選」門檻；暫不直接改架構，後續進行 Pattern Diagnosis。
+
+## 十八、G1-F17 結果
+
+| Case | 類型 | 結果 |
+|---|---|---|
+| G1-F17 | Skill 版本一致性 / Verification Failure | PASS → 發現問題 → Fix → Re-test PASS |
+
+G1 累計：
+17 cases。
+
+Problem Registry：
+G1-P01 CLOSED / G1-P02 CLOSED / G1-P03 CLOSED。
+
+目前新增觀察：
+Data / Verification 狀態同步問題已連續出現三次；後續不再只視為單次文件錯誤，需進行 Failure Pattern Diagnosis，但在完成研究前不直接建立新 Skill 或 Large Mode。
