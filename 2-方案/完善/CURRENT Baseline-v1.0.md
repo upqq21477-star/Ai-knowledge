@@ -188,6 +188,7 @@ G1/G2 Natural FIELD
 - Research 第一階段搬遷完成。
 - Control Plane A/B/C 工作包：PASS。
 - Agent / Routing / Runtime 工作包：PASS。
+- Core Orchestration Skills 工作包：PASS。
 - 完整全庫引用／Authority 回歸仍待施工。
 
 下一游標：
