@@ -14,7 +14,7 @@
 2. `2-方案/完善/CURRENT Baseline-v1.0.md`
 3. `規則.md`
 4. `待辦清單.md`
-5. `1-系統/交接 Skill.md`
+5. `1-系統/01-Skill/交接 Skill.md`
 6. 依任務需要讀取 Handoff Skill 產生的最小交接資訊；不再保留固定交接資料檔。
 7. 依任務載入相關 Skill / System / Evidence。
 
@@ -66,7 +66,7 @@
 `規則.md` = 操作規則 Authority
 `待辦清單.md` = 唯一 Workpool
 `目前狀態.md` = 高階架構總覽
-`1-系統/交接 Skill.md` = Handoff 生成與生命週期規則；交接資料採按需建立、完成後退出，不維持固定交接檔。
+`1-系統/01-Skill/交接 Skill.md` = Handoff 生成與生命週期規則；交接資料採按需建立、完成後退出，不維持固定交接檔。
 `藍圖/AI單人工作室整體工程最新藍圖-v2.0.md` = 最新施工藍圖
 `檔案索引.md` = 近期變更檢索驗證
 
