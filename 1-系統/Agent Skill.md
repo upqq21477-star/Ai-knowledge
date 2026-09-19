@@ -192,7 +192,7 @@ Skill 分流規格：PASS（文件層）
 零記憶接手：PENDING
 50 次實際任務：PENDING
 
-## 17. AI Control Plane
+## 18. AI Control Plane
 
 涉及目前狀態、Entity、Dependency、Impact、Evidence、Authority、Change 或 Provenance 時，使用：
 - `1-系統/AI Control Plane.md`
