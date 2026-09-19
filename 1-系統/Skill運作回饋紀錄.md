@@ -119,7 +119,7 @@ Usage / Failure
 第三批實際 FIELD：PASS（4 cases）
 後續 FIELD：G1-F17～F19 已納入
 G1 FIELD 累計：21 cases
-G1-P01～P11：CLOSED；Re-test PASS
+G1-P01～P12：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
 可支援 Skill 決策：PENDING
@@ -276,8 +276,8 @@ Atomic Synchronization / Completion Gate；自然 recurrence。
 
 ## 19. CURRENT Feedback State
 
-G1 FIELD：21 cases
-G1-P01～P11：CLOSED / Re-test PASS
+G1 FIELD：22 cases
+G1-P01～P12：CLOSED / Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
 可支援 Skill 決策：PENDING
