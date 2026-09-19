@@ -1,6 +1,7 @@
 # Skill Control Plane B｜Registry / Query 靜態驗收紀錄 v1.0
 
 日期：2026-09-19
+狀態性質：【HISTORICAL；保留作為驗收／設計證據，不作 CURRENT 運作狀態來源】
 狀態：【DESIGN / STATIC PASS；SIMULATION ACCEPTANCE PASS】
 
 ## 驗收結果
