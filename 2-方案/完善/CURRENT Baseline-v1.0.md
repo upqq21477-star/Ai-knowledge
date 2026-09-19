@@ -155,7 +155,7 @@ Phase 2 Natural FIELD 已再次發現同步失配：G1-F19 / G1-P09、G1-F20 / G
 
 **目前唯一下一步：Phase 2 G1/G2 小批次 Natural FIELD。**
 
-目前 Natural FIELD 累計：G1=21 cases；P01～P11 全部 CLOSED / Re-test PASS。
+目前 Natural FIELD 累計：G1=21 cases；P01～P12 全部 CLOSED / Re-test PASS。
 
 Phase 1 Gate 已通過：
 CURRENT 引用同步
