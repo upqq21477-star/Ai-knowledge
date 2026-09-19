@@ -16,7 +16,7 @@ Agent Skill 語意路由系統（Agent Skill Semantic Router）是獨立的輕�
 
 核心原則：
 
-先分流，再取 Context。
+「只有當前置分流的預期成本低於它能避免的後續成本時才啟動 Router；先分流，再取 Context。」
 
 ## 2. 建立前檢查結論
 
@@ -72,7 +72,21 @@ User Task
 → Control Plane Query
 → 正常處理
 
-## 4. Router 最小輸入
+## 4. 啟動條件
+
+Router 不是每次任務都強制執行。
+
+外部實作顯示：工具數量很少時，直接提供全部工具可能比增加檢索層更簡單；Semantic Tool Router 自身也將「少於約 10 個工具」列為可跳過 Router 的情境。citeturn0search0
+
+因此本系統採條件式啟動：
+
+- 候選 Skill 很少、邊界清楚、直接 Routing 成本低 → 可跳過 Semantic Router。
+- 候選 Skill 增加、Context 成本升高、重複路由成本開始明顯 → 啟用 Semantic Router。
+- Router 自身成本可能高於節省量 → 立即回退既有 Small Mode。
+
+目前 repository 的 Skill 數量與實際 Context 成本尚未完成 FIELD，因此不設定固定數量門檻。
+
+## 5. Router 最小輸入
 
 Router 原則上只觀察：
 
@@ -94,7 +108,20 @@ Skill Metadata 只需支援分流所需資訊，例如：
 
 不得為了路由而載入完整 Skill 文件。
 
-## 5. Route 結果
+## 6. 路由證據與漸進揭露
+
+外部研究對「只靠 Skill metadata 是否足夠」給出警告。SkillRouter 在約 80K Skill 的 benchmark 中發現移除完整 Skill body 後，retrieval 表現下降 29–44 個百分點；另一項 2026 年研究則顯示，部分模型可以從自身 forward signal 做 Skill routing。citeturn0academia24turn0academia25
+
+因此本系統不把「Metadata 足夠」當成真理，也不直接把完整 Skill 全部載入。採漸進揭露：
+
+L0：Task / Observation
+→ L1：Skill Metadata
+→ L2：候選 Skill 的最小責任／Trigger 證據片段
+→ L3：必要時進既有完整 Skill Routing
+
+只有 L1 足以唯一命中時停止；L1 不足時，不得硬選，增加最小候選證據；仍不明確則交既有 Skill Routing / Agent。
+
+## 7. Route 結果
 
 Router 最小輸出：
 
@@ -111,9 +138,16 @@ AMBIGUOUS
 → 最小必要擴展
 → 仍不明確則交 Agent 處理
 
-## 6. 成本控制
+## 8. 成本控制
 
 Router 是「薄層」，不是第二個 Agent。
+
+成本判斷必須比較：
+Router Cost + 後續成本
+vs.
+既有 Routing Cost。
+
+沒有 FIELD 證據前，不宣稱 Router 必然省 Token 或時間。
 
 禁止：
 
@@ -130,7 +164,7 @@ Router 是「薄層」，不是第二個 Agent。
 
 目前僅建立成本假設，尚未宣稱實測節省比例。
 
-## 7. 分層
+## 9. 分層
 
 L0：Observation
 只判斷「這是什麼類型的工作？」
@@ -149,7 +183,7 @@ L4：Verification
 
 一般任務應盡可能停留在最低必要層級。
 
-## 8. Routing 規則
+## 10. Routing 規則
 
 1. 明確匹配唯一 Skill → 直接路由。
 2. 多個候選 → 只取得必要 Metadata 進行最小消歧。
@@ -159,7 +193,7 @@ L4：Verification
 6. Router 不直接修改 Skill / System / Knowledge。
 7. Router 只產生路由結果，不取代執行者。
 
-## 9. 與 AI Control Plane 的關係
+## 11. 與 AI Control Plane 的關係
 
 兩者為相鄰但不同的系統：
 
@@ -180,7 +214,7 @@ Task
 
 Control Plane 可提供 Router 所需的最小 Skill Metadata，但不得因此把 Registry 全部載入 Context。
 
-## 10. 失敗與回退
+## 12. 失敗與回退
 
 Router Failure 不等於 Task Failure。
 
@@ -194,7 +228,7 @@ Router Failure 不等於 Task Failure。
 
 任何回退都應保留最小 Trace，供後續 FIELD 分析。
 
-## 11. FIELD 驗證
+## 13. FIELD 驗證
 
 目前狀態：【未驗收】
 
@@ -220,7 +254,7 @@ B：Semantic Router → Agent / Skill
 
 Simulation 可驗證流程，但不能取代 FIELD。
 
-## 12. 不做
+## 14. 不做
 
 - 不建立第二個 Agent。
 - 不建立第二個 Control Plane。
@@ -231,13 +265,18 @@ Simulation 可驗證流程，但不能取代 FIELD。
 - 不預設固定 Token 節省比例。
 - 不以 Simulation 結果宣稱實戰成本下降。
 
-## 13. 外部方法比對
+## 15. 外部方法比對
 
-外部 Agent / Skill Routing 實作普遍採用「路由層先於完整能力載入」的方向；例如 Tool Router 將能力發現與執行分離，以避免整個能力目錄進入 Agent Context；vLLM Semantic Router 也將語意路由定位為 LLM / Agent 前的決策層。近期 Skill Routing 研究則顯示，大規模 Skill 庫的選擇本身是獨立問題，但不同研究對「只用 metadata 是否足夠」存在明顯差異；因此本系統不預設 metadata 一定足夠，將透過 FIELD 驗證決定是否需要第二階段資訊。
+外部比對形成四項採用結論：
 
-採用結論：保留「先分流、後載入」原則；不提前導入向量資料庫、獨立 Router Server 或大型模型 Router。
+1. 保留「先分流、後載入」：Semantic Tool Router 將工具發現與執行分離，只把候選工具送入後續 Context。citeturn0search0
+2. Router 必須條件式啟動：工具庫很小時，Router 本身可能是多餘成本；外部實作直接給出少量工具可跳過 Router 的使用情境。citeturn0search0
+3. 不假設 Metadata 永遠足夠：大規模 Skill benchmark 顯示 body 可能含有關鍵路由訊號，因此本系統增加候選 Skill 最小證據片段的第二階段。citeturn0academia24
+4. 不把 Router 擴張成 Agent：vLLM 的 agent/context routing 方向同樣強調選擇、Context 與 Agent execution 的責任界線。citeturn0search2turn0search5
 
-## 14. 完成條件
+採用結論：保留獨立 Semantic Router，但將其定位從「固定前置層」修正為「條件式成本閘門」；不提前導入 Vector DB、獨立 Router Server 或大型 Router LLM。
+
+## 16. 完成條件
 
 設計完成：
 
