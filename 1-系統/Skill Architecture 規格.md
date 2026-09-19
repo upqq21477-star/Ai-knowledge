@@ -92,6 +92,8 @@ Skill Family：具有共同責任邊界與治理語義的 Skill 集合。
 - Acceptance condition
 
 ### Governance
+- State / Availability
+- Acceptance Stage（【未】／【驗】／【代】／【已建立】）
 - Lifecycle
 - Version
 - Source
@@ -444,7 +446,7 @@ Lifecycle：
 採用既有系統已使用的生命週期語義：
 Created → Tested → FIELD → Active → Updated / Superseded → Historical / Retired
 
-具體狀態以正式 Registry / Lifecycle 規格為準。
+具體 State 以正式 Control Plane / Registry 規格為準；Acceptance Stage 以《工程資產狀態與驗收控制規格》為準；Lifecycle 以正式 Lifecycle 規格為準。
 
 Version Change 至少在以下情況發生：
 - Responsibility 改變。
