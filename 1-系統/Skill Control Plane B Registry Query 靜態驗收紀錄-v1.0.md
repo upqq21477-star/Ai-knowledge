@@ -63,8 +63,8 @@ Definition → Change Set → Affected Relations → Registry Invalidate / Rebui
 - Registry / Query Static：PASS
 - Interface Alignment：PASS
 - FIELD Protocol：READY
-- Natural FIELD Evidence：PENDING
-- B Final FIELD：PENDING
+- Natural FIELD Evidence：OPTIONAL / 不阻塞本階段
+- B Final：PASS（Simulation Acceptance）
 
 FIELD 僅接受自然 Query / Registry 事件與實際 Evidence；Simulation 不得升格 FIELD。B 獨立進行，不等待 A/C 的實際驗證結果；跨包結果最後交由 D 統一驗收。
 
@@ -99,6 +99,8 @@ Interface Alignment：PASS
 Simulation Acceptance：PASS
 Natural FIELD：非本階段完成必要條件
 B Final：PASS
+
+本文件與 FIELD Protocol 已同步：Natural FIELD 僅作未來真實運行觀察，不再作為本階段 B Completion Gate。
 
 ## 8. 原 FIELD Protocol 說明
 
