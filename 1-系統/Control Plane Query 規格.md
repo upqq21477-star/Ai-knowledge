@@ -268,3 +268,60 @@ L5。
 - 不因多候選而建立大型 Ranking。
 - 不因無候選而自動建立 Skill。
 - 不把 Query 推論當 Source of Truth。
+
+
+## B-01 Query Contract
+
+每個 Query 固定：Input / Scope / Authority / Filter / Output / Stop Condition / UNKNOWN 行為 / Fallback。
+
+## B-02 Q0-Q8
+
+Q0 Identity：ID / Name / Family / Path / Source / Authority / Version。缺唯一 ID 不猜，回 Source。
+
+Q1 Capability：Capability / Responsibility / Boundary。缺 Capability 回 UNKNOWN，不以 Name 猜測。
+
+Q2 Trigger：Trigger Summary / Observation Terms / Boundary。不足時 Minimal Evidence → Skill Routing。
+
+Q3 I/O：Input Summary / Output Summary / Compatibility。缺資料標 UNKNOWN，必要時回 Source Definition。
+
+Q4 Constraint：State / Boundary / Required Context / Availability。排除不可用 Entity。
+
+Q5 Dependency：直接 DEPENDS_ON / USES / REFERENCES。未知不猜；Dependency 不等於 Impact。
+
+Q6 Verification：最近有效 Verification / FIELD Evidence。沒有有效 Evidence → UNKNOWN / PENDING；Simulation 不等於 FIELD。
+
+Q7 History：必要 Change / Version / Before / After。只取得回答問題所需最小歷史。
+
+Q8 Impact：Affected Entity / Reason / Evidence / Confidence / Verification。沒有 Evidence 支持 → UNKNOWN。
+
+## B-03 Candidate / Stop
+
+UNIQUE → STOP。
+MULTIPLE → Minimal Metadata → Minimal Evidence → 仍不明確則既有 Skill Routing / Agent。
+NONE → Agent fallback。
+INVALID → EXCLUDED，不進正常 Candidate。
+
+Progressive Retrieval：L0 Task / Context → L1 Entity Metadata → L2 Direct Relation / Minimal Evidence → L3 Evidence / Provenance → L4 Source → L5 History。足以完成目前決策即 STOP。
+
+## B-04 Rebuild / Change
+
+Registry 缺失或 Drift：Detect → Source → Git History（必要時）→ Derive → Verify → Rebuild → 原 Query 重跑。
+
+Definition Change：Definition → Change Set → Affected Relations → Registry Invalidate / Rebuild → Verification。
+Query 層只暴露結果，不修改 Definition。
+
+## B-05 C Interface
+
+C 只需消費：GET SKILL METADATA / GET SKILL STATE / GET ROUTING TERMS / GET REQUIRED CONTEXT POINTER / GET MINIMAL SKILL EVIDENCE。
+
+最小結果格式：EntityID / Scope / Authority / Depth / Result / Unknowns / Fallback / SourcePointer。
+C 不需要知道 Registry 儲存方式。
+
+## B-06 Boundary
+
+不得全庫預載、複製全文、把 Inferred 當 Source、把 Dependency 當 Impact、因 Multiple Candidate 自動建立 Skill、建立大型 Ranking / Embedding / Vector DB / Server。
+
+## B-07 Static Acceptance
+
+已定義 Q0-Q8、Filtering、Stop、NONE fallback、MULTIPLE handling、INVALID handling、Rebuild、Definition Change → Registry Update、Impact Query。
+FIELD 仍待自然工作驗證：Context / Token 成本、實際 Stop 深度、Candidate 正確率、Drift detection、Rebuild recovery、Change synchronization。
