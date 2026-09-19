@@ -1011,3 +1011,80 @@ Context 仍採任務需要的最小載入，以控制 Token 與檢索成本；�
 下一階段不是再建立遊戲治理層，而是把「GAME MODE → 讀取方案 A」納入主程式的 Mode / Context 啟動規則，先做 Simulation，再於實際遊戲開發時取得 Natural FIELD 證據。
 
 本項屬目前多專案 Agent / 工作區規劃的延伸，不新增第二套 CURRENT、Workpool 或治理 Authority。
+
+
+## 2026-09-19｜Project A 遊戲框架／專屬設計分層與中央可重用封存
+
+本輪進一步確認：遊戲開發資料不能全部視為同一層。
+
+### 第一層：中央共用遊戲開發框架
+
+處理「如何開發遊戲」，例如：
+- Game Model 最小契約
+- Core Loop 設計方法
+- Game System / Rule / State / Flow 建模
+- L1 / L2 / L3 驗證
+- System Integration Validation
+- Game Rule → Game Model → Skill → Transformation → Code → Verification
+- Runtime → Evidence → Code → Transformation → Skill → Rule / Game Model 反向追蹤
+- 跨遊戲可重用的遊戲開發 Skill、驗證與記錄方法
+
+目前這些能力先在 Project A 實際使用；只有取得 Evidence / Verification 後，確認具有跨遊戲價值的部分，才蒸餾進中央封存：
+
+`封存/遊戲開發共用框架/`
+
+狀態：
+【ARCHIVE-REUSABLE；不啟用】
+
+此封存不是第二套 Agent / Control Plane / Runtime / CURRENT / Workpool，而是未來新遊戲可直接套用的共通框架版本。
+
+### 第二層：Project A 專屬遊戲設計
+
+處理「這個遊戲是什麼」，例如：
+- 戰鬥
+- 敵人
+- 武器／技能
+- 數值／平衡
+- 地圖／關卡
+- 經濟
+- 劇情
+- 美術／音效規格
+- 實際 Game Data
+- Project A 專屬 Test / Playtest
+
+這些預設留在 Project A，不因單一遊戲使用就進入中央共用框架。
+
+### 第三層：新遊戲套用
+
+未來 Project B / C 等遊戲：
+中央共用遊戲框架封存
+→ 選擇適用版本
+→ 建立新專案的遊戲開發框架基線
+→ 加入該遊戲專屬設計
+
+因此不重新建立 Project A 已驗證的共通能力，也不直接複製 Project A 的戰鬥、地圖、數值等專屬內容。
+
+### 更新同步原則
+
+共通框架本身發生修正：
+正式共通框架變更
+→ 更新中央封存版本
+→ 新專案使用最新版本
+→ 已在開發中的專案依相容性與影響分析決定是否升級。
+
+「共通框架集中更新」；
+「專屬遊戲資料不跟著中央同步」。
+
+### Project A 入口
+
+新增：
+`專案A/GAME-BLUEPRINT.md`
+
+其責任是 Project A 的遊戲本體開發路線，不取代中央整體藍圖，也不建立第二個 Workpool / CURRENT。
+
+Project A 目前正式分為：
+共用遊戲開發框架層
++
+Project A 專屬遊戲設計層。
+
+這個分層取代「所有遊戲內容都一起抽取」的做法，避免將實際戰鬥設計等高度專屬內容錯誤升格為跨遊戲能力。
