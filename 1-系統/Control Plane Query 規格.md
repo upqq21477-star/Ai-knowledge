@@ -325,3 +325,23 @@ C 不需要知道 Registry 儲存方式。
 
 已定義 Q0-Q8、Filtering、Stop、NONE fallback、MULTIPLE handling、INVALID handling、Rebuild、Definition Change → Registry Update、Impact Query。
 FIELD 仍待自然工作驗證：Context / Token 成本、實際 Stop 深度、Candidate 正確率、Drift detection、Rebuild recovery、Change synchronization。
+
+
+## C-08 Interface Reconciliation
+
+C 所需的 Skill Interface 以 A 的 Interface Requirements 為上游契約，B 提供 Derived Query View。
+
+正式最小取得鏈：
+GET SKILL METADATA
+→ GET SKILL STATE
+→ GET ROUTING TERMS
+→ GET REQUIRED CONTEXT POINTER
+→ 必要時 GET MINIMAL SKILL EVIDENCE
+
+最小可路由資料：
+ID / Responsibility / Trigger / Boundary / Input / Output / Mode / Lifecycle / Availability / Required Context / Minimal Verification / Source Pointer / Authority / Provenance。
+
+若資料不足：
+UNKNOWN → 最小必要 Query → 仍不足則交 Router / Agent；不得自行補值。
+
+C 不需要知道 Registry 儲存結構。
