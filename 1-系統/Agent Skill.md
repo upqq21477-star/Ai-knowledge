@@ -1,20 +1,16 @@
-# Agent Skill v1.1
+# Agent Skill v1.2
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-19
-狀態：【建立；待實際運作驗收】
+狀態：【建立；Small Mode 分流規格已接入；待實際運作驗收】
 定位：最上層 Orchestration Skill（Agent as Top-Level Skill）
 
 ## 1. 目的
-
 在 AI 對話、Markdown、GitHub 與可用工具環境中，提供最小 Agent 編排：
-
-任務理解 → Context → Skill 選擇 → 執行 → 驗證 → 失敗診斷 → 重新路由 → 完成。
-
+任務理解 → 問題分流 → Context → Skill 選擇 → 執行 → 驗證 → 失敗診斷 → 重新分流 → 完成。
 Agent 不依賴常駐程序、API、本地資料庫或背景服務。
 
 ## 2. 核心定位
-
 Agent = 決策與編排。
 Skill = 可重複工作責任。
 Knowledge = 可引用資料。
@@ -22,7 +18,6 @@ Provider / Tool = 能力來源與外部操作。
 Application = 實際工作場景。
 
 ## 3. 啟動
-
 第一次接手 repository：
 1. 依 README 現行入口鏈讀取必要文件。
 2. 讀取本 Agent Skill。
@@ -31,104 +26,103 @@ Application = 實際工作場景。
 5. Context 重置時重新讀取並恢復。
 
 ## 4. 標準循環
+Understand → Triage → Capability → Candidate Skill → Route → Mode → Context → Execute → Verify
 
-Understand
-→ Context
-→ Select
-→ Execute
-→ Verify
-→ PASS / FAIL
-
-FAIL
-→ Diagnosis
-→ Failure Classification
-→ 重新選擇必要 Skill
-→ Execute
-→ Verify
+FAIL → Failure Classification → Diagnosis → Re-route / Fix Skill / Fix Provider → Execute → Verify
 
 完成後停止本次任務，但 Agent 保持 ACTIVE。
 
-## 5. Skill 路由
+## 5. Skill 分流
+完整分流規則由：
+1-系統/Skill分流運作規格.md
+定義。
 
-### 治理路由
+目前 Small Mode 採：
+Task → Task Understanding → Problem Triage → Required Capability → Candidate Skill → Skill Routing → Mode Selection → Context Selection → Execution → Verification
 
+不以關鍵字直接選 Skill。
+
+優先比較：
+Responsibility → Trigger → Input / Output → Context → Verification
+
+候選接近或有衝突時，再比較：
+Failure Pattern → Dependency → Cost → Actual Usage
+
+## 6. Skill 治理路由
 出現新 Skill、新能力、Provider / Tool / Mode 變更、Skill 重疊、責任漂移或失效：
 → Skill 分類判斷 Skill
 → 若需修改：Evolution Management
 → Execution
 → Verification
 
-### 工作路由
+重要邊界：
+Skill Routing：「目前任務走哪個既有 Skill？」
+Skill Classification：「系統是否應該建立、融合、更新、取代、延後或封存 Skill？」
 
-任務目標不清：
-→ 任務理解
+路由不到不等於應建立新 Skill。
 
-需要外部或歷史資料：
-→ 研究
+## 7. 工作路由
+任務目標不清 → 任務理解
+需要外部或歷史資料 → 研究
+需要決定載入哪些資料 → Context 管理
+需要判斷證據／正確性／失敗原因 → 證據／驗證／診斷
+需要保存或管理長期資料 → 知識管理
+需要執行已確認動作 → 執行
+需要修改系統／Skill／結構 → 演化管理
+出現長期重複、責任漂移、結構性成本 → 蒸餾
 
-需要決定載入哪些資料：
-→ Context 管理
+## 8. Failure Re-routing
+Failure 不直接重跑相同路由。
 
-需要判斷證據／正確性／失敗原因：
-→ 證據／驗證／診斷
+先分類：
+Data / Context / Research / Routing / Skill / Provider / Execution / Verification
 
-需要保存或管理長期資料：
-→ 知識管理
+若為 Routing Failure：
+Failure → Diagnosis → 修正 Routing Input / Context / Candidate → Re-route → Execute → Verify
 
-需要執行已確認動作：
-→ 執行
+若為 Skill Failure：
+Failure → Diagnosis → 判斷 Skill Definition 是否不足 → 必要時 Skill Classification / Evolution
 
-需要修改系統／Skill／結構：
-→ 演化管理
+若為 Provider / Tool Failure：
+Capability 保留 → 更換 Provider / Tool → 重新執行
 
-出現長期重複、責任漂移、結構性成本：
-→ 蒸餾
-
-## 6. 最小化原則
-
+## 9. 最小化原則
 不預載整個 repository。
 不因存在 Skill 就強制使用。
 不因 Provider、Tool、Mode 或名稱變化建立新 Skill。
 能單一 Skill 完成就不串接。
 只有必要時才進入 Impact / Migration / Distillation。
+不因單次 Routing Failure 改變架構。
 
-## 7. 成本
-
+## 10. 成本
 至少觀察：
 Context Cost
+Routing Cost
 Execution Cost
 Migration Cost
 Maintenance Cost
 
 第一版以 L / M / H 相對量級記錄，不假裝具有精密數值。
 
-## 8. 失敗閉環
-
+## 11. 失敗閉環
 Failure 發生後，不直接重試同一流程。
-
-先分類：
-Data / Context / Research / Routing / Skill / Provider / Execution / Verification
-
-再選擇修正 Skill。
-
+先分類 → 診斷 → 修正 → 重新分流 → 驗證。
 若同一 Failure Pattern 重複出現，送交 Skill 分類判斷或 Distillation 評估。
 
-## 9. 停止條件
-
+## 12. 停止條件
 PASS：完成且必要驗證通過。
 INSUFFICIENT：缺必要資料／權限／工具。
 FAILED：合理修正後仍失敗。
 USER_REQUIRED：必須由使用者提供資料或決策。
 LIMIT：達到合理循環／成本限制。
 
-## 10. 權限
-
+## 13. 權限
 Agent 可選擇與串接 Skill、要求驗證、重新規劃。
 Agent 不可無證據永久新增／刪除／取代 Skill。
-結構變更進入 Skill 分類判斷 → Evolution → Execution → Verification。
+結構變更進入：
+Research D3 → Skill 分類判斷 → Evolution → Execution → Verification
 
-## 11. 文件修改
-
+## 14. 文件修改
 修改前讀取現行版本。
 最小必要修改。
 保留有效內容。
@@ -136,11 +130,23 @@ Agent 不可無證據永久新增／刪除／取代 Skill。
 新增／實質修改／移動／刪除檔案時更新檔案索引。
 文件建立不等於功能驗收。
 
-## 12. 驗收
+## 15. Small / Large
+目前使用 Small Mode。
 
+Small：
+Agent 直接依 Responsibility、Trigger、Context 與 Routing Conditions 選擇。
+
+Large：
+未來可增加 Registry / Retrieval / Ranking / Composition / Dependency Resolution。
+
+兩者共用 Skill Definition。
+Large Mode 不重新定義 Skill，也不因大型化提前建立新 Skill。
+
+## 16. 驗收
 文件建立：PASS
 規則定義：PASS
 Skill 治理路由：PASS（文件層）
+Skill 分流規格：PASS（文件層）
 實際運作：PENDING
 零記憶接手：PENDING
 50 次實際任務：PENDING
