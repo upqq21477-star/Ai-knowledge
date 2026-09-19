@@ -927,3 +927,8 @@ Handoff
 ```
 
 因此，本次變更不是新增一條平行工程線，而是把既有 Handoff / State / Workpool / Verification / History 閉環補完整。
+## Runtime Closure｜2026-09-19
+
+已完成最小契約蒸餾：Trigger → Capability → Routing → Invocation → Context → Execution → Verification → Final / Stop；並定義 Failure → Diagnosis → Retry / Fallback / Re-route / Stop、Runtime Receipt、Agent-level Retry / Re-route / Chain / Context / Cost 邊界，以及 Multi-Skill Composition 的最小接口。
+
+目前只完成規格與 Simulation 邊界；Natural FIELD 尚未宣稱完成。下一游標為自然工作中的 Agent E2E、Failure Recovery、Receipt 完整度與成本／停止邊界驗證。
