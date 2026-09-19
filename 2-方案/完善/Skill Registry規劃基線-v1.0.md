@@ -253,9 +253,11 @@ FIELD 若證明存在查詢缺口，再建立新的 Change Set。
 
 ## 11. 目前狀態
 
-【B 工作包施工中；Registry View / Query Contract 已收束】
+【A/B 工作包並行施工；B Registry View / Query Contract 已收束；A Skill Architecture Contract 已建立】
 
 已完成：
+- A Skill Architecture Contract v1.0。
+- A 靜態 8 Boundary Cases。
 - 功能需求整理。
 - Registry Family 拆分。
 - Trigger Index 獨立化。
