@@ -171,6 +171,28 @@ G1/G2 Natural FIELD
 → Real Work Observation
 → Dependency Audit。
 
+## 系統分層搬遷施工支線
+
+目前施工支線：既有 System 文件責任分層與實體路徑整理。
+
+已完成：
+- 00～05 邏輯分層入口建立。
+- 04-Evidence 第一批低風險實體搬遷。
+- 05-Research 第一階段 10 份外部比對材料搬遷。
+- Research / System 機制邊界確認。
+- 搬遷風險與批次紀錄同步更新。
+
+目前：
+- Research 第一階段搬遷完成。
+- 完整引用／Authority 回歸仍待施工。
+- 01-Skill / 03-Spec 核心 Runtime 文件尚未實體搬遷。
+
+下一游標：
+Research 回歸 → 核心 Skill / Spec 依賴盤點 → 小批次高依賴搬遷 → 每批模擬回歸。
+
+原則：
+「邊搬、邊記錄、邊驗證」；不得全部搬完後才補工程紀錄。
+
 ## Runtime Closure 狀態
 
 已建立《1-系統/Agent Runtime Closure 最小契約.md》與 12/12 Simulation Acceptance。
