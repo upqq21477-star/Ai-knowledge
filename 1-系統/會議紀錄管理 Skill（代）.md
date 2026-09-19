@@ -1,10 +1,13 @@
-# 會議紀錄管理 Skill（代）
+# 會議紀錄管理 Skill
 
 ## Status
 
-- 狀態：ACTIVE（代）
+- State：ACTIVE
+- Acceptance Stage：【代】
+- Lifecycle：Active
 - 模擬驗收：PASS
 - 實際運行驗證：未完成
+- 狀態控制依據：1-系統/工程資產狀態與驗收控制規格.md
 - 來源企劃：藍圖/規劃/企劃/會議紀錄管理 Skill企劃-v1.0.md
 
 ## Responsibility
@@ -64,4 +67,16 @@ DEFER、BLOCKED、SUPERSEDED 為輔助狀態語義，不代表自動刪除。
 
 模擬驗收最低條件：觸發正常、責任邊界正常、I/O 正常、委派正常、無路由循環／責任衝突、主要正常與失敗案例可處理。
 
-本 Skill 已通過三輪模擬驗收，因此依《Skill 模擬驗收與代運行規則》進入正式運行，暫標「（代）」。
+本 Skill 已通過三輪模擬驗收，因此依《Skill 模擬驗收與代運行規則》進入正式運行；目前 State=ACTIVE、Acceptance Stage=【代】。自然工作 Evidence 足夠後才解除【代】。
+
+
+## 狀態控制邊界
+
+本 Skill 的 OPEN → READY → CONVERTED → CLOSED 只描述「單筆會議紀錄內容」的生命週期，不是本 Skill 的 State、Lifecycle 或 Acceptance Stage。
+
+Skill 本身目前為：
+- State：ACTIVE
+- Acceptance Stage：【代】
+- Lifecycle：Active
+
+不得再使用 ACTIVE（代）作為單一複合狀態。
