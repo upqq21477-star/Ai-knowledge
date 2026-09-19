@@ -53,3 +53,8 @@ Purpose、Trigger、Input、Output、Responsibility、Mode、Dependency、Contex
 ## 11. 驗收
 文件建立：PASS
 實際運作：PENDING
+
+## 12. AI Control Plane 整合
+
+涉及結構變更時，可查 Dependency / Impact / Change / Evidence / Lifecycle / Authority。
+標準流程：Problem → Impact → Change Set → USER CONFIRM → Modify → Verify → Close。
