@@ -91,3 +91,25 @@
 用途：管理平常不需載入、但不能遺失且需要追蹤時必須可查的 Entity、State、Dependency、Impact、Change、Evidence、Provenance、Authority、Lifecycle、Capability、Trace。
 
 原則：Source of Truth 優先；Registry 不取代原始文件；Graph / Index / Cache 可重建；Context 按需載入；高風險 Repository 修改需 USER CONFIRM。
+
+## 文件分層
+
+目前文件採「先邏輯分層、後實體搬遷」策略，避免大量搬檔造成既有引用斷裂。
+
+系統分層入口：
+- `1-系統/系統分層索引.md`
+- `1-系統/00-核心入口/`
+- `1-系統/01-Skill/`
+- `1-系統/02-System/`
+- `1-系統/03-Spec/`
+- `1-系統/04-Evidence/`
+- `1-系統/05-Research/`
+
+方案分層入口：
+- `2-方案/方案分層索引.md`
+- `2-方案/00-CURRENT/`
+- `2-方案/01-施工/`
+- `2-方案/02-研究驗證/`
+- `2-方案/03-歷史/`
+
+重要：新分層資料夾目前是責任邊界與導航層，不代表既有文件已全部搬遷。實體遷移必須先完成引用掃描、Authority 核對與回歸驗證。
