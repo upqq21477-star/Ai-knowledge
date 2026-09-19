@@ -139,3 +139,29 @@ I01–I08 反向重建：PASS。
 Skill 分類判斷器：未正式建立。
 
 下一階段：用真實工作案例驗證 8 Skill 候選，不再增加架構。
+
+## 九、2026-09-19 實際 Skill 化進度
+
+已建立正式 Skill：
+1. `1-系統/Skill分類判斷 Skill.md`
+2. `1-系統/任務理解 Skill.md`
+3. `1-系統/研究 Skill.md`
+4. `1-系統/Context管理 Skill.md`
+5. `1-系統/證據驗證診斷 Skill.md`
+6. `1-系統/知識管理 Skill.md`
+7. `1-系統/執行 Skill.md`
+8. `1-系統/演化管理 Skill.md`
+9. `1-系統/蒸餾 Skill.md`
+
+目前不是新增大量能力，而是將既有研究結果轉成可路由的 Skill，並補上 Trigger、Mode Transition、Failure Routing 與成本邊界。
+
+新增回饋資料格式：
+`1-系統/Skill運作回饋紀錄.md`
+
+目前狀態：
+- Skill 文件建立：PASS
+- Trigger 補齊：PASS
+- 基本路由補齊：PASS
+- Failure / Usage / Cost 紀錄格式：PASS
+- 實際運作驗收：PENDING
+- 50 次實際任務：PENDING
