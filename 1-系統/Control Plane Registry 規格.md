@@ -1,8 +1,8 @@
 # Control Plane Registry 規格
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-19
-狀態：【Skill Registry B 工作包施工中；View / Query Contract 已收束】
+狀態：【正式規格；Derived View / Query 已接入現有 Skill】
 
 ## 1 Entity
 
@@ -58,7 +58,7 @@ Deprecated 是否仍可候選，不由 Registry 自行決定；必須由正式 L
 
 ## 4 Lifecycle
 
-Created → Tested → FIELD → Active → Updated → Superseded → Historical
+Created → Verified → FIELD → Active → Updated → Superseded → Historical
 
 Lifecycle 描述演變，不取代 State。
 
@@ -286,11 +286,11 @@ Query Result 最小格式：Entity ID + Scope + Authority + Depth + Result + UNK
 
 B 不重新定義 Skill Contract，不決定 Skill / Agent / Workflow 邊界，不建立大型 Ranking、Embedding、Vector Search、Graph DB、Capability Registry 或 Skill Runtime。
 
-## B-09 Static Acceptance Target
+## B-09 Current Evidence Gap
 
-必須覆蓋：Registry View Contract、Query Contract、Candidate Filtering、Query Stop、No Candidate Fallback、Multiple Candidate Handling、Invalid Skill Handling、Dependency Query、Registry Rebuild、Definition Change → Registry Update、Impact Query。
+目前已具備：Registry View Contract、Query Contract、Candidate Filtering、Query Stop、No Candidate Fallback、Multiple Candidate Handling、Invalid Skill Handling、Dependency Query、Registry Rebuild、Definition Change → Registry Update、Impact Query。
 
-FIELD 尚需驗證 Query 成本、Stop 深度、Candidate 正確性、Drift / Rebuild 恢復與 Definition Change synchronization。
+後續只從自然運作累積 Query 成本、Stop 深度、Candidate 正確性、Drift / Rebuild 恢復與 Definition Change synchronization Evidence，不另建測試流程。
 
 
 ## C-07 Interface Reconciliation
