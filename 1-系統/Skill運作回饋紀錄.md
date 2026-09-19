@@ -119,7 +119,7 @@ Usage / Failure
 第三批實際 FIELD：PASS（4 cases）
 後續 FIELD：G1-F17～F19 已納入
 G1 FIELD 累計：21 cases
-G1-P01～P09：CLOSED；Re-test PASS
+G1-P01～P11：CLOSED；Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
 可支援 Skill 決策：PENDING
@@ -281,3 +281,28 @@ G1-P01～P11：CLOSED / Re-test PASS
 實際紀錄：ACTIVE
 多案例回饋：IN PROGRESS
 可支援 Skill 決策：PENDING
+
+
+## 20. Phase 2 Natural FIELD｜G1-F22
+
+| Record ID | Task | Result | Decision |
+|---|---|---|---|
+| G1-F22 | 回讀 Feedback / CURRENT / Problem Registry 的內部累計與問題狀態 | PASS → 發現 P12 → Fix → Re-test PASS | 不建立新 Skill；確認 Atomic Synchronization recurrence |
+
+Actual：
+回讀既有同步文件時，發現 Feedback 的 CURRENT Summary 仍寫 P01～P09；CURRENT Baseline 的 Current Problem State 仍寫 P01～P08。兩者均落後於已完成的 P01～P11。
+
+Failure：
+Data / Verification。
+
+Diagnosis：
+前次 P11 已處理 G1 FIELD Header / Feedback 累計，但「問題狀態摘要」本身也是受影響的 CURRENT 欄位，未被完整納入 Re-read。
+
+Fix：
+同步 Feedback、CURRENT、Problem Registry、TODO、Handoff、README、Index 與 G1 FIELD 的 CURRENT 相關摘要；建立 P12。
+
+Re-test：
+重新讀取整組 CURRENT / Support / Evidence 文件，確認 G1=21、P01～P11 CLOSED，且不再存在同層級 CURRENT Summary 落後。
+
+Status：
+REAL-WORK-VALIDATED；Natural Verification / Data Consistency Event。
