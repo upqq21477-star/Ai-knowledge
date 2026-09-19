@@ -57,7 +57,7 @@ Control Plane Query 的 Candidate / Metadata 輸出，不能直接視為 Skill �
 Route → Invocation → Context → Execute → Verify → Receipt → Final / Stop
 組成。
 
-Invocation / Recovery / Receipt / Stop Contract 由《1-系統/Agent Runtime Closure 最小契約.md》定義。
+Invocation / Recovery / Receipt / Stop Contract 由《1-系統/03-Spec/Agent Runtime Closure 最小契約.md》定義。
 
 ## Semantic Router 與 Control Plane 邊界
 
@@ -78,7 +78,7 @@ Router 只使用最小 Skill Metadata。
 無匹配或不明確時回退 Agent，不強行推測。
 
 詳細規格：
-1-系統/Agent Skill語意路由系統.md
+1-系統/02-System/Agent Skill語意路由系統.md
 
 ## Routing 與 Context 邊界
 
