@@ -1,8 +1,8 @@
 # Skill 架構擴展規格 v1.0
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
-狀態：【預備規格；Small Mode 使用中】
+狀態：【相容規格；Small Mode 使用中；Control Plane 已接入】
 
 ## 1. 定位
 本文件是 Skill 架構的實作規格，不是新的 Skill。
@@ -39,10 +39,9 @@ Tool：進行外部操作的工具。
 Reference / Rule / Knowledge：提供依據的資料。
 
 ## 4. 小規模實作
-目前 Skill 數量少，由 Agent 根據 Responsibility、Trigger、Context 直接選擇 Skill。
+目前 Skill 數量仍以 Small Mode 為主，由 Agent / Semantic Router 依 Responsibility、Trigger 與 Control Plane Query 選擇 Skill。
 
-不建立：
-- 獨立 Skill Registry
+已建立 Skill Registry，但它是 Derived View，不是第二套 Source of Truth。
 - 自動 Ranking
 - Embedding
 - Vector Database
@@ -73,7 +72,7 @@ Large Mode 必須能讀取現有 Skill Definition。
 不得改變既有 Responsibility 語義而未經 Skill Classification → Evolution → Verification。
 
 ## 8. 擴展順序
-1. Skill Registry
+1. Skill Registry Query / Derived View
 2. Capability Registry
 3. Candidate Retrieval
 4. Ranking
