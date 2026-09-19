@@ -20,7 +20,7 @@ Agent Skill 語意路由系統（Agent Skill Semantic Router）是獨立的輕�
 
 ## 2. 建立前檢查結論
 
-既有 `1-系統/Agent Skill.md` 與 `1-系統/Skill分流運作規格.md` 已負責完整 Skill Routing：Task Understanding → Problem Triage → Required Capability → Candidate Skill → Skill Routing → Mode → Context。
+既有 `1-系統/01-Skill/Agent Skill.md` 與 `1-系統/03-Spec/Skill分流運作規格.md` 已負責完整 Skill Routing：Task Understanding → Problem Triage → Required Capability → Candidate Skill → Skill Routing → Mode → Context。
 
 本系統不取代上述流程，而是在其前面增加一個「低成本前置分流」：先判斷是否存在明確 Skill 候選；只有命中、歧義或需要進一步判斷時，才進入既有完整 Skill Routing。
 
