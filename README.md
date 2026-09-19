@@ -80,3 +80,14 @@
 不因單次問題建立新 Skill。
 不建立第二 CURRENT。
 不建立第二 Workpool。
+
+## AI Control Plane
+
+後台管理入口：
+- `1-系統/AI Control Plane.md`
+- `1-系統/Control Plane Registry 規格.md`
+- `1-系統/Control Plane Query 規格.md`
+
+用途：管理平常不需載入、但不能遺失且需要追蹤時必須可查的 Entity、State、Dependency、Impact、Change、Evidence、Provenance、Authority、Lifecycle、Capability、Trace。
+
+原則：Source of Truth 優先；Registry 不取代原始文件；Graph / Index / Cache 可重建；Context 按需載入；高風險 Repository 修改需 USER CONFIRM。
