@@ -185,8 +185,8 @@ G1/G2 Natural FIELD
 
 2026-09-19 已建立 Control Plane 核心規格與 Registry / Query 文件，並接入 Agent、Context、Evidence、Evolution、Problem、Handoff、Monitoring、README。
 
-狀態：核心建立 PASS；實際 FIELD 驗證 PENDING。
+狀態：正式接入現有核心 Skill；自然工作 Evidence 持續累積。
 
 Control Plane 不取代 CURRENT Authority；所有衍生 Registry / Index / Graph / Cache 均須可由 Source 重建。
 
-Skill Control Plane Phase 1：ACCEPTED（D Final Acceptance；Controlled Simulation）。Natural FIELD 不作本階段完成門檻。
+Skill Control Plane：正式接入現有核心 Skill；A/B/C 工作包施工階段已結束。自然工作 Evidence 持續累積，不另設人工測試門檻。
