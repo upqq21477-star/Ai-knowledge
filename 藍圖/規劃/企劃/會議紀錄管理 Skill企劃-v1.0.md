@@ -359,3 +359,42 @@
 
 若自然工作沒有證明獨立責任，維持 DEFER。
 
+## 19. 第一輪模擬運行驗證
+
+在正式升格前，先以目前真實對話型態做邊界模擬，不建立正式 Skill。
+
+| Case | 輸入／條件 | 預期 | 結果 |
+|---|---|---|---|
+| 01 | 明確「會議紀錄」＋已有決策 | MEETING_RECORD | PASS |
+| 02 | 明確「會議紀錄」＋無可保存成果 | NO_RECORD | PASS |
+| 03 | 「簡短記一下」＋上下文明確 | MEETING_RECORD | PASS |
+| 04 | 「先記錄」＋存在真正歧義 | CONFIRM | PASS |
+| 05 | 已進入 Skill 企劃階段 | PLANNING，避免重複會議紀錄 | PASS |
+| 06 | 實際目的為 AI 交接 | HANDOFF | PASS |
+| 07 | 修改既有正式 Skill | EXISTING_UPDATE | PASS |
+| 08 | 新 Skill 候選尚未確認 | PLANNING → Classification | PASS |
+| 09 | 單次失敗要求分析 | NO_RECORD → 診斷流程 | PASS |
+| 10 | 正式成果完成且過渡資料無獨立價值 | CLEANUP | PASS |
+
+### 模擬結論
+
+第一輪模擬未發現 Trigger、Output、Delegation、Cleanup 的立即架構矛盾。
+
+但發現一個正式化前必須觀察的成本問題：如果每次「會議紀錄」都建立獨立檔案，短期討論可能產生大量小檔案。因此自然運作期間需觀察：
+
+1. 是否需要每次一檔。
+2. 是否需要同主題合併。
+3. 何時應直接進企劃而不產生會議紀錄。
+4. 清理後 Path Record 是否足以恢復來源關係。
+5. 文件數量增加是否造成 Context／索引成本。
+
+目前不預先增加自動合併、資料庫或 Registry；先以自然工作證據判斷。
+
+### 模擬驗收狀態
+
+`SIMULATION-1 = PASS`
+
+狀態仍為：`企劃候選 Skill / DEFER`。
+
+模擬 PASS 不等於正式 Skill 驗收 PASS；正式升格仍需自然工作 Evidence。
+
