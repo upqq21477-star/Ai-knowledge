@@ -1,4 +1,4 @@
-# Agent Skill v1.2
+# Agent Skill v1.3
 
 版本：v1.3
 日期：2026-09-19
