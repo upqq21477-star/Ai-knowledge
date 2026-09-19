@@ -180,3 +180,11 @@ G1/G2 Natural FIELD
 - 不把 Simulation 當 FIELD。
 - 不提前施工 Large Mode。
 - 不因單次問題新增 Skill。
+
+## AI Control Plane 建置狀態
+
+2026-09-19 已建立 Control Plane 核心規格與 Registry / Query 文件，並接入 Agent、Context、Evidence、Evolution、Problem、Handoff、Monitoring、README。
+
+狀態：核心建立 PASS；實際 FIELD 驗證 PENDING。
+
+Control Plane 不取代 CURRENT Authority；所有衍生 Registry / Index / Graph / Cache 均須可由 Source 重建。
