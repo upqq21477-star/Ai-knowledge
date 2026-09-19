@@ -1,55 +1,60 @@
-# 蒸餾 Skill（Distillation Skill） v1.1
+# 蒸餾 Skill（Distillation Skill） v1.2
 
-版本：v1.1
+版本：v1.2
 日期：2026-09-19
-狀態：【建立；待實際運作驗收】
+狀態：【Control Plane 接入；正式 Definition】
 
-## 1. 定位
-進行長期、結構性的壓縮與重組，降低重複、重疊、責任漂移與長期維護成本。
+## 1. Definition
+在累積結構性證據後，對重複、重疊、責任漂移與長期成本進行壓縮與重組；不是一般修改，也不是單純刪除歷史。
 
 ## 2. Trigger
-至少存在一項持續性結構證據：
-- Repeated Duplication：重複能力持續出現。
-- Responsibility Drift：Skill 職責持續膨脹或偏移。
-- Structural Cost：Context / Execution / Maintenance 成本持續偏高。
+至少存在持續性證據之一：
+- Repeated Duplication。
+- Responsibility Drift。
+- Structural Cost 持續偏高。
+- 多版本演化造成可維護性下降。
 
-單次問題不自動觸發 Distillation。
+單次問題、單次失敗或單一文件過長，不自動觸發。
 
-## 3. 核心責任
-發現重複與重疊。
-發現責任漂移。
-分析結構成本。
-從多版本抽取目前可用結構。
-保留必要歷史。
+## 3. Input
+多版本資料、Usage Record、Failure Pattern、Structure Cost、Evolution 結果、Dependency / Impact metadata。
 
-## 4. Input
-多版本資料、Usage Record、Failure Pattern、結構成本、Evolution 結果。
-
-## 5. Output
+## 4. Output
 Distillation Candidate
 Preserved Core
-Removed / Merged Redundancy
+Merged / Removed Redundancy
 Migration / Reference Notes
 Verification Target
+Unknowns
 
-## 6. 路由
-一般局部修改 → Evolution。
-有長期結構證據 → Distillation。
-蒸餾完成 → Verification。
-Verification FAIL → Diagnosis → Evolution 或重新 Distillation。
+## 5. Procedure
+Collect Evidence
+→ Confirm Structural Pattern
+→ Compare Responsibilities
+→ Define Preserved Core
+→ Merge / Compress
+→ Migration / Reference
+→ Verification
 
-## 7. 邊界
-Distillation 不是刪除歷史。
-不因追求壓縮破壞責任、來源或可驗證性。
+## 6. Boundary
+Evolution：正常局部／結構演化。
+Distillation：累積證據後的長期結構重組。
+Classification：判斷應採何種結構處置。
+Execution：實際修改。
+Verification：判定結果。
 
-## 8. 原則
-先證據、後結構重組。
-不足 → DEFER。
+Distillation 不因追求壓縮而破壞責任、來源、版本或可驗證性。
 
-## 9. 來源
-- `藍圖/Skill分類融合更新取代判斷問題紀錄-v1.0.md`
-- 本輪「功能盤點 → Skill 聚合 → Agent 化」工程決策。
+## 7. Decision Rule
+證據不足 → DEFER。
+若問題可由局部 UPDATE 解決 → Evolution，不進 Distillation。
+若已形成持續性結構成本 → Distillation。
 
-## 10. 驗收
-文件建立：PASS
-實際運作：PENDING
+## 8. Control Plane
+可查 Dependency / Impact / Lifecycle / Usage / Evidence / Change metadata。
+Registry 只提供查詢視圖，不作為蒸餾的唯一真實來源。
+
+## 9. Stop
+結構性問題尚未被證明 → DEFER。
+Preserved Core 與 Change Scope 明確 → 交 Evolution / Execution。
+蒸餾完成 → Evidence / Verification。
