@@ -228,3 +228,22 @@ C 可在 B 未完成時先以 Interface Contract / UNKNOWN 建立 Router 工作�
 B 完成、成果被正式系統吸收，且 Phase 1 最終整合驗收完成後，與 A/C 暫存交接檔**一次性統一刪除**。
 
 不要把本文件升格為 CURRENT、Registry Source of Truth 或永久藍圖。
+
+
+## 本次獨立施工進度（2026-09-19）
+
+B 不等待 A/C，先完成自己的 FIELD 驗證準備。
+
+已新增：
+- `1-系統/Skill Control Plane B FIELD Registry-Query 驗證規格-v1.0.md`
+
+目前：
+- Registry / Query Static：PASS
+- Interface Alignment：PASS
+- FIELD Protocol：READY
+- Natural FIELD Evidence：PENDING
+- B Final FIELD：PENDING
+
+FIELD 驗證範圍包含 Candidate 正確性、Query Stop、Context / Token 成本、MULTIPLE / NONE / INVALID、Dependency / Impact、Registry Drift / Rebuild、Definition Change synchronization。
+
+B 不把 Simulation 當 FIELD，也不提前使用 A/C 結果替自己背書。若自然工作產生結構性問題，走 Evidence → Problem → Proposal → Verification → Change Request；否則維持現有 Registry / Query Contract，不再擴張。
