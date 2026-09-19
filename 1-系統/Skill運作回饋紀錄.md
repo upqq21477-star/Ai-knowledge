@@ -222,3 +222,28 @@ Pattern：
 
 Status：
 REAL-WORK-VALIDATED。
+
+
+## 17. Phase 2 Natural FIELD｜G1-F20
+
+| Record ID | Task | Result | Decision |
+|---|---|---|---|
+| G1-F20 | 核對 README / CURRENT / Handoff / G1 FIELD 狀態一致性 | PASS → 發現 P10 → Fix → Re-test PASS | 不建立新 Skill；確認 Atomic Synchronization recurrence |
+
+Actual：
+README 與目前施工交接包仍停留在 G1=18、P01～P08、Phase 1 施工中；CURRENT Baseline 已為 Phase 1 PASS、G1=19、P01～P09。
+
+Failure：
+Data / Context / Verification。
+
+Diagnosis：
+CURRENT Support 文件沒有在前一 Change Set 中同步完成。
+
+Fix：
+同步 README、Handoff、Problem Registry、CURRENT、TODO、Index 與本 Feedback。
+
+Re-test：
+PASS。
+
+Status：
+REAL-WORK-VALIDATED。
