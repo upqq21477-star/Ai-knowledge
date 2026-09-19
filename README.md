@@ -18,6 +18,37 @@
 
 目前工程狀態唯一入口仍只有一個：`2-方案/完善/目前工程狀態快照-006.md`。舊快照保留為歷史，不與目前入口競爭。
 
+## Agent 啟動規則
+
+本 repository 現在採用「Agent as Top-Level Skill」運作方式。
+
+任何 AI／工具第一次接手時，必須先依上述現行入口鏈恢復必要工作狀態，並讀取：
+
+`1-系統/Agent Skill.md`
+
+讀取後**必須立即啟動 Agent Skill**，不等待使用者另外輸入「啟動」。
+
+啟動後，除非使用者明確要求停止或停用，必須持續保持 `AGENT_STATE = ACTIVE`。後續所有任務都必須先經 Agent Skill 進行：
+
+`Task Understanding → Context → Skill Selection → Execute → Verify → Replan if needed`
+
+完成單次任務後，只停止該任務，不停止 Agent。
+
+如果發生上下文重置、重新接手、或無法確認 Agent State，必須重新讀取 `1-系統/Agent Skill.md` 並重新啟動，再繼續工作。
+
+這裡的「Agent Active」是對話／工作流程狀態，不代表存在背景常駐程序。AI 不得假設目前環境具有未提供的 Agent Runtime、API、資料庫或常駐服務。
+
+**啟動後的核心要求：**
+- 不直接跳過 Agent 判斷。
+- 不預載整個 repository。
+- 只載入當前任務必要 Context。
+- 依 Responsibility 選擇 Skill。
+- 執行後必須驗證。
+- 失敗才重新規劃，不得無目的循環。
+- 不把 Provider、Tool、Mode 自動新增為 Skill。
+- 不把模擬結果寫成實戰驗收。
+- Repository 修改仍必須遵守 `規則.md` 與 `檔案索引.md`。
+
 ## 目前工程運作基準
 
 `2-方案/工程運作與持續改進方案-v1.8.md`
