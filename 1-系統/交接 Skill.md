@@ -1,6 +1,6 @@
-# 交接 Skill（Handoff Skill）v1.0
+# 交接 Skill（Handoff Skill）v1.1
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
 狀態：【FIELD 驗收 PASS；Memoryless Homepage-only PASS】
 定位：負責將目前工作狀態壓縮成可由無既有對話記憶的 AI 恢復與繼續執行的最小充分交接 Context。
