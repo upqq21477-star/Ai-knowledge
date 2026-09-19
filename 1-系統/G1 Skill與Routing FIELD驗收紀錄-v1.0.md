@@ -2,7 +2,7 @@
 
 版本：v1.0
 日期：2026-09-19
-狀態：【FIELD 施工中；第三批完成；累計 16 cases】
+狀態：【FIELD 施工中；Phase 2 Natural FIELD；累計 21 cases】
 定位：記錄 G1 實際工作中的 Skill / Agent / Routing 運作，不把文件模擬視為 FIELD PASS。
 
 ## 一、驗收原則
@@ -864,3 +864,51 @@ P01～P10：
 
 目前觀察：
 Atomic Synchronization / Completion Gate 已連續在 Natural FIELD 中再次暴露受影響文件集合未完整涵蓋的問題；不新增 Skill，進入 Failure Pattern / Minimum Evaluation 證據累積。
+
+
+### G1-F21｜Natural FIELD 回讀發現前段 CURRENT Summary 未同步
+
+Task：
+在 G1-F20 完成後，依 Change Set / Completion Gate 重新讀取 G1 FIELD 與 Skill 運作回饋，確認現行文件內部狀態一致。
+
+Expected：
+G1 FIELD Header、最新累計狀態、Feedback、Problem Registry 與 CURRENT 均反映 G1=20 及 P01～P10。
+
+Actual：
+重新讀取時發現 G1 FIELD 文件頂部仍為「第三批完成；累計 16 cases」，而 Skill 運作回饋仍只到 G1-F19 / 19 cases；前段舊狀態未完全同步。
+
+Failure Type：
+Data / Verification。
+
+Diagnosis：
+前次 P10 修正雖更新了外部 CURRENT Support，但 G1 FIELD 內部 Header 與 Feedback 的受影響欄位未完整納入同一 Change Set；「已修正」與「整體 Re-read 後一致」仍有落差。
+
+Fix：
+將 G1 FIELD Header / CURRENT Summary 更新至 21 cases；補入 G1-F20、G1-F21；同步 Skill 運作回饋、Problem Registry、CURRENT、TODO、Handoff 與 Index。
+
+Re-test：
+完成同步後重新讀取全部受影響文件，確認 G1=21、P01～P11 均 CLOSED / Re-test PASS，且現行入口與 Evidence 一致。
+
+Verification：
+PASS（修正後）。
+
+Decision：
+不建立新 Skill；視為 Atomic Synchronization / Completion Gate 的再次自然 recurrence。
+
+State：
+REAL-WORK-VALIDATED；Natural Verification / Data Consistency Event。
+
+### 二十五、G1-F21 結果
+
+| Case | 類型 | 結果 |
+|---|---|---|
+| G1-F21 | G1 FIELD 內部 CURRENT Summary / Feedback synchronization | 發現 P11 → Fix → Re-test PASS |
+
+G1 累計：
+21 cases。
+
+P01～P11：
+全部 CLOSED / Re-test PASS。
+
+目前觀察：
+Atomic Synchronization / Completion Gate 已在連續 Natural FIELD 回讀中再次暴露「Change Set 受影響文件集合不足」與「內部 CURRENT Summary 未完整同步」問題；後續進 Pattern Diagnosis / Minimum Evaluation 證據累積，不新增 Skill。
