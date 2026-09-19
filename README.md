@@ -85,8 +85,8 @@
 
 後台管理入口：
 - `1-系統/AI Control Plane.md`
-- `1-系統/Control Plane Registry 規格.md`
-- `1-系統/Control Plane Query 規格.md`
+- `1-系統/03-Spec/Control Plane Registry 規格.md`
+- `1-系統/03-Spec/Control Plane Query 規格.md`
 
 用途：管理平常不需載入、但不能遺失且需要追蹤時必須可查的 Entity、State、Dependency、Impact、Change、Evidence、Provenance、Authority、Lifecycle、Capability、Trace。
 
