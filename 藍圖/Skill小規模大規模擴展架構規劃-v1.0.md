@@ -1,8 +1,8 @@
-# Skill 小規模／大規模擴展架構規劃 v1.0
+# Skill 小規模／大規模擴展架構規劃 v1.1
 
-版本：v1.0
+版本：v1.1
 日期：2026-09-19
-狀態：【預備架構；Small Mode 啟用；Large Mode 預留】
+狀態：【創建模式；Small Mode 啟用；Large Mode 預留】
 
 ## 1. 目的
 
@@ -331,9 +331,30 @@ Research
 9. 是否增加 Maintenance 成本？
 10. 是否有實際 Failure Pattern 支持變更？
 
-## 13. 創建模式
+## 13. Skill 建立前置規則
 
-本規劃採「先規格、後實作」的創建模式。
+建立新 Skill 預設視為 D3 深度／結構研究，不再視為普通功能新增。
+
+標準鏈：
+
+Research D3
+→ 問題拆解
+→ 研究問題地圖
+→ 既有 Skill 盤點
+→ Capability / Responsibility
+→ Boundary Analysis
+→ Skill Classification
+→ NEW / MERGE / UPDATE / REPLACE / DEFER
+→ Evolution
+→ Execution
+→ Verification
+→ Feedback
+
+只有確認存在獨立 Responsibility、Trigger、Input / Output、路由價值，且既有 Skill 無法合理承接時，才建立正式 Skill。
+
+## 14. 創建模式
+
+本規劃採「先固定資料契約與邊界、再建立實際責任」的創建模式。不是先建立大量 Skill，而是先建立可直接運作、可驗證、可擴展的最小實體。
 
 ### 現在建立
 
@@ -346,6 +367,8 @@ Research
 - 功能分類
 - Lifecycle
 - Feedback
+- Skill 建立 D3 Gate
+- Skill 建立 → 分類 → 演化 → 執行 → 驗證流程
 
 ### 現在不建立
 
@@ -371,7 +394,7 @@ Research
 
 每一層都必須由實際瓶頸觸發。
 
-## 14. 與目前系統整合
+## 15. 與目前系統整合
 
 目前：
 
@@ -386,7 +409,7 @@ Skill Boundary Analysis 目前屬於 Skill Classification 的判斷責任，不�
 
 未來若實際使用證明兩者具有獨立 Trigger、Input / Output、路由價值與維護必要性，再重新進行 Skill 分化判斷。
 
-## 15. 狀態
+## 16. 狀態
 
 整體架構規格：建立
 Small Mode：啟用
